@@ -8,7 +8,7 @@
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
-% If you use the hyperref package, please uncomment the following line
+% If you use the Hyperref package, please uncomment the following line
 % to display URLs in blue roman font according to Springer's eBook style:
 % \renewcommand\UrlFont{\color{blue}\rmfamily}
 
@@ -30,7 +30,9 @@
 }
 
 \begin{document}
-%
+% https://www.discotec.org/2024/coordination
+% Regular papers 7-15 pages + references
+% Artifacts using Zenodo together with this repo. Maybe a big CSV file with our classification results is input for some plots (clustering). Then, the source code for that should also be added.
 \title{Classifying coordination approaches}
 %
 %\titlerunning{Abbreviated paper title}
@@ -61,25 +63,65 @@ TODO
 ADL \and
 Coordination language \and
 Coordination framework \and
-Co-Simulation
+Co-Simulation \and
+Feature model
 }
 \end{abstract}
 
 \section{Introduction}
 
-% Categorizing ADLs, Coordination languages, Co-simulation and Coordination frameworks (BCOOL and me).
+% Categorizing ADLs, Coordination languages, Co-simulation, and Coordination frameworks (BCOOL and me).
 
-\section{Feature model}
+% Paper outline
+
+\section{Preliminaries} \label{sec:preliminaries}
+
+% Define ADL and give examples.
+% Cite ADLs and a survey about them.
+
+% Define Coordination language and give examples
+% Cite and survey
+
+% Define Co-Simulation and give examples
 \cite{gomesCoSimulationSurvey2019}
 
+% Define Coordination-framework and give examples
+% Cite and survey?
+
+% Maybe add the overview from Julien and me here to help with the definition
+
+\section{Feature model} \label{sec:features}
+% Cut up the feature model and describe it in dedicated subsections (maybe the first layer of nodes after the root)
+% Maybe add a full feature model as an artifact (use GitHub repo with Zenodo)
+
+\section{Classification examples} \label{sec:classifications}
+
+% Classify some representatives, sticking to the same order as in the preliminaries.
+\subsection{ADL example} % ADL representative
+\subsection{Lingua Franca} % Coordination language representative
+\subsection{Co-Simulation example} % Co-Simulation representative
+\subsection{BCOOL} % Coordination framework representative
+\subsection{BCorrLang} % Coordination framework representative --> Need to classify my approach for the thesis 
+
+\section{Classification results}
+% Clusters of features for ADL, Coordination language, Co-Simulation, and coordination frameworks?
+% Maybe they can somehow be visualized nicely using some clusters with overlaps (vann diagram or something)
+
+% Commonalities between clusters
+
+% Differences between clusters
+
+% What are the unique features of each approach? Does this match their intended usage scenarios?
+
 \section{Running example}
+% I'm not sure about this section yet, but a running example would be nice to show in different approaches.
 
 \lstinputlisting[
 label=lst:interactions,
 language=Interaction,
 caption=Interactions for the running example]{listings/interactions.txt}
 
-\section{Conclusion}
+\section{Conclusion} \label{sec:conclusion}
 
 \bibliographystyle{splncs04} 
 \bibliography{bib}
