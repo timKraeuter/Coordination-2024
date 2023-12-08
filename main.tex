@@ -16,6 +16,19 @@
 % Fix underscore in dois
 \usepackage[strings]{underscore}
 
+% Listing settings
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinelanguage{Interaction}[]{Java}{
+    comment=[l]{---},
+}
+
+\lstset{emph={  
+    synchronize
+    },emphstyle={\color{blue}\bfseries}
+}
+
 \begin{document}
 %
 \title{Classifying coordination approaches}
@@ -25,8 +38,9 @@
 % an abbreviated paper title here
 %
 \author{Tim Kr\"{a}uter\inst{1}\orcidlink{0000-0003-1795-0611} \and
+Julien Deantoni\inst{2}\orcidlink{0000-0001-6962-7846}
 Adrian Rutle\inst{1}\orcidlink{0000-0002-4158-1644} \and
-Harald K\"{o}nig\inst{2,1}\orcidlink{0000-0001-6304-6311} \and
+Harald K\"{o}nig\inst{3,1}\orcidlink{0000-0001-6304-6311} \and
 Yngve Lamo\inst{1}\orcidlink{0000-0001-9196-1779}}
 %
 \authorrunning{T. Kräuter et al.}
@@ -34,22 +48,38 @@ Yngve Lamo\inst{1}\orcidlink{0000-0001-9196-1779}}
 % If there are more than two authors, 'et al.' is used.
 \institute{Western Norway University of Applied Sciences, Bergen, Norway 
 \email{tkra@hvl.no, aru@hvl.no, yla@hvl.no} \and
+University Cote d’Azur, Sophia Antipolis, France \\
+\email{julien.deantoni@univ-cotedazur.fr} \and
 University of Applied Sciences, FHDW, Hanover, Germany\\
 \email{harald.koenig@fhdw.de}}
 %
 \maketitle              % typeset the header of the contribution
 %
 \begin{abstract}
-The abstract should briefly summarize the contents of the paper in
-15--250 words.
-
-\keywords{First keyword  \and Second keyword \and Another keyword.}
+TODO
+\keywords{
+ADL \and
+Coordination language \and
+Coordination framework \and
+Co-Simulation
+}
 \end{abstract}
-%
-%
-%
+
 \section{Introduction}
+
+% Categorizing ADLs, Coordination languages, Co-simulation and Coordination frameworks (BCOOL and me).
+
+\section{Feature model}
 \cite{gomesCoSimulationSurvey2019}
+
+\section{Running example}
+
+\lstinputlisting[
+label=lst:interactions,
+language=Interaction,
+caption=Interactions for the running example]{listings/interactions.txt}
+
+\section{Conclusion}
 
 \bibliographystyle{splncs04} 
 \bibliography{bib}
