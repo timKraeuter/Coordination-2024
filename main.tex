@@ -89,17 +89,17 @@ Feature model
 	\label{fig:overview}
 \end{figure}
 
-In the following sections, we will describe each of the categories: ADLs, coordination languages, Co-Simulation tools, and coordination frameworks in detail.
+In the following sections, we will describe each category: ADLs, coordination languages, Co-Simulation tools, and coordination frameworks in detail.
 
 \subsection{Architecture Description Languages}
 % General idea
 Architecture Description Languages (ADLs) aim to describe the structure of systems, allowing developers to focus on high-level components and their connections rather than lines of source code~\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,medvidovicFrameworkClassifyingComparing1997}.
-% What is an ADL and what is not?
+% What is an ADL, and what is not?
 Many different ADLs have been proposed in the academic literature and by the industry~\cite{medvidovicClassificationComparisonFramework2000,woodsArchitectureDescriptionLanguages2005}.
-Nevertheless, clearly defining what an ADL is becomes challenging due to overlap with general-purpose modeling languages~\cite{clementsSurveyArchitectureDescription1996}.
+Nevertheless, clearly defining ADLs is challenging due to overlap with general-purpose modeling languages~\cite{clementsSurveyArchitectureDescription1996}.
 
 % Describing ADLs generally.
-The three buildings blocks of ADLs are defined as: (1) \textit{components}, (2) \textit{connectors}, (3) \textit{architectural configuration}~\cite{medvidovicClassificationComparisonFramework2000,medvidovicFrameworkClassifyingComparing1997}.
+The three buildings blocks of ADLs are defined as (1) \textit{components}, (2) \textit{connectors}, (3) \textit{architectural configuration}~\cite{medvidovicClassificationComparisonFramework2000,medvidovicFrameworkClassifyingComparing1997}.
 % Component
 A \textit{component} is a unit of computation or data repository~\cite{medvidovicClassificationComparisonFramework2000}.
 Components vary in size, ranging from representing individual services to entire systems.
@@ -114,33 +114,16 @@ This structure determines if the combined semantics results in the desired behav
 For example, one can check for deadlocks and starvation.
 
 % ADLS are formal and usually incorporate one formal language. Usually, a process algebra. They do not support multiple formal specification languages cite medvidovicClassificationComparisonFramework2000.
-In addition, ADLs usually incorporate a formal semantics/language to enable analysis.
+In addition, ADLs incorporate a formal language to enable analysis.
+Usually, they use process algebras such as Communicating Sequential Processes (CSP), Calculus of Communicating Systems (CCS), and $\pi$-calculus \cite{ozkayaAreWeThere2013}.
+% TODO: Wright and Darwin come out of the blue here! Should match the later chapters
+For example, Wright uses CSP \cite{allenFormalBasisArchitectural1997} while Darwin uses $\pi$-calculus \cite{mageeSpecifyingDistributedSoftware1995}.
+However, no ADL supports multiple formal languages such as the coordination frameworks discussed in \autoref{subsec:frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
+Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., used often by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013}.
 
+% TODO: Traffic light example in Wright or Darwin? Or MontiArc?
 
-% The formal semantics is a distinguishing factor to say UML/ArchiMate are considered as modeling languages not as ADLs in this paper.
-For this paper, we consider only ADLs which incorporate a formal semantics and thus do not consider other modeling languages such as UML \cite{objectmanagementgroupUnifiedModelingLanguage2017} and ArchiMate \cite{theopengroupArchiMateSpecification2023} which can be seen as ADLs.
-
-
-
-
-% Give examples that we use later Wright/Darwin and MontiArc
-% Cite ADLs.
-
-% "No ADL provides explicit support for multiple formal specification languages."
-\cite{medvidovicClassificationComparisonFramework2000}
-
-% Commonaltities listed are nice: formally-defined semantics, lack of real-world applications <.<
-\cite{clementsSurveyArchitectureDescription1996}
-
-% "ADLs are still not mainstream, i.e., used by practitioners."
-% Good description of ADLs such as Darwin and Wright with citations and examples.
-% "ADLs usually use process algebras, which practitioners do not like."
-\cite{ozkayaAreWeThere2013}
-
-
-% ADLs vanished, but UML didn't, which people did not accept as an ADL!
-% In academia, an ADL has to allow for some formal analysis or something, which UML doesn't. We stick to the academic definition and do not consider UML or Archimate to be ADLs in this paper. But yeah, both languages are used heavily to describe software architectures.
-\cite{pandeyArchitecturalDescriptionLanguages2010}
+For this paper, we consider only ADLs that incorporate formal semantics and thus do not consider other modeling languages such as UML \cite{objectmanagementgroupUnifiedModelingLanguage2017} and ArchiMate \cite{theopengroupArchiMateSpecification2023} despite them being sometimes seen as ADLs and their usage in the industry.
 
 \subsection{Coordination Languages}
 % Define Coordination language and give examples
@@ -150,7 +133,7 @@ For this paper, we consider only ADLs which incorporate a formal semantics and t
 % Define Co-Simulation and give examples
 \cite{gomesCoSimulationSurvey2019}
 
-\subsection{Coordination Frameworks}
+\subsection{Coordination Frameworks} \label{subsec:frameworks}
 % Define Coordination-framework and give examples
 % Cite and survey?
 \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}~\cite{krauterBehavioralConsistencyMultimodeling2023}
