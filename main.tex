@@ -8,7 +8,7 @@
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
-% If you use the Hyperref package, please uncomment the following line
+% If you use the hyperref package, please uncomment the following line
 % to display URLs in blue roman font according to Springer's eBook style:
 % \renewcommand\UrlFont{\color{blue}\rmfamily}
 
@@ -115,13 +115,22 @@ For example, one can check for deadlocks and starvation.
 
 % ADLS are formal and usually incorporate one formal language. Usually, a process algebra. They do not support multiple formal specification languages cite medvidovicClassificationComparisonFramework2000.
 In addition, ADLs incorporate a formal language to enable analysis.
-Usually, they use process algebras such as Communicating Sequential Processes (CSP), Calculus of Communicating Systems (CCS), and $\pi$-calculus \cite{ozkayaAreWeThere2013}.
-% TODO: Wright and Darwin come out of the blue here! Should match the later chapters
+The first ADLs usually use process algebras such as Communicating Sequential Processes (CSP), Calculus of Communicating Systems (CCS), and $\pi$-calculus \cite{ozkayaAreWeThere2013}.
 For example, Wright uses CSP \cite{allenFormalBasisArchitectural1997} while Darwin uses $\pi$-calculus \cite{mageeSpecifyingDistributedSoftware1995}.
+More recent ADLs, such as MontiArc \cite{haberMontiArcArchitecturalModeling2014}, use automata to define the behavior of components.
+
+\autoref{lst:ADLExample} show the implementation of the running example in MontiArc.
+% TODO: Describe the example code and refer to components, connectors, and architectural configuration.
+
+% TODO: The example is still a bit too long.
+% TODO: Highlight keywords such as component, port, and automaton. Maybe even more.
+\lstinputlisting[
+label=lst:ADLExample,
+language=Interaction,
+caption=MontiArc components for the running example]{listings/MontiArc-short.txt}
+
 However, no ADL supports multiple formal languages such as the coordination frameworks discussed in \autoref{subsec:frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
 Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., used often by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013}.
-
-% TODO: Traffic light example in Wright or Darwin? Or MontiArc?
 
 For this paper, we consider only ADLs that incorporate formal semantics and thus do not consider other modeling languages such as UML \cite{objectmanagementgroupUnifiedModelingLanguage2017} and ArchiMate \cite{theopengroupArchiMateSpecification2023} despite them being sometimes seen as ADLs and their usage in the industry.
 
@@ -147,7 +156,7 @@ For this paper, we consider only ADLs that incorporate formal semantics and thus
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{images/root}
-	\caption{Feature Model Overview}
+	\caption{Feature model root}
 	\label{fig:feature_model_root}
 \end{figure}
 
@@ -180,7 +189,7 @@ For this paper, we consider only ADLs that incorporate formal semantics and thus
 \lstinputlisting[
 label=lst:interactions,
 language=Interaction,
-caption=Interactions for the running example]{listings/interactions.txt}
+caption=Interactions for the running example]{listings/BCoordLang.txt}
 
 \section{Conclusion} \label{sec:conclusion}
 

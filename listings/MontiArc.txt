@@ -1,0 +1,40 @@
+component Crossing {
+  CarTrafficLight ctl;
+  PedestrianTrafficLight ptl;
+
+  ctl.signal -> ptl.signal;
+}
+
+component PedestrianTrafficLight {
+  port
+    <<sync>> in Signal signal;
+
+  automaton {
+      initial state Green;
+      state Red;
+
+      Red -> Green [signal == Signal.GREEN];
+      Green -> Red [signal == Signal.RED];
+    }
+}
+
+component CarTrafficLight {
+  port
+    <<sync>> out Signal signal;
+
+  automaton {
+    initial state Red;
+    state RedAmber;
+    state Green;
+    state Amber;
+
+    Red -> RedAmber;
+    RedAmber -> Green / {
+      signal = Signal.RED;
+    };
+    Green -> Amber;
+    Amber -> Red / {
+      signal = Signal.GREEN;
+    };
+  }
+}

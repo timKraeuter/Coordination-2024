@@ -1,0 +1,20 @@
+Configuration Crossing
+	Component CTL
+    		Port SignalOut
+		Computation = turnRedAmber! -> SignalOut.turnGreen! ->  turnAmber! -> SignalOut.turnRed! -> Computation
+	Component PTL
+   		Port SignalIn
+		Computation = SignalIn.switchToRed? -> turnRed! -> SignalIn.switchToGreen? -> turnGreen! -> Computation
+	Connector CTL2PTL
+		Role Source
+		Role Target
+		Glue = Source.turnGreen? -> Target.switchToRed! -> Source.turnRed? -> Target.switchToGreen! -> Glue
+	Instances
+		Ctl : CTL
+		Ptl : PTL
+		Signal: CTL2PTL
+	Attachments
+		Ctl.SignalOut as Signal.source
+		Ptl.SignalIn as Signal.target
+End Crossing
+
