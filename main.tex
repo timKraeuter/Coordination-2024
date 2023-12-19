@@ -174,10 +174,28 @@ For this paper, we consider only ADLs that incorporate formal semantics and thus
 % Define Co-Simulation and give examples
 \cite{gomesCoSimulationSurvey2019}
 
+% Rewrite this part
+Co-Simulation aims to solve this challenge by composing the simulation of a system's parts into a global simulation \cite{gomesCoSimulationSurvey2019}.
+
+For example, \cite{ekerTamingHeterogeneityPtolemy2003} propose an actor-oriented co-simulation approach, where each system part is represented as an actor.
+An actor can communicate through its interfaces with other actors.
+Their approach is implemented in the tool \textit{Ptolemy} and supports continuous time and state variables.
+% FMI/FMU standard
+Furthermore, the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} is a co-simulation standard to exchange executable systems parts, so-called Functional Mock-up Units (FMUs).
+Each FMU, similar to the actors in Ptolemy, comes with an XML model to describe its interface, for example, the FMU's exposed variables.
+FMUs support continuous time and state variables and are widely used in the industry.
+
+However, with co-simulations, one can only simulate systems, not check global behavioral properties.
+
 \subsection{Coordination Frameworks} \label{subsec:frameworks}
 % Define Coordination-framework and give examples
 % Cite and survey?
 \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}~\cite{krauterBehavioralConsistencyMultimodeling2023}
+
+\lstinputlisting[
+label=lst:interactions,
+language=Interaction,
+caption=Interactions for the running example]{listings/BCoordLang.txt}
 
 % Maybe add the overview from Julien and me here to help with the definition
 
