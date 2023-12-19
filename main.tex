@@ -77,6 +77,38 @@ Feature model
 % What was our search methodology? Google Scholar? Other databases? Which search terms/queries?
 % ADL/Architecture description language & survey/classification/literature review
 
+\section{Running example}
+In this section we introduce a running example that will be used throughout the paper to as an example to explain the different coordination approaches.
+\autoref{fig:overviewRunningExample} depicts \textit{pedestrian crossing} the running example.
+
+In the example there are traffic lights (TLs) for cars and pedestrians.
+To guarantee \textit{safe crossing} of pedestrians the car TLs should be red when the pedestrian TLs are green and vice versa.
+Thus, the car and pedestrian TLs cannot act independently, i.e., must coordinate.
+In addition, either the car or pedestrian TLs must be green to ensure \textit{progress in traffic} flow.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/running_example_schematic}
+	\caption{Pedestrian crossing running example}
+	\label{fig:overviewRunningExample}
+\end{figure}
+
+The behavior of the pedestrian TLs and car TLs are depicted as UML state machines \cite{objectmanagementgroupUnifiedModelingLanguage2017} in \autoref{fig:stateMachinesRunningExample}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{images/running_example_models}
+	\caption{Pedestrian TL and car TL as state machines}
+	\label{fig:stateMachinesRunningExample}
+\end{figure}
+
+A \texttt{Pedestrian TL} can be \texttt{green} or \texttt{red}, while a \texttt{Car TL} has \texttt{red-amber} and \texttt{amber} as intermediate states between \texttt{red} and \texttt{green}.
+How \textit{safe crossing} and \textit{progress in traffic} is achieved differs between the used coordination approaches.
+
+The running example is deliberately kept simple because the focus should be on the coordination approaches not the complexity of the example.
+Furthermore, the example does not need continuous variables and thus is not sufficient to show the full capabilities of Co-Simulation compared to the other coordination approaches.
+However, since continuous variables from physical systems cannot be represented in all coordination approaches we opted for this running example which represents a minimal denominator between all coordination approaches and is familiar from everyday life.
+
 \section{Categories of Coordination Approaches} \label{sec:approaches}
 
 \autoref{fig:overview} gives an overview of the different categories of coordination approaches.
@@ -173,6 +205,11 @@ For this paper, we consider only ADLs that incorporate formal semantics and thus
 \subsection{BCOOL} % Coordination framework representative
 \subsection{BCorrLang} % Coordination framework representative --> Need to classify my approach for the thesis
 
+\lstinputlisting[
+label=lst:interactions,
+language=Interaction,
+caption=Interactions for the running example]{listings/BCoordLang.txt}
+
 \section{Classification results}
 % Clusters of features for ADL, Coordination language, Co-Simulation, and coordination frameworks?
 % Maybe they can somehow be visualized nicely using some clusters with overlaps (vann diagram or something)
@@ -182,14 +219,6 @@ For this paper, we consider only ADLs that incorporate formal semantics and thus
 % Differences between clusters
 
 % What are the unique features of each approach? Does this match their intended usage scenarios?
-
-\section{Running example}
-% I'm not sure about this section yet, but a running example would be nice to show in different approaches.
-
-\lstinputlisting[
-label=lst:interactions,
-language=Interaction,
-caption=Interactions for the running example]{listings/BCoordLang.txt}
 
 \section{Conclusion} \label{sec:conclusion}
 
