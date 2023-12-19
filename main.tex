@@ -78,13 +78,13 @@ Feature model
 % ADL/Architecture description language & survey/classification/literature review
 
 \section{Running example}
-In this section we introduce a running example that will be used throughout the paper to as an example to explain the different coordination approaches.
+In this section, we introduce a running example that will be used throughout the paper to as an example to explain the different coordination approaches.
 \autoref{fig:overviewRunningExample} depicts \textit{pedestrian crossing} the running example.
 
-In the example there are traffic lights (TLs) for cars and pedestrians.
-To guarantee \textit{safe crossing} of pedestrians the car TLs should be red when the pedestrian TLs are green and vice versa.
-Thus, the car and pedestrian TLs cannot act independently, i.e., must coordinate.
-In addition, either the car or pedestrian TLs must be green to ensure \textit{progress in traffic} flow.
+The example shows traffic lights (TLs) for cars and pedestrians.
+To guarantee \textit{safe crossing} of pedestrians, the car TLs should be red when the pedestrian TLs are green and vice versa.
+Thus, the car and pedestrian TLs cannot act independently, i.e., they must coordinate.
+In addition, the car or pedestrian TLs must be green to ensure \textit{progress in traffic} flow.
 
 \begin{figure}[ht]
 	\centering
@@ -103,11 +103,11 @@ The behavior of the pedestrian TLs and car TLs are depicted as UML state machine
 \end{figure}
 
 A \texttt{Pedestrian TL} can be \texttt{green} or \texttt{red}, while a \texttt{Car TL} has \texttt{red-amber} and \texttt{amber} as intermediate states between \texttt{red} and \texttt{green}.
-How \textit{safe crossing} and \textit{progress in traffic} is achieved differs between the used coordination approaches.
+How \textit{safe crossing} and \textit{progress in traffic} are achieved differs between the used coordination approaches.
 
-The running example is deliberately kept simple because the focus should be on the coordination approaches not the complexity of the example.
+The running example is deliberately kept simple because the focus should be on the coordination approaches, not the example's complexity.
 Furthermore, the example does not need continuous variables and thus is not sufficient to show the full capabilities of Co-Simulation compared to the other coordination approaches.
-However, since continuous variables from physical systems cannot be represented in all coordination approaches we opted for this running example which represents a minimal denominator between all coordination approaches and is familiar from everyday life.
+However, since continuous variables from physical systems cannot be represented in all coordination approaches, we opted for this running example, which represents a minimal denominator between all coordination approaches and is familiar to everyday life.
 
 \section{Categories of Coordination Approaches} \label{sec:approaches}
 
