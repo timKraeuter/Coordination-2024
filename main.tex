@@ -21,6 +21,7 @@
 \usepackage[svgnames]{xcolor}
 
 \lstdefinelanguage{BCoorLang}[]{Java}{
+	basicstyle=\ttfamily,
     emph={
     	synchronize
     },
@@ -31,12 +32,12 @@
 }
 
 \lstdefinelanguage{MontiArc}[]{Java}{
-	keywords = {},
-	morekeywords = {PedestrianCrossing, CarTL, PedestrianTL, Signal},
+	basicstyle=\ttfamily,
 	commentstyle=\color{DarkGreen},
 	emph={
-		component, port, automaton, sync, initial, state
+		component, port, automaton, initial, state,<<sync>>
 	},
+	alsoletter=<>,
 	emphstyle={\color{blue}\bfseries},
 	numbers=left,
 	numberstyle=\tiny\color{black},
