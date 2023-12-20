@@ -1,20 +1,12 @@
 component PedestrianTL {
   // Define ports
-  port <<sync>> out Signal signal;
+  port <<sync>> in Signal signal;
   // Define behavior as automaton
   automaton {
-    initial state Red;
-    state RedAmber;
-    state Green;
-    state Amber;
-    // Define transitions sending events
-    Red -> RedAmber;
-    RedAmber -> Green / {
-      signal = Signal.RED;
-    };
-    Green -> Amber;
-    Amber -> Red / {
-      signal = Signal.GREEN;
-    };
+    initial state Green;
+    state Red;
+    // Define transitions with event triggers
+    Red -> Green [signal == Signal.GREEN];
+    Green -> Red [signal == Signal.RED];
   }
 }

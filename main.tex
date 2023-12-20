@@ -144,7 +144,7 @@ However, since continuous variables from physical systems cannot be represented 
 
 In the following sections, we will describe each category: ADLs, coordination languages, Co-Simulation tools, and coordination frameworks in detail.
 
-\subsection{Architecture Description Languages}
+\subsection{Architecture Description Languages} \label{subsec:adl}
 % General idea
 Architecture Description Languages (ADLs) aim to describe the structure of systems, allowing developers to focus on high-level components and their connections rather than lines of source code~\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,medvidovicFrameworkClassifyingComparing1997}.
 % What is an ADL, and what is not?
@@ -172,24 +172,15 @@ The first ADLs usually use process algebras such as Communicating Sequential Pro
 For example, Wright uses CSP \cite{allenFormalBasisArchitectural1997} while Darwin uses $\pi$-calculus \cite{mageeSpecifyingDistributedSoftware1995}.
 More recent ADLs, such as MontiArc \cite{haberMontiArcArchitecturalModeling2014}, use automata to define the behavior of components.
 
-\autoref{lst:MontiArc-Crossing} show the implementation of the pedestrian crossing running example in MontiArc.
+\autoref{lst:MontiArc-Crossing} show the components of the pedestrian crossing running example in MontiArc.
 % TODO: Describe the example code and refer to components, connectors, and architectural configuration.
 
-% TODO: Highlight keywords such as component, port, and automaton. Maybe even more.
 \lstinputlisting[
 	label=lst:MontiArc-Crossing,
 	language=MontiArc,
 	caption=MontiArc component for the pedestrian crossing]{listings/MontiArc-PedestrianCrossing.arc}
 
-\lstinputlisting[
-	label=lst:MontiArc-PTL,
-	language=MontiArc,
-	caption=MontiArc component for the car TL]{listings/MontiArc-CarTL.arc}
 
-\lstinputlisting[
-	label=lst:MontiArc-CTL,
-	language=MontiArc,
-	caption=MontiArc component for the pedestrian TL]{listings/MontiArc-PedestrianTL.arc}
 
 However, no ADL supports multiple formal languages such as the coordination frameworks discussed in \autoref{subsec:frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
 Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., used often by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013}.
@@ -243,6 +234,35 @@ However, with co-simulations, one can only simulate systems, not check global be
 
 % Classify some representatives, sticking to the same order as in the preliminaries.
 \subsection{MontiArc} % ADL representative
+To implement the running example, we define a component for the \textsf{PedestrianCrossing} with two subcomponents for each type of TL.
+The pedestrian crossing component is already defined in \autoref{lst:MontiArc-Crossing} in \autoref{subsec:adl}.
+
+The \textsf{CarTL} component is active and controls the passive \textsf{PedestrianTL} component by sending events through its output port which is bound to the input port of the \textsf{PedestrianTL}, see configuration in \autoref{lst:MontiArc-Crossing}.
+\autoref{lst:MontiArc-PTL} shows the \textsf{CarTL} component.
+
+\lstinputlisting[
+label=lst:MontiArc-PTL,
+language=MontiArc,
+caption=MontiArc component for the car TL.]{listings/MontiArc-CarTL.arc}
+
+The \textsf{PedestrianTL} component waits for signals coming through its port to change its state.
+Thus, it is controlled by the events sent by the \textsf{CarTL} component.
+\autoref{lst:MontiArc-CTL} shows the \textsf{PedestrianTL} component.
+
+\lstinputlisting[
+label=lst:MontiArc-CTL,
+language=MontiArc,
+caption=MontiArc component for the pedestrian TL.]{listings/MontiArc-PedestrianTL.arc}
+
+Synchronization of the two components is achieved due to the ports being synchronized.
+This means, transitions that send and receive events through these ports are executed atomically.
+Thus, when the \textsf{CarTL} switches to \textsf{Green} the \textsf{PedestrianTL} switches to \textsf{Red} and vice versa.
+
+Inspecting the execution trace when running the implementation for 20 steps, indicates that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by the synchronization.
+% TODO: Artifacts
+The executable source of our MontiArc implementation for the running example can be found in \cite{}.
+
+
 \subsection{Lingua Franca} % Coordination language representative
 \subsection{Co-Simulation example} % Co-Simulation representative
 \subsection{BCOOL} % Coordination framework representative
