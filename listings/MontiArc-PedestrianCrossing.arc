@@ -2,7 +2,7 @@ component PedestrianCrossing {
   // Define subcomponents
   CarTL ctl;
   PedestrianTL ptl;
-  // Define port bindings
+  // Define connectors
   ctl.signal -> ptl.signal;
 }
 component CarTL {
