@@ -1,11 +1,11 @@
-component Crossing {
-  CarTrafficLight ctl;
-  PedestrianTrafficLight ptl;
+component PedestrianCrossing {
+  CarTL ctl;
+  PedestrianTL ptl;
 
   ctl.signal -> ptl.signal;
 }
 
-component PedestrianTrafficLight {
+component CarTL {
   port
     <<sync>> in Signal signal;
 
@@ -18,7 +18,7 @@ component PedestrianTrafficLight {
     }
 }
 
-component CarTrafficLight {
+component PedestrianTL {
   port
     <<sync>> out Signal signal;
 

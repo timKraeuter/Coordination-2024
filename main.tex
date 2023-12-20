@@ -18,22 +18,42 @@
 
 % Listing settings
 \usepackage{listings}
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
 
-\lstdefinelanguage{Interaction}[]{Java}{
-    comment=[l]{---},
+\lstdefinelanguage{BCoorLang}[]{Java}{
+    emph={
+    	synchronize
+    },
+    commentstyle=\color{DarkGreen},
+    emphstyle={\color{blue}\bfseries},
+    numbers=left,
+    numberstyle=\tiny\color{black},
 }
 
-\lstset{emph={
-    synchronize
-    },emphstyle={\color{blue}\bfseries}
+\lstdefinelanguage{MontiArc}[]{Java}{
+	keywords = {},
+	morekeywords = {PedestrianCrossing, CarTL, PedestrianTL, Signal},
+	commentstyle=\color{DarkGreen},
+	emph={
+		component, port, automaton, sync, initial, state
+	},
+	emphstyle={\color{blue}\bfseries},
+	numbers=left,
+	numberstyle=\tiny\color{black},
 }
 
 \begin{document}
 % https://www.discotec.org/2024/coordination
 % Regular papers 7-15 pages + references
 % Artifacts using Zenodo together with this repo. Maybe a big CSV file with our classification results is input for some plots (clustering). Then, the source code for that should also be added.
-\title{Classifying coordination approaches}
+\title{A feature model for coordination approaches}
+% Alternative titles:
+% Comparing coordination approaches
+% Comparing features coordination approaches
+% Classifying coordination approaches
+% Classifying features coordination approaches
+% A feature model for coordination approaches
+% How to coordinate? A feature model for coordination approaches
 %
 %\titlerunning{Abbreviated paper title}
 % If the paper title is too long for the running head, you can set
@@ -151,15 +171,24 @@ The first ADLs usually use process algebras such as Communicating Sequential Pro
 For example, Wright uses CSP \cite{allenFormalBasisArchitectural1997} while Darwin uses $\pi$-calculus \cite{mageeSpecifyingDistributedSoftware1995}.
 More recent ADLs, such as MontiArc \cite{haberMontiArcArchitecturalModeling2014}, use automata to define the behavior of components.
 
-\autoref{lst:ADLExample} show the implementation of the running example in MontiArc.
+\autoref{lst:MontiArc-Crossing} show the implementation of the pedestrian crossing running example in MontiArc.
 % TODO: Describe the example code and refer to components, connectors, and architectural configuration.
 
-% TODO: The example is still a bit too long.
 % TODO: Highlight keywords such as component, port, and automaton. Maybe even more.
 \lstinputlisting[
-label=lst:ADLExample,
-language=Interaction,
-caption=MontiArc components for the running example]{listings/MontiArc-short.txt}
+	label=lst:MontiArc-Crossing,
+	language=MontiArc,
+	caption=MontiArc component for the pedestrian crossing]{listings/MontiArc-PedestrianCrossing.arc}
+
+\lstinputlisting[
+	label=lst:MontiArc-PTL,
+	language=MontiArc,
+	caption=MontiArc component for the car TL]{listings/MontiArc-CarTL.arc}
+
+\lstinputlisting[
+	label=lst:MontiArc-CTL,
+	language=MontiArc,
+	caption=MontiArc component for the pedestrian TL]{listings/MontiArc-PedestrianTL.arc}
 
 However, no ADL supports multiple formal languages such as the coordination frameworks discussed in \autoref{subsec:frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
 Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., used often by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013}.
@@ -192,11 +221,6 @@ However, with co-simulations, one can only simulate systems, not check global be
 % Cite and survey?
 \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}~\cite{krauterBehavioralConsistencyMultimodeling2023}
 
-\lstinputlisting[
-label=lst:interactions,
-language=Interaction,
-caption=Interactions for the running example]{listings/BCoordLang.txt}
-
 % Maybe add the overview from Julien and me here to help with the definition
 
 \section{Feature model} \label{sec:features}
@@ -225,7 +249,7 @@ caption=Interactions for the running example]{listings/BCoordLang.txt}
 
 \lstinputlisting[
 label=lst:interactions,
-language=Interaction,
+language=BCoorLang,
 caption=Interactions for the running example]{listings/BCoordLang.txt}
 
 \section{Classification results}
