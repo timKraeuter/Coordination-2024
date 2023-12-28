@@ -133,7 +133,17 @@ However, since continuous variables from physical systems cannot be represented 
 \section{Categories of Coordination Approaches} \label{sec:approaches}
 
 \autoref{fig:overview} gives an overview of the different categories of coordination approaches.
-% TODO: Describe the overview layer/level by level.
+The first two categories of coordination approaches are mostly focusing on the \textit{execution} level, i.e., they operate directly with source code or executable binaries.
+
+% TODO: Finish this
+\textbf{Co-Simulation Tools}
+% Strong industry usage
+% FMI/FMU
+
+\textbf{Coordination Languages} traditionally offer a shared tuple space for concurrent programs to read/write data from/to.
+Separating \textit{coordination} from \textit{computation} which seems natural today was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
+% See if we can find a better citation for LF.
+Recently new coordination languages are being developed such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} which use coordination mechanisms similar to ADLs but on the execution level.
 
 \begin{figure}[ht]
 	\centering
@@ -142,7 +152,14 @@ However, since continuous variables from physical systems cannot be represented 
 	\label{fig:overview}
 \end{figure}
 
-In the following sections, we will describe each category: ADLs, coordination languages, Co-Simulation tools, and coordination frameworks in detail.
+\textbf{Architecture description Languages (ADLs)} operate on the \textit{model} level, i.e., each \textit{component} is given by a behavioral specification/model, for example a state machine.
+Components coordinate through \textit{connectors} between them resulting in a \textit{architectural configuration}.
+
+\textbf{Coordination frameworks} allow the user to connect models conforming to different behavioral languages using the concept of behavioral interfaces.
+In contrast, each ADL usually only allows one behavioral language which must be used for each component.
+Thus, they operate on the \textit{language} level and give modelers freedom to utilize different languages for varying aspects of the system.
+
+In the following sections, we will describe each category in detail.
 
 \subsection{Architecture Description Languages} \label{subsec:adl}
 % General idea
