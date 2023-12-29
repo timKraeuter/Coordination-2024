@@ -135,10 +135,9 @@ However, since continuous variables from physical systems cannot be represented 
 \autoref{fig:overview} gives an overview of the different categories of coordination approaches.
 The first two categories of coordination approaches are mostly focusing on the \textit{execution} level, i.e., they operate directly with source code or executable binaries.
 
-% TODO: Finish this
-\textbf{Co-Simulation Tools}
-% Strong industry usage
-% FMI/FMU
+\textbf{Co-Simulation Tools} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
+Each FMU consists of an executable and an XML model to describe its interface, for example, the FMU's exposed variables.
+FMI is heavily used in the industry because it also protects the intellectual property (IP) since executables are black-box, i.e., do not expose implementation details.
 
 \textbf{Coordination Languages} traditionally offer a shared tuple space for concurrent programs to read/write data from/to.
 Separating \textit{coordination} from \textit{computation} which seems natural today was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
