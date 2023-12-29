@@ -240,19 +240,22 @@ For example, the car TL in the running example could be defined using a differen
 % Behavioral interfaces
 \textbf{(2) Behavioral interfaces:} To coordinate between heterogeneous models \textit{behavioral interfaces} are used.
 These interfaces are defined for each language or generally for all languages and represent a common understanding of each language, which is needed when each language can be different.
-
-Examples of coordination frameworks are BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015} and BCorrLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
-% BCorrLang is new. A bit close to BCOoL
-
-% Example using bCoorLang
-\autoref{lst:interactions} shows how the running example can be implemented in BCorrLang.
- 
-\lstinputlisting[
-label=lst:interactions,
-language=BCoorLang,
-caption=Interactions for the running example]{listings/BCoordLang.txt}
-
+Examples of coordination frameworks are BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015} and BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
 % Ptolemy?
+
+% BCoorLang is the new name. A bit close to BCOoL.
+For example, using BCoorLang one would define a \textit{system relationship model}, see \autoref{fig:example-BCoorLang}, which defines existing behavioral models and their relations similar to the architectural configuration of ADLs.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/running_example_BCorrLang}
+	\caption{Feature model root}
+	\label{fig:example-BCoorLang}
+\end{figure}
+
+Using the behavioral relationship between \textsf{CarTrafficLight} and \textsf{PedestrianTrafficLight} one can then define synchronisations of their behavior.
+To describe the behavior of car TL and pedestrian TL one can simply use the state machines defined in the running example (see \autoref{fig:stateMachinesRunningExample}) since the state machine behavioral language is supported in BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
+
 
 \section{Feature model} \label{sec:features}
 % Cut up the feature model and describe it in dedicated subsections (maybe the first layer of nodes after the root)
@@ -270,11 +273,16 @@ caption=Interactions for the running example]{listings/BCoordLang.txt}
 \subsection{Properties}
 
 \section{Classification examples} \label{sec:classifications}
+We, will use one represenative for ADLs, coordination languages, co-simulation tools, and coordination frameworks to show their unique features in our feature model.
+However, we classified more than just the four represenatives chose.
+% Insert a number instead of x here.
+The raw data including all our other x classifications are given in \cite{krauterCoordination2024Artifacts2024}.
+% TODO: Remove name in the artifacts!
 
-% Classify some representatives, sticking to the same order as in the preliminaries.
-\subsection{MontiArc} \label{subsec:montiArc}% ADL representative
+\subsection{MontiArc} \label{subsec:montiArc}
+First, we will explain MontiArc by implementing the running example and then we classify it using our feature model.
 
-To implement the running example, we define a component for the \textsf{PedestrianCrossing} with two subcomponents for each type of TL.
+\textbf{Running example:} To implement the example, we define a component for the \textsf{PedestrianCrossing} with two subcomponents for each type of TL.
 The pedestrian crossing component is already defined in \autoref{lst:MontiArc-Crossing} in \autoref{subsec:adl}.
 
 The \textsf{CarTL} component is active and controls the passive \textsf{PedestrianTL} component by sending events through its output port which is bound to the input port of the \textsf{PedestrianTL}, see configuration in \autoref{lst:MontiArc-Crossing}.
@@ -302,13 +310,34 @@ Inspecting the execution trace when running the implementation for 20 steps, ind
 The executable source code of the MontiArc implementation for the running example can be found in \cite{krauterCoordination2024Artifacts2024}.
 
 % TODO: Describe the classification here!
+\textbf{Classification:} bla
 \subsection{Lingua Franca} % Coordination language representative
 \subsection{Co-Simulation example} % Co-Simulation representative
 \subsection{BCOOL} % Coordination framework representative
-\subsection{BCorrLang} % Coordination framework representative --> Need to classify my approach for the thesis
+\subsection{BCoorLang}
+First, we will explain BCoorLang by implementing the running example and then we classify it using our feature model.
 
-% Maybe explain state and state-changing elements or drop it already earlier.
-% Maybe explain how BCorrLang does the synchronization using rule merges
+\textbf{Running example:} In BCoorLang there are two fundamental concepts: \textit{state} and \textit{state-changing elements}, which must be defined for each behavioral language.
+For state machines these are defined in \cite{krauterBehavioralConsistencyMultimodeling2023}.
+State-changing elements act as a uniform behavioral interface to define interactions between heterogeneous models.
+
+\autoref{lst:interactions} shows how the synchronizations required by the running example can be implemented as \textit{interactions} in BCoorLang.
+The interactions use the system relationship model defined earlier in \autoref{fig:example-BCoorLang} and synchronize specific transitions in the state machines.
+Transitions are the state-changing elements in state machines, see  \cite{krauterBehavioralConsistencyMultimodeling2023}.
+
+\lstinputlisting[
+label=lst:interactions,
+language=BCoorLang,
+caption=Interactions for the running example]{listings/BCoordLang.txt}
+
+\autoref{lst:interactions} synchronizes turning red of the car TL with turning green of the pedestrian TL and vice versa.
+The individual models together with the interactions are then transformed into a behavioral specification for the global system.
+Concretely, the transformation might result in a graph transformation (GT) system.
+Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by the synchronization.
+The executable GT specification for the running example can be found in \cite{krauterCoordination2024Artifacts2024}.
+
+\textbf{Classification:} 
+
 
 \section{Classification results}
 % Clusters of features for ADL, Coordination language, Co-Simulation, and coordination frameworks?
