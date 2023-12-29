@@ -260,6 +260,7 @@ To describe the behavior of car TL and pedestrian TL one can simply use the stat
 \section{Feature model} \label{sec:features}
 % Cut up the feature model and describe it in dedicated subsections (maybe the first layer of nodes after the root)
 % Maybe add a full feature model as an artifact (use GitHub repo with Zenodo)
+The feature model for coordination approaches is shown in \autoref{fig:feature_model_root} where each coordination approach has three main feature sets: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
 
 \begin{figure}[ht]
 	\centering
@@ -267,6 +268,10 @@ To describe the behavior of car TL and pedestrian TL one can simply use the stat
 	\caption{Feature model root}
 	\label{fig:feature_model_root}
 \end{figure}
+
+In the following sections we will describe each feature set in detail
+% TODO: Add full feature model as an artifact (at the end when the feature model is stable).
+A diagram of the feature model including all features is contained in \cite{krauterCoordination2024Artifacts2024}.
 
 \subsection{Coordination}
 \subsection{Goal}
@@ -332,8 +337,10 @@ caption=Interactions for the running example]{listings/BCoordLang.txt}
 
 \autoref{lst:interactions} synchronizes turning red of the car TL with turning green of the pedestrian TL and vice versa.
 The individual models together with the interactions are then transformed into a behavioral specification for the global system.
+% Overkill if there is only one behavioral language.
 Concretely, the transformation might result in a graph transformation (GT) system.
 Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by the synchronization.
+% TODO: Add executable GT with tutorial to the artifacts. Maybe also Maude one.
 The executable GT specification for the running example can be found in \cite{krauterCoordination2024Artifacts2024}.
 
 \textbf{Classification:} 
