@@ -228,10 +228,31 @@ However, with co-simulations, one can only simulate systems, not check global be
 
 \subsection{Coordination Frameworks} \label{subsec:frameworks}
 % Define Coordination-framework and give examples
-% Cite and survey?
-\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}~\cite{krauterBehavioralConsistencyMultimodeling2023}
+% Surveys? Probably no?
 
-% Maybe add the overview from Julien and me here to help with the definition
+% Distinguishing factors
+Main differences between coordination frameworks and ADLs are two following.
+
+\textbf{(1) Heterogeneous models:} Coordination frameworks do not mandate one behavioral language or formalism to be used for every model.
+One can pick the most suitable language or formalism for each part of the system that is supported by the coordination framework.
+For example, the car TL in the running example could be defined using a different behavioral language such as an UML activity diagram \cite{objectmanagementgroupUnifiedModelingLanguage2017}, a BPMN proces model \cite{objectmanagementgroupBusinessProcessModel2013}, or a $\pi$-calculus term \cite{milnerCommunicatingMobileSystems2010}.
+
+% Behavioral interfaces
+\textbf{(2) Behavioral interfaces:} To coordinate between heterogeneous models \textit{behavioral interfaces} are used.
+These interfaces are defined for each language or generally for all languages and represent a common understanding of each language, which is needed when each language can be different.
+
+Examples of coordination frameworks are BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015} and BCorrLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
+% BCorrLang is new. A bit close to BCOoL
+
+% Example using bCoorLang
+\autoref{lst:interactions} shows how the running example can be implemented in BCorrLang.
+ 
+\lstinputlisting[
+label=lst:interactions,
+language=BCoorLang,
+caption=Interactions for the running example]{listings/BCoordLang.txt}
+
+% Ptolemy?
 
 \section{Feature model} \label{sec:features}
 % Cut up the feature model and describe it in dedicated subsections (maybe the first layer of nodes after the root)
@@ -286,10 +307,8 @@ The executable source code of the MontiArc implementation for the running exampl
 \subsection{BCOOL} % Coordination framework representative
 \subsection{BCorrLang} % Coordination framework representative --> Need to classify my approach for the thesis
 
-\lstinputlisting[
-label=lst:interactions,
-language=BCoorLang,
-caption=Interactions for the running example]{listings/BCoordLang.txt}
+% Maybe explain state and state-changing elements or drop it already earlier.
+% Maybe explain how BCorrLang does the synchronization using rule merges
 
 \section{Classification results}
 % Clusters of features for ADL, Coordination language, Co-Simulation, and coordination frameworks?
