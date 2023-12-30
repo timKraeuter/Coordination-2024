@@ -47,6 +47,7 @@
 % https://www.discotec.org/2024/coordination
 % Regular papers 7-15 pages + references
 % Artifacts using Zenodo together with this repo. Maybe a big CSV file with our classification results is input for some plots (clustering). Then, the source code for that should also be added.
+% TODO: Make the artifacts citation point somewhere (use my anonymous GitHub account)
 \title{A feature model for coordination approaches}
 % Alternative titles:
 % Comparing coordination approaches
@@ -133,16 +134,16 @@ However, since continuous variables from physical systems cannot be represented 
 \section{Categories of Coordination Approaches} \label{sec:approaches}
 
 \autoref{fig:overview} gives an overview of the different categories of coordination approaches.
-The first two categories of coordination approaches are mostly focusing on the \textit{execution} level, i.e., they operate directly with source code or executable binaries.
+The first two categories of coordination approaches mostly focus on the \textit{execution} level, i.e., they operate directly with source code or executable binaries.
 
-\textbf{Co-Simulation Tools} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
+\textbf{Co-Simulation Tools} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard, which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
 Each FMU consists of an executable and an XML model to describe its interface, for example, the FMU's exposed variables.
-FMI is heavily used in the industry because it also protects the intellectual property (IP) since executables are black-box, i.e., do not expose implementation details.
+FMI is heavily used in the industry because it protects intellectual property (IP) since executables are black-box, i.e., do not expose implementation details.
 
 \textbf{Coordination Languages} traditionally offer a shared tuple space for concurrent programs to read/write data from/to.
-Separating \textit{coordination} from \textit{computation} which seems natural today was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
+Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
 % See if we can find a better citation for LF.
-Recently new coordination languages are being developed such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} which use coordination mechanisms similar to ADLs but on the execution level.
+New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but on the execution level.
 
 \begin{figure}[ht]
 	\centering
@@ -151,11 +152,11 @@ Recently new coordination languages are being developed such as Lingua Franca \c
 	\label{fig:overview}
 \end{figure}
 
-\textbf{Architecture description Languages (ADLs)} operate on the \textit{model} level, i.e., each \textit{component} is given by a behavioral specification/model, for example a state machine.
-Components coordinate through \textit{connectors} between them resulting in a \textit{architectural configuration}.
+\textbf{Architecture Description Languages (ADLs)} operate on the \textit{model} level, i.e., each \textit{component} is given by a behavioral specification/model, for example, a state machine.
+Components coordinate through \textit{connectors} between them, resulting in a \textit{architectural configuration}.
 
 \textbf{Coordination frameworks} allow the user to connect models conforming to different behavioral languages using the concept of behavioral interfaces.
-In contrast, each ADL usually only allows one behavioral language which must be used for each component.
+In contrast, each ADL usually only allows one behavioral language, which must be used for each component.
 Thus, they operate on the \textit{language} level and give modelers freedom to utilize different languages for varying aspects of the system.
 
 In the following sections, we will describe each category in detail.
@@ -214,7 +215,7 @@ The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} component is omitte
 \cite{gomesCoSimulationSurvey2019}
 
 % Rewrite this part
-Co-Simulation aims to solve this challenge by composing the simulation of a system's parts into a global simulation \cite{gomesCoSimulationSurvey2019}.
+Co-simulation aims to solve this challenge by composing the simulation of a system's parts into a global simulation \cite{gomesCoSimulationSurvey2019}.
 
 For example, \cite{ekerTamingHeterogeneityPtolemy2003} propose an actor-oriented co-simulation approach, where each system part is represented as an actor.
 An actor can communicate through its interfaces with other actors.
@@ -228,23 +229,23 @@ However, with co-simulations, one can only simulate systems, not check global be
 
 \subsection{Coordination Frameworks} \label{subsec:frameworks}
 % Define Coordination-framework and give examples
-% Surveys? Probably no?
+% Surveys? Probably not.
 
 % Distinguishing factors
-Main differences between coordination frameworks and ADLs are two following.
+The main differences between coordination frameworks and ADLs are the following.
 
-\textbf{(1) Heterogeneous models:} Coordination frameworks do not mandate one behavioral language or formalism to be used for every model.
-One can pick the most suitable language or formalism for each part of the system that is supported by the coordination framework.
-For example, the car TL in the running example could be defined using a different behavioral language such as an UML activity diagram \cite{objectmanagementgroupUnifiedModelingLanguage2017}, a BPMN proces model \cite{objectmanagementgroupBusinessProcessModel2013}, or a $\pi$-calculus term \cite{milnerCommunicatingMobileSystems2010}.
+\textbf{(1) Heterogeneous models:} Coordination frameworks do not mandate one behavioral language or formalism for every model.
+One can pick the most suitable language or formalism for each part of the system supported by the coordination framework.
+For example, the car TL in the running example could be defined using a different behavioral language such as a UML activity diagram \cite{objectmanagementgroupUnifiedModelingLanguage2017}, a BPMN process model \cite{objectmanagementgroupBusinessProcessModel2013}, or a $\pi$-calculus term \cite{milnerCommunicatingMobileSystems2010}.
 
 % Behavioral interfaces
 \textbf{(2) Behavioral interfaces:} To coordinate between heterogeneous models \textit{behavioral interfaces} are used.
-These interfaces are defined for each language or generally for all languages and represent a common understanding of each language, which is needed when each language can be different.
+These interfaces are defined for each language or generally for all languages and represent a common understanding, which is needed when each language can be different.
 Examples of coordination frameworks are BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015} and BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
 % Ptolemy?
 
 % BCoorLang is the new name. A bit close to BCOoL.
-For example, using BCoorLang one would define a \textit{system relationship model}, see \autoref{fig:example-BCoorLang}, which defines existing behavioral models and their relations similar to the architectural configuration of ADLs.
+For example, using BCoorLang, one would define a \textit{system relationship model}, see \autoref{fig:example-BCoorLang}, which defines existing behavioral models and their relations similar to the architectural configuration of ADLs.
 
 \begin{figure}[ht]
 	\centering
@@ -253,44 +254,44 @@ For example, using BCoorLang one would define a \textit{system relationship mode
 	\label{fig:example-BCoorLang}
 \end{figure}
 
-Using the behavioral relationship between \textsf{CarTrafficLight} and \textsf{PedestrianTrafficLight} one can then define synchronisations of their behavior.
-To describe the behavior of car TL and pedestrian TL one can simply use the state machines defined in the running example (see \autoref{fig:stateMachinesRunningExample}) since the state machine behavioral language is supported in BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
+Using the behavioral relationship between \textsf{CarTrafficLight} and \textsf{PedestrianTrafficLight}, one can then define synchronizations of their behavior.
+To describe the behavior of car TL and pedestrian TL, one can use the state machines defined in the running example (see \autoref{fig:stateMachinesRunningExample}) since the state machine behavioral language is supported in BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
 
 
 \section{Feature model} \label{sec:features}
 % Cut up the feature model and describe it in dedicated subsections (maybe the first layer of nodes after the root)
 % Maybe add a full feature model as an artifact (use GitHub repo with Zenodo)
-The feature model for coordination approaches is shown in \autoref{fig:feature_model_root} where each coordination approach has three main feature sets: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
+The feature model for coordination approaches is shown in \autoref{fig:featureModelRoot} where each coordination approach has three main feature sets: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{images/root}
 	\caption{Feature model root}
-	\label{fig:feature_model_root}
+	\label{fig:featureModelRoot}
 \end{figure}
 
-In the following sections we will describe each feature set in detail
-% TODO: Add full feature model as an artifact (at the end when the feature model is stable).
-A diagram of the feature model including all features is contained in \cite{krauterCoordination2024Artifacts2024}.
+In the following sections, we will describe each feature set in detail
+% TODO: Add the full feature model as an artifact (at the end when the feature model is stable).
+A diagram of the feature model, including all features, is contained in \cite{anonymousauthorsCoordination2024Artifacts2024}.
 
 \subsection{Coordination}
 \subsection{Goal}
 \subsection{Properties}
 
 \section{Classification examples} \label{sec:classifications}
-We, will use one represenative for ADLs, coordination languages, co-simulation tools, and coordination frameworks to show their unique features in our feature model.
-However, we classified more than just the four represenatives chose.
+We will use one representative for ADLs, coordination languages, co-simulation tools, and coordination frameworks to show their unique features in our feature model.
+However, we classified more than just the four representatives chosen.
 % Insert a number instead of x here.
-The raw data including all our other x classifications are given in \cite{krauterCoordination2024Artifacts2024}.
-% TODO: Remove name in the artifacts!
+The raw data, including all our other x classifications, are in \cite{anonymousauthorsCoordination2024Artifacts2024}.
 
 \subsection{MontiArc} \label{subsec:montiArc}
-First, we will explain MontiArc by implementing the running example and then we classify it using our feature model.
+First, we will explain MontiArc by implementing the running example and then classify it using our feature model.
 
 \textbf{Running example:} To implement the example, we define a component for the \textsf{PedestrianCrossing} with two subcomponents for each type of TL.
 The pedestrian crossing component is already defined in \autoref{lst:MontiArc-Crossing} in \autoref{subsec:adl}.
 
-The \textsf{CarTL} component is active and controls the passive \textsf{PedestrianTL} component by sending events through its output port which is bound to the input port of the \textsf{PedestrianTL}, see configuration in \autoref{lst:MontiArc-Crossing}.
+The \textsf{CarTL} component is active.
+It controls the passive \textsf{PedestrianTL} component by sending events through its output port, which is bound to the input port of the \textsf{PedestrianTL}, see the configuration in \autoref{lst:MontiArc-Crossing}.
 \autoref{lst:MontiArc-PTL} shows the \textsf{CarTL} component.
 
 \lstinputlisting[
@@ -309,10 +310,10 @@ caption=MontiArc component for the pedestrian TL.]{listings/MontiArc-PedestrianT
 
 Synchronization of the two components is achieved due to the ports being synchronized.
 This means, transitions that send and receive events through these ports are executed atomically.
-Thus, when the \textsf{CarTL} switches to \textsf{Green} the \textsf{PedestrianTL} switches to \textsf{Red} and vice versa.
+Thus, when the \textsf{CarTL} switches to \textsf{Green}, the \textsf{PedestrianTL} switches to \textsf{Red} and vice versa.
 
-Inspecting the execution trace when running the implementation for 20 steps, indicates that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by the synchronization.
-The executable source code of the MontiArc implementation for the running example can be found in \cite{krauterCoordination2024Artifacts2024}.
+Inspecting the execution trace when running the implementation for 20 steps indicates that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by the synchronization.
+The executable source code of the MontiArc implementation for the running example can be found in \cite{anonymousauthorsCoordination2024Artifacts2024}.
 
 % TODO: Describe the classification here!
 \textbf{Classification:} bla
@@ -323,7 +324,7 @@ The executable source code of the MontiArc implementation for the running exampl
 First, we will explain BCoorLang by implementing the running example and then we classify it using our feature model.
 
 \textbf{Running example:} In BCoorLang there are two fundamental concepts: \textit{state} and \textit{state-changing elements}, which must be defined for each behavioral language.
-For state machines these are defined in \cite{krauterBehavioralConsistencyMultimodeling2023}.
+For state machines, these are defined in \cite{krauterBehavioralConsistencyMultimodeling2023}.
 State-changing elements act as a uniform behavioral interface to define interactions between heterogeneous models.
 
 \autoref{lst:interactions} shows how the synchronizations required by the running example can be implemented as \textit{interactions} in BCoorLang.
@@ -335,13 +336,13 @@ label=lst:interactions,
 language=BCoorLang,
 caption=Interactions for the running example]{listings/BCoordLang.txt}
 
-\autoref{lst:interactions} synchronizes turning red of the car TL with turning green of the pedestrian TL and vice versa.
-The individual models together with the interactions are then transformed into a behavioral specification for the global system.
+\autoref{lst:interactions} synchronizes the turning red of the car TL with the turning green of the pedestrian TL and vice versa.
+The individual models and interactions are then transformed into a behavioral specification for the global system.
 % Overkill if there is only one behavioral language.
-Concretely, the transformation might result in a graph transformation (GT) system.
-Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by the synchronization.
-% TODO: Add executable GT with tutorial to the artifacts. Maybe also Maude one.
-The executable GT specification for the running example can be found in \cite{krauterCoordination2024Artifacts2024}.
+The transformation might result in a graph transformation (GT) system.
+Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by synchronization.
+% TODO: Add executable GT with a tutorial to the artifacts. Maybe also Maude one.
+The executable GT specification for the running example can be found in \cite{anonymousauthorsCoordination2024Artifacts2024}.
 
 \textbf{Classification:} 
 
