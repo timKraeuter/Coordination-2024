@@ -241,7 +241,7 @@ For example, the car TL in the running example could be defined using a differen
 % Behavioral interfaces
 \textbf{(2) Behavioral interfaces:} To coordinate between heterogeneous models \textit{behavioral interfaces} are used.
 These interfaces are defined for each language or generally for all languages and represent a common understanding, which is needed when each language can be different.
-Examples of coordination frameworks are BCOoL \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016} and BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
+Examples of coordination frameworks are Behavioral Coordination Operator Language (BCOoL) \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015} and BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
 % Ptolemy?
 
 % BCoorLang is the new name. A bit close to BCOoL.
@@ -286,19 +286,25 @@ A complete diagram of the feature model is contained in \cite{anonymousauthorsCo
 	\label{fig:coordinationFeature}
 \end{figure}
 
-\subsubsection{Definition} of coordination can either be \textsf{Explicit} or \textsf{Implicit}.
+\subsubsection{Definition} The definition of coordination can either be \textsf{Explicit} or \textsf{Implicit}.
 The implicit definition is based on the names of model elements.
 For example, one could synchronize transitions of state machines if they have identical names.
 
 Explicit definition is either \textsf{Query based} or \textsf{Structural}.
 % Query-based example
-As an example, in the Behavioral Coordination Operator Language (BCOoL) \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}, one can write expressions to define which elements should coordinate.
+As an example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write expressions to define which elements should coordinate.
 A structural definition of coordination is using \textsf{Dedicated elements} or \textsf{Architecture based}.
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
-\subsubsection{Elements of coordination} describe Elements of coordination here.
+\subsubsection{Elements of coordination} The main elements driving coordination can be events, data or both.
+\textsf{Event-Scheduling coordination}, for example used in BCOoL and BCoorLang, orders or synchronizes events/state changes happening in different models.
+\textsf{Data-Driven coordination} is for example used in Co-Simulation where components send data to input ports or even directly change variables exposed by other components.
 
-\subsubsection{Semantics} describe Semantics here.
+\subsubsection{Semantics} The semantics feature consists of \textsf{Expressiveness} and \textsf{Model of Computation}.
+The expressiveness of coordination can be \textsf{Predefined}, i.e., a user has a fixed set of coordination mechanisms or \textsf{Customizable}.
+For example in BCOoL, user can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} when defining coordination \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
+
+\textit{Model of Computation}
 
 
 \subsection{Goal}
