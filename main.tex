@@ -286,13 +286,13 @@ A complete diagram of the feature model is contained in \cite{anonymousauthorsCo
 \end{figure}
 
 \subsubsection{Definition} of coordination can either be \textsf{Explicit} or \textsf{Implicit}.
-Implicit definition is based on the names of model elements.
+The implicit definition is based on the names of model elements.
 For example, one could synchronize transitions of state machines if they have identical names.
 
-Explicit definition is either \textsf{Query based} or \textsf{Structural).
+Explicit definition is either \textsf{Query based} or \textsf{Structural}.
 % Query-based example
-As an example, in the Behavioral Coordination Operator Language (BCOoL) \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016} one can write expressions to define which elements should coordinate.
-A structural definition of  coordination can be based on \textsf{Dedicated elements} or the architectural configuration, often-called topology, of components (\textsf{Architecture based}).
+As an example, in the Behavioral Coordination Operator Language (BCOoL) \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}, one can write expressions to define which elements should coordinate.
+A structural definition of coordination can be based on \textsf{Dedicated elements} or the architectural configuration, often called topology, of components (\textsf{Architecture based}).
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architecture, i.e., how ports of components are connected.
 
 \subsubsection{Elements of coordination} describe Elements of coordination here.
@@ -354,7 +354,7 @@ For state machines, these are defined in \cite{krauterBehavioralConsistencyMulti
 State-changing elements act as a uniform behavioral interface to define interactions between heterogeneous models.
 
 \autoref{lst:interactions} shows how the synchronizations required by the running example can be implemented as \textit{interactions} in BCoorLang.
-The interactions use the system relationship model defined earlier in \autoref{fig:example-BCoorLang} and synchronize specific transitions in the state machines.
+The interactions use the system relationship model defined earlier in \autoref{fig:exampleBCoorLang} and synchronize specific transitions in the state machines.
 Transitions are the state-changing elements in state machines, see  \cite{krauterBehavioralConsistencyMultimodeling2023}.
 
 \lstinputlisting[
