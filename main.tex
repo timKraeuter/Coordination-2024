@@ -278,6 +278,7 @@ A complete diagram of the feature model is contained in \cite{anonymousauthorsCo
 
 \autoref{fig:coordinationFeature} shows the \textit{Coordination} feature, which consists of \textsf{Definition}, \textsf{Elements of coordination}, and \textsf{Semantics}.
 
+% Maybe cut into two pieces. So Definition and Semantics are not part of the same.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{images/coordination_feature}
@@ -292,8 +293,8 @@ For example, one could synchronize transitions of state machines if they have id
 Explicit definition is either \textsf{Query based} or \textsf{Structural}.
 % Query-based example
 As an example, in the Behavioral Coordination Operator Language (BCOoL) \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}, one can write expressions to define which elements should coordinate.
-A structural definition of coordination can be based on \textsf{Dedicated elements} or the architectural configuration, often called topology, of components (\textsf{Architecture based}).
-For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architecture, i.e., how ports of components are connected.
+A structural definition of coordination is using \textsf{Dedicated elements} or \textsf{Architecture based}.
+For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
 \subsubsection{Elements of coordination} describe Elements of coordination here.
 
