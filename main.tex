@@ -270,7 +270,7 @@ The feature model for coordination approaches is shown in \autoref{fig:featureMo
 	\label{fig:featureModelOverview}
 \end{figure}
 
-In the following sections, we will describe each feature set in detail
+In the following sections, we will describe each feature set in detail.
 % TODO: Add the full feature model as an artifact (at the end when the feature model is stable).
 A complete diagram of the feature model is contained in \cite{anonymousauthorsCoordination2024Artifacts2024}.
 
@@ -304,7 +304,24 @@ For example, interactions in BCoorLang are specified by dedicated elements, whil
 The expressiveness of coordination can be \textsf{Predefined}, i.e., a user has a fixed set of coordination mechanisms or \textsf{Customizable}.
 For example, in BCOoL, the user can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} when defining coordination \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
-\textit{Model of Computation}
+Coordination approaches utilize different \textit{Models of Computation} (MoC).
+% What is a model of computation? Where does the terminology come frome?
+We define three MoCs: \textsf{Timed}, \textsf{Causal}, \textsf{A-causal}, where \textsf{Timed} is either \textsf{Physical} or \textsf{Logical}.
+% We should define that event and state changings elements mean the same, i.e., any observable action in a model/component.
+% Causal (events and data)
+The causal MoC means that the coordination approach can define \textit{causal} relationships between events of different components.
+For example, a transition in a state machine raises an event which causes a reaction in an activity diagram due to the defined coordination.
+% A-causal
+A-causal MoC are employed in Co-Simulation which can deal with sets of differential equations.
+For example, a variable in  one equation should be equal to a variable in a different equation.
+One variable does not cause the other to change they should just be equal.
+
+% Timed::Logical
+\textsf{Timed::Logical} means that coordination approaches define when events/state changes happen.
+Typically, one defines that events take place simultaneously or that one event causes, i.e., occurs before another event.
+% Timed::Physical
+\textsf{Timed::Physical} means that one can define that one event should happen, for example, exactly 50 ms after another event, where these 50 ms correspond to 50 ms in execution time.
+
 
 
 \subsection{Goal}
