@@ -278,7 +278,7 @@ A complete diagram of the feature model is contained in \cite{anonymousauthorsCo
 
 \autoref{fig:coordinationFeature} shows the \textit{Coordination} feature, which consists of \textsf{Definition}, \textsf{Elements of coordination}, and \textsf{Semantics}.
 
-% Maybe cut into two pieces. So Definition and Semantics are not part of the same.
+% Maybe cut into two pieces. So, Definition and Semantics are not part of the same.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{images/coordination_feature}
@@ -292,17 +292,17 @@ For example, one could synchronize transitions of state machines if they have id
 
 Explicit definition is either \textsf{Query based} or \textsf{Structural}.
 % Query-based example
-As an example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write expressions to define which elements should coordinate.
-A structural definition of coordination is using \textsf{Dedicated elements} or \textsf{Architecture based}.
+For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write expressions to define which elements should coordinate.
+A structural definition of coordination uses \textsf{Dedicated elements} or \textsf{Architecture based}.
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
-\subsubsection{Elements of coordination} The main elements driving coordination can be events, data or both.
-\textsf{Event-Scheduling coordination}, for example used in BCOoL and BCoorLang, orders or synchronizes events/state changes happening in different models.
-\textsf{Data-Driven coordination} is for example used in Co-Simulation where components send data to input ports or even directly change variables exposed by other components.
+\subsubsection{Elements of coordination} The main elements driving coordination can be events, data, or both.
+\textsf{Event-Scheduling coordination}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes happening in different models.
+\textsf{Data-Driven coordination} is used in Co-Simulation where components send data to input ports or even directly change variables other components expose.
 
 \subsubsection{Semantics} The semantics feature consists of \textsf{Expressiveness} and \textsf{Model of Computation}.
 The expressiveness of coordination can be \textsf{Predefined}, i.e., a user has a fixed set of coordination mechanisms or \textsf{Customizable}.
-For example in BCOoL, user can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} when defining coordination \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
+For example, in BCOoL, the user can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} when defining coordination \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
 \textit{Model of Computation}
 
