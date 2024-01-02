@@ -241,17 +241,17 @@ For example, the car TL in the running example could be defined using a differen
 % Behavioral interfaces
 \textbf{(2) Behavioral interfaces:} To coordinate between heterogeneous models \textit{behavioral interfaces} are used.
 These interfaces are defined for each language or generally for all languages and represent a common understanding, which is needed when each language can be different.
-Examples of coordination frameworks are BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015} and BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
+Examples of coordination frameworks are BCOoL \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016} and BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
 % Ptolemy?
 
 % BCoorLang is the new name. A bit close to BCOoL.
-For example, using BCoorLang, one would define a \textit{system relationship model}, see \autoref{fig:example-BCoorLang}, which defines existing behavioral models and their relations similar to the architectural configuration of ADLs.
+For example, using BCoorLang, one would define a \textit{system relationship model}, see \autoref{fig:exampleBCoorLang}, which defines existing behavioral models and their relations similar to the architectural configuration of ADLs.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/running_example_BCorrLang}
-	\caption{Feature model root}
-	\label{fig:example-BCoorLang}
+	\caption{System relationship model for the running example}
+	\label{fig:exampleBCoorLang}
 \end{figure}
 
 Using the behavioral relationship between \textsf{CarTrafficLight} and \textsf{PedestrianTrafficLight}, one can then define synchronizations of their behavior.
@@ -261,26 +261,52 @@ To describe the behavior of car TL and pedestrian TL, one can use the state mach
 \section{Feature model} \label{sec:features}
 % Cut up the feature model and describe it in dedicated subsections (maybe the first layer of nodes after the root)
 % Maybe add a full feature model as an artifact (use GitHub repo with Zenodo)
-The feature model for coordination approaches is shown in \autoref{fig:featureModelRoot} where each coordination approach has three main feature sets: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
+The feature model for coordination approaches is shown in \autoref{fig:featureModelOverview} where each coordination approach has three main feature sets: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{images/root}
-	\caption{Feature model root}
-	\label{fig:featureModelRoot}
+	\includegraphics[width=0.8\textwidth]{images/root}
+	\caption{Feature model overview}
+	\label{fig:featureModelOverview}
 \end{figure}
 
 In the following sections, we will describe each feature set in detail
 % TODO: Add the full feature model as an artifact (at the end when the feature model is stable).
-A diagram of the feature model, including all features, is contained in \cite{anonymousauthorsCoordination2024Artifacts2024}.
+A complete diagram of the feature model is contained in \cite{anonymousauthorsCoordination2024Artifacts2024}.
 
 \subsection{Coordination}
+
+\autoref{fig:coordinationFeature} shows the \textit{Coordination} feature, which consists of \textsf{Definition}, \textsf{Elements of coordination}, and \textsf{Semantics}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{images/coordination_feature}
+	\caption{Coordination feature}
+	\label{fig:coordinationFeature}
+\end{figure}
+
+\subsubsection{Definition} of coordination can either be \textsf{Explicit} or \textsf{Implicit}.
+Implicit definition is based on the names of model elements.
+For example, one could synchronize transitions of state machines if they have identical names.
+
+Explicit definition is either \textsf{Query based} or \textsf{Structural).
+% Query-based example
+As an example, in the Behavioral Coordination Operator Language (BCOoL) \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016} one can write expressions to define which elements should coordinate.
+A structural definition of  coordination can be based on \textsf{Dedicated elements} or the architectural configuration, often-called topology, of components (\textsf{Architecture based}).
+For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architecture, i.e., how ports of components are connected.
+
+\subsubsection{Elements of coordination} describe Elements of coordination here.
+
+\subsubsection{Semantics} describe Semantics here.
+
+
 \subsection{Goal}
 \subsection{Properties}
 
-\section{Classification examples} \label{sec:classifications}
+\section{Classification} \label{sec:classifications}
 We will use one representative for ADLs, coordination languages, co-simulation tools, and coordination frameworks to show their unique features in our feature model.
 However, we classified more than just the four representatives chosen.
+% Maybe add a big table of classifications here and then explain them in each section
 % Insert a number instead of x here.
 The raw data, including all our other x classifications, are in \cite{anonymousauthorsCoordination2024Artifacts2024}.
 
