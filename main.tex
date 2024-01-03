@@ -333,16 +333,23 @@ We identified three different goals for coordination approaches: \textbf{coordin
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{images/goal_feature}
+	\includegraphics[width=0.7\textwidth]{images/goal_feature}
 	\caption{Goal feature}
 	\label{fig:goalFeature}
 \end{figure}
 
-\subsubsection{Coordinated simulation}
+% TODO: Introduce somewhere that component is equal to behavioral model. Or means the same.
+\subsubsection{Coordinated simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models which when composed represent the entire system.
+A coordinated simulation is useful because composition of multiple component can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
+Emergent behavior can then be dealt with early in the development process before each component and their interactions are implemented.
+Co-Simulation tools are an example of coordination approaches which have coordinated simulation as their goal.
 
-\subsubsection{Coordinated execution}
+\subsubsection{Coordinated execution} In contrast to coordinated simulation which often only aims to find errors, the goal of coordination approaches such as coordination languages is a coordinated execution.
+Coordination approaches with this goal are not only used during development but also play a central role when a composite system is deployed and executed in a production setting.
 
-\subsubsection{Formal verification}
+\subsubsection{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification.
+Formal verification can be used before the system is deployed (\textit{model checking}) or while it is running (\textit{runtime monitoring}).
+Regarding model checking, we found coordination approaches that check \textit{predefined properties} while others support \textit{custom properties}.
 
 \subsection{Properties}
 
