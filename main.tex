@@ -276,7 +276,7 @@ A complete diagram of the feature model is contained in \cite{anonymousauthorsCo
 
 \subsection{Coordination}
 
-\autoref{fig:coordinationFeature} shows the \textit{Coordination} feature, which consists of \textsf{Definition}, \textsf{Elements of coordination}, and \textsf{Semantics}.
+\autoref{fig:coordinationFeature} shows the \textbf{Coordination} feature, which consists of \textbf{Definition}, \textbf{Elements of coordination}, and \textbf{Semantics}.
 
 % Maybe cut into two pieces. So, Definition and Semantics are not part of the same.
 \begin{figure}[ht]
@@ -286,27 +286,27 @@ A complete diagram of the feature model is contained in \cite{anonymousauthorsCo
 	\label{fig:coordinationFeature}
 \end{figure}
 
-\subsubsection{Definition} The definition of coordination can either be \textsf{Explicit} or \textsf{Implicit}.
+\subsubsection{Definition} The definition of coordination can either be \textit{explicit} or \textit{implicit}.
 The implicit definition is based on the names of model elements.
 For example, one could synchronize transitions of state machines if they have identical names.
 
-Explicit definition is either \textsf{Query based} or \textsf{Structural}.
+Explicit definition is either \textit{query based} or \textit{structural}.
 % Query-based example
 For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write expressions to define which elements should coordinate.
-A structural definition of coordination uses \textsf{Dedicated elements} or \textsf{Architecture based}.
+A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
 \subsubsection{Elements of coordination} The main elements driving coordination can be events, data, or both.
-\textsf{Event-Scheduling coordination}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes happening in different models.
-\textsf{Data-Driven coordination} is used in Co-Simulation where components send data to input ports or even directly change variables other components expose.
+\textit{Event-scheduling coordination}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes happening in different models.
+\textit{Data-driven coordination} is used in Co-Simulation where components send data to input ports or even directly change variables other components expose.
 
-\subsubsection{Semantics} The semantics feature consists of \textsf{Expressiveness} and \textsf{Model of Computation}.
-The expressiveness of coordination can be \textsf{Predefined}, i.e., a user has a fixed set of coordination mechanisms or \textsf{Customizable}.
+\subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
+The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms or \textit{customizable}.
 For example, in BCOoL, the user can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} when defining coordination \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
-Coordination approaches utilize different \textit{Models of Computation} (MoC).
+Coordination approaches utilize different \textit{models of computation} (MoC).
 % What is a model of computation? Where does the terminology come frome?
-We define three MoCs: \textsf{Timed}, \textsf{Causal}, \textsf{A-causal}, where \textsf{Timed} is either \textsf{Physical} or \textsf{Logical}.
+We define three MoCs: \textit{timed}, \textit{causal}, \textit{a-causal}, where \textit{timed} is either \textit{physical} or \textit{logical}.
 % We should define that event and state changings elements mean the same, i.e., any observable action in a model/component.
 % Causal (events and data)
 The causal MoC means that the coordination approach can define \textit{causal} relationships between events of different components.
@@ -317,10 +317,10 @@ For example, a variable in  one equation should be equal to a variable in a diff
 One variable does not cause the other to change they should just be equal.
 
 % Timed::Logical
-\textsf{Timed::Logical} means that coordination approaches define when events/state changes happen.
+\textit{Timed::Logical} means that coordination approaches define when events/state changes happen.
 Typically, one defines that events take place simultaneously or that one event causes, i.e., occurs before another event.
 % Timed::Physical
-\textsf{Timed::Physical} means that one can define that one event should happen, for example, exactly 50 ms after another event, where these 50 ms correspond to 50 ms in execution time.
+\textit{Timed::Physical} means that one can define that one event should happen, for example, exactly 50 ms after another event, where these 50 ms correspond to 50 ms in execution time.
 
 
 
