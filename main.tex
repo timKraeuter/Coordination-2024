@@ -274,9 +274,10 @@ In the following sections, we will describe each feature set in detail.
 % TODO: Add the full feature model as an artifact (at the end when the feature model is stable).
 A complete diagram of the feature model is contained in \cite{anonymousauthorsCoordination2024Artifacts2024}.
 
+% TODO: Make this section more readable. Better examples, explanations and linking of paragraphs.
 \subsection{Coordination}
 
-\autoref{fig:coordinationFeature} shows the \textbf{Coordination} feature, which consists of \textbf{Definition}, \textbf{Elements of coordination}, and \textbf{Semantics}.
+\autoref{fig:coordinationFeature} shows the \textbf {Coordination} feature, which consists of \textbf{Definition}, \textbf{Elements of coordination}, and \textbf{Semantics}.
 
 % Maybe cut into two pieces. So, Definition and Semantics are not part of the same.
 \begin{figure}[ht]
@@ -317,11 +318,14 @@ For example, a variable in  one equation should be equal to a variable in a diff
 One variable does not cause the other to change they should just be equal.
 
 % Timed::Logical
-\textit{Timed::Logical} means that coordination approaches define when events/state changes happen.
-Typically, one defines that events take place simultaneously or that one event causes, i.e., occurs before another event.
+\textit{Logical} time means that coordination approaches define when events/state changes happen.
+Typically, one defines that events take place simultaneously or that one event causes another event or causes another event with a fixed delay.
+For example, a delay could be 50 milliseconds of logical time which corresponds to time in a simulation which can run arbitrarily fast. 
 % Timed::Physical
-\textit{Timed::Physical} means that one can define that one event should happen, for example, exactly 50 ms after another event, where these 50 ms correspond to 50 ms in execution time.
-
+In contrast, \textit{physical} time describes time passing in the physical world.
+One can, for example, define that one event should happen 50 milliseconds after another event.
+In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} logical time "chases" physical time, i.e., logical time tries to match the physical time provided by the execution platform.
+% Logical time however lacks behind physical time.
 
 
 \subsection{Goal}
