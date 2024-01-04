@@ -47,7 +47,7 @@
 % https://www.discotec.org/2024/coordination
 % Regular papers 7-15 pages + references
 % Artifacts using Zenodo together with this repo. Maybe a big CSV file with our classification results is input for some plots (clustering). Then, the source code for that should also be added.
-% TODO: Make the artifacts citation point somewhere (use my anonymous GitHub account)
+% TODO: Make the artifacts citation
 \title{A feature model for coordination approaches}
 % Alternative titles:
 % Comparing coordination approaches
@@ -82,11 +82,12 @@ University of Applied Sciences, FHDW, Hanover, Germany\\
 \begin{abstract}
 TODO
 \keywords{
-ADL \and
-Coordination language \and
-Coordination framework \and
-Co-Simulation \and
-Feature model
+	Co-Simulation \and
+	Coordination language \and
+	ADL \and
+	Coordination framework \and
+	Feature model \and
+	Taxonomy
 }
 \end{abstract}
 
@@ -98,6 +99,9 @@ Feature model
 
 % What was our search methodology? Google Scholar? Other databases? Which search terms/queries?
 % ADL/Architecture description language & survey/classification/literature review
+
+% Contribution
+\textbf{Contribution.} We present a taxonomy represented as a feature model comparing coordination approaches including coordination languages, ADLs, co-simulation tools, and coordination frameworks.
 
 \section{Running example}
 In this section, we introduce a running example that will be used throughout the paper to as an example to explain the different coordination approaches.
@@ -212,7 +216,7 @@ The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} component is omitte
 
 \subsection{Co-Simulation Tools}
 % Define Co-Simulation and give examples
-\cite{gomesCoSimulationSurvey2019}
+\cite{gomesCoSimulationSurvey2019} % co-simulation survey
 
 % Rewrite this part
 Co-simulation aims to solve this challenge by composing the simulation of a system's parts into a global simulation \cite{gomesCoSimulationSurvey2019}.
@@ -307,6 +311,7 @@ For example, in BCOoL, the user can employ the Clock Constraints Specification L
 
 Coordination approaches utilize different \textit{models of computation} (MoC).
 % What is a model of computation? Where does the terminology come frome?
+% causal a-causal also identified as causality in gomesCoSimulationSurvey2019
 We define three MoCs: \textit{timed}, \textit{causal}, \textit{a-causal}, where \textit{timed} is either \textit{physical} or \textit{logical}.
 % We should define that event and state changings elements mean the same, i.e., any observable action in a model/component.
 % Causal (events and data)
@@ -321,7 +326,7 @@ One variable does not cause the other to change they should just be equal.
 \textit{Logical} time means that coordination approaches define when events/state changes happen.
 Typically, one defines that events take place simultaneously or that one event causes another event or causes another event with a fixed delay.
 For example, a delay could be 50 milliseconds of logical time which corresponds to time in a simulation which can run arbitrarily fast. 
-% Timed::Physical
+% Timed::Physical --> other term wall-clock time see gomesCoSimulationSurvey2019 and its citations
 In contrast, \textit{physical} time describes time passing in the physical world.
 One can, for example, define that one event should happen 50 milliseconds after another event.
 In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} logical time "chases" physical time, i.e., logical time tries to match the physical time provided by the execution platform.
@@ -329,7 +334,7 @@ In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} logical time "cha
 
 
 \subsection{Goal} % Or even call it motivation
-We identified three different goals for coordination approaches: \textbf{coordinated simulation}, \textbf{coordinated execution}, and \textbf{formal verification}, see \autoref{fig:coordinationFeature}.
+We identified three different \textit{goals} of coordination approaches: \textbf{coordinated simulation}, \textbf{coordinated execution}, and \textbf{formal verification}, see \autoref{fig:goalFeature}.
 
 \begin{figure}[ht]
 	\centering
@@ -352,6 +357,16 @@ Formal verification can be used before the system is deployed (\textit{model che
 Regarding model checking, we found coordination approaches that check \textit{predefined properties} while others support \textit{custom properties}.
 
 \subsection{Properties}
+% Categorization corresponds to the different co-simulation approaches described in gomesCoSimulationSurvey2019.
+We identified several common \textit{properties} when analyzing coordination approaches, see \autoref{fig:propertiesFeature}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{images/properties_feature}
+	\caption{Properties feature}
+	\label{fig:propertiesFeature}
+\end{figure}
+
 
 \section{Classification} \label{sec:classifications}
 We will use one representative for ADLs, coordination languages, co-simulation tools, and coordination frameworks to show their unique features in our feature model.
