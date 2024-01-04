@@ -47,7 +47,7 @@
 % https://www.discotec.org/2024/coordination
 % Regular papers 7-15 pages + references
 % Artifacts using Zenodo together with this repo. Maybe a big CSV file with our classification results is input for some plots (clustering). Then, the source code for that should also be added.
-% TODO: Make the artifacts citation
+% TODO: Make repo public and add artifacts citation using zenodo.
 \title{A feature model for coordination approaches}
 % Alternative titles:
 % Comparing coordination approaches
@@ -101,7 +101,7 @@ TODO
 % ADL/Architecture description language & survey/classification/literature review
 
 % Contribution
-\textbf{Contribution.} We present a taxonomy represented as a feature model comparing coordination approaches including coordination languages, ADLs, co-simulation tools, and coordination frameworks.
+\textbf{Contribution.} We present a feature model comparing coordination approaches including coordination languages, ADLs, co-simulation tools, and coordination frameworks.
 
 \section{Running example}
 In this section, we introduce a running example that will be used throughout the paper to as an example to explain the different coordination approaches.
@@ -366,6 +366,30 @@ We identified several common \textit{properties} when analyzing coordination app
 	\caption{Properties feature}
 	\label{fig:propertiesFeature}
 \end{figure}
+
+% Maybe add some examples and description here.
+\subsubsection{Domain} Coordination approaches operate in different domains, similar to the categorization of co-simulation approaches in \cite{gomesCoSimulationSurvey2019}.
+\textit{Discrete event} means a coordination approach assumes discrete state changes, while in the \textit{continuous time} domain variables can be continuous due to differential equations.
+In a \textit{hybrid} domain both discrete and continuous variables are mixed.
+
+
+% Are there really approaches that are binary or is behavior different from structure?
+\subsubsection{Arity} A coordination approach can either support the coordination of exactly two components (\textit{binary}) or two and more components (\textit{multi-ary}).
+
+
+% Should be clear from earlier that component is a program or behavioral model.
+\subsubsection{Coordination specification} Coordination can either be defined inside components (\textit{intrusive}), i.e., one has to change the component or outside of components (\textit{non-intrusive}).
+
+
+\subsubsection{Component languages} Coordination languages typically only support coordination of if each component is written in the same programming language (\textit{homogeneous}).
+Similarly, most ADLs only coordinate components defined using the same modeling language.
+However, coordination frameworks typically allow components specified in different behavioral languages (\textit{heterogeneous}).
+
+
+\subsubsection{Implementation} Coordination approaches can be implemented as a \textit{co-simulation} where.
+% insert co-simulation here. Master algorithm or something.
+An alternative is a \textit{unified execution} either using the same underlying \textit{programming language} or \textit{formal language}.
+Coordination frameworks typically convert heterogeneous components to a common formal language.
 
 
 \section{Classification} \label{sec:classifications}
