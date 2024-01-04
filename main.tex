@@ -236,7 +236,7 @@ However, with co-simulations, one can only simulate systems, not check global be
 % Surveys? Probably not.
 
 % Distinguishing factors
-The main differences between coordination frameworks and ADLs are the following.
+The main differences between coordination frameworks and ADLs are as follows.
 
 \textbf{(1) Heterogeneous models:} Coordination frameworks do not mandate one behavioral language or formalism for every model.
 One can pick the most suitable language or formalism for each part of the system supported by the coordination framework.
@@ -276,7 +276,7 @@ The feature model for coordination approaches is shown in \autoref{fig:featureMo
 
 In the following sections, we will describe each feature set in detail.
 % TODO: Add the full feature model as an artifact (at the end when the feature model is stable).
-A complete diagram of the feature model is contained in \cite{anonymousauthorsCoordination2024Artifacts2024}.
+A complete diagram of the feature model is contained in \cite{timkrauterArtifactsCoordination2024}.
 
 % TODO: Make this section more readable. Better examples, explanations and linking of paragraphs.
 \subsection{Coordination}
@@ -302,7 +302,7 @@ A structural definition of coordination uses \textit{dedicated elements} or is \
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
 \subsubsection{Elements of coordination} The main elements driving coordination can be events, data, or both.
-\textit{Event-scheduling coordination}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes happening in different models.
+\textit{Event-scheduling coordination}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes in different models.
 \textit{Data-driven coordination} is used in Co-Simulation where components send data to input ports or even directly change variables other components expose.
 
 \subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
@@ -310,27 +310,27 @@ The expressiveness of coordination can be \textit{predefined}, i.e., a user has 
 For example, in BCOoL, the user can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} when defining coordination \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
 Coordination approaches utilize different \textit{models of computation} (MoC).
-% What is a model of computation? Where does the terminology come frome?
+% What is a model of computation? Where does the terminology come from?
 % causal a-causal also identified as causality in gomesCoSimulationSurvey2019
 We define three MoCs: \textit{timed}, \textit{causal}, \textit{a-causal}, where \textit{timed} is either \textit{physical} or \textit{logical}.
-% We should define that event and state changings elements mean the same, i.e., any observable action in a model/component.
+% We should define that event and state-changing elements mean the same, i.e., any observable action in a model/component.
 % Causal (events and data)
 The causal MoC means that the coordination approach can define \textit{causal} relationships between events of different components.
-For example, a transition in a state machine raises an event which causes a reaction in an activity diagram due to the defined coordination.
+For example, a transition in a state machine raises an event that causes a reaction in an activity diagram due to the defined coordination.
 % A-causal
-A-causal MoC are employed in Co-Simulation which can deal with sets of differential equations.
-For example, a variable in  one equation should be equal to a variable in a different equation.
+A-causal MoC are employed in Co-Simulation, which can deal with sets of differential equations.
+For example, a variable in one equation should be equal to a variable in a different equation.
 One variable does not cause the other to change they should just be equal.
 
 % Timed::Logical
 \textit{Logical} time means that coordination approaches define when events/state changes happen.
 Typically, one defines that events take place simultaneously or that one event causes another event or causes another event with a fixed delay.
-For example, a delay could be 50 milliseconds of logical time which corresponds to time in a simulation which can run arbitrarily fast. 
+For example, a delay could be 50 milliseconds of logical time, which corresponds to time in a simulation that can run arbitrarily fast. 
 % Timed::Physical --> other term wall-clock time see gomesCoSimulationSurvey2019 and its citations
 In contrast, \textit{physical} time describes time passing in the physical world.
 One can, for example, define that one event should happen 50 milliseconds after another event.
-In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} logical time "chases" physical time, i.e., logical time tries to match the physical time provided by the execution platform.
-% Logical time however always lacks behind physical time.
+In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, logical time "chases" physical time, i.e., logical time tries to match the physical time provided by the execution platform.
+% Logical time, however, always lags behind physical time.
 
 
 \subsection{Goal} % Or even call it motivation
@@ -343,13 +343,13 @@ We identified three different \textit{goals} of coordination approaches: \textbf
 	\label{fig:goalFeature}
 \end{figure}
 
-% TODO: Introduce somewhere that component is equal to behavioral model. Or means the same.
-\subsubsection{Coordinated simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models which when composed represent the entire system.
-A coordinated simulation is useful because composition of multiple component can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
-Emergent behavior can then be dealt with early in the development process before each component and their interactions are implemented.
-Co-Simulation tools are an example of coordination approaches which have coordinated simulation as their goal.
+% TODO: Introduce somewhere that component is equal to the behavioral model. Or means the same.
+\subsubsection{Coordinated simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
+A coordinated simulation is useful because the composition of multiple components can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
+Emergent behavior can then be dealt with early in the development process before implementing each component and its interactions.
+Co-simulation tools are an example of coordination approaches that have coordinated simulation as their goal.
 
-\subsubsection{Coordinated execution} In contrast to coordinated simulation which often only aims to find errors, the goal of coordination approaches such as coordination languages is a coordinated execution.
+\subsubsection{Coordinated execution} In contrast to coordinated simulation, which often only aims to find errors, the goal of coordination approaches such as coordination languages is a coordinated execution.
 Coordination approaches with this goal are not only used during development but also play a central role when a composite system is deployed and executed in a production setting.
 
 \subsubsection{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification.
@@ -373,7 +373,7 @@ We will use one representative for ADLs, coordination languages, co-simulation t
 However, we classified more than just the four representatives chosen.
 % Maybe add a big table of classifications here and then explain them in each section
 % Insert a number instead of x here.
-The raw data, including all our other x classifications, are in \cite{anonymousauthorsCoordination2024Artifacts2024}.
+The raw data, including all our other x classifications, are in \cite{timkrauterArtifactsCoordination2024}.
 
 \subsection{MontiArc} \label{subsec:montiArc}
 First, we will explain MontiArc by implementing the running example and then classify it using our feature model.
@@ -404,7 +404,7 @@ This means, transitions that send and receive events through these ports are exe
 Thus, when the \textsf{CarTL} switches to \textsf{Green}, the \textsf{PedestrianTL} switches to \textsf{Red} and vice versa.
 
 Inspecting the execution trace when running the implementation for 20 steps indicates that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by the synchronization.
-The executable source code of the MontiArc implementation for the running example can be found in \cite{anonymousauthorsCoordination2024Artifacts2024}.
+The executable source code of the MontiArc implementation for the running example can be found in \cite{timkrauterArtifactsCoordination2024}.
 
 % TODO: Describe the classification here!
 \textbf{Classification:} bla
@@ -433,7 +433,7 @@ The individual models and interactions are then transformed into a behavioral sp
 The transformation might result in a graph transformation (GT) system.
 Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by synchronization.
 % TODO: Add executable GT with a tutorial to the artifacts. Maybe also Maude one.
-The executable GT specification for the running example can be found in \cite{anonymousauthorsCoordination2024Artifacts2024}.
+The executable GT specification for the running example can be found in \cite{timkrauterArtifactsCoordination2024}.
 
 \textbf{Classification:} 
 
