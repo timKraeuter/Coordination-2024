@@ -291,21 +291,22 @@ A complete diagram of the feature model is contained in \cite{timkrauterArtifact
 	\label{fig:coordinationFeature}
 \end{figure}
 
-\subsubsection{Definition} The definition of coordination can either be \textit{explicit} or \textit{implicit}.
-The implicit definition is based on the names of model elements.
+\textbf{Definition} The definition of coordination can either be \textit{explicit} or \textit{implicit}.
+Implicit definition is usually based on the names of model elements.
 For example, one could synchronize transitions of state machines if they have identical names.
 
 Explicit definition is either \textit{query based} or \textit{structural}.
 % Query-based example
 For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write expressions to define which elements should coordinate.
+
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
-\subsubsection{Elements of coordination} The main elements driving coordination can be events, data, or both.
+\textbf{Elements of coordination} The main elements driving coordination can be events, data, or both.
 \textit{Event-scheduling coordination}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes in different models.
 \textit{Data-driven coordination} is used in Co-Simulation where components send data to input ports or even directly change variables other components expose.
 
-\subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
+\textbf{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
 The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms or \textit{customizable}.
 For example, in BCOoL, the user can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} when defining coordination \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
@@ -335,6 +336,8 @@ In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, logical time "ch
 
 \subsection{Goal} % Or even call it motivation
 We identified three different \textit{goals} of coordination approaches: \textbf{coordinated simulation}, \textbf{coordinated execution}, and \textbf{formal verification}, see \autoref{fig:goalFeature}.
+Usually approaches focus on one goal, for example co-simulation tools provide a coordinated simulation, while others such as coordination frameworks might provide formal verification in addition to simulation.
+However, which types of dynamic systems can be simulated varies and is discussed in the next section.
 
 \begin{figure}[ht]
 	\centering
@@ -344,17 +347,24 @@ We identified three different \textit{goals} of coordination approaches: \textbf
 \end{figure}
 
 % TODO: Introduce somewhere that component is equal to the behavioral model. Or means the same.
-\subsubsection{Coordinated simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
+\textbf{Coordinated simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
 A coordinated simulation is useful because the composition of multiple components can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
 Emergent behavior can then be dealt with early in the development process before implementing each component and its interactions.
-Co-simulation tools are an example of coordination approaches that have coordinated simulation as their goal.
+Co-simulation tools are an example of approaches that have coordinated simulation as their goal.
 
-\subsubsection{Coordinated execution} In contrast to coordinated simulation, which often only aims to find errors, the goal of coordination approaches such as coordination languages is a coordinated execution.
-Coordination approaches with this goal are not only used during development but also play a central role when a composite system is deployed and executed in a production setting.
+\textbf{Coordinated execution} In contrast to coordinated simulation, which often only aims to find errors, the goal of coordination approaches such as coordination languages is a coordinated execution.
+Approaches with this goal are not only used during development but also provide coordination capabilities when a composite system is deployed and executed in a production setting.
 
-\subsubsection{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification.
+\textbf{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification.
 Formal verification can be used before the system is deployed (\textit{model checking}) or while it is running (\textit{runtime monitoring}).
-Regarding model checking, we found coordination approaches that check \textit{predefined properties} while others support \textit{custom properties}.
+
+
+
+For model checking, we found coordination approaches that check \textit{predefined properties} or \textit{custom properties}.
+% Wright is checking deadlock freedom of component interactions, i.e., connectors. (Definition 5)
+For example, the ADL Wright \cite{allenFormalBasisArchitectural1997} can check \textit{deadlock freedom} of component interactions.
+% Darwin and we are checking custom properties: mageeBehaviourAnalysisSoftware1999 krauterBehavioralConsistencyMultimodeling2023
+The coordination framework in \cite{krauterBehavioralConsistencyMultimodeling2023}
 
 \subsection{Properties}
 % Categorization corresponds to the different co-simulation approaches described in gomesCoSimulationSurvey2019.
@@ -368,25 +378,28 @@ We identified several common \textit{properties} when analyzing coordination app
 \end{figure}
 
 % Maybe add some examples and description here.
-\subsubsection{Domain} Coordination approaches operate in different domains, similar to the categorization of co-simulation approaches in \cite{gomesCoSimulationSurvey2019}.
+\textbf{Domain} Coordination approaches operate in different domains, similar to the categorization of co-simulation approaches in \cite{gomesCoSimulationSurvey2019}.
 \textit{Discrete event} means a coordination approach assumes discrete state changes, while in the \textit{continuous time} domain variables can be continuous due to differential equations.
 In a \textit{hybrid} domain both discrete and continuous variables are mixed.
 
+The choice of a coordination approach is dependent on the nature of the system at hand.
+For instance, software systems usually can be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
+
 
 % Are there really approaches that are binary or is behavior different from structure?
-\subsubsection{Arity} A coordination approach can either support the coordination of exactly two components (\textit{binary}) or two and more components (\textit{multi-ary}).
+\textbf{Arity} A coordination approach can either support the coordination of exactly two components (\textit{binary}) or two and more components (\textit{multi-ary}).
 
 
 % Should be clear from earlier that component is a program or behavioral model.
-\subsubsection{Coordination specification} Coordination can either be defined inside components (\textit{intrusive}), i.e., one has to change the component or outside of components (\textit{non-intrusive}).
+\textbf{Coordination specification} Coordination can either be defined inside components (\textit{intrusive}), i.e., one has to change the component or outside of components (\textit{non-intrusive}).
 
 
-\subsubsection{Component languages} Coordination languages typically only support coordination of if each component is written in the same programming language (\textit{homogeneous}).
+\textbf{Component languages} Coordination languages typically only support coordination of if each component is written in the same programming language (\textit{homogeneous}).
 Similarly, most ADLs only coordinate components defined using the same modeling language.
 However, coordination frameworks typically allow components specified in different behavioral languages (\textit{heterogeneous}).
 
 
-\subsubsection{Implementation} Coordination approaches can be implemented as a \textit{co-simulation} where.
+\textbf{Implementation} Coordination approaches can be implemented as a \textit{co-simulation} where.
 % insert co-simulation here. Master algorithm or something.
 An alternative is a \textit{unified execution} either using the same underlying \textit{programming language} or \textit{formal language}.
 Coordination frameworks typically convert heterogeneous components to a common formal language.
