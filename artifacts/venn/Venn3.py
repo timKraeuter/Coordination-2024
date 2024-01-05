@@ -5,10 +5,10 @@ from matplotlib_venn import venn3
 
 # Can only do up to 3 sets but calculates real overlaps of the venn diagrams.
 # Upset plots for more?
-set1 = {'A', 'B', 'C'}
-set2 = {'A', 'B', 'D'}
-set3 = {'A'}
+tim = {"Event-Scheduling coordination", "Dedicated coordination elements", "Predefined", "Timed:Logical", "Formal language", "Heterogeneous", "Non-Intrusive", "Discrete event system", "Coordinated simulation", "Custom properties"}
+wright = {"Data-driven coordination", "Architecture based", "Customizable", "Timed:Logical", "Causal", "Formal language", "Homogeneous", "Intrusive", "Discrete event system", "Coordinated simulation", "Model checking"}
+linda = {"Data-driven coordination", "Name based", "Predefined", "Causal", "Programming language", "Homogeneous", "Intrusive", "Discrete event system", "Coordinated execution"}
 
-venn3([set1, set2, set3], ('set1', 'set2', 'set3'))
+venn3([tim, wright, linda], ("BCoordLang", "Wright", "Linda"))
 
 plt.show()
