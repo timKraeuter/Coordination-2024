@@ -12,6 +12,8 @@
 \usepackage[strings]{underscore}
 % Modern tables
 \usepackage{tabularray}
+% Diagonal lines
+\UseTblrLibrary{diagbox}
 
 % Listing settings
 \usepackage{listings}
@@ -401,17 +403,41 @@ Coordination frameworks typically convert heterogeneous components to a common f
 \section{Classification} \label{sec:classifications}
 We will use one representative for ADLs, coordination languages, co-simulation tools, and coordination frameworks to show their unique features in our feature model.
 However, we classified more than just the four representatives chosen.
+
 % Maybe add a big table of classifications here and then explain them in each section
+\autoref{tab:classification} shows the classification of the four approaches.
 
 \begin{table}
 	\centering
+	\caption{Approach classification}
+	\label{tab:classification}
+	\resizebox{\textwidth}{!}{
 	\begin{tblr}{
+			column{2-Z} = {c},
+			rows = {5mm},
+			hline{1, 2, Z} = {-}{1.2pt, solid}, % Z is the last row/column
+			hline{6, 10} = {-}{dashed},
+			vline{2-Y} = {2-Z}{solid},
 		}
-		&  &  &  \\
-		&  &  &  \\
-		&  &  &  \\
-		&  &  &  
+		\diagbox[linewidth=1.1pt, width=4.4cm,font=\bfseries]{Feature}{Approach} & BCoorLang & MontiArc & Linda & DACCOSIM \\
+		
+		\textbf{Coordination} & &  & &  \\
+		\hspace{2mm} Definition &  &  &  & \\
+		\hspace{2mm} Elements of coordination &  &  &  & \\
+		\hspace{2mm} Semantics &  &  &  & \\
+		
+		\textbf{Goal} & & & & \\
+		\hspace{2mm} Coordinated simulation &  &  &  & \\
+		\hspace{2mm} Coordinated execution &  &  &  & \\
+		\hspace{2mm} Formal verification &  &  &  & \\
+		
+		\textbf{Properties} & & & & \\
+		\hspace{2mm} Domain & Discrete event & Discrete event & Discrete event & Hybrid? \\
+		\hspace{2mm} Coordination specification & Non-intrusive & Intrusive & Intrusive & Intrusive \\
+		\hspace{2mm} Component languages & Heterogeneous & Homogeneous & Homogeneous & Homogeneous \\	
+		\hspace{2mm} Implementation & Formal language & PL & PL & PL \\
 	\end{tblr}
+	}
 \end{table}
 
 % Insert a number instead of x here.
