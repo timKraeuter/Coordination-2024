@@ -95,15 +95,20 @@ Applying the feature model to concrete approaches allows us to pinpoint common f
 
 \section{Introduction} \label{sec:introduction}
 
+% Introduction and motivation
 % Categorizing ADLs, Coordination languages, Co-simulation, and Coordination frameworks (BCOOL and me).
 
-% Paper outline
-
-% What was our search methodology? Google Scholar? Other databases? Which search terms/queries?
+% Search methodology
+% Google Scholar? Other databases? Which search terms/queries?
+% First looking for surveys, then individual approaches? Or just surveys?
 % ADL/Architecture description language & survey/classification/literature review
 
 % Contribution
-\textbf{Contribution.} We present a feature model comparing coordination approaches, including coordination languages, ADLs, co-simulation tools, and coordination frameworks.
+\textbf{Contribution.} We present a feature model comparing categories of coordination approaches, including coordination languages, ADLs, co-simulation tools, and coordination frameworks.
+
+% Paper outline
+The remainder of the paper is structured as follows.
+
 
 \section{Running example}
 In this section, we introduce a running example that will be used throughout the paper to explain the different coordination approaches.
@@ -137,7 +142,7 @@ The running example is deliberately kept simple because the focus should be on t
 Furthermore, the example does not need continuous variables and thus is not sufficient to show the full capabilities of Co-Simulation compared to the other coordination approaches.
 However, since continuous variables from physical systems cannot be represented in all coordination approaches, we opted for this running example, which represents a minimal denominator between all coordination approaches and is familiar to everyday life.
 
-\section{Categories of Coordination Approaches} \label{sec:approaches}
+\section{Categories of coordination approaches} \label{sec:approaches}
 
 \autoref{fig:overview} gives an overview of the different categories of coordination approaches.
 The first two categories of coordination approaches mostly focus on the \textit{execution} level, i.e., they operate directly with source code or executable binaries.
@@ -167,7 +172,7 @@ Thus, they operate on the \textit{language} level and give modelers freedom to u
 
 In the following sections, we will describe each category in detail.
 
-\subsection{Architecture Description Languages} \label{subsec:adl}
+\subsection{Architecture description languages} \label{subsec:adl}
 % General idea
 Architecture Description Languages (ADLs) aim to describe the structure of systems, allowing developers to focus on high-level components and their connections rather than lines of source code~\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,medvidovicFrameworkClassifyingComparing1997}.
 % What is an ADL, and what is not?
@@ -212,11 +217,11 @@ Furthermore, the components \textsf{PedestrianTL} and \textsf{CarTL} define port
 The \textit{architectural configuration} is defined in the \textsf{PedestrianCrossing} component (lines 1-7), which links the ports of the \textsf{PedestrianTL} and \textsf{CarTL} using a \textit{connector} (line 6).
 The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} component is omitted but given later in \autoref{subsec:montiArc}.
 
-\subsection{Coordination Languages}
+\subsection{Coordination languages}
 % Define Coordination language and give examples
 % Cite and survey
 
-\subsection{Co-Simulation Tools}
+\subsection{Co-Simulation tools}
 % Define Co-Simulation and give examples
 \cite{gomesCoSimulationSurvey2019} % co-simulation survey
 
@@ -233,7 +238,7 @@ FMUs support continuous time and state variables and are widely used in the indu
 
 However, with co-simulations, one can only simulate systems, not check global behavioral properties.
 
-\subsection{Coordination Frameworks} \label{subsec:frameworks}
+\subsection{Coordination frameworks} \label{subsec:frameworks}
 % Define Coordination-framework and give examples
 % Surveys? Probably not.
 
@@ -421,7 +426,6 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 	\resizebox{\textwidth}{!}{
 	\begin{tblr}{
 			column{2-Z} = {c},
-			rows = {5mm},
 			hline{1, 2, Z} = {-}{1.2pt, solid}, % Z is the last row/column
 			hline{7, 11} = {-}{dashed},
 			vline{2-Y} = {2-Z}{solid},
@@ -447,6 +451,8 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 	\end{tblr}
 	}
 \end{table}
+
+% Move most of the running example implementation out, I think.
 \subsection{Co-Simulation: DACCOSIM} % Co-Simulation representative
 \subsection{Coordination Language: Lingua Franca/Linda} % Coordination language representative
 \subsection{ADL: MontiArc} \label{subsec:montiArc}
@@ -512,8 +518,8 @@ The executable GT specification for the running example can be found in \cite{ti
 
 
 
-\section{Findings} % or Classification results --> Interprete the previous classification
-% Clusters of features for ADL, Coordination language, Co-Simulation, and coordination frameworks?
+\section{Findings} % Interprete the previous classification
+% Typical features (clusters) for ADLs, Coordination language, Co-Simulation, and coordination frameworks.
 % Maybe they can somehow be visualized nicely using some clusters with overlaps (Venn diagram in Python or even upset plots)
 
 % Commonalities between clusters
@@ -522,7 +528,7 @@ The executable GT specification for the running example can be found in \cite{ti
 
 % What are the unique features of each approach? Does this match their intended usage scenarios?
 
-\section{Conclusion} \label{sec:conclusion}
+\section{Conclusion \& future work} \label{sec:conclusion}
 
 \bibliographystyle{splncs04}
 \bibliography{bib}
