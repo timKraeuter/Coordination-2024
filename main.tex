@@ -10,6 +10,8 @@
 \usepackage{orcidlink} % Orcid links
 % Fix underscore in dois
 \usepackage[strings]{underscore}
+% Modern tables
+\usepackage{tabularray}
 
 % Listing settings
 \usepackage{listings}
@@ -258,8 +260,9 @@ To describe the behavior of car TL and pedestrian TL, one can use the state mach
 
 
 \section{Feature model} \label{sec:features}
-% Cut up the feature model and describe it in dedicated subsections (maybe the first layer of nodes after the root)
-% Maybe add a full feature model as an artifact (use GitHub repo with Zenodo)
+% Add some kind of introduction: Coordination approaches have only been analyzed separatly (cite studies co-simulation, adl, something about coordinatino languages) but never compared/aligned in the broader context.
+% We try to find overlaps and unique features (differntiators) between the different approaches.
+
 The feature model for coordination approaches is shown in \autoref{fig:featureModelOverview} where each coordination approach has three main feature sets: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
 
 \begin{figure}[ht]
@@ -399,6 +402,18 @@ Coordination frameworks typically convert heterogeneous components to a common f
 We will use one representative for ADLs, coordination languages, co-simulation tools, and coordination frameworks to show their unique features in our feature model.
 However, we classified more than just the four representatives chosen.
 % Maybe add a big table of classifications here and then explain them in each section
+
+\begin{table}
+	\centering
+	\begin{tblr}{
+		}
+		&  &  &  \\
+		&  &  &  \\
+		&  &  &  \\
+		&  &  &  
+	\end{tblr}
+\end{table}
+
 % Insert a number instead of x here.
 The raw data, including all our other x classifications, are in \cite{timkrauterArtifactsCoordination2024}.
 
@@ -465,7 +480,7 @@ The executable GT specification for the running example can be found in \cite{ti
 \textbf{Classification:} 
 
 
-\section{Classification results}
+\section{Findings} % or Classification results --> Interprete the previous classification
 % Clusters of features for ADL, Coordination language, Co-Simulation, and coordination frameworks?
 % Maybe they can somehow be visualized nicely using some clusters with overlaps (vann diagram or something)
 
