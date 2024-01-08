@@ -305,9 +305,9 @@ For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsen
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
-\subsubsection{Elements of coordination} The main elements driving coordination can be events, data, or both.
-\textit{Event-scheduling coordination}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes in different models.
-\textit{Data-driven coordination} is used in Co-Simulation where components send data to input ports or even directly change variables other components expose.
+\subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event-scheduling}, \textit{data-exchange}, or a mix of both.
+\textit{Event-scheduling}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes in different models.
+\textit{Data-exchange} is used in Co-Simulation where components send data to input ports or even directly change variables other components expose.
 
 \subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
 The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms or \textit{customizable}.
@@ -339,9 +339,9 @@ In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, logical time "ch
 
 
 \subsection{Goal} % Or even call it motivation
-We identified three different \textit{goals} of coordination approaches: \textbf{coordinated simulation}, \textbf{coordinated execution}, and \textbf{formal verification}, see \autoref{fig:goalFeature}.
+We identified three different \textit{goals} of coordination approaches: \textbf{simulation}, \textbf{execution}, and \textbf{formal verification}, see \autoref{fig:goalFeature}.
 Usually, approaches focus on one goal.
-For example, co-simulation tools provide a coordinated simulation, while others, such as coordination frameworks, might provide formal verification in addition to simulation.
+For example, co-simulation tools provide a simulation, while others, such as coordination frameworks, might provide formal verification in addition to simulation.
 However, which types of dynamic systems can be simulated varies and is discussed in the next section.
 
 \begin{figure}[ht]
@@ -352,12 +352,12 @@ However, which types of dynamic systems can be simulated varies and is discussed
 \end{figure}
 
 % TODO: Introduce somewhere that component is equal to the behavioral model. Or means the same.
-\subsubsection{Coordinated simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
+\subsubsection{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
 A coordinated simulation is useful because the composition of multiple components can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
 Emergent behavior can be dealt with early in development before implementing each component and its interactions.
 Co-simulation tools are an example of approaches that have coordinated simulation as their goal.
 
-\subsubsection{Coordinated execution} In contrast to coordinated simulation, which often only aims to find errors, the goal of coordination approaches such as coordination languages is a coordinated execution.
+\subsubsection{Execution} In contrast to coordinated simulation, which often only aims to find errors, the goal of coordination approaches such as coordination languages is a coordinated execution.
 Approaches with this goal are used during development and provide coordination capabilities when a composite system is deployed and executed in a production setting.
 
 \subsubsection{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification.
@@ -391,7 +391,7 @@ The choice of a coordination approach depends on the nature of the system at han
 For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
 
 % It should be clear from earlier that the component is a program or behavioral model.
-\subsubsection{Coordination specification} Coordination can either be defined inside components (\textit{intrusive}), i.e., one has to change the component or outside of components (\textit{non-intrusive}).
+\subsubsection{Specification} Coordination can either be defined inside components (\textit{intrusive}), i.e., one has to change the component or outside of components (\textit{non-intrusive}).
 
 
 \subsubsection{Component languages} Coordination languages typically only support coordination of if each component is written in the same programming language (\textit{homogeneous}).
@@ -426,55 +426,30 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 			hline{7, 11} = {-}{dashed},
 			vline{2-Y} = {2-Z}{solid},
 		}
-		\diagbox[linewidth=1.1pt, width=4.4cm,font=\bfseries]{Feature}{Approach} & DACCOSIM & Linda & MontiArc & BCoorLang \\
+		\diagbox[linewidth=1.1pt,font=\bfseries]{Feature}{Approach} & DACCOSIM & Linda & MontiArc & BCoorLang \\
 		
 		\textbf{Coordination} \\
 		\hspace{2mm} Definition & Name based & Name based & Architecture based & Dedicated elements \\
-		\hspace{2mm} Elements of coordination & Data-driven & Data-driven & Data-driven & Event-Scheduling \\ % everything ends in coordination here in the feature model
+		\hspace{2mm} Mechanism & Data-Exchange & Data-Exchange & Data-Exchange & Event-Scheduling \\ % everything ends in coordination here in the feature model
 		\hspace{2mm} Expressiveness & Predefined & Predefined & Predefined & Predefined \\
 		\hspace{2mm} MoC & Causal & Causal & Timed:Logical, Causal & Timed:Logical \\
 		
 		\textbf{Goal} \\
-		\hspace{2mm} Coordinated simulation & + & - & + & + \\
-		\hspace{2mm} Coordinated execution & - & + & - & - \\
+		\hspace{2mm} Simulation & + & - & + & + \\
+		\hspace{2mm} Execution & - & + & - & - \\
 		\hspace{2mm} Formal verification & - & - & - & Custom properties \\
 		
 		\textbf{Properties} \\
 		\hspace{2mm} Domain & Hybrid & Discrete event & Discrete event & Discrete event \\
-		\hspace{2mm} Coordination specification & Intrusive & Intrusive & Intrusive & Non-Intrusive \\
+		\hspace{2mm} Specification & Intrusive & Intrusive & Intrusive & Non-Intrusive \\
 		\hspace{2mm} Component languages & Homogeneous & Homogeneous & Homogeneous & Heterogeneous \\	
 		\hspace{2mm} Implementation & PL & PL & PL & Formal language \\
 	\end{tblr}
 	}
 \end{table}
-
-\subsection{BCoorLang}
-First, we will explain BCoorLang by implementing the running example and then we classify it using our feature model.
-
-\textbf{Running example:} In BCoorLang there are two fundamental concepts: \textit{state} and \textit{state-changing elements}, which must be defined for each behavioral language.
-For state machines, these are defined in \cite{krauterBehavioralConsistencyMultimodeling2023}.
-State-changing elements act as a uniform behavioral interface to define interactions between heterogeneous models.
-
-\autoref{lst:interactions} shows how the synchronizations required by the running example can be implemented as \textit{interactions} in BCoorLang.
-The interactions use the system relationship model defined earlier in \autoref{fig:exampleBCoorLang} and synchronize specific transitions in the state machines.
-Transitions are the state-changing elements in state machines, see  \cite{krauterBehavioralConsistencyMultimodeling2023}.
-
-\lstinputlisting[
-label=lst:interactions,
-language=BCoorLang,
-caption=Interactions for the running example]{listings/BCoordLang.txt}
-
-\autoref{lst:interactions} synchronizes the turning red of the car TL with the turning green of the pedestrian TL and vice versa.
-The individual models and interactions are then transformed into a behavioral specification for the global system.
-% Overkill if there is only one behavioral language.
-The transformation might result in a graph transformation (GT) system.
-Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by synchronization.
-% TODO: Add executable GT with a tutorial to the artifacts. Maybe also Maude one.
-The executable GT specification for the running example can be found in \cite{timkrauterArtifactsCoordination2024}.
-
-\textbf{Classification:} 
-
-\subsection{MontiArc} \label{subsec:montiArc}
+\subsection{Co-Simulation: DACCOSIM} % Co-Simulation representative
+\subsection{Coordination Language: Lingua Franca/Linda} % Coordination language representative
+\subsection{ADL: MontiArc} \label{subsec:montiArc}
 First, we will explain MontiArc by implementing the running example and then classify it using our feature model.
 
 \textbf{Running example:} To implement the example, we define a component for the \textsf{PedestrianCrossing} with two subcomponents for each type of TL.
@@ -507,9 +482,35 @@ The executable source code of the MontiArc implementation for the running exampl
 
 % TODO: Describe the classification here!
 \textbf{Classification:} bla
-\subsection{Lingua Franca/Linda} % Coordination language representative
-\subsection{Co-Simulation example} % Co-Simulation representative
-\subsection{BCOOL} % Coordination framework representative
+
+\subsection{Coordination framework: BCoorLang}
+First, we will explain BCoorLang by implementing the running example and then we classify it using our feature model.
+
+\textbf{Running example:} In BCoorLang there are two fundamental concepts: \textit{state} and \textit{state-changing elements}, which must be defined for each behavioral language.
+For state machines, these are defined in \cite{krauterBehavioralConsistencyMultimodeling2023}.
+State-changing elements act as a uniform behavioral interface to define interactions between heterogeneous models.
+
+\autoref{lst:interactions} shows how the synchronizations required by the running example can be implemented as \textit{interactions} in BCoorLang.
+The interactions use the system relationship model defined earlier in \autoref{fig:exampleBCoorLang} and synchronize specific transitions in the state machines.
+Transitions are the state-changing elements in state machines, see  \cite{krauterBehavioralConsistencyMultimodeling2023}.
+
+\lstinputlisting[
+label=lst:interactions,
+language=BCoorLang,
+caption=Interactions for the running example]{listings/BCoordLang.txt}
+
+\autoref{lst:interactions} synchronizes the turning red of the car TL with the turning green of the pedestrian TL and vice versa.
+The individual models and interactions are then transformed into a behavioral specification for the global system.
+% Overkill if there is only one behavioral language.
+The transformation might result in a graph transformation (GT) system.
+Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by synchronization.
+% TODO: Add executable GT with a tutorial to the artifacts. Maybe also Maude one.
+The executable GT specification for the running example can be found in \cite{timkrauterArtifactsCoordination2024}.
+
+\textbf{Classification:} 
+
+
+
 
 \section{Findings} % or Classification results --> Interprete the previous classification
 % Clusters of features for ADL, Coordination language, Co-Simulation, and coordination frameworks?
