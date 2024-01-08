@@ -401,12 +401,13 @@ Coordination frameworks typically convert heterogeneous components to a common f
 
 
 \section{Classification} \label{sec:classifications}
-We will use one representative for ADLs, coordination languages, co-simulation tools, and coordination frameworks to show their unique features in our feature model.
+\autoref{tab:classification} shows the classification of four different coordination approaches.
+% TODO: Add a citation for each approach
+Each approach represents a co-simulation tool (\textit{DACCOSIM}), coordination language (\textit{Linda}), ADL (\textit{MontiArc}), or coordination framework (\textit{BCoorLang}).
 However, we classified more than just the four representatives chosen.
+All classification are available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
 
-% Maybe add a big table of classifications here and then explain them in each section
-\autoref{tab:classification} shows the classification of the four approaches.
-
+% Could even have two tables for better sizing and maybe adding 1-2 approaches.
 % TODO: Double check DACCOSIM and make sure it is the best co-simulation pick.
 \begin{table}
 	\centering
@@ -420,29 +421,27 @@ However, we classified more than just the four representatives chosen.
 			hline{7, 11} = {-}{dashed},
 			vline{2-Y} = {2-Z}{solid},
 		}
-		\diagbox[linewidth=1.1pt, width=4.4cm,font=\bfseries]{Feature}{Approach} & BCoorLang & MontiArc & Linda & DACCOSIM \\
+		\diagbox[linewidth=1.1pt, width=4.4cm,font=\bfseries]{Feature}{Approach} & BCoorLang & Linda & MontiArc & DACCOSIM \\
 		
 		\textbf{Coordination} \\
-		\hspace{2mm} Definition & Dedicated elements & Architecture based & Name based & Name based \\
+		\hspace{2mm} Definition & Dedicated elements & Name based & Architecture based & Name based \\
 		\hspace{2mm} Elements of coordination & Event-Scheduling & Data-driven & Data-driven & Data-driven \\ % everything ends in coordination here in the feature model
 		\hspace{2mm} Expressiveness & Predefined & Predefined & Predefined & Predefined \\
-		\hspace{2mm} MoC & Logical Time & Logical Time, Causal & Causal & Causal \\
+		\hspace{2mm} MoC & Timed:Logical & Causal & Timed:Logical, Causal & Causal \\
 		
 		\textbf{Goal} \\
-		\hspace{2mm} Coordinated simulation & + & + & + & - \\
-		\hspace{2mm} Coordinated execution & - & - & - & + \\
+		\hspace{2mm} Coordinated simulation & + & - & + & - \\
+		\hspace{2mm} Coordinated execution & - & + & - & + \\
 		\hspace{2mm} Formal verification & Custom properties & - & - & - \\
 		
 		\textbf{Properties} \\
-		\hspace{2mm} Domain & Discrete event & Discrete event & Discrete event & Hybrid? \\
+		\hspace{2mm} Domain & Discrete event & Discrete event & Discrete event & Hybrid \\
 		\hspace{2mm} Coordination specification & Non-intrusive & Intrusive & Intrusive & Intrusive \\
 		\hspace{2mm} Component languages & Heterogeneous & Homogeneous & Homogeneous & Homogeneous \\	
 		\hspace{2mm} Implementation & Formal language & PL & PL & PL \\
 	\end{tblr}
 	}
 \end{table}
-
-The raw data, including all other classifications, are available in \cite{timkrauterArtifactsCoordination2024}.
 
 \subsection{BCoorLang}
 First, we will explain BCoorLang by implementing the running example and then we classify it using our feature model.
