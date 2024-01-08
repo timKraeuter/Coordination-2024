@@ -421,24 +421,24 @@ All classification are available in the artifacts of this paper \cite{timkrauter
 			hline{7, 11} = {-}{dashed},
 			vline{2-Y} = {2-Z}{solid},
 		}
-		\diagbox[linewidth=1.1pt, width=4.4cm,font=\bfseries]{Feature}{Approach} & BCoorLang & Linda & MontiArc & DACCOSIM \\
+		\diagbox[linewidth=1.1pt, width=4.4cm,font=\bfseries]{Feature}{Approach} & DACCOSIM & Linda & MontiArc & BCoorLang \\
 		
 		\textbf{Coordination} \\
-		\hspace{2mm} Definition & Dedicated elements & Name based & Architecture based & Name based \\
-		\hspace{2mm} Elements of coordination & Event-Scheduling & Data-driven & Data-driven & Data-driven \\ % everything ends in coordination here in the feature model
+		\hspace{2mm} Definition & Name based & Name based & Architecture based & Dedicated elements \\
+		\hspace{2mm} Elements of coordination & Data-driven & Data-driven & Data-driven & Event-Scheduling \\ % everything ends in coordination here in the feature model
 		\hspace{2mm} Expressiveness & Predefined & Predefined & Predefined & Predefined \\
-		\hspace{2mm} MoC & Timed:Logical & Causal & Timed:Logical, Causal & Causal \\
+		\hspace{2mm} MoC & Causal & Causal & Timed:Logical, Causal & Timed:Logical \\
 		
 		\textbf{Goal} \\
-		\hspace{2mm} Coordinated simulation & + & - & + & - \\
-		\hspace{2mm} Coordinated execution & - & + & - & + \\
-		\hspace{2mm} Formal verification & Custom properties & - & - & - \\
+		\hspace{2mm} Coordinated simulation & + & - & + & + \\
+		\hspace{2mm} Coordinated execution & - & + & - & - \\
+		\hspace{2mm} Formal verification & - & - & - & Custom properties \\
 		
 		\textbf{Properties} \\
-		\hspace{2mm} Domain & Discrete event & Discrete event & Discrete event & Hybrid \\
-		\hspace{2mm} Coordination specification & Non-intrusive & Intrusive & Intrusive & Intrusive \\
-		\hspace{2mm} Component languages & Heterogeneous & Homogeneous & Homogeneous & Homogeneous \\	
-		\hspace{2mm} Implementation & Formal language & PL & PL & PL \\
+		\hspace{2mm} Domain & Hybrid & Discrete event & Discrete event & Discrete event \\
+		\hspace{2mm} Coordination specification & Intrusive & Intrusive & Intrusive & Non-Intrusive \\
+		\hspace{2mm} Component languages & Homogeneous & Homogeneous & Homogeneous & Heterogeneous \\	
+		\hspace{2mm} Implementation & PL & PL & PL & Formal language \\
 	\end{tblr}
 	}
 \end{table}
