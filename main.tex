@@ -407,6 +407,7 @@ However, we classified more than just the four representatives chosen.
 % Maybe add a big table of classifications here and then explain them in each section
 \autoref{tab:classification} shows the classification of the four approaches.
 
+% TODO: Double check DACCOSIM and make sure it is the best co-simulation pick.
 \begin{table}
 	\centering
 	\caption{Approach classification}
@@ -416,22 +417,23 @@ However, we classified more than just the four representatives chosen.
 			column{2-Z} = {c},
 			rows = {5mm},
 			hline{1, 2, Z} = {-}{1.2pt, solid}, % Z is the last row/column
-			hline{6, 10} = {-}{dashed},
+			hline{7, 11} = {-}{dashed},
 			vline{2-Y} = {2-Z}{solid},
 		}
 		\diagbox[linewidth=1.1pt, width=4.4cm,font=\bfseries]{Feature}{Approach} & BCoorLang & MontiArc & Linda & DACCOSIM \\
 		
-		\textbf{Coordination} & &  & &  \\
-		\hspace{2mm} Definition &  &  &  & \\
-		\hspace{2mm} Elements of coordination &  &  &  & \\
-		\hspace{2mm} Semantics &  &  &  & \\
+		\textbf{Coordination} \\
+		\hspace{2mm} Definition & Dedicated elements & Architecture based & Name based & Name based \\
+		\hspace{2mm} Elements of coordination & Event-Scheduling & Data-driven & Data-driven & Data-driven \\ % everything ends in coordination here in the feature model
+		\hspace{2mm} Expressiveness & Predefined & Predefined & Predefined & Predefined \\
+		\hspace{2mm} MoC & Logical Time & Logical Time, Causal & Causal & Causal \\
 		
-		\textbf{Goal} & & & & \\
-		\hspace{2mm} Coordinated simulation &  &  &  & \\
-		\hspace{2mm} Coordinated execution &  &  &  & \\
-		\hspace{2mm} Formal verification &  &  &  & \\
+		\textbf{Goal} \\
+		\hspace{2mm} Coordinated simulation & + & + & + & - \\
+		\hspace{2mm} Coordinated execution & - & - & - & + \\
+		\hspace{2mm} Formal verification & Custom properties & - & - & - \\
 		
-		\textbf{Properties} & & & & \\
+		\textbf{Properties} \\
 		\hspace{2mm} Domain & Discrete event & Discrete event & Discrete event & Hybrid? \\
 		\hspace{2mm} Coordination specification & Non-intrusive & Intrusive & Intrusive & Intrusive \\
 		\hspace{2mm} Component languages & Heterogeneous & Homogeneous & Homogeneous & Homogeneous \\	
@@ -440,8 +442,33 @@ However, we classified more than just the four representatives chosen.
 	}
 \end{table}
 
-% Insert a number instead of x here.
-The raw data, including all our other x classifications, are in \cite{timkrauterArtifactsCoordination2024}.
+The raw data, including all other classifications, are available in \cite{timkrauterArtifactsCoordination2024}.
+
+\subsection{BCoorLang}
+First, we will explain BCoorLang by implementing the running example and then we classify it using our feature model.
+
+\textbf{Running example:} In BCoorLang there are two fundamental concepts: \textit{state} and \textit{state-changing elements}, which must be defined for each behavioral language.
+For state machines, these are defined in \cite{krauterBehavioralConsistencyMultimodeling2023}.
+State-changing elements act as a uniform behavioral interface to define interactions between heterogeneous models.
+
+\autoref{lst:interactions} shows how the synchronizations required by the running example can be implemented as \textit{interactions} in BCoorLang.
+The interactions use the system relationship model defined earlier in \autoref{fig:exampleBCoorLang} and synchronize specific transitions in the state machines.
+Transitions are the state-changing elements in state machines, see  \cite{krauterBehavioralConsistencyMultimodeling2023}.
+
+\lstinputlisting[
+label=lst:interactions,
+language=BCoorLang,
+caption=Interactions for the running example]{listings/BCoordLang.txt}
+
+\autoref{lst:interactions} synchronizes the turning red of the car TL with the turning green of the pedestrian TL and vice versa.
+The individual models and interactions are then transformed into a behavioral specification for the global system.
+% Overkill if there is only one behavioral language.
+The transformation might result in a graph transformation (GT) system.
+Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by synchronization.
+% TODO: Add executable GT with a tutorial to the artifacts. Maybe also Maude one.
+The executable GT specification for the running example can be found in \cite{timkrauterArtifactsCoordination2024}.
+
+\textbf{Classification:} 
 
 \subsection{MontiArc} \label{subsec:montiArc}
 First, we will explain MontiArc by implementing the running example and then classify it using our feature model.
@@ -476,35 +503,9 @@ The executable source code of the MontiArc implementation for the running exampl
 
 % TODO: Describe the classification here!
 \textbf{Classification:} bla
-\subsection{Lingua Franca} % Coordination language representative
+\subsection{Lingua Franca/Linda} % Coordination language representative
 \subsection{Co-Simulation example} % Co-Simulation representative
 \subsection{BCOOL} % Coordination framework representative
-\subsection{BCoorLang}
-First, we will explain BCoorLang by implementing the running example and then we classify it using our feature model.
-
-\textbf{Running example:} In BCoorLang there are two fundamental concepts: \textit{state} and \textit{state-changing elements}, which must be defined for each behavioral language.
-For state machines, these are defined in \cite{krauterBehavioralConsistencyMultimodeling2023}.
-State-changing elements act as a uniform behavioral interface to define interactions between heterogeneous models.
-
-\autoref{lst:interactions} shows how the synchronizations required by the running example can be implemented as \textit{interactions} in BCoorLang.
-The interactions use the system relationship model defined earlier in \autoref{fig:exampleBCoorLang} and synchronize specific transitions in the state machines.
-Transitions are the state-changing elements in state machines, see  \cite{krauterBehavioralConsistencyMultimodeling2023}.
-
-\lstinputlisting[
-label=lst:interactions,
-language=BCoorLang,
-caption=Interactions for the running example]{listings/BCoordLang.txt}
-
-\autoref{lst:interactions} synchronizes the turning red of the car TL with the turning green of the pedestrian TL and vice versa.
-The individual models and interactions are then transformed into a behavioral specification for the global system.
-% Overkill if there is only one behavioral language.
-The transformation might result in a graph transformation (GT) system.
-Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by synchronization.
-% TODO: Add executable GT with a tutorial to the artifacts. Maybe also Maude one.
-The executable GT specification for the running example can be found in \cite{timkrauterArtifactsCoordination2024}.
-
-\textbf{Classification:} 
-
 
 \section{Findings} % or Classification results --> Interprete the previous classification
 % Clusters of features for ADL, Coordination language, Co-Simulation, and coordination frameworks?
