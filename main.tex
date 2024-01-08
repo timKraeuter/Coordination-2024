@@ -247,7 +247,7 @@ These interfaces are defined for each language or generally for all languages an
 Examples of coordination frameworks are Behavioral Coordination Operator Language (BCOoL) \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015} and BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
 % Ptolemy?
 
-% BCoorLang is the new name. A bit close to BCOoL.
+% BCoorLang is the new name. It's a bit close to BCOoL.
 For example, using BCoorLang, one would define a \textit{system relationship model}, see \autoref{fig:exampleBCoorLang}, which defines existing behavioral models and their relations similar to the architectural configuration of ADLs.
 
 \begin{figure}[ht]
@@ -262,8 +262,8 @@ To describe the behavior of car TL and pedestrian TL, one can use the state mach
 
 
 \section{Feature model} \label{sec:features}
-% Add some kind of introduction: Coordination approaches have only been analyzed separatly (cite studies co-simulation, adl, something about coordinatino languages) but never compared/aligned in the broader context.
-% We try to find overlaps and unique features (differntiators) between the different approaches.
+% Add some introduction: Coordination approaches have only been analyzed separately (cite studies co-simulation, adl, something about coordination languages) but never compared/aligned in the broader context.
+% We try to find overlaps and unique features (differentiators) between the different approaches.
 
 The feature model for coordination approaches is shown in \autoref{fig:featureModelOverview} where each coordination approach has three main feature sets: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
 
@@ -278,7 +278,7 @@ In the following sections, we will describe each feature set in detail.
 % TODO: Add the full feature model as an artifact (at the end when the feature model is stable).
 A complete diagram of the feature model is contained in \cite{timkrauterArtifactsCoordination2024}.
 
-% TODO: Make this section more readable. Better examples, explanations and linking of paragraphs.
+% TODO: Make this section more readable. Better examples, explanations, and linking of paragraphs.
 \subsection{Coordination}
 
 \autoref{fig:coordinationFeature} shows the \textbf {Coordination} feature, which consists of \textbf{Definition}, \textbf{Elements of coordination}, and \textbf{Semantics}.
@@ -292,7 +292,7 @@ A complete diagram of the feature model is contained in \cite{timkrauterArtifact
 \end{figure}
 
 \textbf{Definition} The definition of coordination can either be \textit{explicit} or \textit{implicit}.
-Implicit definition is usually based on the names of model elements.
+An implicit definition is usually based on the names of model elements.
 For example, one could synchronize transitions of state machines if they have identical names.
 
 Explicit definition is either \textit{query based} or \textit{structural}.
@@ -319,24 +319,26 @@ We define three MoCs: \textit{timed}, \textit{causal}, \textit{a-causal}, where 
 The causal MoC means that the coordination approach can define \textit{causal} relationships between events of different components.
 For example, a transition in a state machine raises an event that causes a reaction in an activity diagram due to the defined coordination.
 % A-causal
-A-causal MoC are employed in Co-Simulation, which can deal with sets of differential equations.
-For example, a variable in one equation should be equal to a variable in a different equation.
-One variable does not cause the other to change they should just be equal.
+A-causal MoC is employed in Co-Simulation, which can deal with sets of differential equations.
+For example, a variable in one equation should equal a variable in a different equation.
+One variable does not cause the other to change.
+Instead, they should be equal at any time.
 
 % Timed::Logical
 \textit{Logical} time means that coordination approaches define when events/state changes happen.
 Typically, one defines that events take place simultaneously or that one event causes another event or causes another event with a fixed delay.
-For example, a delay could be 50 milliseconds of logical time, which corresponds to time in a simulation that can run arbitrarily fast. 
+For example, a delay could be 50 milliseconds of logical time, corresponding to time in a simulation that can run arbitrarily fast. 
 % Timed::Physical --> other term wall-clock time see gomesCoSimulationSurvey2019 and its citations
 In contrast, \textit{physical} time describes time passing in the physical world.
-One can, for example, define that one event should happen 50 milliseconds after another event.
+One can, for example, define that one event should happen 50 milliseconds after another.
 In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, logical time "chases" physical time, i.e., logical time tries to match the physical time provided by the execution platform.
 % Logical time, however, always lags behind physical time.
 
 
 \subsection{Goal} % Or even call it motivation
 We identified three different \textit{goals} of coordination approaches: \textbf{coordinated simulation}, \textbf{coordinated execution}, and \textbf{formal verification}, see \autoref{fig:goalFeature}.
-Usually approaches focus on one goal, for example co-simulation tools provide a coordinated simulation, while others such as coordination frameworks might provide formal verification in addition to simulation.
+Usually, approaches focus on one goal.
+For example, co-simulation tools provide a coordinated simulation, while others, such as coordination frameworks, might provide formal verification in addition to simulation.
 However, which types of dynamic systems can be simulated varies and is discussed in the next section.
 
 \begin{figure}[ht]
@@ -349,18 +351,18 @@ However, which types of dynamic systems can be simulated varies and is discussed
 % TODO: Introduce somewhere that component is equal to the behavioral model. Or means the same.
 \textbf{Coordinated simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
 A coordinated simulation is useful because the composition of multiple components can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
-Emergent behavior can then be dealt with early in the development process before implementing each component and its interactions.
+Emergent behavior can be dealt with early in development before implementing each component and its interactions.
 Co-simulation tools are an example of approaches that have coordinated simulation as their goal.
 
 \textbf{Coordinated execution} In contrast to coordinated simulation, which often only aims to find errors, the goal of coordination approaches such as coordination languages is a coordinated execution.
-Approaches with this goal are not only used during development but also provide coordination capabilities when a composite system is deployed and executed in a production setting.
+Approaches with this goal are used during development and provide coordination capabilities when a composite system is deployed and executed in a production setting.
 
 \textbf{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification.
 Formal verification can be used before the system is deployed (\textit{model checking}) or while it is running (\textit{runtime monitoring}).
 
 
 
-For model checking, we found coordination approaches that check \textit{predefined properties} or \textit{custom properties}.
+Regarding model checking, we found coordination approaches that check \textit{predefined properties} or \textit{custom properties}.
 % Wright is checking deadlock freedom of component interactions, i.e., connectors. (Definition 5)
 For example, the ADL Wright \cite{allenFormalBasisArchitectural1997} can check \textit{deadlock freedom} of component interactions.
 % Darwin and we are checking custom properties: mageeBehaviourAnalysisSoftware1999 krauterBehavioralConsistencyMultimodeling2023
@@ -377,15 +379,15 @@ We identified several common \textit{properties} when analyzing coordination app
 	\label{fig:propertiesFeature}
 \end{figure}
 
-% Maybe add some examples and description here.
+% Maybe add some examples and descriptions here.
 \textbf{Domain} Coordination approaches operate in different domains, similar to the categorization of co-simulation approaches in \cite{gomesCoSimulationSurvey2019}.
-\textit{Discrete event} means a coordination approach assumes discrete state changes, while in the \textit{continuous time} domain variables can be continuous due to differential equations.
-In a \textit{hybrid} domain both discrete and continuous variables are mixed.
+\textit{Discrete event} means a coordination approach assumes discrete state changes, while in the \textit{continuous time} domain, variables can be continuous due to differential equations.
+In a \textit{hybrid} domain, discrete and continuous variables are mixed.
 
-The choice of a coordination approach is dependent on the nature of the system at hand.
-For instance, software systems usually can be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
+The choice of a coordination approach depends on the nature of the system at hand.
+For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
 
-% Should be clear from earlier that component is a program or behavioral model.
+% It should be clear from earlier that the component is a program or behavioral model.
 \textbf{Coordination specification} Coordination can either be defined inside components (\textit{intrusive}), i.e., one has to change the component or outside of components (\textit{non-intrusive}).
 
 
@@ -405,10 +407,10 @@ Coordination frameworks typically convert heterogeneous components to a common f
 % TODO: Add a citation for each approach
 Each approach represents a co-simulation tool (\textit{DACCOSIM}), coordination language (\textit{Linda}), ADL (\textit{MontiArc}), or coordination framework (\textit{BCoorLang}).
 However, we classified more than just the four representatives chosen.
-All classification are available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
+All classifications are available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
 
-% Could even have two tables for better sizing and maybe adding 1-2 approaches.
-% TODO: Double check DACCOSIM and make sure it is the best co-simulation pick.
+% Could even have two tables for better sizing and add 1-2 approaches.
+% TODO: Double-check DACCOSIM and ensure it is the best co-simulation pick.
 \begin{table}
 	\centering
 	\caption{Approach classification}
@@ -494,7 +496,7 @@ language=MontiArc,
 caption=MontiArc component for the pedestrian TL.]{listings/MontiArc-PedestrianTL.arc}
 
 Synchronization of the two components is achieved due to the ports being synchronized.
-This means, transitions that send and receive events through these ports are executed atomically.
+Transitions that send and receive events through these ports are executed atomically.
 Thus, when the \textsf{CarTL} switches to \textsf{Green}, the \textsf{PedestrianTL} switches to \textsf{Red} and vice versa.
 
 Inspecting the execution trace when running the implementation for 20 steps indicates that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by the synchronization.
@@ -508,7 +510,7 @@ The executable source code of the MontiArc implementation for the running exampl
 
 \section{Findings} % or Classification results --> Interprete the previous classification
 % Clusters of features for ADL, Coordination language, Co-Simulation, and coordination frameworks?
-% Maybe they can somehow be visualized nicely using some clusters with overlaps (venn diagram in python or even upset plots)
+% Maybe they can somehow be visualized nicely using some clusters with overlaps (Venn diagram in Python or even upset plots)
 
 % Commonalities between clusters
 
