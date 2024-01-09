@@ -28,5 +28,7 @@ for approach in approach_names:
 
 venn3(approach_features, approach_names)
 
-# plt.savefig("coordination_venn3.svg", format="svg", bbox_inches="tight")
+filename = '_'.join(approach_names) + "_venn"
+
+plt.savefig(filename + ".svg", format="svg", bbox_inches="tight")
 plt.show()
