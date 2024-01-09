@@ -19,12 +19,9 @@ df = pd.read_excel('../classification.xlsx')
 
 approaches = []
 for approach in args:
-  print(approach)
   # Filter nan, to lowercase, to array.
   values = df[approach][df[approach].notnull()].str.lower().values
   approaches.append(set(values))
-
-print(approaches)
 
 venn3(approaches, args)
 
