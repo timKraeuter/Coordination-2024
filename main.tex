@@ -221,6 +221,7 @@ The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} component is omitte
 \subsection{Coordination languages}
 % Define Coordination language and give examples
 % Cite and survey
+\cite{papadopoulosCoordinationModelsLanguages1998}
 
 \subsection{Co-Simulation tools}
 % Define Co-Simulation and give examples
@@ -411,10 +412,11 @@ An alternative is a \textit{unified execution} either using the same underlying 
 Coordination frameworks typically convert heterogeneous components to a common formal language.
 
 
-\section{Classification} \label{sec:classifications}
-\autoref{tab:classification} shows the classification of four different coordination approaches.
+\section{Application of the feature model} \label{sec:application}
+\autoref{tab:classification} shows the application of our feature model to four different coordination approaches.
 % TODO: Add a citation for each approach
-Each approach represents a co-simulation tool (\textit{DACCOSIM}), coordination language (\textit{Linda}), ADL (\textit{MontiArc}), or coordination framework (\textit{BCoorLang}).
+Each approach represents a co-simulation tool (\textit{DACCOSIM}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc}\cite{}), or coordination framework (\textit{BCoorLang}).
+% We did we choose these?
 However, we classified more than just the four representatives chosen.
 All classifications are available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
 
@@ -454,41 +456,47 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 	}
 \end{table}
 
-% Move most of the running example implementation out, I think.
-\subsection{Co-Simulation: DACCOSIM} % Co-Simulation representative
-\subsection{Coordination Language: Lingua Franca/Linda} % Coordination language representative
-
-\subsection{ADL: MontiArc} \label{subsec:montiArc}
-We classify MontiArc using our feature model.
-
-
-\subsection{Coordination framework: BCoorLang}
-We classify BCoorLang using our feature model.
-
-
-\section{Findings} % Interprete the previous classification
-% Typical features (clusters) for ADLs, Coordination language, Co-Simulation, and coordination frameworks.
-% Maybe they can somehow be visualized nicely using some clusters with overlaps (Venn diagram in Python or even upset plots)
+We compare BCoordLang, MontiArc, and Linda in \autoref{fig:venn-Linda}.
+The figure shows a Venn diagram comparing the feature sets of each approach, where the numbers in each colored part state the number of features contained.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/venn_linda}
 	\caption{Feature comparison: BCoordLang, MontiArc, and Linda}
-	\label{fig:venn1}
+	\label{fig:venn-Linda}
 \end{figure}
 
+For example, the one at the bottom of \autoref{fig:venn-Linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the middle declares that all three approaches share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
+All classification data and scripts to generate diagrams such as \autoref{fig:venn-Linda} are included in \cite{timkrauterArtifactsCoordination2024}.
+
+
+
+Similarly, \autoref{fig:venn-DACCOSIM} compares the features of BCoordLang and MontiArc with the co-simulation tool DACCOSIM.
+
 \begin{figure}[ht]
-\centering
-\includegraphics[width=0.5\textwidth]{images/venn_daccosim}
-\caption{Feature comparison: BCoordLang, MontiArc, and DACCOSIM}
-\label{fig:venn2}
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/venn_daccosim}
+	\caption{Feature comparison: BCoordLang, MontiArc, and DACCOSIM}
+	\label{fig:venn-DACCOSIM}
 \end{figure}
+
+
+\section{Findings} % Interprete the previous classification
+% Typical features (clusters) for ADLs, Coordination language, Co-Simulation, and coordination frameworks.
+% Maybe they can somehow be visualized nicely using some clusters with overlaps (Venn diagrams, Upset plots?)
+
 
 % Commonalities between clusters
 
 % Differences between clusters
 
 % What are the unique features of each approach? Does this match their intended usage scenarios?
+
+\textbf{Coordination frameworks do not support Data-Exchange:} All coordination frameworks we have encountered support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
+This is most likely due to data exchange being difficult to achieve when heterogeneous components are allowed.
+However, data exchange is omnipotent in real-world systems, which is why it is the main coordination mechanism used in co-simulation tools and coordination languages.
+Thus, for coordination frameworks to be employed in real-world scenarios they must support data exchange.
+Furthermore, it is identified as important future work in \cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBCOolBehavioralCoordination2016}.
 
 \section{Conclusion \& future work} \label{sec:conclusion}
 
