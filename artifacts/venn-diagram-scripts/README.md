@@ -16,7 +16,7 @@ The console outputs will **contain** which **features are overlapping/unique**.
 
 **Command output:**
 
-> BCoordLang's unique features (6): {'formal language', 'event-scheduling', 'non-intrusive', 'heterogeneous', 'dedicated elements', 'custom properties'}
+> BCoordLang's unique features (6): {'formal language', 'event-scheduling', 'non-intrusive', 'heterogeneous', 'dedicated elements', 'custom properties'}    
 > BCoordLang's and Linda's common features (0) without MontiArc: set()                                                                          
 > BCoordLang's and MontiArc's common features (2) without Linda: {'logical', 'simulation'}
 >
