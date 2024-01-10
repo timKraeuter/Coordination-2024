@@ -414,10 +414,9 @@ Coordination frameworks typically convert heterogeneous components to a common f
 
 \section{Application of the feature model} \label{sec:application}
 \autoref{tab:classification} shows the application of our feature model to four different coordination approaches.
-% TODO: Add a citation for each approach
-Each approach represents a co-simulation tool (\textit{DACCOSIM}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc}\cite{}), or coordination framework (\textit{BCoorLang}).
-% We did we choose these?
-However, we classified more than just the four representatives chosen.
+Each approach represents a co-simulation tool (\textit{DACCOSIM}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc} \cite{haberMontiArcArchitecturalModeling2014}), or coordination framework (\textit{BCoorLang} \cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
+% TODO: Why did we choose these? Representative feature sets? Recent publciations? --> Not Linda
+However, in total we classified 16 approaches including the four representatives chosen.
 All classifications are available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
 
 % Could even have two tables for better sizing and add 1-2 approaches.
@@ -440,7 +439,7 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 		\hspace{2mm} Definition & Name based & Name based & Architecture based & Dedicated elements \\
 		\hspace{2mm} Mechanism & Data-Exchange & Data-Exchange & Data-Exchange & Event-Scheduling \\ % everything ends in coordination here in the feature model
 		\hspace{2mm} Expressiveness & Predefined & Predefined & Predefined & Predefined \\
-		\hspace{2mm} MoC & Causal & Causal & Timed:Logical, Causal & Timed:Logical \\
+		\hspace{2mm} MoC & A-causal, Causal & Causal & Timed:Logical, Causal & Timed:Logical \\
 		
 		\textbf{Goal} \\
 		\hspace{2mm} Simulation & + & - & + & + \\
@@ -451,7 +450,7 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 		\hspace{2mm} Domain & Hybrid & Discrete event & Discrete event & Discrete event \\
 		\hspace{2mm} Specification & Intrusive & Intrusive & Intrusive & Non-Intrusive \\
 		\hspace{2mm} Component languages & Homogeneous & Homogeneous & Homogeneous & Heterogeneous \\	
-		\hspace{2mm} Implementation & PL & PL & PL & Formal language \\
+		\hspace{2mm} Implementation & Co-Simulation & PL & PL & Formal language \\
 	\end{tblr}
 	}
 \end{table}
@@ -469,9 +468,16 @@ The figure shows a Venn diagram comparing the feature sets of each approach, whe
 For example, the one at the bottom of \autoref{fig:venn-Linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the middle declares that all three approaches share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
 All classification data and scripts to generate diagrams such as \autoref{fig:venn-Linda} are included in \cite{timkrauterArtifactsCoordination2024}.
 
+From \autoref{fig:venn-Linda} one can see that most Linda features are overlapping with either BCoorLang or MontiArc.
+Only \textsf{Execution} as a goal and \textsf{Definition:Name based} for coordination are not shared.
+This makes sense since Linda and other initial coordination languages have greatly influenced the development of ADLs and coordination frameworks which happened afterwards.
+Furthermore, one can see that coordination frameworks, i.e, BCoordLang (the diagram is similar for BCOol \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
+Multiple unique features such as heterogeneous component languages and an underlying implementation in a formal language which permit formal verification exist,
 
 
 Similarly, \autoref{fig:venn-DACCOSIM} compares the features of BCoordLang and MontiArc with the co-simulation tool DACCOSIM.
+One can see that BCoordLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
+Co-Simulation approaches like DACCOSIM have unique features such as an A-causal MoC and a hybrid domain.
 
 \begin{figure}[ht]
 	\centering
@@ -491,6 +497,8 @@ Similarly, \autoref{fig:venn-DACCOSIM} compares the features of BCoordLang and M
 % Differences between clusters
 
 % What are the unique features of each approach? Does this match their intended usage scenarios?
+
+% ADLs, coordination languages and coordination frameworks usually apply to software systems, while co-simulation applies to hybrid systems, i.e., cyber-physical systems. Thus, they support different MoC, domains and have different goals.
 
 \textbf{Coordination frameworks do not support Data-Exchange:} All coordination frameworks we have encountered support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
 This is most likely due to data exchange being difficult to achieve when heterogeneous components are allowed.
