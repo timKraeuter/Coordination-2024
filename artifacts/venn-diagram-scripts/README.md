@@ -11,8 +11,7 @@
 ```bash
 py Venn_3.py BCoordLang Linda MontiArc
 ```
-Generates the **first Venn diagram** in the paper.
-See sample output diagram in `./BCoordLang_BCOol_MontiArc_venn.svg`.
+Generates the **first Venn diagram** in the paper (see output [diagram](./BCoordLang_Linda_MontiArc_venn.svg)).
 The console outputs will **contain** which **features are overlapping/unique**.
 
 **Command output:**
@@ -34,8 +33,7 @@ The console outputs will **contain** which **features are overlapping/unique**.
 ```bash
 py Venn_3.py BCoordLang DACCOSIM MontiArc
 ```
-Generates the **second Venn diagram** in the paper.
-See sample output diagram in `./BCoordLang_DACCOSIM_MontiArc_venn.svg`.
+Generates the **second Venn diagram** in the paper (see output [diagram](./BCoordLang_DACCOSIM_MontiArc_venn.svg)).
 The console outputs will **contain** which **features are overlapping/unique**.
 
 **Command output:**
