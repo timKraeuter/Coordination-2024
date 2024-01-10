@@ -38,12 +38,12 @@ The console outputs will **contain** which **features are overlapping/unique**.
 
 **Command output:**
 
-> BCoordLang's unique features (5): {'custom properties', 'dedicated elements', 'formal language', 'non-intrusive', 'event-scheduling'}
-> BCoordLang's and DACCOSIM's common features (1) without MontiArc: {'heterogeneous'}                          
-> BCoordLang's and MontiArc's common features (3) without DACCOSIM: {'discrete event', 'logical', 'predefined'}
+> BCoordLang's unique features (6): {'heterogeneous', 'non-intrusive', 'event-scheduling', 'formal language', 'custom properties', 'dedicated elements'}    
+> BCoordLang's and DACCOSIM's common features (0) without MontiArc: set()    
+> BCoordLang's and MontiArc's common features (2) without DACCOSIM: {'discrete event', 'logical'} 
 > 
-> DACCOSIM's unique features (5): {'co-simulation', 'hybrid?', 'predefined?', '?', '-'}
-> DACCOSIM's and MontiArc's common features (3) without BCoordLang: {'causal', 'intrusive', 'data-exchange'}
+> DACCOSIM's unique features (3): {'hybrid', 'co-simulation', 'name based'}   
+> DACCOSIM's and MontiArc's common features (4) without BCoordLang: {'causal', 'data-exchange', 'intrusive', 'homogeneous'} 
 > 
-> MontiArc's unique features (3): {'programming language', 'homogeneous', 'architecture based'}
-> Common features (1): {'simulation'}
+> MontiArc's unique features (2): {'architecture based', 'programming language'} 
+> Common features (2): {'predefined', 'simulation'} 
