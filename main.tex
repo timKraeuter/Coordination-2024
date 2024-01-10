@@ -215,7 +215,8 @@ caption=MontiArc component for the pedestrian crossing]{listings/MontiArc-Pedest
 It defines three components: \textsf{PedestrianCrossing}, \textsf{PedestrianTL}, and \textsf{CarTL}.
 Furthermore, the components \textsf{PedestrianTL} and \textsf{CarTL} define ports (line 10 and 15).
 The \textit{architectural configuration} is defined in the \textsf{PedestrianCrossing} component (lines 1-7), which links the ports of the \textsf{PedestrianTL} and \textsf{CarTL} using a \textit{connector} (line 6).
-The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} component is omitted but given later in \autoref{subsec:montiArc}.
+% TODO: Add the full example in the artifacts (see pdf on overleaf)
+The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} component is omitted but given in \cite{timkrauterArtifactsCoordination2024}.
 
 \subsection{Coordination languages}
 % Define Coordination language and give examples
@@ -456,72 +457,32 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 % Move most of the running example implementation out, I think.
 \subsection{Co-Simulation: DACCOSIM} % Co-Simulation representative
 \subsection{Coordination Language: Lingua Franca/Linda} % Coordination language representative
+
 \subsection{ADL: MontiArc} \label{subsec:montiArc}
-First, we will explain MontiArc by implementing the running example and then classify it using our feature model.
+We classify MontiArc using our feature model.
 
-\textbf{Running example:} To implement the example, we define a component for the \textsf{PedestrianCrossing} with two subcomponents for each type of TL.
-The pedestrian crossing component is already defined in \autoref{lst:MontiArc-Crossing} in \autoref{subsec:adl}.
-
-The \textsf{CarTL} component is active.
-It controls the passive \textsf{PedestrianTL} component by sending events through its output port, which is bound to the input port of the \textsf{PedestrianTL}, see the configuration in \autoref{lst:MontiArc-Crossing}.
-\autoref{lst:MontiArc-PTL} shows the \textsf{CarTL} component.
-
-\lstinputlisting[
-label=lst:MontiArc-PTL,
-language=MontiArc,
-caption=MontiArc component for the car TL.]{listings/MontiArc-CarTL.arc}
-
-The \textsf{PedestrianTL} component waits for signals coming through its port to change its state.
-Thus, it is controlled by the events sent by the \textsf{CarTL} component.
-\autoref{lst:MontiArc-CTL} shows the \textsf{PedestrianTL} component.
-
-\lstinputlisting[
-label=lst:MontiArc-CTL,
-language=MontiArc,
-caption=MontiArc component for the pedestrian TL.]{listings/MontiArc-PedestrianTL.arc}
-
-Synchronization of the two components is achieved due to the ports being synchronized.
-Transitions that send and receive events through these ports are executed atomically.
-Thus, when the \textsf{CarTL} switches to \textsf{Green}, the \textsf{PedestrianTL} switches to \textsf{Red} and vice versa.
-
-Inspecting the execution trace when running the implementation for 20 steps indicates that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by the synchronization.
-The executable source code of the MontiArc implementation for the running example can be found in \cite{timkrauterArtifactsCoordination2024}.
-
-% TODO: Describe the classification here!
-\textbf{Classification:} bla
 
 \subsection{Coordination framework: BCoorLang}
-First, we will explain BCoorLang by implementing the running example and then we classify it using our feature model.
-
-\textbf{Running example:} In BCoorLang there are two fundamental concepts: \textit{state} and \textit{state-changing elements}, which must be defined for each behavioral language.
-For state machines, these are defined in \cite{krauterBehavioralConsistencyMultimodeling2023}.
-State-changing elements act as a uniform behavioral interface to define interactions between heterogeneous models.
-
-\autoref{lst:interactions} shows how the synchronizations required by the running example can be implemented as \textit{interactions} in BCoorLang.
-The interactions use the system relationship model defined earlier in \autoref{fig:exampleBCoorLang} and synchronize specific transitions in the state machines.
-Transitions are the state-changing elements in state machines, see  \cite{krauterBehavioralConsistencyMultimodeling2023}.
-
-\lstinputlisting[
-label=lst:interactions,
-language=BCoorLang,
-caption=Interactions for the running example]{listings/BCoordLang.txt}
-
-\autoref{lst:interactions} synchronizes the turning red of the car TL with the turning green of the pedestrian TL and vice versa.
-The individual models and interactions are then transformed into a behavioral specification for the global system.
-% Overkill if there is only one behavioral language.
-The transformation might result in a graph transformation (GT) system.
-Using model checking supported by GT tools proves that the two requirements \textit{safe crossing} and \textit{progress in traffic} are fulfilled by synchronization.
-% TODO: Add executable GT with a tutorial to the artifacts. Maybe also Maude one.
-The executable GT specification for the running example can be found in \cite{timkrauterArtifactsCoordination2024}.
-
-\textbf{Classification:} 
-
-
+We classify BCoorLang using our feature model.
 
 
 \section{Findings} % Interprete the previous classification
 % Typical features (clusters) for ADLs, Coordination language, Co-Simulation, and coordination frameworks.
 % Maybe they can somehow be visualized nicely using some clusters with overlaps (Venn diagram in Python or even upset plots)
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/venn_linda}
+	\caption{Feature comparison: BCoordLang, MontiArc, and Linda}
+	\label{fig:venn1}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{images/venn_daccosim}
+\caption{Feature comparison: BCoordLang, MontiArc, and DACCOSIM}
+\label{fig:venn2}
+\end{figure}
 
 % Commonalities between clusters
 
