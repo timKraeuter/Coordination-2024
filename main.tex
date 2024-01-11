@@ -104,13 +104,13 @@ Applying the feature model to concrete approaches allows us to pinpoint common f
 % ADL/Architecture description language & survey/classification/literature review
 
 % Contribution
-\textbf{Contribution.} We present a feature model comparing coordination approaches from different categories, namely coordination languages, ADLs, co-simulation tools, and coordination frameworks.
+\textbf{Contribution.} We present a feature model comparing coordination approaches from four categories: coordination languages, ADLs, co-simulation tools, and coordination frameworks.
 
 % Paper outline
 \textbf{Outline.} The remainder of the paper is structured as follows.
-First, we introduce and describe the different categories of coordination approaches (\autoref{sec:approaches}).
+First, we describe the different categories of coordination approaches (\autoref{sec:approaches}).
 Afterward, we present our main contribution: the feature model (\autoref{sec:features}).
-Then, we apply the feature model to four representative from each category of coordination approaches in \autoref{sec:application}.
+Then, we apply the feature model to four representatives from each category of coordination approaches in \autoref{sec:application}.
 Finally, we discuss our findings in \autoref{sec:findings} and conclude in \autoref{sec:conclusion}.
 
 
@@ -220,7 +220,7 @@ It defines three components: \textsf{PedestrianCrossing}, \textsf{PedestrianTL},
 Furthermore, the components \textsf{PedestrianTL} and \textsf{CarTL} define ports (line 10 and 15).
 The \textit{architectural configuration} is defined in the \textsf{PedestrianCrossing} component (lines 1-7), which links the ports of the \textsf{PedestrianTL} and \textsf{CarTL} using a \textit{connector} (line 6).
 % TODO: Add the full example in the artifacts (see pdf on overleaf)
-The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} component is omitted but given in \cite{timkrauterArtifactsCoordination2024}.
+The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} components is omitted but given in \cite{timkrauterArtifactsCoordination2024}.
 
 \subsection{Coordination languages}
 % Define Coordination language and give examples
@@ -277,7 +277,7 @@ To describe the behavior of car TL and pedestrian TL, one can use the state mach
 
 \section{Feature model} \label{sec:features}
 % Add some introduction: Coordination approaches have only been analyzed separately (cite studies co-simulation, adl, something about coordination languages) but never compared/aligned in the broader context.
-% We try to find overlaps and unique features (differentiators) between the different approaches.
+% We try to find overlaps and unique features (differentiators) between the approaches.
 
 The feature model for coordination approaches is shown in \autoref{fig:featureModelOverview} where each coordination approach has three main feature sets: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
 
@@ -419,8 +419,8 @@ Coordination frameworks typically convert heterogeneous components to a common f
 \section{Application of the feature model} \label{sec:application}
 \autoref{tab:classification} shows the application of our feature model to four different coordination approaches.
 Each approach represents a co-simulation tool (\textit{DACCOSIM}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc} \cite{haberMontiArcArchitecturalModeling2014}), or coordination framework (\textit{BCoorLang} \cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
-% TODO: Why did we choose these? Representative feature sets? Recent publciations? --> Not Linda
-However, in total we classified 16 approaches including the four representatives chosen.
+% TODO: Why did we choose these? Representative feature sets? Recent publications? --> Not Linda
+However, we classified 16 approaches, including the four chosen representatives.
 All classifications are available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
 
 % Could even have two tables for better sizing and add 1-2 approaches.
@@ -472,16 +472,16 @@ The figure shows a Venn diagram comparing the feature sets of each approach, whe
 For example, the one at the bottom of \autoref{fig:venn-Linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the middle declares that all three approaches share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
 All classification data and scripts to generate diagrams such as \autoref{fig:venn-Linda} are included in \cite{timkrauterArtifactsCoordination2024}.
 
-From \autoref{fig:venn-Linda} one can see that most Linda features are overlapping with either BCoorLang or MontiArc.
+From \autoref{fig:venn-Linda}, one can see that most Linda features overlap with either BCoorLang or MontiArc.
 Only \textsf{Execution} as a goal and \textsf{Definition:Name based} for coordination are not shared.
-This makes sense since Linda and other initial coordination languages have greatly influenced the development of ADLs and coordination frameworks which happened afterwards.
-Furthermore, one can see that coordination frameworks, i.e, BCoordLang (the diagram is similar for BCOol \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
-Multiple unique features such as heterogeneous component languages and an underlying implementation in a formal language which permit formal verification exist,
+This makes sense since Linda and other initial coordination languages have greatly influenced the development of ADLs and coordination frameworks, which happened afterward.
+Furthermore, one can see that coordination frameworks, i.e., BCoordLang (the diagram is similar for BCOol \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
+Multiple unique features, such as heterogeneous component languages and an underlying implementation in a formal language that permit formal verification exist,
 
 
 Similarly, \autoref{fig:venn-DACCOSIM} compares the features of BCoordLang and MontiArc with the co-simulation tool DACCOSIM.
 One can see that BCoordLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
-Co-Simulation approaches like DACCOSIM have unique features such as an A-causal MoC and a hybrid domain.
+Co-simulation approaches like DACCOSIM have unique features such as an A-causal MoC and a hybrid domain.
 
 \begin{figure}[ht]
 	\centering
@@ -503,12 +503,12 @@ Co-Simulation approaches like DACCOSIM have unique features such as an A-causal 
 
 % What are the unique features of each approach? Does this match their intended usage scenarios?
 
-% ADLs, coordination languages and coordination frameworks usually apply to software systems, while co-simulation applies to hybrid systems, i.e., cyber-physical systems. Thus, they support different MoC, domains and have different goals.
+% ADLs, coordination languages, and coordination frameworks usually apply to software systems, while co-simulation applies to hybrid systems, i.e., cyber-physical systems. Thus, they support different MoCs and domains and have different goals.
 
 \textbf{Coordination frameworks do not support Data-Exchange:} All coordination frameworks we have encountered support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
-This is most likely due to data exchange being difficult to achieve when heterogeneous components are allowed.
-However, data exchange is omnipotent in real-world systems, which is why it is the main coordination mechanism used in co-simulation tools and coordination languages.
-Thus, for coordination frameworks to be employed in real-world scenarios they must support data exchange.
+This is most likely because data exchange is difficult to achieve when heterogeneous components are allowed.
+However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation tools and coordination languages.
+Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
 Furthermore, it is identified as important future work in \cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBCOolBehavioralCoordination2016}.
 
 \section{Conclusion \& future work} \label{sec:conclusion}
