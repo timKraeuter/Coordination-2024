@@ -3,6 +3,7 @@ This repository contains the sources of [our paper](./paper.pdf) submitted to th
 
 # Feature model
 The following figure shows the complete feature model.
+
 ![](./artifacts/images/feature-model.svg)
 
 # Feature comparison Venn diagrams
