@@ -6,3 +6,4 @@
 *.gz
 main.pdf
 .idea
+*.synctex.gz
