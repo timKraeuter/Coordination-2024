@@ -16,4 +16,4 @@ A script to generate **Venn diagrams** from the classification data and an expla
 ![](./artifacts/images/runningExample.svg)
 
 ## MontiArc
-The source code for the MontiArc implementation can be found [here](https://github.com/timKraeuter/montiarc).
+The source code for the MontiArc implementation can be found [here](https://github.com/timKraeuter/montiarc/tree/develop/applications/crossing/main/montiarc/crossing).
