@@ -82,8 +82,8 @@ University of Applied Sciences, FHDW, Hanover, Germany\\
 
 \begin{abstract}
 In this paper, we present a feature model comparing diverse categories of coordination approaches, such as coordination languages, co-simulation tools, architecture description languages, and coordination frameworks.
-Our feature model is the first to span different categories of coordination approaches that have only been analyzed in isolation.
-Applying the feature model to concrete approaches allows us to pinpoint common features and features that differentiate one approach from another.
+Our feature model is the first to span different categories of coordination approaches that have only been analyzed in isolation before.
+Applying the feature model to concrete approaches allows us to pinpoint common and distinct features that differentiate one approach from another.
 \end{abstract}
 
 \keywords{
@@ -96,21 +96,22 @@ Applying the feature model to concrete approaches allows us to pinpoint common f
 }
 
 \section{Introduction} \label{sec:introduction}
+% Motivation: Coordination is everywhere introduction and is super important.
 
-% Introduction and motivation
-% Categorizing ADLs, Coordination languages, Co-simulation, and Coordination frameworks (BCOOL and me).
-
-% Search methodology
-% Google Scholar? Other databases? Which search terms/queries?
-% First looking for surveys, then individual approaches? Or just surveys?
-% ADL/Architecture description language & survey/classification/literature review
+% Different approaches to systemize coordination in different domains.
+The problem of correctly coordinating components, where each component can be a small program, entire system, or an executable model, has been studied from different angles using different terminology resulting in different categories of approaches: \textit{coordination languages} (\cite{papadopoulosCoordinationModelsLanguages1998}), \textit{Co-simulation} (\cite{gomesCoSimulationSurvey2019}), \textit{architecture description languages} (\cite{clementsSurveyArchitectureDescription1996}), and \textit{coordination frameworks} (\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBehavioralCoordinationOperator2015}).
 
 % Contribution
-\textbf{Contribution.} We present a feature model comparing coordination approaches from four categories: coordination languages, ADLs, co-simulation tools, and coordination frameworks.
+\textbf{Contribution.} We present a feature model comparing coordination approaches from the four different categories.
 The feature model allows the comparison of coordination approaches across the different categories, while previous research has only focused on comparison inside categories. 
 Then, we apply the feature model to evaluate 16 distinct approaches spanning the aforementioned categories.
 Finally, we discuss our findings, highlighting the common and distinct features among the categories while identifying crucial features that are absent but essential for industry application in the future.
 % TODO: Add something more concrete about the findings once we have written the findings section.
+
+% Search methodology ?
+% Google Scholar? Other databases? Which search terms/queries?
+% First looking for surveys, then individual approaches? Or just surveys?
+% ADL/Architecture description language & survey/classification/literature review
 
 % Paper outline
 \textbf{Outline.} The remainder of the paper is structured as follows.
@@ -211,7 +212,7 @@ For example, Wright uses CSP \cite{allenFormalBasisArchitectural1997} while Darw
 More recent ADLs, such as MontiArc \cite{haberMontiArcArchitecturalModeling2014}, use automata to define the behavior of components.
 
 However, no ADL supports multiple formal languages such as the coordination frameworks discussed in \autoref{subsec:frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
-Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., used often by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,malavoltaWhatIndustryNeeds2013,medvidovicMovingArchitecturalDescription2006}.
+Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., used often by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,medvidovicMovingArchitecturalDescription2006}.
 
 For this paper, we consider only ADLs that incorporate formal semantics and thus do not consider other modeling languages such as UML \cite{objectmanagementgroupUnifiedModelingLanguage2017} and ArchiMate \cite{theopengroupArchiMateSpecification2023} despite them being sometimes seen as ADLs and their usage in the industry.
 
@@ -322,7 +323,7 @@ For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsen
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
-\subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event-scheduling}, \textit{data-exchange}, or a mix of both.
+\subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event-scheduling}, \textit{data-exchange}, or a mix of both. % TODO: Similar to control-driven and data-driven in papadopoulosCoordinationModelsLanguages1998
 \textit{Event-scheduling}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes in different models.
 \textit{Data-exchange} is used in Co-simulation where components send data to input ports or even directly change variables other components expose.
 
