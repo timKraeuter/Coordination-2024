@@ -85,7 +85,7 @@ Applying the feature model to concrete approaches allows us to pinpoint common f
 \end{abstract}
 
 \keywords{
-	Co-Simulation \and
+	Co-simulation \and
 	Coordination language \and
 	ADL \and
 	Coordination framework \and
@@ -105,6 +105,10 @@ Applying the feature model to concrete approaches allows us to pinpoint common f
 
 % Contribution
 \textbf{Contribution.} We present a feature model comparing coordination approaches from four categories: coordination languages, ADLs, co-simulation tools, and coordination frameworks.
+The feature model allows to compare coordination approaches across the different categories while previous research has only focused on comparison inside categories. 
+Then, we apply the feature model to evaluate 16 distinct approaches spanning the aforementioned categories.
+Finally, we discuss our findings highlighting the common and distinct features among the categories, while also identifying crucial features that are absent but essential for industry application in the future.
+% TODO: Add something more concrete about findings once we have written the findings section.
 
 % Paper outline
 \textbf{Outline.} The remainder of the paper is structured as follows.
@@ -143,7 +147,7 @@ A \texttt{Pedestrian TL} can be \texttt{green} or \texttt{red}, while a \texttt{
 How \textit{safe crossing} and \textit{progress in traffic} are achieved differs between the used coordination approaches.
 
 The running example is deliberately kept simple because the focus should be on the coordination approaches, not the example's complexity.
-Furthermore, the example does not need continuous variables and thus is not sufficient to show the full capabilities of Co-Simulation compared to the other coordination approaches.
+Furthermore, the example does not need continuous variables and thus is not sufficient to show the full capabilities of Co-simulation compared to the other coordination approaches.
 However, since continuous variables from physical systems cannot be represented in all coordination approaches, we opted for this running example, which represents a minimal denominator between all coordination approaches and is familiar to everyday life.
 
 \section{Categories of coordination approaches} \label{sec:approaches}
@@ -151,7 +155,7 @@ However, since continuous variables from physical systems cannot be represented 
 \autoref{fig:overview} gives an overview of the different categories of coordination approaches.
 The first two categories of coordination approaches mostly focus on the \textit{execution} level, i.e., they operate directly with source code or executable binaries.
 
-\textbf{Co-Simulation Tools} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard, which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
+\textbf{Co-simulation Tools} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard, which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
 Each FMU consists of an executable and an XML model to describe its interface, for example, the FMU's exposed variables.
 FMI is heavily used in the industry because it protects intellectual property (IP) since executables are black-box, i.e., do not expose implementation details.
 
@@ -227,8 +231,8 @@ The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} components is omitt
 % Cite and survey
 \cite{papadopoulosCoordinationModelsLanguages1998}
 
-\subsection{Co-Simulation tools}
-% Define Co-Simulation and give examples
+\subsection{Co-simulation tools}
+% Define Co-simulation and give examples
 \cite{gomesCoSimulationSurvey2019} % co-simulation survey
 
 % Rewrite this part
@@ -318,7 +322,7 @@ For example, interactions in BCoorLang are specified by dedicated elements, whil
 
 \subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event-scheduling}, \textit{data-exchange}, or a mix of both.
 \textit{Event-scheduling}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes in different models.
-\textit{Data-exchange} is used in Co-Simulation where components send data to input ports or even directly change variables other components expose.
+\textit{Data-exchange} is used in Co-simulation where components send data to input ports or even directly change variables other components expose.
 
 \subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
 The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms or \textit{customizable}.
@@ -333,7 +337,7 @@ We define three MoCs: \textit{timed}, \textit{causal}, \textit{a-causal}, where 
 The causal MoC means that the coordination approach can define \textit{causal} relationships between events of different components.
 For example, a transition in a state machine raises an event that causes a reaction in an activity diagram due to the defined coordination.
 % A-causal
-A-causal MoC is employed in Co-Simulation, which can deal with sets of differential equations.
+A-causal MoC is employed in Co-simulation, which can deal with sets of differential equations.
 For example, a variable in one equation should equal a variable in a different equation.
 One variable does not cause the other to change.
 Instead, they should be equal at any time.
@@ -454,7 +458,7 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 		\hspace{2mm} Domain & Hybrid & Discrete event & Discrete event & Discrete event \\
 		\hspace{2mm} Specification & Intrusive & Intrusive & Intrusive & Non-Intrusive \\
 		\hspace{2mm} Component languages & Homogeneous & Homogeneous & Homogeneous & Heterogeneous \\	
-		\hspace{2mm} Implementation & Co-Simulation & PL & PL & Formal language \\
+		\hspace{2mm} Implementation & Co-simulation & PL & PL & Formal language \\
 	\end{tblr}
 	}
 \end{table}
@@ -493,7 +497,7 @@ Co-simulation approaches like DACCOSIM have unique features such as an A-causal 
 
 \section{Findings} \label{sec:findings}
  % Interprete the previous classification
-% Typical features (clusters) for ADLs, Coordination language, Co-Simulation, and coordination frameworks.
+% Typical features (clusters) for ADLs, Coordination language, Co-simulation, and coordination frameworks.
 % Maybe they can somehow be visualized nicely using some clusters with overlaps (Venn diagrams, Upset plots?)
 
 
