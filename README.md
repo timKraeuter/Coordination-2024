@@ -1,6 +1,10 @@
 # Coordination-2024
 This repository contains the sources of [our paper](./paper.pdf) submitted to the [26th International Conference on Coordination Models and Languages (Coordination 2024)](https://www.discotec.org/2024/coordination) and associated artifacts.
 
+# Feature model
+The following figure shows the complete feature model.
+![](./artifacts/images/feature-model.svg)
+
 # Feature comparison Venn diagrams
 All classification data can be found [here](./artifacts/classification.xlsx).
 
