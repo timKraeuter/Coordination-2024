@@ -9,7 +9,7 @@ The following figure shows the complete feature model.
 # Application of the feature model
 All classification data can be found [here](./artifacts/classification.xlsx).
 
-A script to generate **Venn diagrams** and an explanation of how to use it can be found [here](./artifacts/venn-diagram-scripts/).
+A script to generate **Venn diagrams** from the classification data and an explanation of how to use it is located [here](./artifacts/venn-diagram-scripts/).
 
 # Running example: Pedestrian crossing
 
