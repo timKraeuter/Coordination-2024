@@ -383,21 +383,27 @@ However, which types of dynamic systems can be simulated varies and is discussed
 \subsubsection{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
 A coordinated simulation is useful because the composition of multiple components can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
 Emergent behavior can be dealt with early in development before implementing each component and its interactions.
-Co-simulation tools are an example of approaches that have coordinated simulation as their goal.
+Co-simulation tools such as DACCOSIM \cite{galtierFMIBasedDistributedMultiSimulation} or MECSYCO \cite{camusCosimulationCyberphysicalSystems2018} are examples of approaches that have coordinated simulation as their goal.
+Simulation is also implemented by coordination frameworks such as BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} and BCOol \cite{varalarsenBehavioralCoordinationOperator2015}.
+Even recent ADL's such as MontiArc \cite{haberMontiArcArchitecturalModeling2014} provide simulation capabilities.
 
-\subsubsection{Execution} In contrast to coordinated simulation, which often only aims to find errors, the goal of coordination approaches such as coordination languages is a coordinated execution.
-Approaches with this goal are used during development and provide coordination capabilities when a composite system is deployed and executed in a production setting.
+\subsubsection{Execution} In contrast to coordinated simulation, which often only aims to find errors during development, the goal of coordination approaches such as coordination languages is a coordinated execution after system deployment.
+
+For example, the coordination language Linda aims to provide virtual shared memory as an alternative to message-passing \cite{carrieroLindaAlternativeMessagepassing1994} which is a widely spread communication model to implement decoupled communication, i.e., coordination of software systems.
+
+Furthermore, the recently developed polyglot coordination language \textit{Lingua Franca} provides determinism guarantees during distributed execution \cite{lohstrohLinguaFrancaDeterministic2021}.
+Thus, it aims to provide a better coordination framework for concurrent \textit{execution}.
+
 
 \subsubsection{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification.
 Formal verification can be used before the system is deployed (\textit{model checking}) or while it is running (\textit{runtime monitoring}).
 
-
-
-Regarding model checking, we found coordination approaches that check \textit{predefined properties} or \textit{custom properties}.
-% Wright is checking deadlock freedom of component interactions, i.e., connectors. (Definition 5)
+We encountered coordination approaches which check \textit{predefined properties}, while others support \textit{custom properties}.
+% (Definition 5)
 For example, the ADL Wright \cite{allenFormalBasisArchitectural1997} can check \textit{deadlock freedom} of component interactions.
 % Darwin and we are checking custom properties: mageeBehaviourAnalysisSoftware1999 krauterBehavioralConsistencyMultimodeling2023
-The coordination framework in \cite{krauterBehavioralConsistencyMultimodeling2023}
+The coordination framework for behavioral consistency \cite{krauterBehavioralConsistencyMultimodeling2023} supports custom properties written in temporal logic such as Linear Temporal Logic (LTL) and Computational Tree Logic (CTL).
+Currently, we are not aware of approaches that support runtime monitoring but it would be the next logical step when applying formal verification techniques.
 
 \subsection{Properties}
 % Categorization corresponds to the different co-simulation approaches described in gomesCoSimulationSurvey2019.
