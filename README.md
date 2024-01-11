@@ -6,10 +6,10 @@ The following figure shows the complete feature model.
 
 ![](./artifacts/images/feature-model.svg)
 
-# Feature comparison Venn diagrams
+# Application of the feature model
 All classification data can be found [here](./artifacts/classification.xlsx).
 
-A script to generate Venn diagrams, together with an explanation of how to use it, can be found [here](./artifacts/venn-diagram-scripts/).
+A script to generate **Venn diagrams** and an explanation of how to use it can be found [here](./artifacts/venn-diagram-scripts/).
 
 # Running example: Pedestrian crossing
 
