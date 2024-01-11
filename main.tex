@@ -286,10 +286,16 @@ To describe the behavior of car TL and pedestrian TL, one can use the state mach
 
 
 \section{Feature model} \label{sec:features}
-% Add some introduction: Coordination approaches have only been analyzed separately (cite studies co-simulation, adl, something about coordination languages) but never compared/aligned in the broader context.
-% We try to find overlaps and unique features (differentiators) between the approaches.
+The goal of the feature model is to compare coordination approaches from different categories.
+It cannot contain all the details from each approach since it must operate on a higher abstraction level to allow comparison across categories.
+Thus, it is more coarse-grained and not necessarily suitable to compare approaches from the same category.
+For example, if one only wants to compare co-simulation approaches the feature model might not distinguish them enough since it can be missing the necessary level of detail.
+Consequently, one should use a taxonomy created only for co-simulation such as \cite{gomesCoSimulationSurvey2019} instead.
+However, our feature model still answers important questions.
+For example, how can coordination be specified and what is its semantic, what are the goals of a coordination approach, how the coordination is implemented, and for system domains is it suitable. 
 
-The feature model for coordination approaches is shown in \autoref{fig:featureModelOverview} where each coordination approach has three main feature sets: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
+The feature model for coordination approaches is shown in \autoref{fig:featureModelOverview}.
+A coordination approach has three main features: \textit{Coordination}, \textit{Goal}, and \textit{Properties}.
 
 \begin{figure}[ht]
 	\centering
