@@ -407,6 +407,7 @@ We are unaware of approaches supporting runtime monitoring, but it is the next l
 \subsection{Properties}
 % Categorization corresponds to the different co-simulation approaches described in gomesCoSimulationSurvey2019.
 We identified several common \textit{properties} when analyzing coordination approaches, see \autoref{fig:propertiesFeature}.
+We will now explain each property in detail.
 
 \begin{figure}[ht]
 	\centering
@@ -417,8 +418,15 @@ We identified several common \textit{properties} when analyzing coordination app
 
 % Maybe add some examples and descriptions here.
 \subsubsection{Domain} Coordination approaches operate in different domains, similar to the categorization of co-simulation approaches in \cite{gomesCoSimulationSurvey2019}.
-\textit{Discrete event} means a coordination approach assumes discrete state changes, while in the \textit{continuous time} domain, variables can be continuous due to differential equations.
-In a \textit{hybrid} domain, discrete and continuous variables are mixed.
+First, if a coordination approach is part of the \textit{Discrete event} domain, means it assumes discrete state changes.
+Typically coordination frameworks and ADLs operate in this domain since variables change their values discontinuously during execution.
+
+Second, coordination approaches in the \textit{continuous time} domain, support components to have state that evolves continuously over time.
+Often components are given by sets of differential equations, which omit continuous variable changes, such as physical systems involving springs and dampeners, see \cite{gomesCoSimulationSurvey2019}.
+
+Third, the \textit{hybrid} domain is a mix of the first two domains that occurs in co-simulation of cyber-physical-systems.
+Concretely, components should coordinate where the state of some components changes discretely while the state of other components evolves continuously in time.
+To strategies are known to deal with hybrid systems, one either adapts the components from the continuous time to the discrete event domain or vice versa \cite{gomesCoSimulationSurvey2019}.
 
 The choice of a coordination approach depends on the nature of the system at hand.
 For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
