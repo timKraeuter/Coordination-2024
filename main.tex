@@ -431,8 +431,16 @@ Two strategies deal with hybrid systems: one either adapts the components from t
 The choice of a coordination approach depends on the nature of the system at hand.
 For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
 
-% It should be clear from earlier that the component is a program or behavioral model.
-\subsubsection{Specification} Coordination can either be defined inside components (\textit{intrusive}), i.e., one has to change the component or outside of components (\textit{non-intrusive}).
+\subsubsection{Specification} We distinguish between \textit{intrusive} and \textit{non-intrusive specification} of coordination.
+For example, when using the coordination language Linda \cite{carrieroLindaContext1989} one uses basic operations such as \textsf{out} and \textsf{in} inside components to create and read tuples in the shared tuple space, i.e., shared memory.
+Thus, Linda is \textit{intrusive} since one has to add coordination operations to the components.
+
+On the other hand \textit{non-intrusive} coordination approaches do not require changes to the components.
+However, component must be created with coordination in mind such that they expose possible coordination points.
+For example, BCOol \cite{varalarsenBehavioralCoordinationOperator2015} uses behavioral interfaces to define events which can then be used to specify \textit{non-intrusive} coordination rules outside the components.
+
+To put it in a nutshell, some approaches allow changing coordination without touching the components while in others this is not possible.
+This is exactly the difference between non-intrusive and intrusive coordination specification.
 
 
 \subsubsection{Component languages} Coordination languages typically only support coordination of if each component is written in the same programming language (\textit{homogeneous}).
