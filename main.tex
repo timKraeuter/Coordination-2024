@@ -447,15 +447,15 @@ This is exactly the difference between non-intrusive and intrusive coordination 
 Similarly, most ADLs only coordinate components defined using the same modeling language.
 However, coordination frameworks typically allow components specified in different behavioral languages (\textit{heterogeneous}).
 
-\subsubsection{Implementation} Coordination approaches are generally implemented in two different ways.
-First, in a \textit{co-simulation} each component runs as an independent black box.
-Then, a coordination approach provides an \textit{orchestrator} which controls passage of time and moves output data from one component to another \cite{gomesCoSimulationSurvey2019}, i.e., facilitates coordination.
+\subsubsection{Implementation} Coordination approaches are generally implemented differently.
+First, in a \textit{co-simulation}, each component runs as an independent black box.
+Then, a coordination approach provides an \textit{orchestrator} which controls the passage of time and moves output data from one component to another \cite{gomesCoSimulationSurvey2019}, i.e., facilitates coordination.
 
 An alternative is a \textit{unified execution} where components are white box and executed together.
-Coordination languages often mandate the same underlying \textit{programming language} for each component to provide coordination while coordination frameworks rely on a \textit{formal language} for a coordinated execution.
+Coordination languages often mandate the same underlying \textit{programming language} for each component to provide coordination, while coordination frameworks rely on a \textit{formal language} for a coordinated execution.
 
 For example, the coordination language Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} provides infrastructure written in a given programming language for a unified execution.
-A distributed, i.e., federated execution is in the early stages of development for Lingua Franca but not officially supported\footnote{\url{https://www.lf-lang.org/docs/writing-reactors/distributed-execution}} yet which is why we did not take it into consideration for our feature model.
+A distributed, i.e., federated execution is in the early stages of development for Lingua Franca but not officially supported\footnote{\url{https://www.lf-lang.org/docs/writing-reactors/distributed-execution}} yet, which is why we did not consider it for our feature model.
 The coordination framework BCoordLang \cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components.
 
 
