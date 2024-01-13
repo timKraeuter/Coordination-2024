@@ -382,7 +382,7 @@ However, which types of dynamic systems can be simulated varies and is discussed
 \subsubsection{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
 A coordinated simulation is useful because the composition of multiple components can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
 Emergent behavior can be dealt with early in development before implementing each component and its interactions.
-Co-simulation tools such as DACCOSIM \cite{galtierFMIBasedDistributedMultiSimulation} or MECSYCO \cite{camusCosimulationCyberphysicalSystems2018} are examples of approaches that have coordinated simulation as their goal.
+Co-simulation tools such as DACCOSIM \cite{galtierFMIBasedDistributedMultisimulation2015} or MECSYCO \cite{camusCosimulationCyberphysicalSystems2018} are examples of approaches that have coordinated simulation as their goal.
 Simulation is also implemented by coordination frameworks such as BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} and BCOol \cite{varalarsenBehavioralCoordinationOperator2015}.
 Even recent ADLs such as MontiArc \cite{haberMontiArcArchitecturalModeling2014} provide simulation capabilities.
 
@@ -442,10 +442,13 @@ For example, BCOol \cite{varalarsenBehavioralCoordinationOperator2015} uses beha
 In a nutshell, some approaches allow changing coordination without touching the components, which is impossible in others.
 This is exactly the difference between non-intrusive and intrusive coordination specifications.
 
-% TODO: Rewrite this
-\subsubsection{Component languages} Coordination languages typically only support coordination if each component is written in the same programming language (\textit{homogeneous}).
+\subsubsection{Component languages} Coordination approaches typically only support \textit{homogeneous} components.
+For example, coordination languages, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, typically only support coordination if each component is given in the same programming language.
+
 Similarly, most ADLs only coordinate components defined using the same modeling language.
-However, coordination frameworks typically allow components specified in different behavioral languages (\textit{heterogeneous}).
+As stated earlier, ADLs often use a specific process algebra to define the behavior of its components.
+However, coordination frameworks allow \textit{heterogeneous} components, i.e., components specified in different behavioral modeling languages.
+For example, BCoordLang \cite{krauterBehavioralConsistencyMultimodeling2023} supports all modeling languages where one can clearly define \textit{state structure} and which \textit{elements can change state} during execution.
 
 \subsubsection{Implementation} Coordination approaches are generally implemented differently.
 First, in a \textit{co-simulation}, each component runs as an independent black box.
