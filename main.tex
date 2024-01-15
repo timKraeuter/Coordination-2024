@@ -81,6 +81,8 @@ Applying the feature model to concrete approaches allows us to pinpoint common a
 	Taxonomy
 }
 
+% TODO: event vs state change --> Fix terminology or introduce as equivalent
+
 \section{Introduction} \label{sec:introduction}
 % Motivation: Coordination is everywhere and is super important since a single system cannot handle the complexity of today's world.
 Systems are becoming increasingly complex due to rising performance and reliability requirements, present and changing regulations, the integration of AI models, and many other factors.
@@ -291,7 +293,7 @@ A coordination approach has three main features: \textit{Foundation}, \textit{Go
 \end{figure}
 
 In the following sections, we will describe each abstract feature in detail.
-% TODO: Add the full feature model as an artifact (at the end when the feature model is stable).
+% TODO: Update the full feature model when it is stable.
 A complete diagram of the feature model is contained in \cite{timkrauterArtifactsCoordination2024}.
 
 \subsection{Foundation}
@@ -306,10 +308,9 @@ A complete diagram of the feature model is contained in \cite{timkrauterArtifact
 	\label{fig:foundationFeature}
 \end{figure}
 
-% TODO: Rewrite
 \subsubsection{Definition} The definition of coordination can either be \textit{explicit} or \textit{implicit}.
 An implicit definition is usually based on the names of model elements.
-For example, one could synchronize transitions of state machines if they have identical names.
+For example, one could synchronize transitions of multiple state machines if they have identical names.
 
 Explicit definition is either \textit{query based} or \textit{structural}.
 % Query-based example
@@ -330,33 +331,33 @@ For example, in BCOoL \cite{varalarsenBehavioralCoordinationOperator2015}, one c
 For example, in Co-simulation \cite{gomesCoSimulationSurvey2019}, components send data from output to input ports, or exposed variables of multiple components are coupled such that they should be the same. % Causal vs. A-causal MoC
 However, data exchange might also happen between components during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
 
-% TODO: Rewrite
 \subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
-The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms or \textit{customizable}.
-For example, in BCOoL, the user can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} when defining coordination \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
+The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms.
+Expressiveness is \textit{customizable} if one can define the semantics of coordination.
+For example, in BCOoL, one can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} to define new coordination operators besides the predefined ones \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
 Coordination approaches utilize different \textit{models of computation} (MoC).
-% What is a model of computation? Where does the terminology come from?
-% causal a-causal also identified as causality in gomesCoSimulationSurvey2019
+A MoC is a set of rules that governs the concurrent execution and coordination of components \cite{ptolemaeusSystemDesignModeling2014}.
 We define three MoCs: \textit{timed}, \textit{causal}, \textit{a-causal}, where \textit{timed} is either \textit{physical} or \textit{logical}.
-% We should define that event and state-changing elements mean the same, i.e., any observable action in a model/component.
-% Causal (events and data)
-% TODO: Rewrite this. It is more about data
-The causal MoC means that the coordination approach can define \textit{causal} relationships between events of different components.
-For example, a transition in a state machine raises an event that causes a reaction in an activity diagram due to the defined coordination.
+% Causal (data)
+The \textit{causal} and \textit{a-causal} MoCs come from the co-simulation field \cite{gomesCoSimulationSurvey2019}.
+The causal MoC means that the coordination approach facilitates event and data exchange between different components such that one component can cause reactions, i.e., state changes in other components.
+For example, a component based on a state machine raises an event, including data, which causes a state change and possible other reactions in a different component.
+
 % A-causal
-A-causal MoC is employed in Co-simulation, which can deal with sets of differential equations.
+An a-causal MoC is necessary for Co-simulation, which must deal with related differential equations.
 For example, a variable in one equation should equal a variable in a different equation.
-One variable does not cause the other to change.
-Instead, they should be equal at any time.
+In this case, there is no cause and effect, such as in the causal MoC, but rather, the variables have an a-causal relationship since they should be equal at any time.
 
 % Timed::Logical
 \textit{Logical} time means that coordination approaches define when events/state changes happen.
-Typically, one defines that events take place simultaneously or that one event causes another event or causes another event with a fixed delay.
-For example, a delay could be 50 milliseconds of logical time, corresponding to time in a simulation that can run arbitrarily fast. 
-% Timed::Physical --> other term wall-clock time see gomesCoSimulationSurvey2019 and its citations
+Typically, one defines that events take place simultaneously or that one event causes another event immediately or with a fixed delay.
+For example, a delay could be 50 milliseconds of logical time, corresponding to time in a simulation that can run arbitrarily fast.
+
+% Timed::Physical
 In contrast, \textit{physical} time describes time passing in the physical world.
-One can, for example, define that one event should happen 50 milliseconds after another.
+It is also referred to as \textit{wall-clock} time \cite{gomesCoSimulationSurvey2019}.
+For example, one can define that an event should happen 50 milliseconds after another.
 In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, logical time "chases" physical time, i.e., logical time tries to match the physical time provided by the execution platform.
 % Logical time, however, always lags behind physical time.
 
