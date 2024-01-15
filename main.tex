@@ -322,6 +322,7 @@ A complete diagram of the feature model is contained in \cite{timkrauterArtifact
 	\label{fig:coordinationFeature}
 \end{figure}
 
+% TODO: Rewrite
 \subsubsection{Definition} The definition of coordination can either be \textit{explicit} or \textit{implicit}.
 An implicit definition is usually based on the names of model elements.
 For example, one could synchronize transitions of state machines if they have identical names.
@@ -333,10 +334,19 @@ For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsen
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
-\subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event-scheduling}, \textit{data-exchange}, or a mix of both. % TODO: Similar to control-driven and data-driven in papadopoulosCoordinationModelsLanguages1998
-\textit{Event-scheduling}, used in BCOoL and BCoorLang, orders or synchronizes events/state changes in different models.
-\textit{Data-exchange} is used in Co-simulation where components send data to input ports or even directly change variables other components expose.
+\subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event-scheduling}, \textit{data-exchange}, or a mix of both.
+Sometimes this is also called \textit{control-driven} and \textit{data-driven} \cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
+Typically, a coordination approaches is focused on one of the two mechanisms but both can be supported.
 
+First, \textit{Event-scheduling} synchronizes or mandates a specific order for events, i.e., state changes in different components.
+Usually, event-scheduling is used when components are given by behavioral models since there might not be a clear concept of an event in a programming language.
+For example, in BCOoL \cite{varalarsenBehavioralCoordinationOperator2015}, one can define relationships between events, such as happens before or synchronizes.
+
+\textit{Data-exchange} means components communicate by exchanging data.
+For example, in Co-simulation \cite{gomesCoSimulationSurvey2019}, components send data from output to input ports or exposed variables of multiple components are coupled such that they should be the same. % Causal vs. A-causal MoC
+However, data-exchange might also happen between components during synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
+
+% TODO: Rewrite
 \subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
 The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms or \textit{customizable}.
 For example, in BCOoL, the user can employ the Clock Constraints Specification Language (CCSL) \cite{andreSyntaxSemanticsClock2009} when defining coordination \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
@@ -347,6 +357,7 @@ Coordination approaches utilize different \textit{models of computation} (MoC).
 We define three MoCs: \textit{timed}, \textit{causal}, \textit{a-causal}, where \textit{timed} is either \textit{physical} or \textit{logical}.
 % We should define that event and state-changing elements mean the same, i.e., any observable action in a model/component.
 % Causal (events and data)
+% TODO: Rewrite this. It is more about data
 The causal MoC means that the coordination approach can define \textit{causal} relationships between events of different components.
 For example, a transition in a state machine raises an event that causes a reaction in an activity diagram due to the defined coordination.
 % A-causal
@@ -448,7 +459,7 @@ For example, coordination languages, such as Lingua Franca \cite{lohstrohReactor
 Similarly, most ADLs only coordinate components defined using the same modeling language.
 As stated earlier, ADLs often use a specific process algebra to define the behavior of its components.
 However, coordination frameworks allow \textit{heterogeneous} components, i.e., components specified in different behavioral modeling languages.
-For example, BCoordLang \cite{krauterBehavioralConsistencyMultimodeling2023} supports all modeling languages where one can clearly define \textit{state structure} and which \textit{elements can change state} during execution.
+For example, BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} supports all modeling languages where one can clearly define \textit{state structure} and which \textit{elements can change state} during execution.
 
 \subsubsection{Implementation} Coordination approaches are generally implemented differently.
 First, in a \textit{co-simulation}, each component runs as an independent black box.
@@ -459,7 +470,7 @@ Coordination languages often mandate the same underlying \textit{programming lan
 
 For example, the coordination language Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} provides infrastructure written in a given programming language for a unified execution.
 A distributed, i.e., federated execution is in the early stages of development for Lingua Franca but not officially supported\footnote{\url{https://www.lf-lang.org/docs/writing-reactors/distributed-execution}} yet, which is why we did not consider it for our feature model.
-The coordination framework BCoordLang \cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components.
+The coordination framework BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components.
 
 
 \section{Application of the feature model} \label{sec:application}
@@ -505,13 +516,13 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 	}
 \end{table}
 
-We compare BCoordLang, MontiArc, and Linda in \autoref{fig:venn-Linda}.
+We compare BCoorLang, MontiArc, and Linda in \autoref{fig:venn-Linda}.
 The figure shows a Venn diagram comparing the feature sets of each approach, where the numbers in each colored part state the number of features contained.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/venn_linda}
-	\caption{Feature comparison: BCoordLang, MontiArc, and Linda}
+	\caption{Feature comparison: BCoorLang, MontiArc, and Linda}
 	\label{fig:venn-Linda}
 \end{figure}
 
@@ -521,18 +532,19 @@ All classification data and scripts to generate diagrams such as \autoref{fig:ve
 From \autoref{fig:venn-Linda}, one can see that most Linda features overlap with either BCoorLang or MontiArc.
 Only \textsf{Execution} as a goal and \textsf{Definition:Name based} for coordination are not shared.
 This makes sense since Linda and other initial coordination languages have greatly influenced the development of ADLs and coordination frameworks, which happened afterward.
-Furthermore, one can see that coordination frameworks, i.e., BCoordLang (the diagram is similar for BCOol \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
+Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
 Multiple unique features, such as heterogeneous component languages and an underlying implementation in a formal language that permit formal verification exist,
 
 
-Similarly, \autoref{fig:venn-DACCOSIM} compares the features of BCoordLang and MontiArc with the co-simulation tool DACCOSIM.
-One can see that BCoordLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
+Similarly, \autoref{fig:venn-DACCOSIM} compares the features of BCoorLang and MontiArc with the co-simulation tool DACCOSIM.
+One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
 Co-simulation approaches like DACCOSIM have unique features such as an A-causal MoC and a hybrid domain.
 
+% TODO: Change color of DACCOSIM to not be the same as Linda in the previous fig.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/venn_daccosim}
-	\caption{Feature comparison: BCoordLang, MontiArc, and DACCOSIM}
+	\caption{Feature comparison: BCoorLang, MontiArc, and DACCOSIM}
 	\label{fig:venn-DACCOSIM}
 \end{figure}
 
