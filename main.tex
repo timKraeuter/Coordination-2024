@@ -153,7 +153,7 @@ A \texttt{Pedestrian TL} can be \texttt{green} or \texttt{red}, while a \texttt{
 How \textit{safe crossing} and \textit{progress in traffic} are achieved differs between the used coordination approaches.
 
 The running example is deliberately kept simple because the focus should be on the coordination approaches, not the example's complexity.
-Furthermore, the example does not need continuous variables and thus is not sufficient to show the full capabilities of Co-simulation compared to the other coordination approaches.
+Furthermore, the example does not need continuous variables and thus is insufficient to show Co-simulation's full capabilities compared to the other coordination approaches.
 However, since continuous variables from physical systems cannot be represented in all coordination approaches, we opted for this running example, which represents a minimal denominator between all coordination approaches and is familiar to everyday life.
 
 \section{Categories of coordination approaches} \label{sec:approaches}
@@ -168,7 +168,7 @@ FMI is heavily used in the industry because it protects intellectual property (I
 \textbf{Coordination Languages} traditionally offer a shared tuple space for concurrent programs to read/write data from/to.
 Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
 % See if we can find a better citation for LF.
-New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but on the execution level.
+New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but working with code on the execution level.
 
 \begin{figure}[ht]
 	\centering
@@ -177,13 +177,12 @@ New coordination languages are being developed, such as Lingua Franca \cite{lohs
 	\label{fig:overview}
 \end{figure}
 
-\textbf{Architecture Description Languages (ADLs)} operate on the \textit{model} level, i.e., each \textit{component} is given by a behavioral specification/model, for example, a state machine.
-Components coordinate through \textit{connectors} between them, resulting in a \textit{architectural configuration}.
+\textbf{Architecture Description Languages (ADLs)} operate on the \textit{model} level, i.e., each \textit{component} is given by a behavioral model, for example, a state machine.
+Components coordinate through \textit{connectors} between them, resulting in an \textit{architectural configuration}.
 
-\textbf{Coordination frameworks} allow the user to connect models conforming to different behavioral languages using the concept of behavioral interfaces.
-In contrast, each ADL usually only allows one behavioral language, which must be used for each component.
+\textbf{Coordination frameworks} allow the user to connect models conforming to \textit{different} behavioral languages using the concept of \textit{behavioral interfaces}.
+In contrast, each ADL only allows one behavioral language, which must be used for each component.
 Thus, they operate on the \textit{language} level and give modelers freedom to utilize different languages for varying aspects of the system.
-
 In the following sections, we will describe each category in detail.
 
 \subsection{Architecture description languages} \label{subsec:adl}
