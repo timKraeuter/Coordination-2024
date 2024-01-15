@@ -227,7 +227,7 @@ The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} components is omitt
 \cite{gomesCoSimulationSurvey2019} % co-simulation survey
 
 % Rewrite this part
-Co-simulation aims to solve this challenge by composing the simulation of a system's parts into a global simulation \cite{gomesCoSimulationSurvey2019}.
+Co-simulation aims to solve this challenge by composing the simulation of a system's parts into a coordinated simulation \cite{gomesCoSimulationSurvey2019}.
 
 For example, \cite{ekerTamingHeterogeneityPtolemy2003} propose an actor-oriented co-simulation approach, where each system part is represented as an actor.
 An actor can communicate through its interfaces with other actors.
@@ -237,7 +237,7 @@ Furthermore, the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-st
 Each FMU, similar to the actors in Ptolemy, comes with an XML model to describe its interface, for example, the FMU's exposed variables.
 FMUs support continuous time and state variables and are widely used in the industry.
 
-However, with co-simulations, one can only simulate systems, not check global behavioral properties.
+However, with co-simulations, one can only simulate systems, not check behavioral properties.
 
 \subsection{Coordination frameworks} \label{subsec:frameworks}
 % Define Coordination-framework and give examples
@@ -389,7 +389,7 @@ Furthermore, the recently developed polyglot coordination language \textit{Lingu
 Thus, it aims to provide a better coordination framework for concurrent \textit{execution}.
 
 
-\subsubsection{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification.
+\subsubsection{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification of the coordinated system.
 Formal verification can be used before the system is deployed (\textit{model checking}) or while it is running (\textit{runtime monitoring}).
 
 We encountered coordination approaches that check \textit{predefined properties}, while others support \textit{custom properties}.
