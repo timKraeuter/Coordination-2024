@@ -334,17 +334,17 @@ For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsen
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
-\subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event-scheduling}, \textit{data-exchange}, or a mix of both.
+\subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event scheduling}, \textit{data exchange}, or a mix of both.
 Sometimes this is also called \textit{control-driven} and \textit{data-driven} \cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
-Typically, a coordination approaches is focused on one of the two mechanisms but both can be supported.
+Typically, a coordination approach is focused on one of the two mechanisms, but both can be supported.
 
-First, \textit{Event-scheduling} synchronizes or mandates a specific order for events, i.e., state changes in different components.
-Usually, event-scheduling is used when components are given by behavioral models since there might not be a clear concept of an event in a programming language.
+First, \textit{event scheduling} synchronizes or mandates a specific order for events, i.e., state changes in different components.
+Usually, event scheduling is used when components are given by behavioral models since there might not be a clear concept of an event in a programming language.
 For example, in BCOoL \cite{varalarsenBehavioralCoordinationOperator2015}, one can define relationships between events, such as happens before or synchronizes.
 
 \textit{Data-exchange} means components communicate by exchanging data.
-For example, in Co-simulation \cite{gomesCoSimulationSurvey2019}, components send data from output to input ports or exposed variables of multiple components are coupled such that they should be the same. % Causal vs. A-causal MoC
-However, data-exchange might also happen between components during synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
+For example, in Co-simulation \cite{gomesCoSimulationSurvey2019}, components send data from output to input ports, or exposed variables of multiple components are coupled such that they should be the same. % Causal vs. A-causal MoC
+However, data exchange might also happen between components during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
 
 % TODO: Rewrite
 \subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
