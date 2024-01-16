@@ -9,7 +9,16 @@ The following figure shows the complete feature model.
 # Application of the feature model
 All classification data can be found [here](./artifacts/classification.xlsx).
 
-A script to generate **Venn diagrams** from the classification data and an explanation of how to use it is located [here](./artifacts/venn-diagram-scripts/).
+## Venn diagrams and other plots
+A script to generate **Venn diagrams** and **UpSet plots** from the classification data with explanation is located [here](./artifacts/venn-diagram-scripts/).
+
+**Venn diagrams:**
+
+![venn diagram](./artifacts/venn-diagram-scripts/venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)
+
+**UpSet plots:**
+
+![venn diagram](./artifacts/venn-diagram-scripts/upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)
 
 # Running example: Pedestrian crossing
 
