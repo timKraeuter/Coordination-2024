@@ -16,4 +16,4 @@ for i in permutations:
     args = " ".join(i)
     print("")
     print(args)
-    os.system("Venn_3.py " + args)
+    os.system("Generate_Venn.py " + args)

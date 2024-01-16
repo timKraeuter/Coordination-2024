@@ -8,11 +8,11 @@
 
 
 ```bash
-py Venn_3.py BCoorLang Linda MontiArc
+py Generate_Venn.py BCoorLang Linda MontiArc
 ```
 Generates the **first Venn diagram** in the paper:
 
-![diagram](./BCoorLang_Linda_MontiArc_venn.svg)).
+![diagram](./venn-diagrams/BCoorLang_Linda_MontiArc_venn.svg)).
 
 The console outputs will **contain** which **features are overlapping/unique**.
 
@@ -33,11 +33,11 @@ The console outputs will **contain** which **features are overlapping/unique**.
 
 
 ```bash
-py Venn_3.py BCoorLang DACCOSIM MontiArc
+py Generate_Venn.py BCoorLang DACCOSIM MontiArc
 ```
 Generates the **second Venn diagram** in the paper:
 
-![diagram](./BCoorLang_DACCOSIM_MontiArc_venn.svg)).
+![diagram](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)).
 
 The console outputs will **contain** which **features are overlapping/unique**.
 
@@ -53,32 +53,73 @@ The console outputs will **contain** which **features are overlapping/unique**.
 >MontiArc's unique features (2): {'programming language', 'architecture based'}     
 >Common features (2): {'simulation', 'predefined'}
 
-# Venn Diagrams with feature labels
+## Venn Diagrams with feature labels
 
-1. Clone this repository.
-2. Open a cmd/bash in this folder.
-3. Run one of the following commands:
+Follow the same procedure as before but use one of the new commands below:
 
-## Venn Diagram: BCoorLang Linda MontiArc
+### Venn Diagram: BCoorLang Linda MontiArc
 
-Output:
+**Output:**
 
-![diagram](./BCoorLang_Linda_MontiArc_venn_labeled.svg)).
+![diagram](./venn-diagrams/BCoorLang_Linda_MontiArc_venn_labeled.svg)).
 
-Script:
+**Script:**
 
 ```bash
-py Venn_3_Labels.py BCoorLang Linda MontiArc
+py Generate_Venn_With_Labels.py BCoorLang Linda MontiArc
 ```
 
-## Venn Diagram: BCoorLang DACCOSIM MontiArc
+### Venn Diagram: BCoorLang DACCOSIM MontiArc
 
-Output:
+**Output:**
 
-![diagram](./BCoorLang_DACCOSIM_MontiArc_venn_labeled.svg)).
+![diagram](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn_labeled.svg)).
 
-Script:
+**Script:**
 
 ```bash
-py Venn_3_Labels.py BCoorLang DACCOSIM MontiArc
+py Generate_Venn_With_Labels.py BCoorLang DACCOSIM MontiArc
 ```
+
+## Equivalent UpSet plots
+
+More information about [UpSet plots](https://upset.app/).
+Follow the same procedure as before but use one of the new commands below to generate UpSet plots:
+
+### UpSet plot: BCoorLang Linda MontiArc
+
+**Output:**
+
+![diagram](./upset-plots/BCoorLang_Linda_MontiArc_upset.svg)).
+
+**Script:**
+
+```bash
+py Generate_Upset.py BCoorLang Linda MontiArc
+```
+
+### UpSet plot: BCoorLang DACCOSIM MontiArc
+
+**Output:**
+
+![diagram](./upset-plots/BCoorLang_DACCOSIM_MontiArc_upset.svg)).
+
+**Script:**
+
+```bash
+py Generate_Upset.py BCoorLang DACCOSIM MontiArc
+```
+
+### UpSet plot: Custom approaches
+
+UpSet plots make most sense for more than three approaches. You can add as many approac
+
+**Script:**
+
+```bash
+py Generate_Upset.py BCoorLang Linda MontiArc DACCOSIM
+```
+
+**Output:**
+
+![diagram](./upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)).

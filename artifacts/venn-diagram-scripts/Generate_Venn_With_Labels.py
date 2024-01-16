@@ -36,11 +36,7 @@ for approach in approach_names:
             feature_set.add(feature_cell)
     approach_features.append(feature_set)
 
-venn3(approach_features, approach_names)
-
-filename = '_'.join(approach_names) + "_venn"
-
-plt.savefig(filename + ".svg", format="svg", bbox_inches="tight")
+venn = venn3(approach_features, approach_names)
 
 # Print diff and overlap statistics.
 A = approach_features[0]
@@ -50,20 +46,22 @@ A_name = approach_names[0]
 B_name = approach_names[1]
 C_name = approach_names[2]
 
-# Do A
-print("{}'s unique features ({}): {}".format(A_name, len(A - B - C), str(A - B - C)))
-print(
-    "{}'s and {}'s common features ({}) without {}: {}".format(A_name, B_name, len(A & B - C), C_name, str(A & B - C)))
-print(
-    "{}'s and {}'s common features ({}) without {}: {}\n".format(A_name, C_name, len(A & C - B), B_name, str(A & C - B)))
 
-# Do B
-print("{}'s unique features ({}): {}".format(B_name, len(B - A - C), str(B - A - C)))
-print(
-    "{}'s and {}'s common features ({}) without {}: {}\n".format(B_name, C_name, len(B & C - A), A_name, str(B & C - A)))
+def add_label(region_id, features):
+    region = venn.get_label_by_id(region_id)
+    if region is not None:
+        region.set_text('\n'.join(features))
 
-# Do C
-print("{}'s unique features ({}): {}".format(C_name, len(C - A - B), str(C - A - B)))
-print("Common features ({}): {}".format(len(A & B & C), str(A & B & C)))
 
+# Add overlap labels
+add_label("100", A - B - C)
+add_label("110", A & B - C)
+add_label("010", B - C - A)
+add_label("101", A & C - B)
+add_label("111", A & B & C)
+add_label("011", B & C - A)
+add_label("001", C - B - A)
+
+filename = "/venn-diagrams/" + '_'.join(approach_names) + "_venn_labeled"
+plt.savefig(filename + ".svg", format="svg", bbox_inches="tight")
 plt.show()
