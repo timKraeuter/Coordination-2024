@@ -45,7 +45,7 @@
 \begin{document}
 % https://www.discotec.org/2024/coordination
 % Regular papers 7-15 pages + references
-% TODO: Add artifacts citation using zenodo.
+% TODO: Add artifacts citation using Zenodo.
 \title{A feature-based classification of component coordination approaches}
 
 \author{Tim Kr\"{a}uter\inst{1}\orcidlink{0000-0003-1795-0611} \and
@@ -156,7 +156,7 @@ FMI is heavily used in the industry because it protects intellectual property (I
 \textbf{Coordination Languages} traditionally offer a shared tuple space for concurrent programs to read/write data from/to.
 Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
 % See if we can find a better citation for LF.
-New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but working with code on the execution level.
+New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but work with code on the execution level.
 
 \begin{figure}[ht]
 	\centering
@@ -408,8 +408,7 @@ The coordination framework for behavioral consistency \cite{krauterBehavioralCon
 We are unaware of approaches supporting runtime monitoring, but it is the next logical step when applying formal verification techniques throughout the development lifecycle.
 
 \subsection{Properties}
-% Categorization corresponds to the different co-simulation approaches described in gomesCoSimulationSurvey2019.
-We identified several common \textit{properties} when analyzing coordination approaches, see \autoref{fig:propertiesFeature}.
+We identified several shared \textit{properties} when analyzing coordination approaches, see \autoref{fig:propertiesFeature}.
 We will now explain each property in detail.
 
 \begin{figure}[ht]
@@ -518,7 +517,7 @@ The figure shows a Venn diagram comparing the feature sets of each approach, whe
 	\label{fig:venn-Linda}
 \end{figure}
 
-For example, the one at the bottom of \autoref{fig:venn-Linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the middle declares that all three approaches share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
+For example, the one at the bottom of \autoref{fig:venn-Linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the intersection of all approaches in the middle declares that they all share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
 All classification data and scripts to generate Venn diagrams such as \autoref{fig:venn-Linda} are included in \cite{timkrauterArtifactsCoordination2024}.
 
 From \autoref{fig:venn-Linda}, one can see that most Linda features overlap with either BCoorLang or MontiArc.
