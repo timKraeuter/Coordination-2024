@@ -4,14 +4,16 @@
 2. Open a cmd/bash in this folder.
 3. Run one of the following commands:
 
-
-## Venn Diagram 1
+## Venn Diagram: BCoorLang Linda MontiArc
 
 
 ```bash
 py Venn_3.py BCoorLang Linda MontiArc
 ```
-Generates the **first Venn diagram** in the paper (see output [diagram](./BCoorLang_Linda_MontiArc_venn.svg)).
+Generates the **first Venn diagram** in the paper:
+
+![diagram](./BCoorLang_Linda_MontiArc_venn.svg)).
+
 The console outputs will **contain** which **features are overlapping/unique**.
 
 **Command output:**
@@ -27,13 +29,16 @@ The console outputs will **contain** which **features are overlapping/unique**.
 > Common features (2): {'discrete event', 'predefined'}
 
 
-## Venn Diagram 2
+## Venn Diagram: BCoorLang DACCOSIM MontiArc
 
 
 ```bash
 py Venn_3.py BCoorLang DACCOSIM MontiArc
 ```
-Generates the **second Venn diagram** in the paper (see output [diagram](./BCoorLang_DACCOSIM_MontiArc_venn.svg)).
+Generates the **second Venn diagram** in the paper:
+
+![diagram](./BCoorLang_DACCOSIM_MontiArc_venn.svg)).
+
 The console outputs will **contain** which **features are overlapping/unique**.
 
 **Command output:**
@@ -47,3 +52,33 @@ The console outputs will **contain** which **features are overlapping/unique**.
 >
 >MontiArc's unique features (2): {'programming language', 'architecture based'}     
 >Common features (2): {'simulation', 'predefined'}
+
+# Venn Diagrams with feature labels
+
+1. Clone this repository.
+2. Open a cmd/bash in this folder.
+3. Run one of the following commands:
+
+## Venn Diagram: BCoorLang Linda MontiArc
+
+Output:
+
+![diagram](./BCoorLang_Linda_MontiArc_venn_labeled.svg)).
+
+Script:
+
+```bash
+py Venn_3_Labels.py BCoorLang Linda MontiArc
+```
+
+## Venn Diagram: BCoorLang DACCOSIM MontiArc
+
+Output:
+
+![diagram](./BCoorLang_DACCOSIM_MontiArc_venn_labeled.svg)).
+
+Script:
+
+```bash
+py Venn_3_Labels.py BCoorLang DACCOSIM MontiArc
+```
