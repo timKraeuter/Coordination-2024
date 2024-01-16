@@ -45,7 +45,7 @@
 \begin{document}
 % https://www.discotec.org/2024/coordination
 % Regular papers 7-15 pages + references
-% TODO: Add artifacts citation using zenodo.
+% TODO: Add artifacts citation using Zenodo.
 \title{A feature-based classification of component coordination approaches}
 
 \author{Tim Kr\"{a}uter\inst{1}\orcidlink{0000-0003-1795-0611} \and
@@ -156,7 +156,7 @@ FMI is heavily used in the industry because it protects intellectual property (I
 \textbf{Coordination Languages} traditionally offer a shared tuple space for concurrent programs to read/write data from/to.
 Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
 % See if we can find a better citation for LF.
-New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but working with code on the execution level.
+New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but work with code on the execution level.
 
 \begin{figure}[ht]
 	\centering
@@ -408,8 +408,7 @@ The coordination framework for behavioral consistency \cite{krauterBehavioralCon
 We are unaware of approaches supporting runtime monitoring, but it is the next logical step when applying formal verification techniques throughout the development lifecycle.
 
 \subsection{Properties}
-% Categorization corresponds to the different co-simulation approaches described in gomesCoSimulationSurvey2019.
-We identified several common \textit{properties} when analyzing coordination approaches, see \autoref{fig:propertiesFeature}.
+We identified several shared \textit{properties} when analyzing coordination approaches, see \autoref{fig:propertiesFeature}.
 We will now explain each property in detail.
 
 \begin{figure}[ht]
@@ -488,7 +487,7 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 		}
 		\diagbox[linewidth=1.1pt,font=\bfseries]{Feature}{Approach} & \textbf{DACCOSIM} & \textbf{Linda} & \textbf{MontiArc} & \textbf{BCoorLang} \\
 		
-		\textbf{Coordination} \\
+		\textbf{Foundation} \\
 		\hspace{2mm} Definition & Name based & Name based & Architecture based & Dedicated elements \\
 		\hspace{2mm} Mechanism & Data-Exchange & Data-Exchange & Data-Exchange & Event-Scheduling \\ % everything ends in coordination here in the feature model
 		\hspace{2mm} Expressiveness & Predefined & Predefined & Predefined & Predefined \\
@@ -509,33 +508,32 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 \end{table}
 
 We compare BCoorLang, MontiArc, and Linda in \autoref{fig:venn-Linda}.
-The figure shows a Venn diagram comparing the feature sets of each approach, where the numbers in each colored part state the number of features contained.
+The figure shows a Venn diagram comparing the feature sets of each approach, where each colored part states which features are contained and their amount.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/venn_linda}
+	\includegraphics[width=0.6\textwidth]{images/venn_linda}
 	\caption{Feature comparison: BCoorLang, MontiArc, and Linda}
 	\label{fig:venn-Linda}
 \end{figure}
 
-For example, the one at the bottom of \autoref{fig:venn-Linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the middle declares that all three approaches share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
-All classification data and scripts to generate diagrams such as \autoref{fig:venn-Linda} are included in \cite{timkrauterArtifactsCoordination2024}.
+For example, the one at the bottom of \autoref{fig:venn-Linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the intersection of all approaches in the middle declares that they all share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
+All classification data and scripts to generate Venn diagrams such as \autoref{fig:venn-Linda} are included in \cite{timkrauterArtifactsCoordination2024}.
 
 From \autoref{fig:venn-Linda}, one can see that most Linda features overlap with either BCoorLang or MontiArc.
-Only \textsf{Execution} as a goal and \textsf{Definition:Name based} for coordination are not shared.
+Only \textsf{Execution} as a goal and \textsf{Definition:Name based} are not shared.
 This makes sense since Linda and other initial coordination languages have greatly influenced the development of ADLs and coordination frameworks, which happened afterward.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
-Multiple unique features, such as heterogeneous component languages and an underlying implementation in a formal language that permit formal verification exist,
+Multiple unique features, such as \textsf{Component languages:Heterogeneous}, \textsf{Specification:Non-intrusive}, \textsf{Implementation:Formal language} and \textsf{Formal verification:Custom properties} exist.
 
 
 Similarly, \autoref{fig:venn-DACCOSIM} compares the features of BCoorLang and MontiArc with the co-simulation tool DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
-Co-simulation approaches like DACCOSIM have unique features such as an A-causal MoC and a hybrid domain.
+Co-simulation approaches like DACCOSIM have unique features, such as \textsf{MoC:A-causal}, \textit{Goal:Co-simulation}, and \textsf{Domain:Hybrid}.
 
-% TODO: Change color of DACCOSIM to not be the same as Linda in the previous fig.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/venn_daccosim}
+	\includegraphics[width=0.6\textwidth]{images/venn_daccosim}
 	\caption{Feature comparison: BCoorLang, MontiArc, and DACCOSIM}
 	\label{fig:venn-DACCOSIM}
 \end{figure}
