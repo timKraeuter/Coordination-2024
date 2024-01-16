@@ -7,9 +7,9 @@ The following figure shows the complete feature model.
 ![](./artifacts/images/feature-model.svg)
 
 # Application of the feature model
-All classification data can be found [here](./artifacts/classification.xlsx).
+All data from applying the feature model to 16 approaches can be found [here](./artifacts/classification.xlsx).
 
-## Venn diagrams and other plots
+## Venn diagrams and UpSet plots
 A script to generate **Venn diagrams** and **UpSet plots** from the classification data with explanation is located [here](./artifacts/venn-diagram-scripts/).
 
 **Venn diagrams:**
@@ -19,10 +19,3 @@ A script to generate **Venn diagrams** and **UpSet plots** from the classificati
 **UpSet plots:**
 
 ![venn diagram](./artifacts/venn-diagram-scripts/upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)
-
-# Running example: Pedestrian crossing
-
-![](./artifacts/images/runningExample.svg)
-
-## MontiArc
-The source code for the MontiArc implementation can be found [here](https://github.com/timKraeuter/montiarc/tree/develop/applications/crossing/main/montiarc/crossing).
