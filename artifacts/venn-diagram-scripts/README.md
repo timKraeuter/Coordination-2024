@@ -112,7 +112,7 @@ py Generate_Upset.py BCoorLang DACCOSIM MontiArc
 
 ### UpSet plot: Custom approaches
 
-UpSet plots make most sense for more than three approaches. You can add as many approac
+UpSet plots make most sense for more than three approaches. You can add as many approaches as arguments as you want.
 
 **Script:**
 
