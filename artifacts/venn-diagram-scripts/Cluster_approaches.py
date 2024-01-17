@@ -47,6 +47,9 @@ distance_matrix = pd.DataFrame(distance_matrix, index=approach_names, columns=ap
 
 print(distance_matrix.to_string())
 
+# Distance in markdown
+# print(distance_matrix.to_markdown())
+
 # Clustering with jaccard (use jaccard_distance in line 44)
 # clustering = DBSCAN(eps=0.4, min_samples=2, metric='precomputed')
 
