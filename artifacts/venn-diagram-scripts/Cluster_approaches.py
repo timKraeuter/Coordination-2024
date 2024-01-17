@@ -55,23 +55,24 @@ clustering = DBSCAN(eps=5, min_samples=2, metric='precomputed')
 
 clustering.fit(distance_matrix)
 
-labels = clustering.labels_
+cluster_labels = clustering.labels_
 
-n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
-n_noise_ = list(labels).count(-1)
+n_clusters = len(set(cluster_labels)) - (1 if -1 in cluster_labels else 0)
+n_noise = list(cluster_labels).count(-1)
 
 print("\n")
-print("Number of clusters: %d" % n_clusters_)
-print("Number of not clustered points: %d" % n_noise_)
+print("Number of clusters: %d" % n_clusters)
+print("Number of not clustered points: %d" % n_noise)
 
 clusters = {}
-for label in labels:
+# Not optimal code but fine for this dataset.
+for label in cluster_labels:
     if label == -1:
         clusters["Not clustered"] = set()
     else:
         clusters[label] = set()
 
-for idx, label in enumerate(labels):
+for idx, label in enumerate(cluster_labels):
     if label == -1:
         clusters["Not clustered"].add(approach_names[idx])
     else:
