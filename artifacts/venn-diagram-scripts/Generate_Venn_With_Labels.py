@@ -52,8 +52,8 @@ def add_label(region_id, features):
     if region is not None:
         region.set_text('\n'.join(features))
 
-
 # Add overlap labels
+# Pass empty set/string if you do not want any labels.
 add_label("100", A - B - C)
 add_label("110", A & B - C)
 add_label("010", B - C - A)
