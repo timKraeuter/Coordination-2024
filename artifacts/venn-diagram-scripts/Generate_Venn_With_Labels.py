@@ -62,6 +62,6 @@ add_label("111", A & B & C)
 add_label("011", B & C - A)
 add_label("001", C - B - A)
 
-filename = "/venn-diagrams/" + '_'.join(approach_names) + "_venn_labeled"
+filename = "./venn-diagrams/" + '_'.join(approach_names) + "_venn_labeled"
 plt.savefig(filename + ".svg", format="svg", bbox_inches="tight")
 plt.show()

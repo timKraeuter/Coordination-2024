@@ -32,5 +32,5 @@ approaches = from_contents(content)
 plot(approaches)
 
 filename = '_'.join(approach_names) + "_upset"
-plt.savefig("./upset/" + filename + ".svg", format="svg", bbox_inches="tight")
+plt.savefig("./upset-plots/" + filename + ".svg", format="svg", bbox_inches="tight")
 plt.show()

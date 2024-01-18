@@ -14,24 +14,7 @@ Generates the **first Venn diagram** in the paper:
 
 ![diagram](./venn-diagrams/BCoorLang_Linda_MontiArc_venn.svg)).
 
-The console outputs will **contain** which **features are overlapping/unique**.
-
-**Command output:**
-
-> BCoorLang's unique features (6): {'formal language', 'event-scheduling', 'non-intrusive', 'heterogeneous', 'dedicated
-> elements', 'custom properties'}    
-> BCoorLang's and Linda's common features (0) without MontiArc:
-> set()                                                                          
-> BCoorLang's and MontiArc's common features (2) without Linda: {'logical', 'simulation'}
->
-> Linda's unique features (2): {'execution', 'name
-> based'}                                                                                      
-> Linda's and MontiArc's common features (5) without BCoorLang: {'intrusive', 'homogeneous', 'programming language', '
-> data-exchange', 'causal'}
->
-> MontiArc's unique features (1): {'architecture
-> based'}                                                                                        
-> Common features (2): {'discrete event', 'predefined'}
+Venn diagrams with feature labels can be obtained as described in the next section.
 
 ## Venn Diagram: BCoorLang DACCOSIM MontiArc
 
@@ -43,25 +26,11 @@ Generates the **second Venn diagram** in the paper:
 
 ![diagram](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)).
 
-The console outputs will **contain** which **features are overlapping/unique**.
-
-**Command output:**
-
-> BCoorLang's unique features (6): {'non-intrusive', 'custom properties', 'formal language', 'heterogeneous', 'dedicated
-> elements', 'event-scheduling'}      
-> BCoorLang's and DACCOSIM's common features (0) without MontiArc: set()       
-> BCoorLang's and MontiArc's common features (2) without DACCOSIM: {'discrete event', 'logical'}
->
->DACCOSIM's unique features (4): {'name based', 'a-causal', 'co-simulation', 'hybrid'}    
-> DACCOSIM's and MontiArc's common features (4) without BCoorLang: {'data-exchange', 'intrusive', 'homogeneous', '
-> causal'}
->
->MontiArc's unique features (2): {'programming language', 'architecture based'}     
-> Common features (2): {'simulation', 'predefined'}
+Venn diagrams with feature labels can be obtained as described in the next section.
 
 ## Venn Diagrams with feature labels
 
-Follow the same procedure as before but use one of the new commands below:
+To obtain venn diagrams with feature labels follow the same procedure as before but use one of the commands below:
 
 ### Venn Diagram: BCoorLang Linda MontiArc
 
@@ -132,7 +101,7 @@ py Generate_Upset.py BCoorLang Linda MontiArc DACCOSIM
 
 ## Clustering
 
-DATA here is not final yet.
+DATA here is not final yet!!!
 
 ### Feature distance
 
