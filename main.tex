@@ -385,7 +385,7 @@ However, which types of dynamic systems can be simulated varies and is discussed
 \subsubsection{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
 A coordinated simulation is useful because the composition of multiple components can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
 Emergent behavior can be dealt with early in development before implementing each component and its interactions.
-Co-simulation tools such as DACCOSIM \cite{galtierFMIBasedDistributedMultisimulation2015} or MECSYCO \cite{camusCosimulationCyberphysicalSystems2018} are examples of approaches that have coordinated simulation as their goal.
+Co-simulation tools such as DACCOSIM (Distributed Architecture for Controlled COSIMulation) \cite{galtierFMIBasedDistributedMultisimulation2015,dadSynthesisFeedbackDistribution2021} or MECSYCO (Multi-agent Environment for ComplexSYstem CO-simulation) \cite{camusHybridCosimulationFMUs2016,camusCosimulationCyberphysicalSystems2018} are examples of approaches that have coordinated simulation as their goal.
 Simulation is also implemented by coordination frameworks such as BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} and BCOol \cite{varalarsenBehavioralCoordinationOperator2015}.
 Even recent ADLs such as MontiArc \cite{haberMontiArcArchitecturalModeling2014} provide simulation capabilities.
 
@@ -426,6 +426,7 @@ Typically, coordination frameworks and ADLs operate in this domain since variabl
 Second, coordination approaches in the \textit{continuous time} domain support components to have a state that evolves continuously over time.
 Often, components are given by sets of differential equations, which omit continuous variable changes, such as physical systems involving springs and dampeners, see \cite{gomesCoSimulationSurvey2019}.
 
+% MECSYCO is doing the first, while DACCOSIM is doing the second
 Third, the \textit{hybrid} domain is a mix of the first two domains that occur in the co-simulation of cyber-physical systems.
 Concretely, components should coordinate where the state of some components changes discretely while the state of other components evolves continuously in time.
 Two strategies deal with hybrid systems: one either adapts the components from the continuous time to the discrete event domain or vice versa \cite{gomesCoSimulationSurvey2019}.
