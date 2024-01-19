@@ -441,9 +441,10 @@ Thus, Linda is \textit{intrusive} since one has to add coordination operations t
 On the other hand, \textit{non-intrusive} coordination approaches do not require changes to the components.
 However, components must be created with coordination in mind to expose possible coordination points.
 For example, BCOol \cite{varalarsenBehavioralCoordinationOperator2015} uses behavioral interfaces to define events, which can then be used to specify \textit{non-intrusive} coordination rules outside the components.
+Intrusive coordination approaches tend to mix computation and coordination \cite{arbabWhatYouMean1998}.
 
-In a nutshell, some approaches allow changing coordination without touching the components, which is impossible in others.
-This is exactly the difference between non-intrusive and intrusive coordination specifications.
+In a nutshell, some approaches allow changing coordination without touching the components (non-intrusive), which is impossible in others.
+The distinction is similar to the classification into \textit{exogenous} (non-intrusive) and \textit{endogenous} (intrusive) made for coordination languages in \cite{arbabWhatYouMean1998}.
 
 \subsubsection{Component languages} Coordination approaches typically only support \textit{homogeneous} components.
 For example, coordination languages, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, typically only support coordination if each component is given in the same programming language.

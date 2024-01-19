@@ -281,11 +281,12 @@
   file = {C:\Users\timkr\Zotero\storage\C32VJP7K\Arbab - 2004 - Reo a channel-based coordination model for compon.pdf}
 }
 
-@article{arbabWhatYouMean2001,
+@article{arbabWhatYouMean1998,
   title = {What Do You Mean, Coordination?},
   author = {Arbab, Farhad},
-  year = {2001},
-  month = feb,
+  year = {1998},
+  journal = {Bulletin of the Dutch Association for Theoretical Computer Science},
+  pages = {11--22},
   file = {C:\Users\timkr\Zotero\storage\BJNM4CX3\Arbab et al. - What Do You Mean, Coordination.pdf}
 }
 
@@ -1297,13 +1298,6 @@
   abstract = {Most modeling and simulation (M\&S) questions about cyber-physical systems (CPSs) require expert skills belonging to different scientific fields. The challenges are then to integrate each domain's tools (formalism and simulation software) within the rigorous framework of M\&S process. To answer this issue, we give the specifications of the Multi-agent Environment for Complex-SYstem CO-simulation (MECSYCO) middleware which enables to interconnect several pre-existing and heterogeneous M\&S tools, so they can simulate a whole CPS together. The middleware performs the co-simulation in a parallel, decentralized, and distributable fashion thanks to its modular multi-agent architecture. In order to rigorously integrate tools that use different formalisms, the co-simulation engine of MECSYCO is based on the discrete event system specification (DEVS). The central idea of MECSYCO is to use a DEVS wrapping strategy to integrate each tool into the middleware. Thus, heterogeneous tools can be homogeneously co-simulated in the form of a DEVS system. By using DEVS, MECSYCO benefits from the numerous scientific works which have demonstrated the integrative power of this formalism and give crucial guidelines to rigorously design wrappers. We demonstrate that our discrete framework can integrate a vast amount of continuous M\&S tools by wrapping the Functional Mockup Interface (FMI) standard. To this end, we take advantage of DEVS efforts of the literature (namely, the DEV\&DESS hybrid formalism and Quantized State System (QSS) solvers) to design DEVS wrappers for Functional Mockup Unit (FMU) components. As a side-effect, this wrapping is not restricted to MECSYCO but can be applied in any DEVS-based platform. We evaluate MECSYCO with the proof of concept of a smart heating use case, where we co-simulate non-DEVS-centric M\&S tools.},
   langid = {english},
   file = {C\:\\Users\\timkr\\Zotero\\storage\\C4473757\\User Guide.pdf;C\:\\Users\\timkr\\Zotero\\storage\\NBK3JYHD\\Camus et al. - 2018 - Co-simulation of cyber-physical systems using a DE.pdf}
-}
-
-@article{camusHybridCosimulationFMUs,
-  title = {Hybrid {{Co-simulation}} of {{FMUs}} Using {{DEV}}\&{{DESS}} In},
-  author = {Camus, Benjamin and Galtier, Virginie and Caujolle, Mathieu},
-  abstract = {Co-simulation is a key tool in the design and operation of a growing number of complex cyber-systems. But efficiently yet accurately combining continuous time components (such as FMUs) with event-based ones can be challenging, both from a modeling perspective and an operational, tools-oriented one. We propose a platform to tackle this problem building up on MECSYCO, a MAS-based DEVS wrapping platform dedicated to co-simulation. Relying on the ability of DEVS to integrate the DEV\&DESS formalism -which offers a sound framework for describing hybrid models- we propose a DEV\&DESS wrapper for FMU. This wrapper encapsulates a version of the DEV\&DESS simulation algorithm for FMU components which is notably composed of: (1) a forecast strategy which searches for the next state-event; (2) a bisectional algorithm to approach the location of the state-change in an FMU. Our solution is implemented using Java and JavaFMI to control the FMU. Our sample case is the co-simulation of a barrel-filler factory implemented in different FMUs and event-based models. Compared to related works, our proposal is functional, generic, yet evolutionary, and benefits from the strong foundations of DEV\&DESS.},
-  langid = {english}
 }
 
 @inproceedings{camusHybridCosimulationFMUs2016,
@@ -5686,12 +5680,19 @@
   file = {C:\Users\timkr\Zotero\storage\GSJ3I5VP\Papadopoulos and Arbab - 1998 - Coordination Models and Languages.pdf}
 }
 
-@article{papadopoulosMODELLINGACTIVITIESINFORMATI0,
-  title = {{{MODELLING ACTIVITIES IN INFORMATI0}}"{{N SYSTEMS USING THE COORDINATION LANGUAGE MANIFOLD}}},
-  author = {Papadopoulos, George A and Arbab, Farhad},
-  abstract = {We argue for the need to use control-based, event-driven and state-defined, coordination models and associated languages in modelling at least some of those activities that constitute the functionality of a modem, open and distributed information system. We illustrate our points by using such a coordination model and language and showing by means of suitable examples how it can be used for the above mentioned purpose. We also compare out approach with the (rather few) approaches that as yet exist in this rather new area of information systems, and we discuss our model's advantages over those other approaches.},
+@inproceedings{papadopoulosModellingActivitiesInformation1998,
+  title = {Modelling Activities in Information Systems Using the Coordination Language {{MANIFOLD}}},
+  booktitle = {Proceedings of the 1998 {{ACM}} Symposium on {{Applied Computing}}  - {{SAC}} '98},
+  author = {Papadopoulos, George A. and Arbab, Farhad},
+  year = {1998},
+  pages = {185--193},
+  publisher = {{ACM Press}},
+  address = {{Atlanta, Georgia, United States}},
+  doi = {10.1145/330560.330667},
+  urldate = {2024-01-19},
+  isbn = {978-0-89791-969-2},
   langid = {english},
-  file = {C:\Users\timkr\Zotero\storage\AJ2TF7D8\Papadopoulos and Arbab - MODELLING ACTIVITIES IN INFORMATI0N SYSTEMS USING.pdf}
+  file = {C:\Users\timkr\Zotero\storage\EXC47UXC\Papadopoulos and Arbab - 1998 - Modelling activities in information systems using .pdf}
 }
 
 @inproceedings{patelHeterogeneousBehavioralHierarchy2006,
@@ -7447,6 +7448,22 @@
   isbn = {978-0-7695-2089-6},
   langid = {english},
   file = {C:\Users\timkr\Zotero\storage\EH96F2ZE\Xiaoshan Li et al. - 2004 - A formal semantics of UML sequence diagram.pdf}
+}
+
+@inproceedings{xichenFormalVerificationEmbedded2002,
+  title = {Formal Verification of Embedded System Designs at Multiple Levels of Abstraction},
+  booktitle = {Seventh {{IEEE International High-Level Design Validation}} and {{Test Workshop}}, 2002.},
+  author = {{Xi Chen} and {Fang Chen} and Hsieh, H. and Balarin, F. and Watanabe, Y.},
+  year = {2002},
+  pages = {125--130},
+  publisher = {{IEEE Comput. Soc}},
+  address = {{Cannes, France}},
+  doi = {10.1109/HLDVT.2002.1224441},
+  urldate = {2024-01-18},
+  abstract = {Embedded electronics today are becoming increasingly complex, which makes their design and analysis more and more difficult. An important approach to overcome the increasing complexity is to divide the system design procedure into different but interrelated stages, and represent system designs with description at different levels of abstraction. Design and analysis tools at each stages can then be more effectively applied onto the designs at particular level of abstraction. In this paper, we focus on the formal verification of embedded system designs at multiple levels of abstraction, enabled by Metropolis design environment. Based on Metropolis framework and the model checker SPIN, a translation mechanism from Metropolis design to Promela description is presented and an automatic translator is developed accordingly. We discuss the challenges and solutions in semantically translating from an object-based system design language to a procedural verification language. To demonstrate the correctness and effectivenessof our approach for formal verification, we verify properties of typical producerconsumer systems.},
+  isbn = {978-0-7803-7655-7},
+  langid = {english},
+  file = {C:\Users\timkr\Zotero\storage\LV4XV333\Xi Chen et al. - 2002 - Formal verification of embedded system designs at .pdf}
 }
 
 @article{yamashitaWhatExtentCan2013,
