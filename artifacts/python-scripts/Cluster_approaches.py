@@ -41,7 +41,7 @@ def feature_distance(set1, set2):
 for approach1 in approach_names:
     distance_matrix[approach1] = {}
     for approach2 in approach_names:
-        distance_matrix[approach1][approach2] = feature_distance(content[approach1], content[approach2])
+        distance_matrix[approach1][approach2] = jaccard_distance(content[approach1], content[approach2])
 
 distance_matrix = pd.DataFrame(distance_matrix, index=approach_names, columns=approach_names)
 
@@ -49,11 +49,11 @@ distance_matrix = pd.DataFrame(distance_matrix, index=approach_names, columns=ap
 
 # print(distance_matrix.to_markdown())
 
-# Clustering with jaccard (use jaccard_distance in line 44)
-# clustering = DBSCAN(eps=0.4, min_samples=2, metric='precomputed')
+# Clustering with Jaccard distance (use jaccard_distance in line 44)
+clustering = DBSCAN(eps=0.34, min_samples=2, metric='precomputed')
 
 # Clustering with feature distance (use feature_distance in line 44)
-clustering = DBSCAN(eps=4, min_samples=2, metric='precomputed')
+# clustering = DBSCAN(eps=4, min_samples=2, metric='precomputed')
 
 clustering.fit(distance_matrix)
 
@@ -62,7 +62,6 @@ cluster_labels = clustering.labels_
 n_clusters = len(set(cluster_labels)) - (1 if -1 in cluster_labels else 0)
 n_noise = list(cluster_labels).count(-1)
 
-print("\n")
 print("Number of clusters: %d" % n_clusters)
 print("Number of not clustered points: %d" % n_noise)
 
@@ -80,5 +79,14 @@ for idx, label in enumerate(cluster_labels):
     else:
         clusters[label].add(approach_names[idx])
 
+
+def cluster_sort(item):
+    return str(item[0])
+
+
+clusters = sorted(clusters.items(), key=cluster_sort)
+
 print("Clusters:")
-print(clusters)
+# clusters = sorted(clusters.items())
+for key, value in clusters:
+    print(f'{key}: {value}')
