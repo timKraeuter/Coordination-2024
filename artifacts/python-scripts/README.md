@@ -101,38 +101,39 @@ py Generate_Upset.py BCoorLang Linda MontiArc DACCOSIM
 
 ## Clustering
 
-DATA here is not final yet!!!
-We clustered the approaches using two distance metrics: Feature distance (Edit distance) and Jaccard distance.
-You can find the distance matrices in the following two sections.
+We clustered the approaches using the [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN) algorithm with the [Jaccard distance](https://en.wikipedia.org/wiki/Jaccard_index#Overview) metric.
+You can find a table with the calculated distances later.
 
-## Clustering results
+**Parameters:**
 
-### Feature distance matrix
+- Number of minimum samples in a cluster = two (`min_samples=2`)
+- Maximum distance between two samples to be considered neighbors (`eps=0.34`).
+- Precomputed distance metric given by the Jaccard_distance (`metric='precomputed'`)
 
-Measures how many features have to be **added/removed** to get from one approach to another (Edit distance).
+### Clustering results
 
-|              | BCoorLang | BCOoL | Ptolemy | Wright | MontiArc | CommUnity | Metropolis | MECSYCO | DACCOSIM | UMoC++ | LinguaFranca | Reo | Linda | BIP | Manifold | ForSyDe |
-|:-------------|----------:|------:|--------:|-------:|---------:|----------:|-----------:|--------:|---------:|-------:|-------------:|----:|------:|----:|---------:|--------:|
-| BCoorLang    |         0 |     4 |      13 |     11 |       12 |        10 |         12 |      13 |       15 |     13 |           14 |  13 |    15 |   9 |       15 |      13 |
-| BCOoL        |         4 |     0 |      13 |      9 |       12 |        10 |         14 |      13 |       15 |     13 |           14 |  11 |    15 |   9 |       15 |      13 |
-| Ptolemy      |        13 |    13 |       0 |     12 |        7 |         7 |          9 |       6 |        8 |      8 |            7 |   8 |    12 |  12 |       10 |       8 |
-| Wright       |        11 |     9 |      12 |      0 |        7 |         5 |          9 |      12 |       10 |      8 |            9 |   4 |    12 |   6 |       10 |       8 |
-| MontiArc     |        12 |    12 |       7 |      7 |        0 |         2 |          2 |       7 |        5 |      1 |            2 |   3 |     5 |   7 |        3 |       3 |
-| CommUnity    |        10 |    10 |       7 |      5 |        2 |         0 |          4 |       9 |        7 |      3 |            4 |   3 |     7 |   7 |        5 |       3 |
-| Metropolis   |        12 |    14 |       9 |      9 |        2 |         4 |          0 |       7 |        5 |      1 |            4 |   5 |     5 |   9 |        3 |       5 |
-| MECSYCO      |        13 |    13 |       6 |     12 |        7 |         9 |          7 |       0 |        2 |      6 |            9 |  10 |    10 |  12 |        8 |      10 |
-| DACCOSIM     |        15 |    15 |       8 |     10 |        5 |         7 |          5 |       2 |        0 |      4 |            7 |   8 |     8 |  10 |        6 |       8 |
-| UMoC++       |        13 |    13 |       8 |      8 |        1 |         3 |          1 |       6 |        4 |      0 |            3 |   4 |     4 |   8 |        2 |       4 |
-| LinguaFranca |        14 |    14 |       7 |      9 |        2 |         4 |          4 |       9 |        7 |      3 |            0 |   5 |     5 |   7 |        3 |       3 |
-| Reo          |        13 |    11 |       8 |      4 |        3 |         3 |          5 |      10 |        8 |      4 |            5 |   0 |     8 |   8 |        6 |       4 |
-| Linda        |        15 |    15 |      12 |     12 |        5 |         7 |          5 |      10 |        8 |      4 |            5 |   8 |     0 |  10 |        2 |       4 |
-| BIP          |         9 |     9 |      12 |      6 |        7 |         7 |          9 |      12 |       10 |      8 |            7 |   8 |    10 |   0 |        8 |       6 |
-| Manifold     |        15 |    15 |      10 |     10 |        3 |         5 |          3 |       8 |        6 |      2 |            3 |   6 |     2 |   8 |        0 |       2 |
-| ForSyDe      |        13 |    13 |       8 |      8 |        3 |         3 |          5 |      10 |        8 |      4 |            3 |   4 |     4 |   6 |        2 |       0 |
+The results of the clustering are the following:
 
-### Jaccard distance matrix
+```
+Number of clusters: 3
+Number of not clustered points: 2
+Clusters:
+0: {'BCoorLang', 'BCOoL'}
+1: {'CommUnity', 'ForSyDe', 'UMoC++', 'LinguaFranca', 'Wright', 'Metropolis', 'MontiArc', 'Reo', 'Manifold', 'Linda'}
+2: {'MECSYCO', 'DACCOSIM'}
+Not clustered: {'BIP', 'Ptolemy'}
+```
 
-Measures the [Jaccard distance](https://en.wikipedia.org/wiki/Jaccard_index#Overview) between the feature sets.
+You can run the following script to reproduce the results:
+
+```bash
+py Cluster_approaches.py
+```
+
+### Jaccard distance matrix (clustering input)
+
+Tabel which shows the **Jaccard distance** between the feature sets.
+This data is the precomputed input for the clustering.
 
 |              | BCoorLang |    BCOoL |  Ptolemy |   Wright | MontiArc | CommUnity | Metropolis |  MECSYCO | DACCOSIM |   UMoC++ | LinguaFranca |      Reo |    Linda |      BIP | Manifold |  ForSyDe |
 |:-------------|----------:|---------:|---------:|---------:|---------:|----------:|-----------:|---------:|---------:|---------:|-------------:|---------:|---------:|---------:|---------:|---------:|
