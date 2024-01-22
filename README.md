@@ -10,12 +10,12 @@ The following figure shows the complete feature model.
 All data from applying the feature model to 16 approaches can be found [here](./artifacts/classification.xlsx).
 
 ## Venn diagrams and UpSet plots
-A script to generate **Venn diagrams** and **UpSet plots** from the classification data with explanation is located [here](./artifacts/venn-diagram-scripts/).
+A script to generate **Venn diagrams** and **UpSet plots** from the classification data with explanation is located [here](./artifacts/python-scripts/).
 
 **Venn diagrams:**
 
-![venn diagram](./artifacts/venn-diagram-scripts/venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)
+![venn diagram](./artifacts/python-scripts/venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)
 
 **UpSet plots:**
 
-![venn diagram](./artifacts/venn-diagram-scripts/upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)
+![venn diagram](./artifacts/python-scripts/upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)
