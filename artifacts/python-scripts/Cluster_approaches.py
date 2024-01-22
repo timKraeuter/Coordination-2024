@@ -45,16 +45,15 @@ for approach1 in approach_names:
 
 distance_matrix = pd.DataFrame(distance_matrix, index=approach_names, columns=approach_names)
 
-print(distance_matrix.to_string())
+# print(distance_matrix.to_string())
 
-# Distance in markdown
 # print(distance_matrix.to_markdown())
 
 # Clustering with jaccard (use jaccard_distance in line 44)
 # clustering = DBSCAN(eps=0.4, min_samples=2, metric='precomputed')
 
 # Clustering with feature distance (use feature_distance in line 44)
-clustering = DBSCAN(eps=5, min_samples=2, metric='precomputed')
+clustering = DBSCAN(eps=4, min_samples=2, metric='precomputed')
 
 clustering.fit(distance_matrix)
 
