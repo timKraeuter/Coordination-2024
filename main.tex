@@ -542,12 +542,22 @@ Co-simulation approaches like DACCOSIM have unique features, such as \textit{Goa
 
 
 \section{Findings} \label{sec:findings}
-We further analyze the classification of the 16 approaches to find out how approaches compare across and inside the four different categories.
+We further analyze the classification of the 16 approaches to find out how approaches compare across and inside the four categories.
+First, we clustered the approaches to see if the four different categories reappear when only considering the feature classification of each approach.
+\autoref{fig:clusters} shows the results of applying the DBSCAN clustering algorithm using Jaccard distance to measure the distance between feature sets.
+The data and scripts to reproduce our analysis are available in \cite{timkrauterArtifactsCoordination2024}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{images/clusters}
+	\caption{Clustering of approaches regarding their feature set}
+	\label{fig:clusters}
+\end{figure}
 
 % Interprete the previous classification
 % Typical features (clusters) for ADLs, Coordination language, Co-simulation, and coordination frameworks.
 % Maybe they can somehow be visualized nicely using some clusters with overlaps (Venn diagrams, Upset plots?)
-% Are all ADLS similar? ANy outliers?
+% Are all ADLS similar? Any outliers?
 
 % Commonalities between clusters
 
