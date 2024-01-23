@@ -119,7 +119,7 @@ In this section, we introduce a running example that will be used throughout the
 The example shows traffic lights (TLs) for cars and pedestrians.
 To guarantee \textit{safe crossing} of pedestrians, the car TLs should be red when the pedestrian TLs are green and vice versa.
 Thus, the car and pedestrian TLs cannot act independently, i.e., they must coordinate.
-In addition, the car or pedestrian TLs must be green to ensure \textit{progress in traffic} flow.
+In addition, the car or the pedestrian TLs must be green to ensure \textit{progress in traffic} flow.
 
 \begin{figure}[ht]
 	\centering
@@ -193,7 +193,7 @@ A difference to components is that connectors must not be implemented as distinc
 % Architectural configuration
 \textit{Architectural configuration}, also known as topology, represents the structural arrangement of components and connectors in a connected graph, defining the overall architecture~\cite{medvidovicClassificationComparisonFramework2000}.
 This structure determines if the combined semantics results in the desired behavior.
-For example, one can check for deadlocks and starvation.
+For example, one can check for properties such as deadlocks and starvation.
 
 % ADLS are formal and usually incorporate one formal language. Usually, a process algebra. They do not support multiple formal specification languages cite medvidovicClassificationComparisonFramework2000.
 In addition, ADLs incorporate a formal language to enable analysis.
@@ -542,7 +542,9 @@ Co-simulation approaches like DACCOSIM have unique features, such as \textit{Goa
 
 
 \section{Findings} \label{sec:findings}
- % Interprete the previous classification
+We further analyze the classification of the 16 approaches to find out how approaches compare across and inside the four different categories.
+
+% Interprete the previous classification
 % Typical features (clusters) for ADLs, Coordination language, Co-simulation, and coordination frameworks.
 % Maybe they can somehow be visualized nicely using some clusters with overlaps (Venn diagrams, Upset plots?)
 % Are all ADLS similar? ANy outliers?
