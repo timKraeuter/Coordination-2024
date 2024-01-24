@@ -388,17 +388,14 @@ Two strategies deal with hybrid systems: one either adapts the components from t
 The choice of a coordination approach depends on the nature of the system at hand.
 For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
 
-\subsubsection{Specification} We distinguish between \textit{intrusive} and \textit{non-intrusive specification} of coordination.
+\subsubsection{Specification} We distinguish between \textit{endogenous} and \textit{exogenous} specification of coordination, as described for coordination languages in \cite{arbabWhatYouMean1998}.
 For example, when using the coordination language Linda \cite{carrieroLindaContext1989}, one uses basic operations such as \textsf{out} and \textsf{in} inside components to create and read tuples in the shared tuple space, i.e., shared memory.
-Thus, Linda is \textit{intrusive} since one has to add coordination operations to the components.
+Thus, Linda is \textit{endogenous} since one has to add coordination operations inside the components.
 
-On the other hand, \textit{non-intrusive} coordination approaches do not require changes to the components.
+On the other hand, \textit{exogenous} coordination approaches keep coordination aspects outside of components.
 However, components must be created with coordination in mind to expose possible coordination points.
-For example, BCOol \cite{varalarsenBehavioralCoordinationOperator2015} uses behavioral interfaces to define events, which can then be used to specify \textit{non-intrusive} coordination rules outside the components.
-Intrusive coordination approaches tend to mix computation and coordination \cite{arbabWhatYouMean1998}.
-
-In a nutshell, some approaches allow changing coordination without touching the components (non-intrusive), which is impossible in others.
-The distinction is similar to the classification into \textit{exogenous} (non-intrusive) and \textit{endogenous} (intrusive) made for coordination languages in \cite{arbabWhatYouMean1998}.
+For example, BCOol \cite{varalarsenBehavioralCoordinationOperator2015} uses behavioral interfaces to define events, which can then be used to specify \textit{exogenous} coordination rules outside the components.
+Endogenous coordination approaches tend to mix computation and coordination \cite{arbabWhatYouMean1998}.
 
 \subsubsection{Component languages} Coordination approaches typically only support \textit{homogeneous} components.
 For example, coordination languages, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, typically only support coordination if each component is given in the same programming language.
@@ -456,7 +453,7 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 		
 		\textbf{Properties} \\
 		\hspace{2mm} Domain & Hybrid & Discrete event & Discrete event & Discrete event \\
-		\hspace{2mm} Specification & Intrusive & Intrusive & Intrusive & Non-Intrusive \\
+		\hspace{2mm} Specification & Exogenous & Endogenous & Exogenous & Exogenous \\
 		\hspace{2mm} Component languages & Homogeneous & Homogeneous & Homogeneous & Heterogeneous \\	
 		\hspace{2mm} Implementation & Co-simulation & PL & PL & Formal language \\
 	\end{tblr}
