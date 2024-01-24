@@ -7,15 +7,12 @@ The following figure shows the complete feature model.
 ![](./artifacts/images/feature-model.svg)
 
 # Application of the feature model
-All data from applying the feature model to 16 approaches can be found [here](./artifacts/classification.xlsx).
+All data from applying the feature model to the 16 approaches can be found [here](./artifacts/classification.xlsx).
 
-## Venn diagrams and UpSet plots
-A script to generate **Venn diagrams** and **UpSet plots** from the classification data with explanation is located [here](./artifacts/python-scripts/).
+# Findings
+The python scripts to generate **venn diagrams** along with a step-by-step description is located [here](./artifacts/python-scripts/).
+In addition, the same folder contains the script to cluster the classification data.
 
-**Venn diagrams:**
+**Sample venn diagram:**
 
 ![venn diagram](./artifacts/python-scripts/venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)
-
-**UpSet plots:**
-
-![venn diagram](./artifacts/python-scripts/upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)

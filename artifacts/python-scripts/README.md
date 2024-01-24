@@ -34,27 +34,27 @@ To obtain venn diagrams with feature labels follow the same procedure as before 
 
 ### Venn Diagram: BCoorLang Linda MontiArc
 
-**Output:**
-
-![diagram](./venn-diagrams/BCoorLang_Linda_MontiArc_venn_labeled.svg)).
-
 **Script:**
 
 ```bash
 py Generate_Venn_With_Labels.py BCoorLang Linda MontiArc
 ```
 
-### Venn Diagram: BCoorLang DACCOSIM MontiArc
-
 **Output:**
 
-![diagram](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn_labeled.svg)).
+![diagram](./venn-diagrams/BCoorLang_Linda_MontiArc_venn_labeled.svg)).
+
+### Venn Diagram: BCoorLang DACCOSIM MontiArc
 
 **Script:**
 
 ```bash
 py Generate_Venn_With_Labels.py BCoorLang DACCOSIM MontiArc
 ```
+
+**Output:**
+
+![diagram](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn_labeled.svg)).
 
 ## Equivalent UpSet plots
 
@@ -63,27 +63,27 @@ Follow the same procedure as before but use one of the new commands below to gen
 
 ### UpSet plot: BCoorLang Linda MontiArc
 
-**Output:**
-
-![diagram](./upset-plots/BCoorLang_Linda_MontiArc_upset.svg)).
-
 **Script:**
 
 ```bash
 py Generate_Upset.py BCoorLang Linda MontiArc
 ```
 
-### UpSet plot: BCoorLang DACCOSIM MontiArc
-
 **Output:**
 
-![diagram](./upset-plots/BCoorLang_DACCOSIM_MontiArc_upset.svg)).
+![diagram](./upset-plots/BCoorLang_Linda_MontiArc_upset.svg)).
+
+### UpSet plot: BCoorLang DACCOSIM MontiArc
 
 **Script:**
 
 ```bash
 py Generate_Upset.py BCoorLang DACCOSIM MontiArc
 ```
+
+**Output:**
+
+![diagram](./upset-plots/BCoorLang_DACCOSIM_MontiArc_upset.svg)).
 
 ### UpSet plot: Custom approaches
 
