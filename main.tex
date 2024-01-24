@@ -228,22 +228,9 @@ For example, the car TL in the running example could be defined using a differen
 
 % Behavioral interfaces
 \textbf{(2) Behavioral interfaces:} To coordinate between heterogeneous models \textit{behavioral interfaces} are used.
-These interfaces are defined for each language or generally for all languages and represent a common understanding, which is needed when each language can be different.
+These interfaces are defined for each language or a set of supported languages and represent a common understanding needed when the languages may differ.
 Examples of coordination frameworks are Behavioral Coordination Operator Language (BCOoL) \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015} and BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
 % Ptolemy?
-
-% BCoorLang is the new name. It's a bit close to BCOoL.
-For example, using BCoorLang, one would define a \textit{system relationship model}, see \autoref{fig:exampleBCoorLang}, which defines existing behavioral models and their relations similar to the architectural configuration of ADLs.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.7\textwidth]{images/running_example_BCorrLang}
-	\caption{System relationship model for the running example}
-	\label{fig:exampleBCoorLang}
-\end{figure}
-
-Using the behavioral relationship between \textsf{CarTrafficLight} and \textsf{PedestrianTrafficLight}, one can then define synchronizations of their behavior.
-To describe the behavior of car TL and pedestrian TL, one can use the state machines defined in the running example (see \autoref{fig:stateMachinesRunningExample}) since the state machine behavioral language is supported in BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023}.
 
 
 \section{Feature model} \label{sec:features}
@@ -256,7 +243,7 @@ However, our feature model still answers important questions.
 For example, how can coordination be specified, and what is its semantics?
 What are the goals of a coordination approach, how is the coordination implemented, and for which system domains is it suitable?
 
-The feature model is shown in \autoref{fig:featureModelOverview}.
+The top level of the feature model is shown in \autoref{fig:featureModelOverview}.
 A coordination approach has three main features: \textit{Foundation}, \textit{Goal}, and \textit{Properties}.
 
 \begin{figure}[ht]
@@ -476,35 +463,35 @@ All classifications are available in the artifacts of this paper \cite{timkraute
 	}
 \end{table}
 
-We compare BCoorLang, MontiArc, and Linda in \autoref{fig:venn-Linda}.
+We compare BCoorLang, MontiArc, and Linda in \autoref{fig:venn-bcoorlang-montiarc-linda}.
 The figure shows a Venn diagram comparing the feature sets of each approach, where each colored part states which features are contained and their amount.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{images/venn_linda}
+	\includegraphics[width=0.6\textwidth]{images/venn_bcoorlang_montiarc_linda}
 	\caption{Feature comparison: BCoorLang, MontiArc, and Linda}
-	\label{fig:venn-Linda}
+	\label{fig:venn-bcoorlang-montiarc-linda}
 \end{figure}
 
-For example, the one at the bottom of \autoref{fig:venn-Linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the intersection of all approaches in the middle declares that they all share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
-All classification data and scripts to generate Venn diagrams such as \autoref{fig:venn-Linda} are included in \cite{timkrauterArtifactsCoordination2024}.
+For example, the one at the bottom of \autoref{fig:venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the intersection of all approaches in the middle declares that they all share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
+All classification data and scripts to generate Venn diagrams such as \autoref{fig:venn-bcoorlang-montiarc-linda} are included in \cite{timkrauterArtifactsCoordination2024}.
 
-From \autoref{fig:venn-Linda}, one can see that most Linda features overlap with either BCoorLang or MontiArc.
+From \autoref{fig:venn-bcoorlang-montiarc-linda}, one can see that most Linda features overlap with either BCoorLang or MontiArc.
 Only \textsf{Execution} as a goal and \textsf{Definition:Name based} are not shared.
 This makes sense since Linda and other initial coordination languages have greatly influenced the development of ADLs and coordination frameworks, which happened afterward.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
 Multiple unique features, such as \textsf{Component languages:Heterogeneous}, \textsf{Specification:Non-intrusive}, \textsf{Implementation:Formal language} and \textsf{Formal verification:Custom properties} exist.
 
 
-Similarly, \autoref{fig:venn-DACCOSIM} compares the features of BCoorLang and MontiArc with the co-simulation tool DACCOSIM.
+Similarly, \autoref{fig:venn-bcoorlang-montiarc-daccosim} compares the features of BCoorLang and MontiArc with the co-simulation tool DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
 Co-simulation approaches like DACCOSIM have unique features, such as \textit{Goal:Co-simulation} and \textsf{Domain:Hybrid}.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{images/venn_daccosim}
+	\includegraphics[width=0.6\textwidth]{images/venn_bcoorlang_montiarc_daccosim}
 	\caption{Feature comparison: BCoorLang, MontiArc, and DACCOSIM}
-	\label{fig:venn-DACCOSIM}
+	\label{fig:venn-bcoorlang-montiarc-daccosim}
 \end{figure}
 
 % WIP section
