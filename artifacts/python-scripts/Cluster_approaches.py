@@ -5,7 +5,7 @@ distance_matrix = pd.read_excel('./distance/distances.xlsx')
 
 # print(distance_matrix.to_markdown())
 
-# Clustering with Jaccard distance (use jaccard_distance in line 44)
+# Clustering with Jaccard distance
 clustering = DBSCAN(eps=0.34, min_samples=2, metric='precomputed')
 
 # Clustering with feature distance (use feature_distance in line 44)
