@@ -111,40 +111,6 @@ Afterward, we present our main contribution: the feature model (\autoref{sec:fea
 Then, we apply the feature model to four representatives from each category of coordination approaches in \autoref{sec:application}.
 Finally, we discuss our findings in \autoref{sec:findings} and conclude in \autoref{sec:conclusion}.
 
-
-\section{Running example}
-In this section, we introduce a running example that will be used throughout the paper to explain the different coordination approaches.
-\autoref{fig:overviewRunningExample} depicts the \textit{pedestrian crossing} running example.
-
-The example shows traffic lights (TLs) for cars and pedestrians.
-To guarantee \textit{safe crossing} of pedestrians, the car TLs should be red when the pedestrian TLs are green and vice versa.
-Thus, the car and pedestrian TLs cannot act independently.
-They must coordinate their state changes.
-In addition, either the car or the pedestrian TLs, but not both, must be green to ensure \textit{progress in traffic} flow.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.5\textwidth]{images/running_example_schematic}
-	\caption{Pedestrian crossing running example}
-	\label{fig:overviewRunningExample}
-\end{figure}
-
-The behavior of the pedestrian TLs and car TLs are depicted as UML state machines \cite{objectmanagementgroupUnifiedModelingLanguage2017} in \autoref{fig:stateMachinesRunningExample}.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=1\textwidth]{images/running_example_models}
-	\caption{Pedestrian TL and car TL as state machines}
-	\label{fig:stateMachinesRunningExample}
-\end{figure}
-
-A \texttt{Pedestrian TL} can be \texttt{green} or \texttt{red}, while a \texttt{Car TL} has \texttt{red-amber} and \texttt{amber} as intermediate states between \texttt{red} and \texttt{green}.
-How \textit{safe crossing} and \textit{progress in traffic} are achieved differs between the used coordination approaches.
-
-The running example is deliberately kept simple because the focus should be on the coordination approaches, not the example's complexity.
-Furthermore, the example does not need continuous variables and thus is insufficient to show Co-simulation's full capabilities compared to the other coordination approaches.
-However, since continuous variables from physical systems cannot be represented in all coordination approaches, we opted for this running example, which represents a minimal denominator between all coordination approaches and is familiar to everyday life.
-
 \section{Categories of coordination approaches} \label{sec:approaches}
 
 \autoref{fig:overview} gives an overview of the different categories of coordination approaches.
