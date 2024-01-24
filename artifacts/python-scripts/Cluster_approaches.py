@@ -1,51 +1,7 @@
 from sklearn.cluster import DBSCAN
 import pandas as pd
 
-df = pd.read_excel('../classification.xlsx')
-# Lower case to find things more conveniently.
-df.columns = map(str.lower, df.columns)
-
-approach_names = ['BCoorLang', 'BCOoL', 'Ptolemy', 'Wright', 'MontiArc', 'CommUnity', 'Metropolis', 'MECSYCO',
-                  'DACCOSIM', 'UMoC++', 'LinguaFranca', 'Reo', 'Linda', 'BIP', 'Manifold', 'ForSyDe']
-
-content = {}
-for approach in approach_names:
-    approach_original = approach
-    approach = approach.lower()
-    # Filter nan, to lowercase, to array.
-    feature_cells = df[approach][df[approach].notnull()].str.lower().values
-    feature_set = set()
-    for feature_cell in feature_cells:
-        # Handle cells that contain multiple features separated by ,
-        if feature_cell.find(",") != -1:
-            for feature in feature_cell.split(","):
-                feature = feature.strip()
-                feature_set.add(feature)
-        else:
-            feature_set.add(feature_cell)
-    content[approach_original] = feature_set
-
-distance_matrix = {}
-
-
-def jaccard_distance(set1, set2):
-    intersection = len(set1.intersection(set2))
-    union = len(set1.union(set2))
-    return 1 - intersection / union
-
-
-def feature_distance(set1, set2):
-    return len(set1 - set2) + len(set2 - set1)
-
-
-for approach1 in approach_names:
-    distance_matrix[approach1] = {}
-    for approach2 in approach_names:
-        distance_matrix[approach1][approach2] = jaccard_distance(content[approach1], content[approach2])
-
-distance_matrix = pd.DataFrame(distance_matrix, index=approach_names, columns=approach_names)
-
-# print(distance_matrix.to_string())
+distance_matrix = pd.read_excel('./distance/distances.xlsx')
 
 # print(distance_matrix.to_markdown())
 
@@ -75,9 +31,9 @@ for label in cluster_labels:
 
 for idx, label in enumerate(cluster_labels):
     if label == -1:
-        clusters["Not clustered"].add(approach_names[idx])
+        clusters["Not clustered"].add(distance_matrix.columns[idx])
     else:
-        clusters[label].add(approach_names[idx])
+        clusters[label].add(distance_matrix.columns[idx])
 
 
 def cluster_sort(item):
@@ -87,6 +43,5 @@ def cluster_sort(item):
 clusters = sorted(clusters.items(), key=cluster_sort)
 
 print("Clusters:")
-# clusters = sorted(clusters.items())
 for key, value in clusters:
     print(f'{key}: {value}')
