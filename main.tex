@@ -95,7 +95,7 @@ The problem of correctly coordinating components has been studied from different
 % Contribution
 \textbf{Contribution.} We present a feature model comparing coordination approaches from the four categories.
 The feature model allows the comparison of coordination approaches across the different categories, while previous research has only focused on comparison inside categories. 
-Then, we apply the feature model to evaluate 16 distinct approaches spanning the aforementioned categories.
+Then, we apply the feature model to evaluate 16 distinct approaches spanning the aforementioned categories and publish our findings in a public dataset \cite{timkrauterArtifactsCoordination2024}.
 Finally, we discuss our findings, highlighting the common and distinct features among the categories while identifying crucial features that are absent but essential for industry application in the future.
 % TODO: Add more concrete info about the findings once we have written the findings section.
 
@@ -168,8 +168,8 @@ The first ADLs usually use process algebras such as Communicating Sequential Pro
 For example, Wright uses CSP \cite{allenFormalBasisArchitectural1997} while Darwin uses $\pi$-calculus \cite{mageeSpecifyingDistributedSoftware1995}.
 More recent ADLs, such as MontiArc \cite{haberMontiArcArchitecturalModeling2014}, use automata to define the behavior of components.
 
-However, no ADL supports multiple formal languages such as the coordination frameworks discussed in \autoref{subsec:frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
-Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., used often by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,medvidovicMovingArchitecturalDescription2006}.
+However, no ADL supports a heterogeneous set of components such as the coordination frameworks discussed in \autoref{subsec:frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
+Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., not often used by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,medvidovicMovingArchitecturalDescription2006}.
 
 For this paper, we consider only ADLs that incorporate formal semantics and thus do not consider other modeling languages such as UML \cite{objectmanagementgroupUnifiedModelingLanguage2017} and ArchiMate \cite{theopengroupArchiMateSpecification2023} despite them being sometimes seen as ADLs and their usage in the industry.
 
@@ -180,7 +180,7 @@ label=lst:MontiArc-Crossing,
 language=MontiArc,
 caption=MontiArc component for the pedestrian crossing]{listings/MontiArc-PedestrianCrossing.arc}
 
-It defines three components: \textsf{PedestrianCrossing}, \textsf{PedestrianTL}, and \textsf{CarTL}.
+It defines three components: \textsf{PedestrianCrossing}, \textsf{CarTL}, and \textsf{PedestrianTL}.
 Furthermore, the components \textsf{PedestrianTL} and \textsf{CarTL} define ports (line 10 and 15).
 The \textit{architectural configuration} is defined in the \textsf{PedestrianCrossing} component (lines 1-7), which links the ports of the \textsf{PedestrianTL} and \textsf{CarTL} using a \textit{connector} (line 6).
 % TODO: Add the full example in the artifacts (see pdf on overleaf)
