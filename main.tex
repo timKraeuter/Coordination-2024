@@ -67,7 +67,7 @@ University of Applied Sciences, FHDW, Hanover, Germany\\
 \maketitle
 
 \begin{abstract}
-We present a feature-based classification of different categories of component coordination approaches, such as coordination languages, co-simulation tools, architecture description languages, and coordination frameworks.
+We present a feature-based classification of different categories of component coordination approaches, such as coordination languages, co-simulation approaches, architecture description languages, and coordination frameworks.
 Our feature model spans different categories of coordination approaches that have only been analyzed in isolation before.
 Applying the feature model to concrete approaches allows us to pinpoint common and unique features that differentiate approaches.
 \end{abstract}
@@ -90,7 +90,7 @@ To handle this complexity and keep systems manageable, they are split into sever
 However, the coordination of heterogeneous components comes with new challenges and pitfalls.
 In this paper, as a component, we understand a small program, an entire system, or an executable behavioral model.
 % Different approaches to systemize coordination in different domains.
-The problem of correctly coordinating components has been studied from different angles using different terminology resulting in different categories of approaches: \textit{coordination languages} (\cite{papadopoulosCoordinationModelsLanguages1998}), \textit{Co-simulation tools} (\cite{gomesCoSimulationSurvey2019}), \textit{architecture description languages} (\cite{clementsSurveyArchitectureDescription1996}), and \textit{coordination frameworks} (\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBehavioralCoordinationOperator2015}).
+The problem of correctly coordinating components has been studied from different angles using different terminology resulting in different categories of approaches: \textit{coordination languages} (\cite{papadopoulosCoordinationModelsLanguages1998}), \textit{Co-simulation approaches} (\cite{gomesCoSimulationSurvey2019}), \textit{architecture description languages} (\cite{clementsSurveyArchitectureDescription1996}), and \textit{coordination frameworks} (\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBehavioralCoordinationOperator2015}).
 
 % Contribution
 \textbf{Contribution.} We present a feature model comparing coordination approaches from the four categories.
@@ -116,7 +116,7 @@ Finally, we discuss our findings in \autoref{sec:findings} and conclude in \auto
 \autoref{fig:overview} gives an overview of the different categories of coordination approaches.
 The first two categories of coordination approaches mostly focus on the \textit{execution} level, i.e., they operate directly with source code or executable binaries.
 
-\textbf{Co-simulation Tools} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard, which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
+\textbf{Co-simulation approaches} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard, which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
 Each FMU consists of an executable and an XML model to describe its interface, for example, the FMU's exposed variables.
 FMI is heavily used in the industry because it protects intellectual property (IP) since executables are black-box, i.e., do not expose implementation details.
 
@@ -198,7 +198,7 @@ Linda \cite{carrieroLindaContext1989}
 % Newer coordination languages: Lingua Franca, Rebecca? --> LF paper.
 Lingua Franca \cite{lohstrohLinguaFrancaDeterministic2021}
 
-\subsection{Co-simulation tools}
+\subsection{Co-simulation approaches}
 % Define Co-simulation and give examples
 \cite{gomesCoSimulationSurvey2019} % co-simulation survey
 
@@ -281,15 +281,15 @@ A structural definition of coordination uses \textit{dedicated elements} or is \
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
 \subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event scheduling}, \textit{data exchange}, or a mix of both.
-Sometimes this is also called \textit{control-driven} and \textit{data-driven} \cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
-Typically, a coordination approach is focused on one of the two mechanisms, but both can be supported.
+In the literature, these mechanisms are sometimes also referred to as control-driven or data-driven, respectively \cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
 
 First, \textit{event scheduling} synchronizes or mandates a specific order for events, i.e., state changes in different components.
 Usually, event scheduling is used when components are given by behavioral models since there might not be a clear concept of an event in a programming language.
-For example, in BCOoL \cite{varalarsenBehavioralCoordinationOperator2015}, one can define relationships between events, such as happens before or synchronizes.
+For example, in BCOoL \cite{varalarsenBehavioralCoordinationOperator2015}, one can define relationships between events, such as \textit{happens before} or \textit{synchronize}.
 
 \textit{Data-exchange} means components communicate by exchanging data.
-For example, in Co-simulation \cite{gomesCoSimulationSurvey2019}, components send data from output to input ports, or exposed variables of multiple components are coupled such that they should be the same. % Causal vs. A-causal MoC
+For example, in the ADL MontiArc \cite{haberMontiArcArchitecturalModeling2014}, components send data from output to input port.
+Data can also be exposed as variables which are then coupled with variables in other components, for example to be the same. % Causal vs. A-causal MoC
 However, data exchange might also happen between components during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
 
 \subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
@@ -306,7 +306,7 @@ The causal MoC means that the coordination approach facilitates event and data e
 For example, a component based on a state machine raises an event, including data, which causes a state change and possible other reactions in a different component.
 
 % A-causal
-An a-causal MoC is necessary for Co-simulation, which must deal with related differential equations.
+An a-causal MoC is necessary, if one must deal with related differential equations.
 For example, a variable in one equation should equal a variable in a different equation.
 In this case, there is no cause and effect, such as in the causal MoC, but rather, the variables have an a-causal relationship since they should be equal at any time.
 
@@ -319,15 +319,13 @@ For example, a delay could be 50 milliseconds of logical time, corresponding to 
 In contrast, \textit{physical} time describes time passing in the physical world.
 It is also referred to as \textit{wall-clock} time \cite{gomesCoSimulationSurvey2019}.
 For example, one can define that an event should happen 50 milliseconds after another.
-In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, logical time "chases" physical time, i.e., logical time tries to match the physical time provided by the execution platform.
+In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, logical time ``chases'' physical time, i.e., logical time tries to match the physical time provided by the execution platform.
 % Logical time, however, always lags behind physical time.
 
 
 \subsection{Goal} % Or even call it motivation
 We identified three different \textit{goals} of coordination approaches: \textbf{simulation}, \textbf{execution}, and \textbf{formal verification}, see \autoref{fig:goalFeature}.
-Usually, approaches focus on one goal.
-For example, co-simulation tools provide a simulation, while others, such as coordination frameworks, might provide formal verification in addition to simulation.
-However, which types of dynamic systems can be simulated varies and is discussed in the next section.
+A coordination approach can have one or multiple of the goals which we will now describe in detail.
 
 \begin{figure}[ht]
 	\centering
@@ -336,16 +334,15 @@ However, which types of dynamic systems can be simulated varies and is discussed
 	\label{fig:goalFeature}
 \end{figure}
 
-\subsubsection{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing the entire system.
+\subsubsection{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing an entire system.
 A coordinated simulation is useful because the composition of multiple components can lead to unexpected behavior, often called \textit{emergent behavior} \cite{ekerTamingHeterogeneityPtolemy2003}.
 Emergent behavior can be dealt with early in development before implementing each component and its interactions.
-Co-simulation tools such as DACCOSIM (Distributed Architecture for Controlled COSIMulation) \cite{galtierFMIBasedDistributedMultisimulation2015,dadSynthesisFeedbackDistribution2021} or MECSYCO (Multi-agent Environment for ComplexSYstem CO-simulation) \cite{camusHybridCosimulationFMUs2016,camusCosimulationCyberphysicalSystems2018} are examples of approaches that have coordinated simulation as their goal.
-Simulation is also implemented by coordination frameworks such as BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} and BCOol \cite{varalarsenBehavioralCoordinationOperator2015}.
+Co-simulation approaches such as DACCOSIM \cite{galtierFMIBasedDistributedMultisimulation2015,dadSynthesisFeedbackDistribution2021} or MECSYCO (Multi-agent Environment for ComplexSYstem CO-simulation) \cite{camusHybridCosimulationFMUs2016,camusCosimulationCyberphysicalSystems2018} are examples of approaches that have coordinated simulation as their goal.
+Simulation is also a goal of coordination frameworks such as BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} and BCOol \cite{varalarsenBehavioralCoordinationOperator2015}.
 Even recent ADLs such as MontiArc \cite{haberMontiArcArchitecturalModeling2014} provide simulation capabilities.
 
-\subsubsection{Execution} In contrast to coordinated simulation, which often only aims to find errors during development, the goal of coordination approaches such as coordination languages is a coordinated execution after system deployment.
-
-For example, the coordination language Linda aims to provide virtual shared memory as an alternative to message-passing \cite{carrieroLindaAlternativeMessagepassing1994}, which is a widely spread communication model to implement decoupled communication, i.e., coordination of software systems.
+\subsubsection{Execution} In contrast to coordinated simulation, which often only aims to find errors during development, the goal of some coordination approaches is to provide a coordination infrastructure for system execution upon deployment.
+For example, the coordination language Linda provides a virtual shared memory with read and write operations to coordinate components.
 
 Furthermore, the recently developed polyglot coordination language \textit{Lingua Franca} provides determinism guarantees during distributed execution \cite{lohstrohLinguaFrancaDeterministic2021}.
 Thus, it aims to provide a better coordination framework for concurrent \textit{execution}.
@@ -419,7 +416,7 @@ The coordination framework BCoorLang \cite{krauterBehavioralConsistencyMultimode
 
 \section{Application of the feature model} \label{sec:application}
 \autoref{tab:classification} shows the application of our feature model to four different coordination approaches.
-Each approach represents a co-simulation tool (\textit{DACCOSIM}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc} \cite{haberMontiArcArchitecturalModeling2014}), or coordination framework (\textit{BCoorLang} \cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
+Each approach represents a co-simulation approach (\textit{DACCOSIM}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc} \cite{haberMontiArcArchitecturalModeling2014}), or coordination framework (\textit{BCoorLang} \cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
 % TODO: Why did we choose these? Representative feature sets? Recent publications? --> Not Linda
 However, we classified 16 approaches, including the four chosen representatives.
 All classifications are available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
@@ -480,7 +477,7 @@ Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diag
 Multiple unique features, such as \textsf{Component languages:Heterogeneous}, \textsf{Specification:Exogenous}, \textsf{Implementation:Formal language} and \textsf{Formal verification:Custom properties} exist.
 
 
-Similarly, \autoref{fig:venn-bcoorlang-montiarc-daccosim} compares the features of BCoorLang and MontiArc with the co-simulation tool DACCOSIM.
+Similarly, \autoref{fig:venn-bcoorlang-montiarc-daccosim} compares the features of BCoorLang and MontiArc with the co-simulation approach DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
 Co-simulation approaches like DACCOSIM have unique features, such as \textit{Goal:Co-simulation} and \textsf{Domain:Hybrid}.
 
@@ -524,7 +521,7 @@ The data and scripts to reproduce our analysis are available in \cite{timkrauter
 % High-level takeaways
 \textbf{Coordination frameworks do not support Data-Exchange:} All coordination frameworks we have encountered support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
 This is likely because data exchange is difficult to achieve when heterogeneous components are allowed.
-However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation tools and coordination languages.
+However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
 Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
 Furthermore, it is identified as important future work in \cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBCOolBehavioralCoordination2016}.
 
