@@ -131,9 +131,12 @@ You can run the following script to reproduce the results:
 py Cluster_approaches.py
 ```
 
-The results are visualized in the following scatter plot:
+The distance matrix together with the clustering visualized in the following scatter plot (see `Scatter_approachey_by_distance.py`):
 
 ![distance scatter plot](distance/approach_scatter.svg)).
+
+The plot approximates the position of each approach relative to the others by using the distance matrix.
+It cannot be exact but paints a good overall picture.
 
 ### Jaccard distance matrix (clustering input)
 
