@@ -385,20 +385,25 @@ The choice of a coordination approach depends on the nature of the system at han
 For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
 
 \subsubsection{Implementation} Coordination approaches are implemented differently.
-Many, approaches are implemented using \textit{general-purpose languages}, for example, Ptolemy is implemented in Java \cite{ptolemaeusSystemDesignModeling2014}.
+Most approaches are implemented using \textit{general-purpose languages}.
+For example, Linda is implemented in multiple languages such as C, C\textsf{++}, Java, and more, while Ptolemy is implemented in Java \cite{ptolemaeusSystemDesignModeling2014}. 
 
 As an alternative, a coordination approach can be implemented in a \textit{formal language} which can then be run on an execution engine implemented for that formalism.
 For example, the coordination framework BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components in a centralized manner.
 It relies on the graph-transformation tool Groove \cite{rensinkGROOVESimulatorTool2004} or the term-rewriting tool Maude for execution.
 
-\subsection{Component transparency} % TODO: describe
+\subsubsection{Component transparency} Some coordination approaches require components to be entirely transparent (\textit{white-box}), while others only require a fixed interface (\textit{black-box}).
+Usually, black-box approaches are needed to protect \textit{intellectual property} (IP) when different companies want to work together without sharing all the details concerning their components.
+% TODO: Add a white-box a-causal example? Julien link or co-sim survey? 
+
+For example, DACCOSIM only requires each component to conform to the FMI specification for Co-Simulation.
 
 \subsubsection{Specification} We distinguish between \textit{endogenous} and \textit{exogenous} specification of coordination, as described for coordination languages in \cite{arbabWhatYouMean1998}.
-For example, when using the coordination language Linda \cite{carrieroLindaContext1989}, one uses basic operations such as \textsf{out} and \textsf{in} inside components to create and read tuples in the shared tuple space, i.e., shared memory.
+For example, when using the coordination language Linda \cite{carrieroLindaContext1989}, one uses basic operations such as \textsf{out} and \textsf{in} inside components to write to and read from shared tuple space, i.e., shared memory.
 Thus, Linda is \textit{endogenous} since one has to add coordination operations inside the components.
 
 On the other hand, \textit{exogenous} coordination approaches keep coordination aspects outside of components.
-However, components must be created with coordination in mind to expose possible coordination points.
+However, components must still be created with coordination in mind to expose possible coordination points.
 For example, BCOol \cite{varalarsenBehavioralCoordinationOperator2015} uses behavioral interfaces to define events, which can then be used to specify \textit{exogenous} coordination rules outside the components.
 Endogenous coordination approaches tend to mix computation and coordination \cite{arbabWhatYouMean1998}.
 
@@ -410,23 +415,23 @@ As stated earlier, ADLs often use a specific process algebra to define the behav
 However, coordination frameworks allow \textit{heterogeneous} components, i.e., components specified in different behavioral modeling languages.
 For example, BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} supports all modeling languages where one can clearly define \textit{state structure} and which \textit{elements can change state} during execution.
 
-\subsection{Execution} A coordination approach is realized using either a \textit{centralized} or \textit{federated} execution.
-In a \textit{centralized} execution % TODO: describe
+\subsubsection{Execution} A coordination approach is realized using either a \textit{centralized} or \textit{federated} execution.
+In a \textit{centralized} execution all components are executed by one engine which enforces coordination.
+For example, BCorrLang composes the behavior of all component specifications into a global behavior specification which is then executed by a graph-transformation or term-rewriting tool.
 
 On the other hand, in a \textit{federated} execution components run independently and only coordinate using a shared infrastructure through predefined connections.
 Federated execution can still happen on the same physical machine, i.e., does not mean that components must be \textit{distributed} across different physical machines 
 
-For example, the coordination language Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} supports federated execution by providing a runtime infrastructure.
-Even a distributed execution is in the early stages of development but not officially supported yet.
-% https://www.lf-lang.org/docs/writing-reactors/distributed-execution
+For example, the coordination language Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} supports federated execution on one machine by providing a runtime infrastructure.
+DACCOSIM \cite{galtierFMIBasedDistributedMultisimulation2015} goes one step further and even allows a \textit{distributed} federated execution.
 
 
 \section{Application of the feature model} \label{sec:application}
 \autoref{tab:classification} shows the application of our feature model to four different coordination approaches.
-Each approach comes from a different category: co-simulation (\textit{DACCOSIM}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc} \cite{haberMontiArcArchitecturalModeling2014}), and coordination framework (\textit{BCoorLang} \cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
-% TODO: Why did we choose these? Representative feature sets? Recent publications? --> Not Linda
+Each approach comes from a different category: co-simulation (\textit{DACCOSIM} \cite{galtierFMIBasedDistributedMultisimulation2015,dadSynthesisFeedbackDistribution2021}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc} \cite{haberMontiArcArchitecturalModeling2014}), and coordination framework (\textit{BCoorLang} \cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
+% TODO: Why did we choose these? Representative feature sets?
 
-In addition, we classified the 12 following approaches: Ptolemy \cite{ekerTamingHeterogeneityPtolemy2003,ptolemaeusSystemDesignModeling2014}, Wright \cite{allenFormalBasisArchitectural1997,allenFormalApproachSoftware1997}, CommUnity \cite{fiadeiroSemanticsArchitecturalConnectors1997,oliveiraCommUnityWorkbench2007}, Metropolis \cite{balarinMetropolisIntegratedElectronic2003}, UMoC\textsf{++} \cite{mathaikuttyUMoCBasedMultiMoC2006}, Lingua Franca \cite{lohstrohLinguaFrancaDeterministic2021}, Reo \cite{arbabReoChannelbasedCoordination2004}, BIP \cite{bliudzeAlgebraConnectorsStructuring2008,basuRigorousComponentBasedSystem2011}, Manifold \cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998}, and ForSyDe \cite{sanderSystemModelingTransformational2004,sanderForSyDeSystemDesign2016}.
+In addition, we classified the 12 following approaches: Ptolemy \cite{ekerTamingHeterogeneityPtolemy2003,ptolemaeusSystemDesignModeling2014}, Wright \cite{allenFormalBasisArchitectural1997,allenFormalApproachSoftware1997}, CommUnity \cite{fiadeiroSemanticsArchitecturalConnectors1997,oliveiraCommUnityWorkbench2007}, Metropolis \cite{balarinMetropolisIntegratedElectronic2003}, UMoC\textsf{++} \cite{mathaikuttyUMoCBasedMultiMoC2006}, Lingua Franca \cite{lohstrohReactorsDeterministicModel2020,lohstrohLinguaFrancaDeterministic2021}, Reo \cite{arbabReoChannelbasedCoordination2004}, BIP \cite{bliudzeAlgebraConnectorsStructuring2008,basuRigorousComponentBasedSystem2011}, Manifold \cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998}, and ForSyDe \cite{sanderSystemModelingTransformational2004,sanderForSyDeSystemDesign2016}.
 Due to space constraints, we cannot show all classifications but the full data set is available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
 
 \begin{table}
@@ -460,7 +465,7 @@ Due to space constraints, we cannot show all classifications but the full data s
 		\hspace{2mm} Comp. transparency & Black-box & White-box & White-box & White-box \\
 		\hspace{2mm} Specification & Exogenous & Endogenous & Endogenous & Exogenous \\
 		\hspace{2mm} Comp. languages & Homogeneous & Homogeneous & Homogeneous & Heterogeneous \\
-		\hspace{2mm} Execution & Centralized & Federated & Centralized & Centralized \\
+		\hspace{2mm} Execution & Federated & Federated & Centralized & Centralized \\
 	\end{tblr}
 	}
 \end{table}
