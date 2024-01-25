@@ -409,19 +409,18 @@ An alternative is a \textit{unified execution} where components are white box an
 Coordination languages often mandate the same underlying \textit{programming language} for each component to provide coordination, while coordination frameworks rely on a \textit{formal language} for a coordinated execution.
 
 For example, the coordination language Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} provides infrastructure written in a given programming language for a unified execution.
-A distributed, i.e., federated execution is in the early stages of development for Lingua Franca but not officially supported\footnote{\url{https://www.lf-lang.org/docs/writing-reactors/distributed-execution}} yet, which is why we did not consider it for our feature model.
+A distributed, i.e., federated execution is in the early stages of development for Lingua Franca but not officially supported yet, which is why we did not consider it for our feature model. % https://www.lf-lang.org/docs/writing-reactors/distributed-execution
 The coordination framework BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components.
 
 
 \section{Application of the feature model} \label{sec:application}
 \autoref{tab:classification} shows the application of our feature model to four different coordination approaches.
-Each approach represents a co-simulation approach (\textit{DACCOSIM}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc} \cite{haberMontiArcArchitecturalModeling2014}), or coordination framework (\textit{BCoorLang} \cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
+Each approach comes from a different category: co-simulation (\textit{DACCOSIM}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc} \cite{haberMontiArcArchitecturalModeling2014}), and coordination framework (\textit{BCoorLang} \cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
 % TODO: Why did we choose these? Representative feature sets? Recent publications? --> Not Linda
-However, we classified 16 approaches, including the four chosen representatives.
-All classifications are available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
 
-% Could even have two tables for better sizing and add 1-2 approaches.
-% TODO: Double-check DACCOSIM and ensure it is the best co-simulation pick.
+In addition, we classified the 12 following approaches: Ptolemy \cite{ekerTamingHeterogeneityPtolemy2003,ptolemaeusSystemDesignModeling2014}, Wright \cite{allenFormalBasisArchitectural1997,allenFormalApproachSoftware1997}, CommUnity \cite{fiadeiroSemanticsArchitecturalConnectors1997,oliveiraCommUnityWorkbench2007}, Metropolis \cite{balarinMetropolisIntegratedElectronic2003}, UMoC\textsf{++} \cite{mathaikuttyUMoCBasedMultiMoC2006}, Lingua Franca \cite{lohstrohLinguaFrancaDeterministic2021}, Reo \cite{arbabReoChannelbasedCoordination2004}, BIP \cite{bliudzeAlgebraConnectorsStructuring2008,basuRigorousComponentBasedSystem2011}, Manifold \cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998}, and ForSyDe \cite{sanderSystemModelingTransformational2004,sanderForSyDeSystemDesign2016}.
+Due to space constraints, we cannot show all classifications but the full data set is available in the artifacts of this paper \cite{timkrauterArtifactsCoordination2024}.
+
 \begin{table}
 	\centering
 	\caption{Approach classification}
