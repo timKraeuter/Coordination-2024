@@ -33,6 +33,7 @@ for i, label in enumerate(distance_matrix.columns):
 plt.legend()
 
 # Save and show the plot
-plt.title('Approach feature distance')
+plt.title('Feature distance & clustering')
 plt.savefig("./distance/approach_scatter.pdf", format="pdf")
+plt.savefig("./distance/approach_scatter.svg", format="svg")
 plt.show()

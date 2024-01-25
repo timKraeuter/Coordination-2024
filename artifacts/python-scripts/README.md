@@ -12,7 +12,7 @@ py Generate_Venn.py BCoorLang Linda MontiArc
 
 Generates the **first Venn diagram** in the paper:
 
-![diagram](./venn-diagrams/BCoorLang_Linda_MontiArc_venn.svg)).
+![venn diagram 3 approaches](./venn-diagrams/BCoorLang_Linda_MontiArc_venn.svg)).
 
 Venn diagrams with feature labels can be obtained as described in the next section.
 
@@ -24,7 +24,7 @@ py Generate_Venn.py BCoorLang DACCOSIM MontiArc
 
 Generates the **second Venn diagram** in the paper:
 
-![diagram](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)).
+![venn diagram 3 approaches](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)).
 
 Venn diagrams with feature labels can be obtained as described in the next section.
 
@@ -42,7 +42,7 @@ py Generate_Venn_With_Labels.py BCoorLang Linda MontiArc
 
 **Output:**
 
-![diagram](./venn-diagrams/BCoorLang_Linda_MontiArc_venn_labeled.svg)).
+![venn diagram 3 approaches with feature labels](./venn-diagrams/BCoorLang_Linda_MontiArc_venn_labeled.svg)).
 
 ### Venn Diagram: BCoorLang DACCOSIM MontiArc
 
@@ -54,7 +54,7 @@ py Generate_Venn_With_Labels.py BCoorLang DACCOSIM MontiArc
 
 **Output:**
 
-![diagram](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn_labeled.svg)).
+![venn diagram 3 approaches with feature labels](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn_labeled.svg)).
 
 ## Equivalent UpSet plots
 
@@ -71,7 +71,7 @@ py Generate_Upset.py BCoorLang Linda MontiArc
 
 **Output:**
 
-![diagram](./upset-plots/BCoorLang_Linda_MontiArc_upset.svg)).
+![upset plot 3 approaches](./upset-plots/BCoorLang_Linda_MontiArc_upset.svg)).
 
 ### UpSet plot: BCoorLang DACCOSIM MontiArc
 
@@ -83,7 +83,7 @@ py Generate_Upset.py BCoorLang DACCOSIM MontiArc
 
 **Output:**
 
-![diagram](./upset-plots/BCoorLang_DACCOSIM_MontiArc_upset.svg)).
+![upset plot 3 approaches](./upset-plots/BCoorLang_DACCOSIM_MontiArc_upset.svg)).
 
 ### UpSet plot: Custom approaches
 
@@ -97,7 +97,7 @@ py Generate_Upset.py BCoorLang Linda MontiArc DACCOSIM
 
 **Output:**
 
-![diagram](./upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)).
+![upset plot 4 approaches](./upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)).
 
 ## Clustering
 
@@ -131,10 +131,14 @@ You can run the following script to reproduce the results:
 py Cluster_approaches.py
 ```
 
+The results are visualized in the following scatter plot:
+
+![distance scatter plot](distance/approach_scatter.svg)).
+
 ### Jaccard distance matrix (clustering input)
 
 Tabel which shows the **Jaccard distance** between the feature sets.
-This data is the precomputed input for the clustering.
+This data is the precomputed input for the clustering (see `Calculate_distance_matrix.py`).
 
 |              | BCoorLang |    BCOoL |  Ptolemy |   Wright | MontiArc | CommUnity | Metropolis |  MECSYCO | DACCOSIM |   UMoC++ | LinguaFranca |      Reo |    Linda |      BIP | Manifold |  ForSyDe |
 |:-------------|----------:|---------:|---------:|---------:|---------:|----------:|-----------:|---------:|---------:|---------:|-------------:|---------:|---------:|---------:|---------:|---------:|
