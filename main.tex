@@ -394,7 +394,7 @@ For example, BCOol \cite{varalarsenBehavioralCoordinationOperator2015} uses beha
 Endogenous coordination approaches tend to mix computation and coordination \cite{arbabWhatYouMean1998}.
 
 \subsubsection{Component languages} Coordination approaches typically only support \textit{homogeneous} components.
-For example, coordination languages, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, typically only support coordination if each component is given in the same programming language.
+For example, coordination languages, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, only support coordination if each component is given in the same programming language.
 
 Similarly, most ADLs only coordinate components defined using the same modeling language.
 As stated earlier, ADLs often use a specific process algebra to define the behavior of its components.
@@ -467,19 +467,18 @@ The figure shows a Venn diagram comparing the feature sets of each approach, whe
 	\label{fig:venn-bcoorlang-montiarc-linda}
 \end{figure}
 
-For example, the one at the bottom of \autoref{fig:venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{unique} feature (\textsf{Definition:Architecture based}), while the two in the intersection of all approaches in the middle declares that they all share two \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event}), see \autoref{tab:classification}.
+For example, the one at the bottom of \autoref{fig:venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the three in the intersection of all approaches in the middle declares that they all share three \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
 All classification data and scripts to generate Venn diagrams such as \autoref{fig:venn-bcoorlang-montiarc-linda} are included in \cite{timkrauterArtifactsCoordination2024}.
 
-From \autoref{fig:venn-bcoorlang-montiarc-linda}, one can see that most Linda features overlap with either BCoorLang or MontiArc.
-Only \textsf{Execution} as a goal and \textsf{Definition:Name based} are not shared.
-This makes sense since Linda and other initial coordination languages have greatly influenced the development of ADLs and coordination frameworks, which happened afterward.
+From \autoref{fig:venn-bcoorlang-montiarc-linda}, one can see that Linda has three original features when compared to BCoorLang and MontiArc.
+\textsf{Goal:Execution}, \textsf{Definition:Name based}, and \textsf{Execution:Federated} are not shared.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
 Multiple unique features, such as \textsf{Component languages:Heterogeneous}, \textsf{Specification:Exogenous}, \textsf{Implementation:Formal language} and \textsf{Formal verification:Custom properties} exist.
 
 
 Similarly, \autoref{fig:venn-bcoorlang-montiarc-daccosim} compares the features of BCoorLang and MontiArc with the co-simulation approach DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
-Co-simulation approaches like DACCOSIM have unique features, such as \textit{Goal:Co-simulation} and \textsf{Domain:Hybrid}.
+Co-simulation approaches like DACCOSIM have original features, such as \textit{Goal:Co-simulation}, \textsf{Domain:Hybrid}, and \textsf{Component transparency:Black-box}.
 
 \begin{figure}[ht]
 	\centering
