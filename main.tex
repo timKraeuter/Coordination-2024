@@ -92,8 +92,7 @@ In this paper, as a component, we understand a small program, an entire system, 
 The problem of correctly coordinating components has been studied from different angles using different terminology resulting in different categories of approaches: \textit{coordination languages} (\cite{papadopoulosCoordinationModelsLanguages1998}), \textit{Co-simulation approaches} (\cite{gomesCoSimulationSurvey2019}), \textit{architecture description languages} (\cite{clementsSurveyArchitectureDescription1996}), and \textit{coordination frameworks} (\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBehavioralCoordinationOperator2015}).
 
 % Contribution
-\textbf{Contribution.} We present a feature model comparing coordination approaches from the four categories.
-The feature model allows the comparison of coordination approaches across the different categories, while previous research has only focused on comparison inside categories. 
+\textbf{Contribution.} We present a \textit{feature model} \cite{kangFeatureOrientedDomainAnalysis1990} to classify coordination approaches which allows the comparison of coordination approaches across the different categories. Previous research has only focused on comparing approaches inside the categories not considering a broader scope. 
 Then, we apply the feature model to evaluate 16 distinct approaches spanning the aforementioned categories and publish our findings in a public dataset \cite{timkrauterArtifactsCoordination2024}.
 Finally, we discuss our findings, highlighting the common and distinct features among the categories while identifying crucial features that are absent but essential for industry application in the future.
 % TODO: Add more concrete info about the findings once we have written the findings section.
@@ -170,7 +169,7 @@ More recent ADLs, such as MontiArc \cite{haberMontiArcArchitecturalModeling2014}
 However, no ADL supports a heterogeneous set of components such as the coordination frameworks discussed in \autoref{subsec:frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
 Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., not often used by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,medvidovicMovingArchitecturalDescription2006}.
 
-For this paper, we consider only ADLs that incorporate formal semantics and thus do not consider other modeling languages such as UML \cite{objectmanagementgroupUnifiedModelingLanguage2017} and ArchiMate \cite{theopengroupArchiMateSpecification2023} despite them being sometimes seen as ADLs and their usage in the industry.
+For this paper, we consider only ADLs that incorporate formal semantics and thus do not consider other modeling languages such as UML \cite{objectmanagementgroupUnifiedModelingLanguage2017} and ArchiMate \cite{theopengroupArchiMateSpecification2023} despite them being sometimes seen as ADLs and despite their usage in the industry.
 
 A representative example of an ADL is given in  \autoref{lst:MontiArc-Crossing} showing the \textit{components} for the pedestrian crossing running example in MontiArc.
 
@@ -232,7 +231,7 @@ Examples of coordination frameworks are Behavioral Coordination Operator Languag
 % Ptolemy?
 
 
-\section{Feature model} \label{sec:features}
+\section{Feature model} \label{sec:features} % This could be called taxonomy which is represented as a feature model
 The feature model aims to compare coordination approaches from different categories.
 It cannot contain all the details from each approach since it must operate on a higher abstraction level to allow comparison across categories.
 Thus, it can be too coarse-grained to compare approaches inside the same category.
@@ -274,7 +273,7 @@ For example, one could synchronize transitions of multiple state machines if the
 
 Explicit definition is either \textit{query based} or \textit{structural}.
 % Query-based example
-For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write expressions to define which elements should coordinate.
+For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write queries to define which elements should coordinate.
 
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
 For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
