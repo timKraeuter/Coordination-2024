@@ -384,6 +384,15 @@ Two strategies deal with hybrid systems: one either adapts the components from t
 The choice of a coordination approach depends on the nature of the system at hand.
 For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
 
+\subsubsection{Implementation} Coordination approaches are implemented differently.
+Many, approaches are implemented using \textit{general-purpose languages}, for example, Ptolemy is implemented in Java \cite{ptolemaeusSystemDesignModeling2014}.
+
+As an alternative, a coordination approach can be implemented in a \textit{formal language} which can then be run on an execution engine implemented for that formalism.
+For example, the coordination framework BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components in a centralized manner.
+It relies on the graph-transformation tool Groove \cite{rensinkGROOVESimulatorTool2004} or the term-rewriting tool Maude for execution.
+
+\subsection{Component transparency} % TODO: describe
+
 \subsubsection{Specification} We distinguish between \textit{endogenous} and \textit{exogenous} specification of coordination, as described for coordination languages in \cite{arbabWhatYouMean1998}.
 For example, when using the coordination language Linda \cite{carrieroLindaContext1989}, one uses basic operations such as \textsf{out} and \textsf{in} inside components to create and read tuples in the shared tuple space, i.e., shared memory.
 Thus, Linda is \textit{endogenous} since one has to add coordination operations inside the components.
@@ -401,16 +410,15 @@ As stated earlier, ADLs often use a specific process algebra to define the behav
 However, coordination frameworks allow \textit{heterogeneous} components, i.e., components specified in different behavioral modeling languages.
 For example, BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} supports all modeling languages where one can clearly define \textit{state structure} and which \textit{elements can change state} during execution.
 
-\subsubsection{Implementation} Coordination approaches are generally implemented differently.
-First, in a \textit{co-simulation}, each component runs as an independent black box.
-Then, a coordination approach provides an \textit{orchestrator} which controls the passage of time and moves output data from one component to another \cite{gomesCoSimulationSurvey2019}, i.e., facilitates coordination.
+\subsection{Execution} A coordination approach is realized using either a \textit{centralized} or \textit{federated} execution.
+In a \textit{centralized} execution % TODO: describe
 
-An alternative is a \textit{unified execution} where components are white box and executed together.
-Coordination languages often mandate the same underlying \textit{programming language} for each component to provide coordination, while coordination frameworks rely on a \textit{formal language} for a coordinated execution.
+On the other hand, in a \textit{federated} execution components run independently and only coordinate using a shared infrastructure through predefined connections.
+Federated execution can still happen on the same physical machine, i.e., does not mean that components must be \textit{distributed} across different physical machines 
 
-For example, the coordination language Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} provides infrastructure written in a given programming language for a unified execution.
-A distributed, i.e., federated execution is in the early stages of development for Lingua Franca but not officially supported yet, which is why we did not consider it for our feature model. % https://www.lf-lang.org/docs/writing-reactors/distributed-execution
-The coordination framework BCoorLang \cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components.
+For example, the coordination language Lingua Franca \cite{lohstrohReactorsDeterministicModel2020} supports federated execution by providing a runtime infrastructure.
+Even a distributed execution is in the early stages of development but not officially supported yet.
+% https://www.lf-lang.org/docs/writing-reactors/distributed-execution
 
 
 \section{Application of the feature model} \label{sec:application}
@@ -467,7 +475,7 @@ The figure shows a Venn diagram comparing the feature sets of each approach, whe
 	\label{fig:venn-bcoorlang-montiarc-linda}
 \end{figure}
 
-For example, the one at the bottom of \autoref{fig:venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the three in the intersection of all approaches in the middle declares that they all share three \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
+For example, the \textsf{1} at the bottom of \autoref{fig:venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the three in the intersection of all approaches in the middle declares that they all share three \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
 All classification data and scripts to generate Venn diagrams such as \autoref{fig:venn-bcoorlang-montiarc-linda} are included in \cite{timkrauterArtifactsCoordination2024}.
 
 From \autoref{fig:venn-bcoorlang-montiarc-linda}, one can see that Linda has three original features when compared to BCoorLang and MontiArc.
