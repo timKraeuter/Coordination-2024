@@ -1,5 +1,0 @@
-synchronize(CarTrafficLight.turn_red,
-            CarTrafficLight.pedestrianTL.turn_green)
-
-synchronize(CarTrafficLight.turn_green,
-            CarTrafficLight.pedestrianTL.turn_red)
