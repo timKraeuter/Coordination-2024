@@ -501,13 +501,14 @@ Co-simulation approaches like DACCOSIM have original features, such as \textit{G
 	\label{fig:venn-bcoorlang-montiarc-daccosim}
 \end{figure}
 
-% WIP section
 \section{Findings} \label{sec:findings}
 
-We further analyze the classification of the 16 approaches to find out how approaches compare across and inside the four categories.
-First, we clustered the approaches to see similarities and differences by just looking at the feature data of each approach not considering which category it belongs to.
-\autoref{fig:clusters} shows the results of applying a standard clustering algorithm using Jaccard distance to measure the distance between feature sets.
-The figure shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
+We further analyze the classification of the 16 approaches, mentioned in \autoref{sec:application}, to find out how they compare across and inside the four categories.
+First, we clustered the approaches to see similarities and differences by just looking at the feature data of each approach not considering to which category they belong.
+We apply a standard clustering algorithm using Jaccard distance to measure the similarity of the feature sets.
+Jaccard distance is the one-complement of Jaccard similarity for two sets, which is defined as the ratio of their intersection to their union  \cite{levandowskyDistanceSets1971}.
+
+\autoref{fig:clusters} shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
 The data and scripts to reproduce our analysis are available in \cite{timkrauterArtifactsCoordination2024}.
 
 \begin{figure}[ht]
