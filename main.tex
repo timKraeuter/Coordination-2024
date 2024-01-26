@@ -394,7 +394,7 @@ It relies on the graph-transformation tool Groove \cite{rensinkGROOVESimulatorTo
 
 \subsubsection{Component transparency} Some coordination approaches require components to be entirely transparent (\textit{white-box}), while others only require a fixed interface (\textit{black-box}).
 Usually, black-box approaches are needed to protect \textit{intellectual property} (IP) when different companies want to work together without sharing all the details concerning their components.
-% TODO: Add a white-box a-causal example? Julien link or co-sim survey? 
+% TODO: Add a white-box a-causal example. Julien link or co-sim survey? 
 
 For example, DACCOSIM only requires each component to conform to the FMI specification for Co-Simulation.
 
@@ -471,7 +471,8 @@ Due to space constraints, we cannot show all classifications but the full data s
 \end{table}
 
 We compare BCoorLang, MontiArc, and Linda in \autoref{fig:venn-bcoorlang-montiarc-linda}.
-The figure shows a Venn diagram comparing the feature sets of each approach, where each colored part states which features are contained and their amount.
+The figure shows a Venn diagram comparing the feature sets of each approach, where each colored part states which features are contained.
+In addition, the number in the intersection states the amount of common features.
 
 \begin{figure}[ht]
 	\centering
@@ -480,7 +481,7 @@ The figure shows a Venn diagram comparing the feature sets of each approach, whe
 	\label{fig:venn-bcoorlang-montiarc-linda}
 \end{figure}
 
-For example, the \textsf{1} at the bottom of \autoref{fig:venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the three in the intersection of all approaches in the middle declares that they all share three \textit{common} features (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
+For example, the \textsf{1} at the bottom of \autoref{fig:venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
 All classification data and scripts to generate Venn diagrams such as \autoref{fig:venn-bcoorlang-montiarc-linda} are included in \cite{timkrauterArtifactsCoordination2024}.
 
 From \autoref{fig:venn-bcoorlang-montiarc-linda}, one can see that Linda has three original features when compared to BCoorLang and MontiArc.
