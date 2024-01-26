@@ -27,7 +27,14 @@ for cluster in set(clusters):
 
 # Add labels to each point (optional)
 for i, label in enumerate(distance_matrix.columns):
-    plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), ha='right', va='bottom')
+    # Reposition some specific labels to avoid overlaps. Remove/change when positioning changes.
+    if label == "Metropolis":
+        plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va='top')
+        continue
+    if label == "Linda":
+        plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va="bottom", ha='center')
+        continue
+    plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va='bottom')
 
 # Add legend
 plt.legend()
@@ -36,4 +43,4 @@ plt.legend()
 # plt.title('Feature distance & clustering')
 plt.savefig("../../images/approach_scatter.pdf", format="pdf")
 plt.savefig("./distance/approach_scatter.svg", format="svg")
-plt.show()
+# plt.show()
