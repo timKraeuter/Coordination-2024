@@ -504,12 +504,13 @@ Co-simulation approaches like DACCOSIM have original features, such as \textit{G
 \section{Findings} \label{sec:findings}
 
 We further analyze the classification of the 16 approaches, mentioned in \autoref{sec:application}, to find out how they compare across and inside the four categories.
-First, we clustered the approaches to see similarities and differences by just looking at the feature data of each approach not considering to which category they belong.
+We clustered the approaches to see similarities and differences by just looking at the feature data of each approach not considering to which category they belong.
+The data and scripts to reproduce our analysis are available in \cite{timkrauterArtifactsCoordination2024}.
 We apply a standard clustering algorithm using Jaccard distance to measure the similarity of the feature sets.
 Jaccard distance is the one-complement of Jaccard similarity for two sets, which is defined as the ratio of their intersection to their union  \cite{levandowskyDistanceSets1971}.
+It is a widely used and reasonable measure of dissimilarity for sets \cite{levandowskyDistanceSets1971}.
 
 \autoref{fig:clusters} shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
-The data and scripts to reproduce our analysis are available in \cite{timkrauterArtifactsCoordination2024}.
 
 \begin{figure}[ht]
 	\centering
@@ -517,6 +518,8 @@ The data and scripts to reproduce our analysis are available in \cite{timkrauter
 	\caption{Feature distance and clustering of approaches}
 	\label{fig:clusters}
 \end{figure}
+
+% TODO: Describe and interpret the scatter plot. Why is this interesting/new knowledge/insight?
 
 % Add some low-level takeaways
 
