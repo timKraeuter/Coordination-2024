@@ -128,14 +128,15 @@ A detailed explanation of each category, including examples, is given in the fol
 \textbf{Execution level:} Approaches on the \textit{execution level} aim to deal with coordination by interfacing directly with executable binaries or source code.
 We identified two distinct categories on this level: co-simulation approaches and coordination languages.
 
-\textit{Co-simulation approaches} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard, which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
-Each FMU consists of an executable and an XML model to describe its interface, for example, the FMU's exposed variables.
-FMI is heavily used in the industry because it protects intellectual property (IP) since executables are black-box, i.e., do not expose implementation details.
+% Short definition co-simulation and pointer
+\textit{A co-simulation approach} composes the simulation of multiple components into a global simulation \cite{gomesCoSimulationSurvey2019}.
+A component simulation is typically given by an executable binary conforming to a predefined interface.
+Co-simulation approaches are described in detail in \autoref{subsec: cosim}.
 
-\textit{Coordination Languages} traditionally offer a shared tuple space for concurrent programs to read/write data from/to.
-Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
-% See if we can find a better citation for LF.
-New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but work with code on the execution level.
+% Short definition coordination languages and pointer
+\textit{A coordination language} provides a set of operations and infrastructure to communicate and synchronize between components potentially executing on different machines.
+Usually, coordination languages are embedded into programming languages, effectively adding coordination operations to the language.
+Coordination languages are described in detail in \autoref{subsec: coordlang}.
 
 % Model level
 \textbf{Model level:}
@@ -151,7 +152,7 @@ In contrast, each ADL only allows one behavioral language, which must be used fo
 Thus, they operate on the \textit{language} level and give modelers freedom to utilize different languages for varying aspects of the system.
 In the following sections, we will describe each category in detail.
 
-\subsection{Co-simulation approaches}
+\subsection{Co-simulation approaches} \label{subsec: cosim}
 % Define Co-simulation and give examples
 \cite{gomesCoSimulationSurvey2019} % co-simulation survey
 
@@ -168,7 +169,7 @@ FMUs support continuous time and state variables and are widely used in the indu
 
 However, with co-simulations, one can only simulate systems, not check behavioral properties.
 
-\subsection{Coordination languages}
+\subsection{Coordination languages} \label{subsec: coordlang}
 % Define Coordination language and give examples
 Coordination Languages traditionally offer a shared tuple space for concurrent programs to exchange data (see execution level in \autoref{fig: overview}).
 Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
