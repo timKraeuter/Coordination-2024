@@ -80,7 +80,7 @@ Applying the feature model to concrete approaches allows us to pinpoint common a
 
 % TODO: event vs state change --> Fix terminology or introduce as equivalent
 
-\section{Introduction} \label{sec:introduction}
+\section{Introduction} \label{sec: introduction}
 % Motivation: Coordination is everywhere and is super important since a single system cannot handle the complexity of today's world.
 Systems are becoming increasingly complex due to rising performance and reliability requirements, present and changing regulations, the integration of AI models, and many other factors.
 To handle this complexity and keep systems manageable, they are split into several components that work together, i.e., \textit{coordinate} to achieve a common goal.
@@ -103,36 +103,50 @@ Finally, we discuss our findings, highlighting the common and distinct features 
 
 % Paper outline
 \textbf{Outline.} The remainder of the paper is structured as follows.
-First, we introduce the different categories of coordination approaches (\autoref{sec:approaches}).
-Afterward, we present our main contribution: the feature-based taxonomy (\autoref{sec:taxonomy}).
-Then, we show the results of applying the taxonomy to one representative from each category of coordination approaches in \autoref{sec:application}.
-Finally, we discuss our findings in \autoref{sec:findings} and conclude in \autoref{sec:conclusion}.
+First, we introduce the different categories of coordination approaches (\autoref{sec: approaches}).
+Afterward, we present our main contribution: the feature-based taxonomy (\autoref{sec: taxonomy}).
+Then, we show the results of applying the taxonomy to one representative from each category of coordination approaches in \autoref{sec: application}.
+Finally, we discuss our findings in \autoref{sec: findings} and conclude in \autoref{sec: conclusion}.
 
-\section{Categories of coordination approaches} \label{sec:approaches}
+\section{Categories of coordination approaches} \label{sec: approaches}
 
-\autoref{fig:overview} gives an overview of the different categories of coordination approaches.
-The first two categories of coordination approaches mostly focus on the \textit{execution} level, i.e., they operate directly with source code or executable binaries.
-
-\textbf{Co-simulation approaches} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard, which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
-Each FMU consists of an executable and an XML model to describe its interface, for example, the FMU's exposed variables.
-FMI is heavily used in the industry because it protects intellectual property (IP) since executables are black-box, i.e., do not expose implementation details.
-
-\textbf{Coordination Languages} traditionally offer a shared tuple space for concurrent programs to read/write data from/to.
-Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
-% See if we can find a better citation for LF.
-New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but work with code on the execution level.
+\autoref{fig: overview} gives an overview of the different categories of coordination approaches.
+The categories of coordination approaches operate on different abstraction levels, namely \textit{execution}, \textit{model}, and \textit{language}.
+Each category is distinct, i.e., approaches on a lower level are unrelated to approaches on a higher level.
+Furthermore, the right abstraction level to address coordination depends on the specific use case and goals at hand, meaning approaches on each abstraction level have their advantages and disadvantages.
+We will explain each abstraction level and the accompanying coordination approaches from the bottom up.
+A detailed explanation of each category, including examples, is given in the following subsections.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.75\textwidth]{images/overview}
 	\caption{Overview of coordination approaches}
-	\label{fig:overview}
+	\label{fig: overview}
 \end{figure}
 
-\textbf{Architecture Description Languages (ADLs)} operate on the \textit{model} level, i.e., each \textit{component} is given by a behavioral model, for example, a state machine.
+% Execution level
+\textbf{Execution level:} Approaches on the \textit{execution level} aim to deal with coordination by interfacing directly with executable binaries or source code.
+We identified two distinct categories on this level: co-simulation approaches and coordination languages.
+
+\textit{Co-simulation approaches} usually use the Functional Mock-up Interface (FMI)\footnote{\url{https://fmi-standard.org/}} standard, which defines executable systems parts, so-called Functional Mock-up Units (FMUs).
+Each FMU consists of an executable and an XML model to describe its interface, for example, the FMU's exposed variables.
+FMI is heavily used in the industry because it protects intellectual property (IP) since executables are black-box, i.e., do not expose implementation details.
+
+\textit{Coordination Languages} traditionally offer a shared tuple space for concurrent programs to read/write data from/to.
+Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
+% See if we can find a better citation for LF.
+New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but work with code on the execution level.
+
+% Model level
+\textbf{Model level:}
+
+\textit{Architecture Description Languages (ADLs)} operate on the \textit{model} level, i.e., each \textit{component} is given by a behavioral model, for example, a state machine.
 Components coordinate through \textit{connectors} between them, resulting in an \textit{architectural configuration}.
 
-\textbf{Coordination frameworks} allow the user to connect models conforming to \textit{different} behavioral languages using the concept of \textit{behavioral interfaces}.
+% Language level
+\textbf{Language level:}
+
+\textit{Coordination frameworks} allow the user to connect models conforming to \textit{different} behavioral languages using the concept of \textit{behavioral interfaces}.
 In contrast, each ADL only allows one behavioral language, which must be used for each component.
 Thus, they operate on the \textit{language} level and give modelers freedom to utilize different languages for varying aspects of the system.
 In the following sections, we will describe each category in detail.
@@ -156,6 +170,10 @@ However, with co-simulations, one can only simulate systems, not check behaviora
 
 \subsection{Coordination languages}
 % Define Coordination language and give examples
+Coordination Languages traditionally offer a shared tuple space for concurrent programs to exchange data (see execution level in \autoref{fig: overview}).
+Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
+% See if we can find a better citation for LF.
+New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but work with code on the execution level.
 
 % Traditional coordination languages such as
 Linda \cite{carrieroLindaContext1989}
@@ -166,7 +184,7 @@ Linda \cite{carrieroLindaContext1989}
 % Newer coordination languages: Lingua Franca, Rebecca? --> LF paper.
 Lingua Franca \cite{lohstrohLinguaFrancaDeterministic2021}
 
-\subsection{Architecture description languages} \label{subsec:adl}
+\subsection{Architecture description languages} \label{subsec: adl}
 % General idea
 Architecture Description Languages (ADLs) aim to describe the structure of systems, allowing developers to focus on high-level components and their connections rather than lines of source code~\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,medvidovicFrameworkClassifyingComparing1997}.
 % What is an ADL, and what is not?
@@ -194,7 +212,7 @@ The first ADLs usually use process algebras such as Communicating Sequential Pro
 For example, Wright uses CSP \cite{allenFormalBasisArchitectural1997} while Darwin uses $\pi$-calculus \cite{mageeSpecifyingDistributedSoftware1995}.
 More recent ADLs, such as MontiArc \cite{haberMontiArcArchitecturalModeling2014}, use automata to define the behavior of components.
 
-However, no ADL supports a heterogeneous set of components such as the coordination frameworks discussed in \autoref{subsec:frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
+However, no ADL supports a heterogeneous set of components such as the coordination frameworks discussed in \autoref{subsec: frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
 Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., not often used by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,medvidovicMovingArchitecturalDescription2006}.
 
 For this paper, we consider only ADLs that incorporate formal semantics and thus do not consider other modeling languages such as UML \cite{objectmanagementgroupUnifiedModelingLanguage2017} and ArchiMate \cite{theopengroupArchiMateSpecification2023} despite them being sometimes seen as ADLs and despite their usage in the industry.
@@ -212,7 +230,7 @@ The \textit{architectural configuration} is defined in the \textsf{PedestrianCro
 % TODO: Add the full example in the artifacts (see pdf on overleaf)
 The behavior of the \textsf{PedestrianTL} and \textsf{CarTL} components is omitted but given in \cite{timkrauterArtifactsCoordination2024}.
 
-\subsection{Coordination frameworks} \label{subsec:frameworks}
+\subsection{Coordination frameworks} \label{subsec: frameworks}
 % Define Coordination-framework and give examples
 % Surveys? Probably not.
 
@@ -230,7 +248,7 @@ Examples of coordination frameworks are Behavioral Coordination Operator Languag
 % Ptolemy?
 
 
-\section{Taxonomy} \label{sec:taxonomy}
+\section{Taxonomy} \label{sec: taxonomy}
 We represent our taxonomy as a \textit{feature model} \cite{kangFeatureOrientedDomainAnalysis1990}.
 % TODO: Motivation is here again. Should be changed and more fitting
 The aim is to compare coordination approaches from different categories.
@@ -242,14 +260,14 @@ However, our feature model still answers important questions.
 For example, how can coordination be specified, and what is its semantics?
 What are the goals of a coordination approach, how is the coordination implemented, and for which system domains is it suitable?
 
-The top level of the feature model is shown in \autoref{fig:featureModelOverview}.
+The top level of the feature model is shown in \autoref{fig: featureModelOverview}.
 A coordination approach has three main features: \textit{Foundation}, \textit{Goal}, and \textit{Properties}.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.85\textwidth]{images/root}
 	\caption{Feature model overview}
-	\label{fig:featureModelOverview}
+	\label{fig: featureModelOverview}
 \end{figure}
 
 In the following sections, we will describe each abstract feature in detail.
@@ -258,14 +276,14 @@ A complete diagram of the feature model is contained in \cite{timkrauterArtifact
 
 \subsection{Foundation}
 
-\autoref{fig:foundationFeature} shows the \textbf {Foundation} feature, which consists of \textbf{Definition}, \textbf{Mechanism}, and \textbf{Semantics}.
+\autoref{fig: foundationFeature} shows the \textbf {Foundation} feature, which consists of \textbf{Definition}, \textbf{Mechanism}, and \textbf{Semantics}.
 
 % Maybe cut into two pieces. So, Definition and Semantics are not part of the same.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{images/coordination_feature}
 	\caption{Foundation feature}
-	\label{fig:foundationFeature}
+	\label{fig: foundationFeature}
 \end{figure}
 
 \subsubsection{Definition} The definition of coordination can either be \textit{explicit} or \textit{implicit}.
@@ -323,14 +341,14 @@ In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, logical time ``c
 
 
 \subsection{Goal} % Or even call it motivation
-We identified three different \textit{goals} of coordination approaches: \textbf{simulation}, \textbf{execution}, and \textbf{formal verification}, see \autoref{fig:goalFeature}.
+We identified three different \textit{goals} of coordination approaches: \textbf{simulation}, \textbf{execution}, and \textbf{formal verification}, see \autoref{fig: goalFeature}.
 A coordination approach can have one or multiple of the goals which we will now describe in detail.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/goal_feature}
 	\caption{Goal feature}
-	\label{fig:goalFeature}
+	\label{fig: goalFeature}
 \end{figure}
 
 \subsubsection{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing an entire system.
@@ -358,14 +376,14 @@ The coordination framework for behavioral consistency \cite{krauterBehavioralCon
 We are unaware of approaches supporting runtime monitoring, but it is the next logical step when applying formal verification techniques throughout the development lifecycle.
 
 \subsection{Properties}
-We identified several shared \textit{properties} when analyzing coordination approaches, see \autoref{fig:propertiesFeature}.
+We identified several shared \textit{properties} when analyzing coordination approaches, see \autoref{fig: propertiesFeature}.
 We will now explain each property in detail.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{images/properties_feature}
 	\caption{Properties feature}
-	\label{fig:propertiesFeature}
+	\label{fig: propertiesFeature}
 \end{figure}
 
 % Maybe add some examples and descriptions here.
@@ -426,7 +444,7 @@ For example, the coordination language Lingua Franca \cite{lohstrohReactorsDeter
 DACCOSIM \cite{galtierFMIBasedDistributedMultisimulation2015} goes one step further and even allows a \textit{distributed} federated execution.
 
 
-\section{Application of the feature model} \label{sec:application}
+\section{Application of the feature model} \label{sec: application}
 \autoref{tab:classification} shows the application of our feature model to four different coordination approaches.
 Each approach comes from a different category: co-simulation (\textit{DACCOSIM} \cite{galtierFMIBasedDistributedMultisimulation2015,dadSynthesisFeedbackDistribution2021}), coordination language (\textit{Linda} \cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc} \cite{haberMontiArcArchitecturalModeling2014}), and coordination framework (\textit{BCoorLang} \cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
 % TODO: Why did we choose these? Representative feature sets?
@@ -470,7 +488,7 @@ Due to space constraints, we cannot show all classifications but the full data s
 	}
 \end{table}
 
-We compare BCoorLang, MontiArc, and Linda in \autoref{fig:venn-bcoorlang-montiarc-linda}.
+We compare BCoorLang, MontiArc, and Linda in \autoref{fig: venn-bcoorlang-montiarc-linda}.
 The figure shows a Venn diagram comparing the feature sets of each approach, where each colored part states which features are contained.
 In addition, the number in the intersection states the amount of common features.
 
@@ -478,19 +496,19 @@ In addition, the number in the intersection states the amount of common features
 	\centering
 	\includegraphics[width=0.6\textwidth]{images/venn_bcoorlang_montiarc_linda}
 	\caption{Feature comparison: BCoorLang, MontiArc, and Linda}
-	\label{fig:venn-bcoorlang-montiarc-linda}
+	\label{fig: venn-bcoorlang-montiarc-linda}
 \end{figure}
 
-For example, the \textsf{1} at the bottom of \autoref{fig:venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
-All classification data and scripts to generate Venn diagrams such as \autoref{fig:venn-bcoorlang-montiarc-linda} are included in \cite{timkrauterArtifactsCoordination2024}.
+For example, the \textsf{1} at the bottom of \autoref{fig: venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
+All classification data and scripts to generate Venn diagrams such as \autoref{fig: venn-bcoorlang-montiarc-linda} are included in \cite{timkrauterArtifactsCoordination2024}.
 
-From \autoref{fig:venn-bcoorlang-montiarc-linda}, one can see that Linda has three original features when compared to BCoorLang and MontiArc.
+From \autoref{fig: venn-bcoorlang-montiarc-linda}, one can see that Linda has three original features when compared to BCoorLang and MontiArc.
 \textsf{Goal:Execution}, \textsf{Definition:Name based}, and \textsf{Execution:Federated} are not shared.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol \cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
 Multiple unique features, such as \textsf{Component languages:Heterogeneous}, \textsf{Specification:Exogenous}, \textsf{Implementation:Formal language} and \textsf{Formal verification:Custom properties} exist.
 
 
-Similarly, \autoref{fig:venn-bcoorlang-montiarc-daccosim} compares the features of BCoorLang and MontiArc with the co-simulation approach DACCOSIM.
+Similarly, \autoref{fig: venn-bcoorlang-montiarc-daccosim} compares the features of BCoorLang and MontiArc with the co-simulation approach DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
 Co-simulation approaches like DACCOSIM have original features, such as \textit{Execution:Federated}, \textsf{Domain:Hybrid}, and \textsf{Component transparency:Black-box}.
 
@@ -498,32 +516,32 @@ Co-simulation approaches like DACCOSIM have original features, such as \textit{E
 	\centering
 	\includegraphics[width=0.6\textwidth]{images/venn_bcoorlang_montiarc_daccosim}
 	\caption{Feature comparison: BCoorLang, MontiArc, and DACCOSIM}
-	\label{fig:venn-bcoorlang-montiarc-daccosim}
+	\label{fig: venn-bcoorlang-montiarc-daccosim}
 \end{figure}
 
-Venn diagrams such as \autoref{fig:venn-bcoorlang-montiarc-linda} and \autoref{fig:venn-bcoorlang-montiarc-daccosim} give a good approximation of the similarity between coordination approaches.
+Venn diagrams such as \autoref{fig: venn-bcoorlang-montiarc-linda} and \autoref{fig: venn-bcoorlang-montiarc-daccosim} give a good approximation of the similarity between coordination approaches.
 However, they do not tell the whole story since each feature is given the same importance, which is not entirely correct.
 For example, a difference in the \textit{domain} feature might be more profound than a difference in another feature.
 
 We stick to this simplification throughout this paper since the importance of features can be highly subjective.
 In addition, we provide all data and scripts of our analysis as artifacts \cite{timkrauterArtifactsCoordination2024} which allows adapting the analysis to different needs in the future.
 
-\section{Findings} \label{sec:findings}
+\section{Findings} \label{sec: findings}
 
-We further analyze the classification of the 16 approaches, mentioned in \autoref{sec:application}, to find out how they compare across and inside the four categories.
+We further analyze the classification of the 16 approaches, mentioned in \autoref{sec: application}, to find out how they compare across and inside the four categories.
 We clustered the approaches to see similarities and differences by just looking at the feature data of each approach not considering to which category they belong.
 The data and scripts to reproduce our analysis are available in \cite{timkrauterArtifactsCoordination2024}.
 We apply a standard clustering algorithm using Jaccard distance to measure the similarity of the feature sets.
 Jaccard distance is the one-complement of Jaccard similarity for two sets, which is defined as the ratio of their intersection to their union  \cite{levandowskyDistanceSets1971}.
 It is a widely used and reasonable measure of dissimilarity for sets \cite{levandowskyDistanceSets1971}.
 
-\autoref{fig:clusters} shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
+\autoref{fig: clusters} shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{images/approach_scatter}
 	\caption{Feature distance and clustering of approaches}
-	\label{fig:clusters}
+	\label{fig: clusters}
 \end{figure}
 
 % TODO: Describe and interpret the scatter plot. Why is this interesting/new knowledge/insight? --> Blurs the lines between application and analysis. But I lean more towards analysis! --> Distances + clustering
@@ -550,7 +568,7 @@ However, data exchange is omnipotent in real-world systems, so it is the main co
 Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
 Furthermore, it is identified as important future work in \cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBCOolBehavioralCoordination2016}.
 
-\section{Conclusion \& future work} \label{sec:conclusion}
+\section{Conclusion \& future work} \label{sec: conclusion}
 
 \bibliographystyle{splncs04}
 \bibliography{bib}
