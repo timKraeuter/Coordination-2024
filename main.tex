@@ -14,33 +14,6 @@
 % Diagonal lines
 \UseTblrLibrary{diagbox}
 
-% Listing settings
-\usepackage{listings}
-\definecolor{DarkGreen}{HTML}{006400}
-
-\lstdefinelanguage{BCoorLang}[]{Java}{
-	basicstyle=\ttfamily,
-    emph={
-    	synchronize
-    },
-    commentstyle=\color{DarkGreen},
-    emphstyle={\color{blue}\bfseries},
-    numbers=left,
-    numberstyle=\tiny\color{black},
-}
-
-\lstdefinelanguage{MontiArc}[]{Java}{
-	basicstyle=\ttfamily,
-	commentstyle=\color{DarkGreen},
-	emph={
-		component, port, automaton, initial, state, <<sync>>
-	},
-	alsoletter=<>,
-	emphstyle={\color{blue}\bfseries},
-	numbers=left,
-	numberstyle=\tiny\color{black},
-}
-
 \begin{document}
 % https://www.discotec.org/2024/coordination
 % Regular papers 7-15 pages + references
@@ -78,7 +51,7 @@ Applying the feature model to concrete approaches allows us to pinpoint common a
 	Taxonomy
 }
 
-% TODO: event vs state change --> Fix terminology or introduce as equivalent
+% TODO: event vs. state change --> Fix terminology or introduce as equivalent
 
 \section{Introduction} \label{sec: introduction}
 % Motivation: Coordination is everywhere and is super important since a single system cannot handle the complexity of today's world.
@@ -134,8 +107,8 @@ A component simulation is typically given by an executable binary conforming to 
 Co-simulation approaches are described in detail in \autoref{subsec: cosim}.
 
 % Short definition coordination languages and pointer
-\textit{A coordination language} provides a set of operations and infrastructure to communicate and synchronize between components potentially executing on different machines.
-Usually, coordination languages are embedded into programming languages, effectively adding coordination operations to the language.
+\textit{A coordination language} provides a language and infrastructure to communicate and synchronize between components potentially executing on different machines.
+Usually, coordination languages are integrated with programming languages, effectively adding coordination operations to the languages.
 Coordination languages are described in detail in \autoref{subsec: coordlang}.
 
 % Model level
@@ -156,19 +129,23 @@ Julien will make a proposition.
 
 \subsection{Coordination languages} \label{subsec: coordlang}
 % Define Coordination language and give examples
-Coordination Languages traditionally offer a shared tuple space for concurrent programs to exchange data (see execution level in \autoref{fig: overview}).
-Separating \textit{coordination} from \textit{computation}, which seems natural today, was pioneered by coordination languages such as Linda \cite{carrieroLindaContext1989}.
-% See if we can find a better citation for LF.
-New coordination languages are being developed, such as Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, which use coordination mechanisms similar to ADLs but work with code on the execution level.
+Many different styles of coordination languages exist, which achieve coordination between components differently.
 
-% Traditional coordination languages such as
-Linda \cite{carrieroLindaContext1989}
-% Reo?
-% Cite and survey
-\cite{papadopoulosCoordinationModelsLanguages1998}
+% Operation-based coordination languages
+Coordination languages such as Linda \cite{carrieroLindaContext1989} provide a \textit{set of operations} to enrich a host programming language with coordination capabilities.
+The operations in Linda are used to read from and write to a shared tuple space, which serves as a \textit{global} communication medium.
 
-% Newer coordination languages: Lingua Franca, Rebecca? --> LF paper.
-Lingua Franca \cite{lohstrohLinguaFrancaDeterministic2021}
+% Channel-based coordination languages: REO, Manifold?
+Other coordination languages such as Manifold \cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998} and REO \cite{arbabReoChannelbasedCoordination2004} do not rely on a global communication medium but rather use \textit{channels} to connect components locally.
+Each component then uses I/O operations to interact with connected channels without knowing who has sent or will receive data through the channel.
+These coordination languages share many ideas with Architecture Description Languages (ADLs) discussed in the next section.
+
+% Reactor-based coordination in Lingua Franca.
+Finally, coordination languages might also use communication models such as the actor or reactor \cite{lohstrohReactorsDeterministicModel2020} model.
+For example, the Lingua Franca \cite{lohstrohReactorsDeterministicModel2020,lohstrohLinguaFrancaDeterministic2021} coordination language is described using the reactor model, meaning one defines coordination by describing how each component reacts to incoming events.
+A reaction to an event in one component might trigger reactions in connected components.
+To encode reactions, the user can choose an existing programming language, such as C, C\textsf{++}, Python, TypeScript, and Rust.
+Lingua Franca aims to simplify developing multi-threaded applications using the reactor model to guarantee \textit{determinism} and provide \textit{built-in timing semantics}.
 
 \subsection{Architecture description languages} \label{subsec: adl}
 % General idea
@@ -199,12 +176,15 @@ The first ADLs usually use process algebras such as Communicating Sequential Pro
 For example, Wright uses CSP \cite{allenFormalBasisArchitectural1997} while Darwin uses $\pi$-calculus \cite{mageeSpecifyingDistributedSoftware1995}.
 More recent ADLs, such as MontiArc \cite{haberMontiArcArchitecturalModeling2014}, use automata to define the behavior of components.
 
-However, no ADL supports heterogeneous components such as the coordination frameworks discussed in \autoref{subsec: frameworks} \cite{medvidovicClassificationComparisonFramework2000}.
+However, no ADL supports heterogeneous components such as the coordination frameworks discussed in the next section \cite{medvidovicClassificationComparisonFramework2000}.
 Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., not often used by practitioners in the industry \cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,medvidovicMovingArchitecturalDescription2006}.
 
 \subsection{Coordination frameworks} \label{subsec: frameworks}
 
-Julien will make a proposition.
+Julien will make a proposition, which should include somewhere:
+
+% Introduce the name of our approach
+In this paper, we will refer to our methodology outlined in \cite{krauterBehavioralConsistencyMultimodeling2023} as the \textit{Behavioral Coordination Language} (BCoorLang) to enhance clarity in communication.
 
 \section{Taxonomy} \label{sec: taxonomy}
 We represent our taxonomy as a \textit{feature model} \cite{kangFeatureOrientedDomainAnalysis1990}.
