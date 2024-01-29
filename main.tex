@@ -64,7 +64,7 @@ The problem of correctly coordinating components has been studied from different
 
 % Contribution
 \textbf{Contribution.} We present a taxonomy represented as a \textit{feature model} \cite{kangFeatureOrientedDomainAnalysis1990} for component coordination approaches. 
-The taxonomy allows the comparison of coordination approaches across the different categories, while previous research has only focused on comparing approaches inside the categories not considering a broader scope. 
+The taxonomy allows the comparison of coordination approaches across the different categories, while previous research has only focused on comparing approaches inside the categories, not considering a broader scope. 
 Then, we apply the taxonomy to evaluate 16 distinct approaches spanning the aforementioned categories and publish our findings in a public dataset \cite{timkrauterArtifactsCoordination2024}.
 Finally, we discuss our findings, highlighting the common and distinct features among the categories while identifying crucial features that are absent but essential for industry application in the future.
 % TODO: Add more concrete info about the findings once we have written the findings section.
@@ -133,7 +133,7 @@ Many different styles of coordination languages exist, which achieve coordinatio
 
 % Operation-based coordination languages
 Coordination languages such as Linda \cite{carrieroLindaContext1989} provide a \textit{set of operations} to enrich a host programming language with coordination capabilities.
-The operations in Linda are used to read from and write to a shared tuple space, which serves as a \textit{global} communication medium.
+The operations in Linda are used to read from and write to a virtual shared memory, which serves as a \textit{global} communication medium.
 
 % Channel-based coordination languages: REO, Manifold?
 Other coordination languages such as Manifold \cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998} and REO \cite{arbabReoChannelbasedCoordination2004} do not rely on a global communication medium but rather use \textit{channels} to connect components locally.
@@ -171,8 +171,8 @@ This structure determines if the combined semantics results in the desired behav
 For example, one can check for properties such as deadlocks and starvation.
 
 % ADLS are formal and usually incorporate one formal language. Usually, a process algebra. They do not support multiple formal specification languages cite medvidovicClassificationComparisonFramework2000.
-In addition, ADLs incorporate a formal language to enable analysis.
-The first ADLs usually use process algebras such as Communicating Sequential Processes (CSP), Calculus of Communicating Systems (CCS), and $\pi$-calculus \cite{ozkayaAreWeThere2013}.
+In addition, ADLs incorporate a formal language to enable formal analysis of specific properties.
+The first ADLs were developed in the 90s and use process algebras such as Communicating Sequential Processes (CSP), Calculus of Communicating Systems (CCS), and $\pi$-calculus \cite{ozkayaAreWeThere2013}.
 For example, Wright uses CSP \cite{allenFormalBasisArchitectural1997} while Darwin uses $\pi$-calculus \cite{mageeSpecifyingDistributedSoftware1995}.
 More recent ADLs, such as MontiArc \cite{haberMontiArcArchitecturalModeling2014}, use automata to define the behavior of components.
 
@@ -233,18 +233,18 @@ Explicit definition is either \textit{query based} or \textit{structural}.
 For example, in BCOoL \cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write queries to define which elements should coordinate.
 
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
-For example, interactions in BCoorLang are specified by dedicated elements, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
+For example, interactions in BCoorLang are specified by picking dedicated elements that should be coordinated, while coordination in ADLs depends on the architectural configuration \cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
 \subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event scheduling}, \textit{data exchange}, or a mix of both.
-In the literature, these mechanisms are sometimes also referred to as control-driven or data-driven, respectively \cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
+In the literature, these mechanisms are sometimes also called control-driven or data-driven, respectively \cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
 
-First, \textit{event scheduling} synchronizes or mandates a specific order for events, i.e., state changes in different components.
+First, \textit{event scheduling} synchronizes events or mandates a specific event order, i.e., order of state changes in different components.
 Usually, event scheduling is used when components are given by behavioral models since there might not be a clear concept of an event in a programming language.
 For example, in BCOoL \cite{varalarsenBehavioralCoordinationOperator2015}, one can define relationships between events, such as \textit{happens before} or \textit{synchronize}.
 
 \textit{Data-exchange} means components communicate by exchanging data.
-For example, in the ADL MontiArc \cite{haberMontiArcArchitecturalModeling2014}, components send data from output to input port.
-Data can also be exposed as variables which are then coupled with variables in other components, for example to be the same. % Causal vs. A-causal MoC
+For example, in the ADL MontiArc \cite{haberMontiArcArchitecturalModeling2014}, components send data from the output to the input port.
+Data can also be exposed as variables, which are then coupled with variables in other components, for example, to be the same. % Causal vs. A-causal MoC
 However, data exchange might also happen between components during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
 
 \subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
@@ -261,7 +261,7 @@ The causal MoC means that the coordination approach facilitates event and data e
 For example, a component based on a state machine raises an event, including data, which causes a state change and possible other reactions in a different component.
 
 % A-causal
-An a-causal MoC is necessary, if one must deal with related differential equations.
+An a-causal MoC is necessary if one must deal with related differential equations.
 For example, a variable in one equation should equal a variable in a different equation.
 In this case, there is no cause and effect, such as in the causal MoC, but rather, the variables have an a-causal relationship since they should be equal at any time.
 
@@ -279,8 +279,8 @@ In Lingua Franca \cite{lohstrohReactorsDeterministicModel2020}, logical time ``c
 
 
 \subsection{Goal} % Or even call it motivation
-We identified three different \textit{goals} of coordination approaches: \textbf{simulation}, \textbf{execution}, and \textbf{formal verification}, see \autoref{fig: goalFeature}.
-A coordination approach can have one or multiple of the goals which we will now describe in detail.
+We identified three different \textit{goals} of coordination approaches: \textbf{simulation}, \textbf{execution}, and \textbf{formal validation}, see \autoref{fig: goalFeature}.
+A coordination approach can have one or multiple goals, which we will now describe in detail.
 
 \begin{figure}[ht]
 	\centering
@@ -297,21 +297,19 @@ Simulation is also a goal of coordination frameworks such as BCoorLang \cite{kra
 Even recent ADLs such as MontiArc \cite{haberMontiArcArchitecturalModeling2014} provide simulation capabilities.
 
 \subsubsection{Execution} In contrast to coordinated simulation, which often only aims to find errors during development, the goal of some coordination approaches is to provide a coordination infrastructure for system execution upon deployment.
-For example, the coordination language Linda provides a virtual shared memory with read and write operations to coordinate components.
+For example, Linda provides a virtual shared memory with read and write operations to coordinate components.
 
 Furthermore, the recently developed polyglot coordination language \textit{Lingua Franca} provides determinism guarantees during distributed execution \cite{lohstrohLinguaFrancaDeterministic2021}.
 Thus, it aims to provide a better coordination framework for concurrent \textit{execution}.
 
 
 \subsubsection{Formal validation} Another goal of coordination approaches, especially for safety-critical systems, is formal validation of the coordinated system.
-It can be used before the system is deployed (\textit{model checking}) or while it is running (\textit{runtime monitoring}).
 
-We encountered coordination approaches that check \textit{predefined properties}, while others support \textit{custom properties}.
+We encountered coordination approaches that validate \textit{predefined properties}, while others support \textit{custom properties}.
 % (Definition 5)
 For example, the ADL Wright \cite{allenFormalBasisArchitectural1997} can check \textit{deadlock freedom} of component interactions.
 % Darwin and we are checking custom properties: mageeBehaviourAnalysisSoftware1999 krauterBehavioralConsistencyMultimodeling2023
 The coordination framework for behavioral consistency \cite{krauterBehavioralConsistencyMultimodeling2023} supports custom properties written in temporal logic such as Linear Temporal Logic (LTL) and Computational Tree Logic (CTL).
-We are unaware of approaches supporting runtime monitoring, but it is the next logical step when applying formal verification techniques throughout the development lifecycle.
 
 \subsection{Properties}
 We identified several shared \textit{properties} when analyzing coordination approaches, see \autoref{fig: propertiesFeature}.
