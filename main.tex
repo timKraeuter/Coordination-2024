@@ -140,6 +140,7 @@ Many different styles of coordination languages exist, which achieve coordinatio
 % Operation-based coordination languages
 Coordination languages such as Linda~\cite{carrieroLindaContext1989} provide a \textit{set of operations} to enrich a host programming language with coordination capabilities.
 The operations in Linda are used to read from and write to a virtual shared memory, which serves as a \textit{global} communication medium.
+Such coordination languages are often called \textit{tuple-based} because tuples are exchanged through the shared memory \cite{rossiTuplebasedTechnologiesCoordination2001,omiciniCoordinationModelsLanguages2011}.
 
 % Channel-based coordination languages: REO, Manifold?
 Other coordination languages such as Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998} and REO~\cite{arbabReoChannelbasedCoordination2004} do not rely on a global communication medium but rather use \textit{channels} to connect components locally.
