@@ -60,7 +60,7 @@ To handle this complexity and keep systems manageable, they are split into sever
 However, the coordination of heterogeneous components comes with new challenges and pitfalls.
 In this paper, as a component, we understand a small program, an entire system, or an executable behavioral model.
 % Different approaches to systemize coordination in different domains.
-The problem of correctly coordinating components has been studied from different angles using different terminology resulting in different categories of approaches: \textit{coordination languages} (\cite{papadopoulosCoordinationModelsLanguages1998}), \textit{Co-simulation approaches} (\cite{gomesCoSimulationSurvey2019}), \textit{architecture description languages} (\cite{clementsSurveyArchitectureDescription1996}), and \textit{coordination frameworks} (\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBehavioralCoordinationOperator2015}).
+The problem of correctly coordinating components has been studied on different abstraction levels, with different goals in mind, using different terminology resulting in different categories of approaches: \textit{coordination languages} (\cite{papadopoulosCoordinationModelsLanguages1998}), \textit{Co-simulation approaches} (\cite{gomesCoSimulationSurvey2019}), \textit{architecture description languages} (\cite{clementsSurveyArchitectureDescription1996}), and \textit{coordination frameworks} (\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBehavioralCoordinationOperator2015}).
 
 % Contribution
 \textbf{Contribution.} We present a taxonomy represented as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990} for component coordination approaches. 
@@ -503,7 +503,24 @@ It is a widely used and reasonable dissimilarity measure for sets~\cite{levandow
 This is likely because data exchange is difficult to achieve when heterogeneous components are allowed.
 However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
 Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
-Also, in works like ~\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBCOolBehavioralCoordination2016}, data-exchange is identified as an important future work.
+Also, data exchange is identified as an important future work in works like ~\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBCOolBehavioralCoordination2016}.
+
+\section{Threats to validity}
+In this section, we discuss two threats to validity affecting our analysis, leading to the feature model and influencing our findings when applying the feature model.
+
+First, selecting approaches to study influences the features present in our feature model and the subsequent findings.
+We did not follow a systematic literature review methodology 
+We chose approaches from the four categories discussed earlier with different coordination goals to get a broad view of coordination features.
+However, we cannot investigate all coordination approaches, so we stopped after investigating 16 approaches since our feature model became stable.
+In addition, we 
+% \cite{wohlinExperimentationSoftwareEngineering2012}
+% Selection of approaches. Maybe not enough co-simulation approaches?
+
+% Analysis threats.
+Second, a threat to the validity of our \textit{application analysis} is the choice of distance metric, clustering algorithm, and clustering parameters.
+These choices can significantly affect the outcome of the analysis.
+We chose a well-regarded distance metric and clustering algorithm to mitigate this threat.
+Furthermore, we provide access to our data and analysis procedures, enabling others to replicate or modify the analysis by adjusting the distance metric, clustering algorithm, or clustering parameters.
 
 \section{Conclusion \& future work} \label{sec: conclusion}
 
