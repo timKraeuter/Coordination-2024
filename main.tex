@@ -18,7 +18,7 @@
 % https://www.discotec.org/2024/coordination
 % Regular papers 7-15 pages + references
 % TODO: Add artifacts citation using Zenodo.
-\title{A feature-based taxonomy of component coordination approaches}
+\title{A feature-based taxonomy of coordination approaches}
 
 \author{Tim Kr\"{a}uter\inst{1}\orcidlink{0000-0003-1795-0611} \and
 Julien Deantoni\inst{2}\orcidlink{0000-0001-6962-7846}
@@ -37,9 +37,15 @@ University of Applied Sciences, FHDW, Hanover, Germany\\
 \maketitle
 
 \begin{abstract}
-We present a feature-based taxonomy of different categories of component coordination approaches, such as coordination languages, co-simulation approaches, architecture description languages, and coordination frameworks.
-Our feature model spans different categories of coordination approaches that have only been analyzed in isolation before.
-Applying the feature model to concrete approaches allows us to pinpoint common and unique features that differentiate approaches.
+% We present a feature-based taxonomy of different categories of component coordination approaches, such as coordination languages, co-simulation approaches, architecture description languages, and coordination frameworks.
+% Our feature model spans different categories of coordination approaches that have only been analyzed in isolation before.
+% Applying the feature model to concrete approaches allows us to pinpoint common and unique features that differentiate approaches.
+
+Complex domains necessitate the utilization of multiple interacting software systems.
+Various categories of coordination approaches, such as coordination languages, co-simulation approaches, architecture description languages, and coordination frameworks, have been proposed to ensure seamless integration of these systems.
+In this paper, we present a comprehensive feature-based taxonomy of these categories, which have previously only been studied in isolation.
+The taxonomy uncovers common and unique features across the coordination approaches.
+It can be used to make informed decisions about the choice of coordination approaches for specific use cases.
 \end{abstract}
 
 \keywords{
@@ -55,18 +61,19 @@ Applying the feature model to concrete approaches allows us to pinpoint common a
 
 \section{Introduction} \label{sec: introduction}
 % Motivation: Coordination is everywhere and is super important since a single system cannot handle the complexity of today's world.
-Systems are becoming increasingly complex due to rising performance and reliability requirements, present and changing regulations, the integration of AI models, and many other factors.
-To handle this complexity and keep systems manageable, they are split into several components that work together, i.e., \textit{coordinate} to achieve a common goal.
-However, the coordination of heterogeneous components comes with new challenges and pitfalls.
-In this paper, as a component, we understand a small program, an entire system, or an executable behavioral model.
-% Different approaches to systemize coordination in different domains.
-The problem of correctly coordinating components has been studied on different abstraction levels, with different goals in mind, using different terminology resulting in different categories of approaches: \textit{coordination languages} (\cite{papadopoulosCoordinationModelsLanguages1998}), \textit{Co-simulation approaches} (\cite{gomesCoSimulationSurvey2019}), \textit{architecture description languages} (\cite{clementsSurveyArchitectureDescription1996}), and \textit{coordination frameworks} (\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBehavioralCoordinationOperator2015}).
+Complex domains require multiple interacting software systems to meet their demands. 
+Coordination approaches are necessary to ensure the effective integration of these systems.
+The study of coordination approaches appears to be fragmented, with disparate investigations conducted on different abstraction levels, pursuing varied goals, and utilizing diverse terminology, resulting in different categories of approaches, namely \textit{coordination languages} (\cite{papadopoulosCoordinationModelsLanguages1998}), \textit{Co-simulation approaches} (\cite{gomesCoSimulationSurvey2019}), \textit{architecture description languages} (\cite{clementsSurveyArchitectureDescription1996}), and \textit{coordination frameworks} (\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBehavioralCoordinationOperator2015}).
+% Motivation
+To the best of our knowledge, coordination approaches have only been compared in their own community.
+This isolation hinders a comprehensive understanding of coordinating interacting software systems, leading to the development of the same features independently with limited reuse.%~\cite{gomesCoSimulationSurvey2019}. TODO: Should we cite? Same argumentation but cosimulation.
 
 % Contribution
-\textbf{Contribution.} We present a taxonomy represented as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990} for component coordination approaches. 
-The taxonomy allows the comparison of coordination approaches across the different categories, while previous research has only focused on comparing approaches inside the categories, not considering a broader scope. 
-Then, we apply the taxonomy to evaluate 16 distinct approaches spanning the aforementioned categories and publish our findings in a public dataset~\cite{timkrauterArtifactsCoordination2024}.
-Finally, we discuss our findings, highlighting the common and distinct features among the categories while identifying crucial features that are absent but essential for industry application in the future.
+%\textbf{Contribution.} 
+In this paper, we present a comprehensive taxonomy, represented as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990} to systematically categorize coordination approaches within a unified framework.
+The taxonomy allows the comparison of coordination approaches across the different categories. %, while previous research has only focused on comparing approaches inside the categories, not considering a broader scope. 
+Moreover, we apply the taxonomy to evaluate 16 distinct approaches spanning the aforementioned categories and publish our findings in a public dataset~\cite{timkrauterArtifactsCoordination2024}.
+In addition, we discuss our findings, highlighting the common and distinct features among the categories while identifying crucial features that are absent but essential for industry applications in the future.
 % TODO: Add more concrete info about the findings once we have written the findings section.
 
 % Search methodology?
@@ -74,7 +81,7 @@ Finally, we discuss our findings, highlighting the common and distinct features 
 % First looking for surveys, then individual approaches? Or just surveys?
 % ADL/Architecture description language & survey/classification/literature review
 
-% Paper outline
+% Paper outline: TODO: Maybe merge with the contributions. (just adding the finally part!?)
 \textbf{Outline.} The remainder of the paper is structured as follows.
 First, we introduce the different categories of coordination approaches (\autoref{sec: approaches}).
 Afterward, we present our main contribution: the feature-based taxonomy (\autoref{sec: taxonomy}).
@@ -184,6 +191,13 @@ Julien will make a proposition, which should include somewhere:
 
 % Introduce the name of our approach
 In this paper, we will refer to our methodology outlined in~\cite{krauterBehavioralConsistencyMultimodeling2023} as the \textit{Behavioral Coordination Language} (BCoorLang) to enhance clarity in communication.
+
+\section{Methodology}
+% Tertiary study first: Cite all surveys.
+% one search with ADL, coordination language, co-simulation
+% first three pages
+
+% Deeper study based on distribution across the categories, the knowledge of the authors (significant differences between approaches, mixing old and recent approaches), and time available.
 
 \section{Taxonomy} \label{sec: taxonomy}
 We represent our taxonomy as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990}.
