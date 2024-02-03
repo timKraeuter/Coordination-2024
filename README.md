@@ -1,6 +1,23 @@
 # Coordination-2024
 This repository contains the sources of [our paper](./paper.pdf) submitted to the [26th International Conference on Coordination Models and Languages (Coordination 2024)](https://www.discotec.org/2024/coordination) and associated artifacts.
 
+# Methodology
+
+[Coordination language query](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=survey+OR+%22feature+model%22+OR+taxonomy+%22coordination+language%22&btnG=):
+```
+survey OR "feature model" OR taxonomy "coordination language"
+```
+
+[ADL query:](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=survey+OR+%22feature+model%22+OR+taxonomy+%22architecture+description+language%22&btnG=)
+```
+survey OR "feature model" OR taxonomy "architecture description language"
+```
+
+[Co-simulation query:](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=survey+OR+%22feature+model%22+OR+taxonomy+%22co+simulation%22&btnG=)
+```
+survey OR "feature model" OR taxonomy "co simulation"
+```
+
 # Feature model
 The following figure shows the complete feature model.
 
