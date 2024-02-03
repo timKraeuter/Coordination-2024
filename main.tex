@@ -13,6 +13,7 @@
 \usepackage{tabularray}
 % Diagonal lines
 \UseTblrLibrary{diagbox}
+\newcommand{\quotes}[1]{``#1''}
 
 \begin{document}
 % https://www.discotec.org/2024/coordination
@@ -198,18 +199,16 @@ In this paper, we will refer to our methodology outlined in~\cite{krauterBehavio
 First, we conducted a \textit{meta-analysis} (tertiary study) on surveys (secondary studies) within each coordination category.
 We found the following  secondary studies for coordination languages (\cite{papadopoulosCoordinationModelsLanguages1998,goosCoordinationModelsLanguages2001,rossiTuplebasedTechnologiesCoordination2001}), ADLs (\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,hussainInvestigatingArchitectureDescription2013,ozkayaAreWeThere2013,malavoltaWhatIndustryNeeds2013}), and co-simulation approaches (\cite{gomesCoSimulationSurvey2019,schweigerEmpiricalSurveyCosimulation2019,hafnerOverviewStateArt2021}).
 We did not find surveys on coordination frameworks since the term is not yet commonly used.
-We used Google Scholar to locate these papers, utilizing the keywords "survey," "feature model," "taxonomy," and for each category, "coordination language," "architecture description language," or "co-simulation" accordingly.
-We state the exact search queries used in \cite{timkrauterArtifactsCoordination2024}.
+We used Google Scholar to locate these papers, utilizing the keywords \quotes{survey}, \quotes{feature model}, \quotes{taxonomy}, and for each category, \quotes{coordination language}, \quotes{architecture description language}, or \quotes{co-simulation} accordingly.
+We state our exact search queries in~\cite{timkrauterArtifactsCoordination2024}.
 We then collected the first five pages of papers and filtered them by title, abstract, and content to arrive at the previously listed papers.
 
-% CL query:
-% survey OR "feature model" OR taxonomy "coordination language"
-% ADL query:
-% survey OR "feature model" OR taxonomy "architecture description language"
-% Co-Sim query:
-% survey OR "feature model" OR taxonomy "co simulation"
+Second, we investigated individual approaches in each category to construct our taxonomy.
+Due to the immense number of approaches and limited time, we focus on the 16 approaches listed in \autoref{sec: application}.
+Our selection of these approaches is based on a mix of different criteria: distribution across categories, expert knowledge of the authors, and heterogeneity inside categories.
+For example, we chose heterogeneous coordination languages, namely Linda, Reo, and Lingua Franca, which employ different coordination models, namely tuple spaces, channels, and reactors.
 
-% Deeper study based on distribution across the categories, the knowledge of the authors (significant differences between approaches, mixing old and recent approaches), and time available.
+Finally, we refined our taxonomy by examining the secondary studies and individual coordination approaches until it reached a stable state described in the next section.
 
 \section{Taxonomy} \label{sec: taxonomy}
 We represent our taxonomy as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990}.
@@ -299,7 +298,7 @@ For example, a delay could be 50 milliseconds of logical time, corresponding to 
 In contrast, \textit{physical} time describes time passing in the physical world.
 It is also referred to as \textit{wall-clock} time~\cite{gomesCoSimulationSurvey2019}.
 For example, one can define that an event should happen 50 milliseconds after another.
-In Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020}, logical time ``chases'' physical time, i.e., logical time tries to match the physical time provided by the execution platform.
+In Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020}, logical time \quotes{chases} physical time, i.e., logical time tries to match the physical time provided by the execution platform.
 % Logical time, however, always lags behind physical time.
 
 
