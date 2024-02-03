@@ -140,7 +140,8 @@ Many different styles of coordination languages exist, which achieve coordinatio
 % Operation-based coordination languages
 Coordination languages such as Linda~\cite{carrieroLindaContext1989} provide a \textit{set of operations} to enrich a host programming language with coordination capabilities.
 The operations in Linda are used to read from and write to a virtual shared memory, which serves as a \textit{global} communication medium.
-Such coordination languages are often called \textit{tuple-based} because tuples are exchanged through the shared memory \cite{rossiTuplebasedTechnologiesCoordination2001,omiciniCoordinationModelsLanguages2011}.
+Such coordination languages are often called \textit{tuple-based} because the shared memory contains sequences of elements, i.e., tuples.
+Ttuple-based coordination languages such as Linda are surveyed in \cite{rossiTuplebasedTechnologiesCoordination2001,nixonTuplespacebasedComputingSemantic2008,omiciniCoordinationModelsLanguages2011}.
 
 % Channel-based coordination languages: REO, Manifold?
 Other coordination languages such as Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998} and REO~\cite{arbabReoChannelbasedCoordination2004} do not rely on a global communication medium but rather use \textit{channels} to connect components locally.
@@ -194,9 +195,19 @@ Julien will make a proposition, which should include somewhere:
 In this paper, we will refer to our methodology outlined in~\cite{krauterBehavioralConsistencyMultimodeling2023} as the \textit{Behavioral Coordination Language} (BCoorLang) to enhance clarity in communication.
 
 \section{Methodology}
-% Tertiary study first: Cite all surveys.
-% one search with ADL, coordination language, co-simulation
-% first three pages
+First, we conducted a \textit{meta-analysis} (tertiary study) on surveys (secondary studies) within each coordination category.
+We found the following  secondary studies for coordination languages (\cite{papadopoulosCoordinationModelsLanguages1998,goosCoordinationModelsLanguages2001,rossiTuplebasedTechnologiesCoordination2001}), ADLs (\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,hussainInvestigatingArchitectureDescription2013,ozkayaAreWeThere2013,malavoltaWhatIndustryNeeds2013}), and co-simulation approaches (\cite{gomesCoSimulationSurvey2019,schweigerEmpiricalSurveyCosimulation2019,hafnerOverviewStateArt2021}).
+We did not find surveys on coordination frameworks since the term is not yet commonly used.
+We used Google Scholar to locate these papers, utilizing the keywords "survey," "feature model," "taxonomy," and for each category, "coordination language," "architecture description language," or "co-simulation" accordingly.
+We state the exact search queries used in \cite{timkrauterArtifactsCoordination2024}.
+We then collected the first five pages of papers and filtered them by title, abstract, and content to arrive at the previously listed papers.
+
+% CL query:
+% survey OR "feature model" OR taxonomy "coordination language"
+% ADL query:
+% survey OR "feature model" OR taxonomy "architecture description language"
+% Co-Sim query:
+% survey OR "feature model" OR taxonomy "co simulation"
 
 % Deeper study based on distribution across the categories, the knowledge of the authors (significant differences between approaches, mixing old and recent approaches), and time available.
 
