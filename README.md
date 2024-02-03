@@ -28,8 +28,9 @@ The following figure shows the complete feature model.
 All data from applying the feature model to the 16 approaches can be found [here](./artifacts/classification.xlsx).
 
 
-The python scripts to generate **venn diagrams** along with a step-by-step description is located [here](./artifacts/python-scripts/).
-**Sample venn diagram:**
+The Python scripts to generate **Venn diagrams**, along with a step-by-step description, are located [here](./artifacts/python-scripts/).
+
+**Sample Venn diagram:**
 
 ![venn diagram](./artifacts/python-scripts/venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)
 # Findings
