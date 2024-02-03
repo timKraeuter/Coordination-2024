@@ -73,7 +73,7 @@ This isolation hinders a comprehensive understanding of coordinating interacting
 %\textbf{Contribution.} 
 In this paper, we present a comprehensive taxonomy, represented as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990} to systematically categorize coordination approaches within a unified framework.
 The taxonomy allows the comparison of coordination approaches across the different categories. %, while previous research has only focused on comparing approaches inside the categories, not considering a broader scope. 
-Moreover, we apply the taxonomy to evaluate 16 distinct approaches spanning the aforementioned categories and publish our findings in a public dataset~\cite{timkrauterArtifactsCoordination2024}.
+Moreover, we apply the taxonomy to evaluate 17 distinct approaches spanning the aforementioned categories and publish our findings in a public dataset~\cite{timkrauterArtifactsCoordination2024}.
 In addition, we discuss our findings, highlighting the common and distinct features among the categories while identifying crucial features that are absent but essential for industry applications in the future.
 % TODO: Add more concrete info about the findings once we have written the findings section.
 
@@ -204,7 +204,7 @@ We state our exact search queries in~\cite{timkrauterArtifactsCoordination2024}.
 We then collected the first five pages of papers and filtered them by title, abstract, and content to arrive at the previously listed papers.
 
 Second, we investigated individual approaches in each category to construct our taxonomy.
-Due to the immense number of approaches and limited time, we focus on the 16 approaches listed in \autoref{sec: application}.
+Due to the immense number of approaches and limited time, we focus on the 17 approaches listed in \autoref{sec: application}.
 Our selection of these approaches is based on a mix of different criteria: distribution across categories, expert knowledge of the authors regarding relevance, and heterogeneity inside categories.
 For example, we chose heterogeneous coordination languages, namely Linda, Reo, and Lingua Franca, which employ different coordination models, namely tuple spaces, channels, and reactors.
 
@@ -411,7 +411,11 @@ DACCOSIM~\cite{galtierFMIBasedDistributedMultisimulation2015} goes one step furt
 Each approach comes from a different category: co-simulation (\textit{DACCOSIM}~\cite{galtierFMIBasedDistributedMultisimulation2015,dadSynthesisFeedbackDistribution2021}), coordination language (\textit{Linda}~\cite{carrieroLindaContext1989,carrieroLindaAlternativeMessagepassing1994}), ADL (\textit{MontiArc}~\cite{haberMontiArcArchitecturalModeling2014}), and coordination framework (\textit{BCoorLang}~\cite{krauterBehavioralConsistencyHeterogeneous2021,krauterBehavioralConsistencyMultimodeling2023}).
 % TODO: Why did we choose these? Representative feature sets?
 
-In addition, we classified the 12 following approaches: Ptolemy~\cite{ekerTamingHeterogeneityPtolemy2003,ptolemaeusSystemDesignModeling2014}, Wright~\cite{allenFormalBasisArchitectural1997,allenFormalApproachSoftware1997}, CommUnity~\cite{fiadeiroSemanticsArchitecturalConnectors1997,oliveiraCommUnityWorkbench2007}, Metropolis~\cite{balarinMetropolisIntegratedElectronic2003}, UMoC\texttt{++}~\cite{mathaikuttyUMoCBasedMultiMoC2006}, Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020,lohstrohLinguaFrancaDeterministic2021}, Reo~\cite{arbabReoChannelbasedCoordination2004}, BIP~\cite{bliudzeAlgebraConnectorsStructuring2008,basuRigorousComponentBasedSystem2011}, Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998}, and ForSyDe~\cite{sanderSystemModelingTransformational2004,sanderForSyDeSystemDesign2016}.
+In addition, we classified the following approaches: Ptolemy~\cite{ekerTamingHeterogeneityPtolemy2003,ptolemaeusSystemDesignModeling2014}, Wright \cite{allenFormalBasisArchitectural1997,allenFormalApproachSoftware1997}, CommUnity~\cite{fiadeiroSemanticsArchitecturalConnectors1997,oliveiraCommUnityWorkbench2007}, Metropolis~\cite{balarinMetropolisIntegratedElectronic2003}, UMoC\texttt{++}~\cite{mathaikuttyUMoCBasedMultiMoC2006}, Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020,lohstrohLinguaFrancaDeterministic2021}, Reo~\cite{arbabReoChannelbasedCoordination2004}, BIP~\cite{bliudzeAlgebraConnectorsStructuring2008,basuRigorousComponentBasedSystem2011},
+MECSYCO~\cite{camusCosimulationCyberphysicalSystems2018,camusHybridCosimulationFMUs2016},
+CoSim20~\cite{liboniComplexSystemsCosimulation2021},
+BCOoL~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016},
+Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998}, and ForSyDe~\cite{sanderSystemModelingTransformational2004,sanderForSyDeSystemDesign2016}.
 Due to space constraints, we cannot show all classifications but the full data set is available in the artifacts of this paper~\cite{timkrauterArtifactsCoordination2024}.
 
 \begin{table}
@@ -490,7 +494,7 @@ In addition, we provide all data and scripts of our analysis as artifacts~\cite{
 
 \section{Findings} \label{sec: findings}
 
-We further analyze the classification of the 16 approaches, mentioned in \autoref{sec: application}, to find out how they compare across and inside the four categories.
+We further analyze the classification of the approaches mentioned in \autoref{sec: application} to find out how they compare across and inside the four categories.
 We clustered the approaches to see similarities and differences by just looking at the feature data of each approach, not considering to which category they belong.
 The data and scripts to reproduce our analysis are available in~\cite{timkrauterArtifactsCoordination2024}.
 We apply a standard clustering algorithm using Jaccard distance to measure the similarity of the feature sets.
