@@ -3,8 +3,6 @@ import pandas as pd
 
 distance_matrix = pd.read_excel('./distance/distances.xlsx')
 
-# print(distance_matrix.to_markdown())
-
 # Clustering with Jaccard distance
 clustering = DBSCAN(eps=0.34, min_samples=2, metric='precomputed')
 

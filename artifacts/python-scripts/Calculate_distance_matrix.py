@@ -47,3 +47,5 @@ distance_matrix = pd.DataFrame(distance_matrix, index=approach_names, columns=ap
 
 # Save distance matrix to file for the scatter plot.
 distance_matrix.to_excel("./distance/distances.xlsx", index=False)
+
+# print(distance_matrix.to_markdown())
