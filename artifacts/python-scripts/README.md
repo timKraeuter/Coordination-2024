@@ -87,7 +87,7 @@ py Generate_Upset.py BCoorLang DACCOSIM MontiArc
 
 ### UpSet plot: Custom approaches
 
-UpSet plots make most sense for more than three approaches. You can add as many approaches as arguments as you want.
+UpSet plots make the most sense for more than three approaches. You can add as many approaches as arguments as you want.
 
 **Script:**
 
@@ -109,7 +109,7 @@ You can find a table with the calculated distances later.
 
 - Number of minimum samples in a cluster = two (`min_samples=2`)
 - Maximum distance between two samples to be considered neighbors (`eps=0.34`).
-- Precomputed distance metric given by the Jaccard_distance (`metric='precomputed'`)
+- Precomputed distance metric is given by the Jaccard_distance (`metric='precomputed'`)
 
 ### Clustering results
 
@@ -131,17 +131,16 @@ You can run the following script to reproduce the results:
 py Cluster_approaches.py
 ```
 
-The distance matrix together with the clustering visualized in the following scatter plot (
-see `Scatter_approachey_by_distance.py`):
+The distance matrix, together with the clustering is visualized in the following scatter plot (see `Scatter_approachey_by_distance.py`):
 
 ![distance scatter plot](distance/approach_scatter.svg)).
 
 The plot approximates the position of each approach relative to the others by using the distance matrix.
-It cannot be exact but paints a good overall picture.
+It cannot be exact, but it paints a good overall picture.
 
 ### Jaccard distance matrix (clustering input)
 
-Tabel which shows the **Jaccard distance** between the feature sets (see `./distance/distances.xlsx`).
+For the table, which shows the **Jaccard distance** between the feature sets (see `./distance/distances.xlsx`).
 This data is the precomputed input for the clustering (see `Calculate_distance_matrix.py`).
 
 |    | BCoorLang |    BCOoL |  Ptolemy |   Wright | MontiArc | CommUnity | Metropolis |  MECSYCO | DACCOSIM |    UMoC++ | LinguaFranca |      Reo |    Linda |      BIP | Manifold |  ForSyDe |
