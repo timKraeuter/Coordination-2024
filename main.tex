@@ -230,21 +230,21 @@ A complete diagram of the feature model is contained in~\cite{timkrauterArtifact
 
 \subsection{Foundation}
 
-\autoref{fig: foundationFeature} shows the \textbf {Foundation} feature, which consists of \textbf{Definition}, \textbf{Mechanism}, and \textbf{Semantics}.
+\autoref{fig: foundationFeature} shows the \textbf {Foundation} feature, which consists of \textbf{Syntax}, \textbf{Semantics}, and \textbf{Mechanism}.
 
 % Maybe cut into two pieces. So, Definition and Semantics are not part of the same.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{images/coordination_feature}
+	\includegraphics[width=1\textwidth]{images/foundation_feature}
 	\caption{Foundation feature}
 	\label{fig: foundationFeature}
 \end{figure}
 
-\subsubsection{Definition} The definition of coordination can either be \textit{explicit} or \textit{implicit}.
-An implicit definition is usually based on the names of model elements.
+\subsubsection{Syntax} The coordination syntax can either be \textit{explicit} or \textit{implicit}.
+An implicit syntax is usually based on the names of model elements.
 For example, one could synchronize transitions of multiple state machines if they have identical names.
 
-Explicit definition is either \textit{query based} or \textit{structural}.
+Explicit syntax is either \textit{query based} or \textit{structural}.
 % Query-based example
 For example, in BCOoL~\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write queries to define which elements should coordinate.
 
@@ -263,7 +263,7 @@ For example, in the ADL MontiArc~\cite{haberMontiArcArchitecturalModeling2014}, 
 Data can also be exposed as variables, which are then coupled with variables in other components, for example, to be the same. % Causal vs. A-causal MoC
 However, data exchange might also happen between components during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
 
-\subsubsection{Semantics} The semantics feature consists of \textit{expressiveness} and \textit{model of computation}.
+\subsubsection{Semantics} The semantics feature consists of \textit{expressiveness}, \textit{model of computation}, and \textit{formality}.
 The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms.
 Expressiveness is \textit{customizable} if one can define the semantics of coordination.
 For example, in BCOoL, one can employ the Clock Constraints Specification Language (CCSL)~\cite{andreSyntaxSemanticsClock2009} to define new coordination operators besides the predefined ones~\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
@@ -291,7 +291,13 @@ In contrast, \textit{physical} time describes time passing in the physical world
 It is also referred to as \textit{wall-clock} time~\cite{gomesCoSimulationSurvey2019}.
 For example, one can define that an event should happen 50 milliseconds after another.
 In Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020}, logical time \quotes{chases} physical time, i.e., logical time tries to match the physical time provided by the execution platform.
-% Logical time, however, always lags behind physical time.
+
+\textit{Formality} of a coordination approach is either \textit{formal} or \textit{semi-formal}.
+Semi-formal approaches are directly implemented in a general-purpose programming language, often with a guiding formalism in mind but without strict adherence to that formalism.
+
+Formal coordination approaches are implemented in a \textit{formal language}, which can then be run on an execution engine implemented for that formalism.
+For example, the coordination framework BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components in a centralized manner.
+It relies on the graph-transformation tool Groove~\cite{rensinkGROOVESimulatorTool2004} or the term-rewriting tool Maude for execution.
 
 
 \subsection{Goal} % Or even call it motivation
@@ -355,14 +361,6 @@ Two strategies deal with hybrid systems: either adapt the components from the CT
 % TODO: Move somewhere appropriate.
 % The choice of a coordination approach depends on the nature of the system at hand.
 % For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
-
-\subsubsection{Implementation} Coordination approaches are implemented differently.
-Most approaches are implemented using \textit{general-purpose languages}.
-For example, Linda is implemented in multiple languages such as C, C\texttt{++}, Java, and more, while Ptolemy is implemented in Java~\cite{ptolemaeusSystemDesignModeling2014}. 
-
-Alternatively, a coordination approach can be implemented in a \textit{formal language}, which can then be run on an execution engine implemented for that formalism.
-For example, the coordination framework BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components in a centralized manner.
-It relies on the graph-transformation tool Groove~\cite{rensinkGROOVESimulatorTool2004} or the term-rewriting tool Maude for execution.
 
 \subsubsection{Component transparency} Some coordination approaches require components to be entirely transparent (\textit{white-box}), while others only require a fixed interface (\textit{black-box}).
 Usually, black-box approaches are needed to protect \textit{intellectual property} (IP) when different companies want to work together without sharing all the details concerning their components.
