@@ -25,7 +25,7 @@ The following figure shows the complete feature model.
 ![](./artifacts/images/feature-model.svg)
 
 # Application of the feature model
-All data from applying the feature model to the 16 approaches can be found [here](./artifacts/classification.xlsx).
+All data from applying the feature model to the different approaches can be found [here](./artifacts/classification.xlsx).
 
 
 The Python scripts to generate **Venn diagrams**, along with a step-by-step description, are located [here](./artifacts/python-scripts/).
