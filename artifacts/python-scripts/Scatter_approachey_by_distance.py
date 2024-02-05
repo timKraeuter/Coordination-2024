@@ -31,8 +31,17 @@ for i, label in enumerate(distance_matrix.columns):
     if label == "Metropolis":
         plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va='top')
         continue
-    if label == "Linda":
-        plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va="bottom", ha='center')
+    if label == "Manifold":
+        plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va="top", ha="center")
+        continue
+    if label == "DACCOSIM":
+        plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va='bottom', ha="center")
+        continue
+    if label == "BCoorLang":
+        plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va='bottom', ha='right')
+        continue
+    if label == "BCOoL":
+        plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va='bottom', ha='right')
         continue
     plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va='bottom')
 

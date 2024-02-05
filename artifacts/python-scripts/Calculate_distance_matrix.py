@@ -6,7 +6,7 @@ df = pd.read_excel('../classification.xlsx')
 df.columns = map(str.lower, df.columns)
 
 approach_names = ['BCoorLang', 'BCOoL', 'Ptolemy', 'Wright', 'MontiArc', 'CommUnity', 'Metropolis', 'MECSYCO',
-                  'DACCOSIM', 'UMoC++', 'LinguaFranca', 'Reo', 'Linda', 'BIP', 'Manifold', 'ForSyDe']
+                  'DACCOSIM', 'CoSim20', 'UMoC++', 'LinguaFranca', 'Reo', 'Linda', 'BIP', 'Manifold', 'ForSyDe']
 
 content = {}
 for approach in approach_names:
