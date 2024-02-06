@@ -483,34 +483,38 @@ We will describe the common feature sets we found for each of the four categorie
 % ADL
 \textbf{ADLs} primarily have \textit{simulation} as their goal, while a small subset allows predefined properties to be verified.
 Unsurprisingly, the coordination syntax of all ADLs is architecture-based, using components with ports and connectors between them.
+All ADLs operate in the discrete event domain.
 Furthermore, components in ADLs are white-box and homogeneous, and coordination specification is usually exogenous, i.e., part of the connectors.
 An exception is MontiArc, where ports can be marked as \textit{synchronized} only allowing synchronous interactions through this port, meaning coordination specification is partly present inside components.
 
 % Coordination language
-\textbf{Coordination languages} can have simulation and execution as their goal.
+\textbf{Coordination languages} can have simulation and execution as their goal while operating in the discrete event domain.
 Surprisingly, coordination syntax is also most likely architecture-based, i.e., the idea of components, ports, and connectors/channels between them is also used in most coordination languages.
 In addition, components in coordination languages are also white-box and homogenous but have both endogenous and exogenous coordination specifications.
 Notably, some coordination languages offer a federated execution not supported by ADLs.
 
 % Co-Simulation
 Unsurprisingly, all \textbf{co-simulation} approaches have only simulation as their goal.
-% primarily data-exchange between black-box components in a hybrid domain. --> mention domain in the other texts.
-% also architecture-based --> Seems very much universally accepted
-% also some are federated 
-% some offer heterogeneous components by wrapping. shoutout mecsyco
+Similarly to ADLs and coordination languages, coordination syntax is architecture-based.
+However, compared to the other categories, they operate in the hybrid domain, facilitating data exchange between black-box components.
+Components can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO. % TODO: Cite
+Typically, execution is federated, while some approaches, such as DACCOSIM, even allow for a distributed execution.  % TODO: Cite
 
 % Coordination frameworks
 \textbf{Coordination frameworks}
 
 % Any outliers?
 % What are the unique features of each approach? Does this match their intended usage scenarios?
+% Somehow enter a general discussion with the approaches below:
 
-% The choice of a coordination approach depends on the nature of the system at hand.
+% Generally, choosing a coordination approach depends on the nature of the system at hand.
 % For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
 
 % ADLs, coordination languages, and coordination frameworks usually apply to software systems, while co-simulation applies to hybrid systems, i.e., cyber-physical systems. Thus, they support different MoCs and domains and have different goals.
 
 % High-level
+\textbf{Architecture-based coordination syntax is widely used:}
+
 \textbf{Coordination frameworks do not support Data-Exchange:} All coordination frameworks besides Ptolemy support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
 This is likely because data exchange is difficult to achieve when heterogeneous components are allowed.
 However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
