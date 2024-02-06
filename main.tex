@@ -484,6 +484,20 @@ In addition, we provide all data and scripts of our analysis as artifacts~\cite{
 
 \section{Findings} \label{sec: findings}
 
+\subsection{Low-level analysis}
+% Add some low-level takeaways
+
+
+% Interprete the previous classification
+% Highlight typical features for ADLs, Coordination language, Co-simulation, and coordination frameworks.
+% Are all ADLS similar? Any outliers?
+
+% What are the unique features of each approach? Does this match their intended usage scenarios?
+
+% ADLs, coordination languages, and coordination frameworks usually apply to software systems, while co-simulation applies to hybrid systems, i.e., cyber-physical systems. Thus, they support different MoCs and domains and have different goals.
+
+\subsection{Feature clustering analysis}
+
 We further analyze the classification of the approaches mentioned in \autoref{sec: application} to find out how they compare across and inside the four categories.
 We clustered the approaches to see similarities and differences by just looking at the feature data of each approach, not considering to which category they belong.
 The data and scripts to reproduce our analysis are available in~\cite{timkrauterArtifactsCoordination2024}.
@@ -492,6 +506,8 @@ Jaccard distance is the one-complement of Jaccard similarity for two sets, defin
 It is a widely used and reasonable dissimilarity measure for sets~\cite{levandowskyDistanceSets1971}.
 
 \autoref{fig: clusters} shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
+Furthermore, it highlights the clustering results by coloring each data point.
+We selected clustering parameters to reduce the number of unclustered approaches while ensuring that we do not consolidate everything into just one cluster.
 
 \begin{figure}[ht]
 	\centering
@@ -501,30 +517,22 @@ It is a widely used and reasonable dissimilarity measure for sets~\cite{levandow
 \end{figure}
 
 % Description of the plot
-The clustering algorithm finds three clusters using the distances between the approaches containing all but one approach.
-\textit{Cluster 0} contains BCoorLang and BCOol, coordination frameworks with similar features.
-\textit{Cluster 1} consists of a mix of coordination languages and ADLs, such as Linda and Lingua Franca, as well as Wright and MontiArc, respectively.
-\textit{Cluster 2} includes three co-simulation approaches, while no cluster contains Ptolemy.
+The clustering algorithm finds three clusters, including all but one approach.
+\textbf{Cluster 1} contains BCoorLang and BCOol, only coordination frameworks, while \textbf{cluster 2} consists of a mix of coordination languages and ADLs, such as Linda and Lingua Franca, as well as Wright and MontiArc, respectively.
+\textbf{Cluster 3} includes three co-simulation approaches, but no cluster contains Ptolemy.
 
 % Interpretation of the plot
-Cluster 0
+We interpret cluster 1 as representing the coordination framework category.
+We could classify Ptolemy as a coordination framework, but it is not part of cluster 1 because it includes unique features from all categories.
+It is remarkable that one approach can offer such a diverse range of features.
+Similarly, cluster 3 is the co-simulation cluster, showing that according to our taxonomy, co-simulation approaches are similar and have unique features not found in the other categories.
 
-% Add some low-level takeaways
+Cluster 2 contains coordination languages and ADLs.
+Even if the maximum distance between approaches is reduced to be considered part of the same cluster (clustering parameter), one cannot separate the approaches into the two categories.
+Thus, we conclude that coordination languages and ADLs share more similarities in features compared to, for instance, co-simulation approaches or coordination frameworks.
 
+\subsection{High-level analysis}
 
-% Interprete the previous classification
-% Highlight typical features for ADLs, Coordination language, Co-simulation, and coordination frameworks.
-% Are all ADLS similar? Any outliers?
-
-% Commonalities between clusters
-
-% Differences between clusters
-
-% What are the unique features of each approach? Does this match their intended usage scenarios?
-
-% ADLs, coordination languages, and coordination frameworks usually apply to software systems, while co-simulation applies to hybrid systems, i.e., cyber-physical systems. Thus, they support different MoCs and domains and have different goals.
-
-% High-level takeaways
 \textbf{Coordination frameworks do not support Data-Exchange:} All coordination frameworks we have encountered support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
 This is likely because data exchange is difficult to achieve when heterogeneous components are allowed.
 However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
