@@ -57,6 +57,7 @@ It can be used to make informed decisions about the choice of coordination appro
 }
 
 % TODO: event vs. state change --> Fix terminology or introduce as equivalent
+% TODO: component --> system
 
 \section{Introduction} \label{sec: introduction}
 Complex domains require multiple interacting software systems to meet their demands. 
@@ -475,18 +476,32 @@ In addition, we provide all data and scripts of our analysis as artifacts~\cite{
 
 \section{Findings} \label{sec: findings}
 
-\subsection{Feature analysis}
-% Add some low-level takeaways
-
-% ADL
-
-% Coordination language
-
-% Co-Simulation
-
-% Coordination frameworks
+\subsection{Typical features}
+We will describe the common feature sets we found for each of the four categories.
 
 % Highlight typical features for ADLs, Coordination language, Co-simulation, and coordination frameworks.
+% ADL
+\textbf{ADLs} primarily have \textit{simulation} as their goal, while a small subset allows predefined properties to be verified.
+Unsurprisingly, the coordination syntax of all ADLs is architecture-based, using components with ports and connectors between them.
+Furthermore, components in ADLs are white-box and homogeneous, and coordination specification is usually exogenous, i.e., part of the connectors.
+An exception is MontiArc, where ports can be marked as \textit{synchronized} only allowing synchronous interactions through this port, meaning coordination specification is partly present inside components.
+
+% Coordination language
+\textbf{Coordination languages} can have simulation and execution as their goal.
+Surprisingly, coordination syntax is also most likely architecture-based, i.e., the idea of components, ports, and connectors/channels between them is also used in most coordination languages.
+In addition, components in coordination languages are also white-box and homogenous but have both endogenous and exogenous coordination specifications.
+Notably, some coordination languages offer a federated execution not supported by ADLs.
+
+% Co-Simulation
+Unsurprisingly, all \textbf{co-simulation} approaches have only simulation as their goal.
+% primarily data-exchange between black-box components in a hybrid domain. --> mention domain in the other texts.
+% also architecture-based --> Seems very much universally accepted
+% also some are federated 
+% some offer heterogeneous components by wrapping. shoutout mecsyco
+
+% Coordination frameworks
+\textbf{Coordination frameworks}
+
 % Any outliers?
 % What are the unique features of each approach? Does this match their intended usage scenarios?
 
@@ -496,11 +511,11 @@ In addition, we provide all data and scripts of our analysis as artifacts~\cite{
 % ADLs, coordination languages, and coordination frameworks usually apply to software systems, while co-simulation applies to hybrid systems, i.e., cyber-physical systems. Thus, they support different MoCs and domains and have different goals.
 
 % High-level
-\textbf{Coordination frameworks do not support Data-Exchange:} All coordination frameworks we have encountered support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
+\textbf{Coordination frameworks do not support Data-Exchange:} All coordination frameworks besides Ptolemy support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
 This is likely because data exchange is difficult to achieve when heterogeneous components are allowed.
 However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
 Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
-Also, data exchange is identified as an important future work in works like ~\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBCOolBehavioralCoordination2016}.
+Also, data exchange is identified as an important future work in BCOol~\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBCOolBehavioralCoordination2016}.
 
 \subsection{Feature clustering analysis}
 
