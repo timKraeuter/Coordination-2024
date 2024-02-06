@@ -417,16 +417,17 @@ Due to space constraints, we cannot show all classifications but the full data s
 	\begin{tblr}{
 			column{2-Z} = {c},
 			hline{1, 2, Z} = {-}{1.2pt, solid}, % Z is the last row/column
-			hline{7, 11} = {-}{dashed},
+			hline{8, 12} = {-}{dashed},
 			vline{2-Y} = {2-Z}{solid},
 		}
 		\diagbox[linewidth=1.1pt,font=\bfseries]{Feature}{Approach} & \textbf{DACCOSIM} & \textbf{Linda} & \textbf{MontiArc} & \textbf{BCoorLang} \\
 		
 		\textbf{Foundation} \\
-		\hspace{2mm} Definition & Architecture based & Name based & Architecture based & Dedicated elements \\
+		\hspace{2mm} Syntax & Architecture based & Name based & Architecture based & Dedicated elements \\
 		\hspace{2mm} Mechanism & Data-Exchange & Data-Exchange & Data-Exchange & Event-Scheduling \\
 		\hspace{2mm} Expressiveness & Predefined & Predefined & Predefined & Predefined \\
 		\hspace{2mm} MoC & Causal & Causal & Logical, Causal & Logical \\
+		\hspace{2mm} Formality & Semi-formal & Semi-formal & Semi-formal & Formal \\
 		
 		\textbf{Goal} \\
 		\hspace{2mm} Simulation & + & - & + & + \\
@@ -434,8 +435,7 @@ Due to space constraints, we cannot show all classifications but the full data s
 		\hspace{2mm} Formal verification & - & - & - & Custom properties \\
 		
 		\textbf{Properties} \\
-		\hspace{2mm} Domain & Hybrid & Discrete event & Discrete event & Discrete event \\	
-		\hspace{2mm} Implementation & GPL & GPL & GPL & Formal language \\
+		\hspace{2mm} Domain & Hybrid & Discrete event & Discrete event & Discrete event \\
 		\hspace{2mm} Comp. transparency & Black-box & White-box & White-box & White-box \\
 		\hspace{2mm} Specification & Exogenous & Endogenous & Endogenous & Exogenous \\
 		\hspace{2mm} Comp. languages & Homogeneous & Homogeneous & Homogeneous & Heterogeneous \\
@@ -491,7 +491,7 @@ We apply a standard clustering algorithm using Jaccard distance to measure the s
 Jaccard distance is the one-complement of Jaccard similarity for two sets, defined as the ratio of their intersection to their union ~\cite{levandowskyDistanceSets1971}.
 It is a widely used and reasonable dissimilarity measure for sets~\cite{levandowskyDistanceSets1971}.
 
-autoref{fig: clusters} shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
+\autoref{fig: clusters} shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
 
 \begin{figure}[ht]
 	\centering
