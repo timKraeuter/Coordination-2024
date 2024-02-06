@@ -23,7 +23,7 @@ for cluster in set(clusters):
     if cluster == -1:
         plt.scatter(mds_result[indices, 0], mds_result[indices, 1], label='Unclustered')
     else:
-        plt.scatter(mds_result[indices, 0], mds_result[indices, 1], label=f'Cluster {cluster}')
+        plt.scatter(mds_result[indices, 0], mds_result[indices, 1], label=f'Cluster {cluster + 1}')
 
 # Add labels to each point (optional)
 for i, label in enumerate(distance_matrix.columns):
