@@ -64,7 +64,6 @@ It can be used to make informed decisions about the choice of coordination appro
 	Taxonomy
 }
 
-% TODO: event vs. state change --> Fix terminology or introduce as equivalent
 % TODO: component --> system
 
 \section{Introduction} \label{sec: introduction}
@@ -201,18 +200,13 @@ Finally, we refined our taxonomy by examining the secondary studies and individu
 
 \section{Taxonomy} \label{sec: taxonomy}
 We represent our taxonomy as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990}.
-% TODO: Motivation is here again. It should be changed and more fitting
-The aim is to compare coordination approaches from different categories.
-It cannot contain all the details from each approach since it must operate on a higher abstraction level to allow comparison across categories.
-Thus, it can be too coarse-grained to compare approaches inside the same category.
-For example, if one only wants to compare co-simulation approaches, the feature model might not distinguish them enough.
-Consequently, one should use a taxonomy created only for co-simulation, such as~\cite{gomesCoSimulationSurvey2019} instead.
-However, our feature model still answers important questions.
-For example, how can coordination be specified, and what is its semantics?
-What are the goals of a coordination approach, how is the coordination implemented, and for which system domains is it suitable?
+The aim is to compare coordination approaches from different categories by first identifying the coordination \textit{foundation}: coordination mechanism, syntax, semantics, and degree of formality.
+Second, we investigate the coordination approaches \textit{goal} such as simulation, execution, and formal validation.
+Third, we study the approaches' \textit{properties}, such as domain, execution, specification, component transparency, and component languages.
 
 The top level of the feature model is shown in \autoref{fig: featureModelOverview}.
-A coordination approach has three main features: \textit{Foundation}, \textit{Goal}, and \textit{Properties}.
+A coordination approach has the three previously discussed features: \textit{Foundation}, \textit{Goal}, and \textit{Properties}, which we depict and describe in detail in the following sections.
+A complete diagram of the feature model is contained in~\cite{timkrauterArtifactsCoordination2024}.
 
 \begin{figure}[ht]
 	\centering
@@ -220,9 +214,6 @@ A coordination approach has three main features: \textit{Foundation}, \textit{Go
 	\caption{Feature model overview}
 	\label{fig: featureModelOverview}
 \end{figure}
-
-In the following sections, we will describe each abstract feature in detail.
-A complete diagram of the feature model is contained in~\cite{timkrauterArtifactsCoordination2024}.
 
 \subsection{Foundation}
 
