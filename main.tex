@@ -476,6 +476,10 @@ In addition, we provide all data and scripts of our analysis as artifacts~\cite{
 
 \section{Findings} \label{sec: findings}
 
+In this section, we describe the findings of applying our taxonomy to the different coordination approaches.
+We start by summarizing the typical features of each coordination category before stating general insights about coordination approaches.
+Finally, we cluster the approaches based on their feature similarity and discuss the results.
+
 \subsection{Typical features}
 We will describe the common feature sets we found for each of the four categories.
 
@@ -497,29 +501,32 @@ Notably, some coordination languages offer a federated execution not supported b
 Unsurprisingly, all \textbf{co-simulation} approaches have only simulation as their goal.
 Similarly to ADLs and coordination languages, coordination syntax is architecture-based.
 However, compared to the other categories, they operate in the hybrid domain, facilitating data exchange between black-box components.
-Components can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO. % TODO: Cite
-Typically, execution is federated, while some approaches, such as DACCOSIM, even allow for a distributed execution.  % TODO: Cite
+Components can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO.
+Typically, execution is federated, while some approaches, such as DACCOSIM, even allow for a distributed execution.
 
 % Coordination frameworks
-\textbf{Coordination frameworks}
+\textbf{Coordination frameworks} have simulation and formal validation as their goal.
+Coordination syntax is diverse but usually uses event scheduling in the discrete event domain.
+Furthermore, coordination specification is exogenous to support heterogeneous components, which are white-box.
+In contrast to coordination languages and co-simulation approaches, execution is centralized.
+Interestingly, coordination frameworks such as BCoorLang allow formal validation of custom properties, a rare feature.
 
-% Any outliers?
-% What are the unique features of each approach? Does this match their intended usage scenarios?
-% Somehow enter a general discussion with the approaches below:
+% High-level insights/findings
+\subsection{General insights}
 
-% Generally, choosing a coordination approach depends on the nature of the system at hand.
-% For instance, software systems can usually be modeled in the discrete event domain, while physical or cyber-physical systems operate in the continuous time or even hybrid domain.
+\textbf{Architecture-based coordination syntax is widely used.}
+Remarkably, coordination approaches from all categories use concepts such as components, ports, and connectors to express coordination.
+The specific coordination details vary between different approaches, but there appears to be broad consensus on the importance of clearly representing the system architecture for effective coordination.
 
-% ADLs, coordination languages, and coordination frameworks usually apply to software systems, while co-simulation applies to hybrid systems, i.e., cyber-physical systems. Thus, they support different MoCs and domains and have different goals.
+\textbf{Formal validation is rarely supported.}
+Most of the studied coordination approaches have simulation as their goal, while formal validation is uncommon.
+This could be attributed to the problem of formally representing heterogeneous systems engaged in coordination and the rapid growth of state spaces when multiple systems are involved.
 
-% High-level
-\textbf{Architecture-based coordination syntax is widely used:}
-
-\textbf{Coordination frameworks do not support Data-Exchange:} All coordination frameworks besides Ptolemy support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
+\textbf{Coordination frameworks do not support Data-Exchange.}
+All coordination frameworks besides Ptolemy support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
 This is likely because data exchange is difficult to achieve when heterogeneous components are allowed.
 However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
 Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
-Also, data exchange is identified as an important future work in BCOol~\cite{krauterBehavioralConsistencyMultimodeling2023,varalarsenBCOolBehavioralCoordination2016}.
 
 \subsection{Feature clustering analysis}
 
@@ -549,13 +556,14 @@ The clustering algorithm finds three clusters, including all but one approach.
 
 % Interpretation of the plot
 We interpret cluster 1 as representing the coordination framework category.
-We could classify Ptolemy as a coordination framework, but it is not part of cluster 1 because it includes unique features from all categories.
-It is remarkable that one approach can offer such a diverse range of features.
 Similarly, cluster 3 is the co-simulation cluster, showing that according to our taxonomy, co-simulation approaches are similar and have unique features not found in the other categories.
-
 Cluster 2 contains coordination languages and ADLs.
-Even if the maximum distance between approaches is reduced to be considered part of the same cluster (clustering parameter), one cannot separate the approaches into the two categories.
+Even if the maximum distance between approaches is reduced to be considered part of the same cluster (clustering parameter), one cannot separate the approaches into two categories.
 Thus, we conclude that coordination languages and ADLs have more similarities in features compared to, for instance, co-simulation approaches or coordination frameworks.
+
+At the end Ptolemy remains unclustered but we would classify Ptolemy as a coordination framework.
+However, it includes unique features from all categories, so it is not part of any cluster.
+It is fascinating that one approach can offer such diverse features.
 
 
 \section{Conclusion \& future work} \label{sec: conclusion}
