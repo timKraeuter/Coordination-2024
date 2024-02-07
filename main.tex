@@ -67,19 +67,12 @@ The study of coordination approaches appears to be fragmented, with disparate in
 To the best of our knowledge, evaluations of coordination approaches have been limited to their respective communities.
 This isolation hinders a comprehensive understanding of coordinating software systems, leading to the development of the same features independently with limited reuse.
 
-% Contribution
-In this paper, we present a comprehensive taxonomy, represented as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990} to categorize coordination approaches within a unified framework.
+% Contribution and outline
+First, we introduce the different categories of coordination approaches to paint a picture of the different communities (\autoref{sec: approaches}) and discuss our methodology in \autoref{sec: methodology}.
+Our main contribution is a comprehensive taxonomy, represented as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990} to categorize coordination approaches within a unified framework ((\autoref{sec: taxonomy})).
 The taxonomy allows the comparison of coordination approaches across the different categories.
-Moreover, we apply the taxonomy to evaluate 17 distinct approaches spanning the aforementioned categories and publish our findings in a public dataset~\cite{timkrauterArtifactsCoordination2024}.
-In addition, we discuss our findings, highlighting the common and distinct features among the categories while identifying crucial features that are absent but essential for industry applications in the future.
-% TODO: Add more concrete info about the findings once we have written the findings section. --> Fields closer than thought
-
-% Paper outline: TODO: Maybe merge with the contributions. (just adding the final part!?)
-\textbf{Outline.} The remainder of the paper is structured as follows.
-First, we introduce the different categories of coordination approaches (\autoref{sec: approaches}).
-Afterward, we present our main contribution: the feature-based taxonomy (\autoref{sec: taxonomy}).
-Then, we show the results of applying the taxonomy to one representative from each category of coordination approaches in \autoref{sec: application}.
-Finally, we discuss our findings in \autoref{sec: findings} and conclude in \autoref{sec: conclusion}.
+Moreover, we apply the taxonomy to evaluate 17 distinct approaches spanning the aforementioned categories (\autoref{sec: application}) and publish our findings in a public dataset~\cite{timkrauterArtifactsCoordination2024}.
+Finally, we discuss our findings in \autoref{sec: findings} before concluding in \autoref{sec: conclusion}, meaning we identify the typical features for each category, provide general insights, and cluster the approaches regarding their similarity.
 
 \section{Categories of coordination approaches} \label{sec: approaches}
 
@@ -186,7 +179,8 @@ Julien will make a proposition, which should include somewhere:
 % Introduce the name of our approach
 In this paper, we will refer to our methodology outlined in~\cite{krauterBehavioralConsistencyMultimodeling2023} as the \textit{Behavioral Coordination Language} (BCoorLang) to enhance clarity in communication.
 
-\section{Methodology}
+\section{Methodology} \label{sec: methodology}
+
 First, we conducted a \textit{meta-analysis} (tertiary study) on surveys (secondary studies) within each coordination category.
 We found the following  secondary studies for coordination languages (\cite{papadopoulosCoordinationModelsLanguages1998,goosCoordinationModelsLanguages2001,rossiTuplebasedTechnologiesCoordination2001}), ADLs (\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,hussainInvestigatingArchitectureDescription2013,ozkayaAreWeThere2013,malavoltaWhatIndustryNeeds2013}), and co-simulation approaches (\cite{gomesCoSimulationSurvey2019,schweigerEmpiricalSurveyCosimulation2019,hafnerOverviewStateArt2021}).
 We did not find surveys on coordination frameworks since the term is not yet commonly used.
@@ -357,7 +351,6 @@ Two strategies deal with hybrid systems: either adapt the components from the CT
 
 \subsubsection{Component transparency} Some coordination approaches require components to be entirely transparent (\textit{white-box}), while others only require a fixed interface (\textit{black-box}).
 Usually, black-box approaches are needed to protect \textit{intellectual property} (IP) when different companies want to work together without sharing all the details concerning their components.
-% TODO: Add a white-box a-causal example. Julien link or co-sim survey? 
 
 For example, DACCOSIM only requires each component to conform to the FMI specification for Co-Simulation.
 
