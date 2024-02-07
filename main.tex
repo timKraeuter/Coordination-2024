@@ -91,33 +91,24 @@ A detailed explanation of each category is given in the following subsections.
 
 % Execution level
 \textbf{Execution level:} Approaches on the \textit{execution level} aim to deal with coordination by interfacing directly with executable binaries or source code.
-We identified two distinct categories on this level: co-simulation approaches and coordination languages.
-
-% Short definition co-simulation and pointer
-\textit{A co-simulation approach} composes the simulation of multiple components into a global simulation using an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}.
-A component simulation is typically given by an executable binary conforming to a predefined interface.
-Co-simulation approaches are described in detail in \autoref{subsec: cosim}.
-
-% Short definition coordination languages and pointer
-\textit{A coordination language} provides a language and infrastructure, usually a communication \textit{medium}, to communicate and synchronize between components potentially executing on different machines.
-Usually, coordination languages are integrated with programming languages, effectively adding coordination operations to the languages.
-Coordination languages are described in detail in \autoref{subsec: coordlang}.
+We identified two distinct categories on this level: co-simulation approaches and coordination languages, described in detail in \autoref{subsec: cosim} and \autoref{subsec: coordlang}.
 
 % Model level
 \textbf{Model level:}
-An \textit{Architecture Description Language (ADL)} operates on the \textit{model} level, i.e., each \textit{component} is given by a behavioral model, for example, a process algebra.
-Components are then coordinated by linking them with \textit{connectors}, resulting in a \textit{configuration}.
+\textit{Architecture Description Languages (ADLs)} operate on the \textit{model} level, i.e., each \textit{component} is given by a behavioral model, for example, a process algebra.
 ADLs are described in detail in \autoref{subsec: adl}.
 
 % Language level
 \textbf{Language level:}
-\textit{Coordination frameworks} operate on the language level since they allow coordination of models conforming to \textit{different} behavioral languages using the concept of \textit{behavioral interfaces}.
-They allow modelers to utilize different languages for varying aspects of the system.
-Coordination frameworks are described in detail in \autoref{subsec: frameworks}.
+\textit{Coordination frameworks} operate on the language level since they allow coordination of models conforming to \textit{different} behavioral languages.
+They are described in detail in \autoref{subsec: frameworks}.
 
 \subsection{Co-simulation approaches} \label{subsec: cosim}
 
 Julien will make a proposition.
+
+\textit{A co-simulation approach} composes the simulation of multiple components into a global simulation using an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}.
+A component simulation is typically given by an executable binary conforming to a predefined interface.
 
 \subsection{Coordination languages} \label{subsec: coordlang}
 % Define Coordination language and give examples
@@ -176,8 +167,11 @@ Furthermore, despite the creation of numerous ADLs in the literature, they are n
 
 Julien will make a proposition, which should include somewhere:
 
-We introduce the term coordination framework for coordination approaches operating on the language level.
-
+% We coin the term
+We introduce the term \textit{coordination framework} for coordination approaches operating on the language level.
+% Describe the category
+Coordination frameworks allow coordination of models conforming to \textit{different} behavioral languages using the concept of \textit{behavioral interfaces}.
+They allow modelers to utilize different languages for varying aspects of the system.
 % Introduce the name of our approach
 In this paper, we will refer to our methodology outlined in~\cite{krauterBehavioralConsistencyMultimodeling2023} as the \textit{Behavioral Coordination Language} (BCoorLang) to enhance clarity in communication.
 
