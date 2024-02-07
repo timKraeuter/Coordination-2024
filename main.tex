@@ -433,35 +433,28 @@ BCOoL~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavior
 Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998}, and ForSyDe~\cite{sanderSystemModelingTransformational2004,sanderForSyDeSystemDesign2016}.
 Due to space constraints, we cannot show all classifications, but the full data set is available in the artifacts of this paper~\cite{timkrauterArtifactsCoordination2024}.
 
-We compare BCoorLang, MontiArc, and Linda in \autoref{fig: venn-bcoorlang-montiarc-linda}.
-The figure shows a Venn diagram comparing the feature sets of each approach, where each colored part states which features are contained.
+In \autoref{fig: venns}, we compare BCoorLang and MontiArc with Linda on the left and DACCOSIM on the right.
+The figure shows Venn diagrams comparing the feature sets of each approach, where each colored part states which features are contained.
 In addition, the number in the intersection states the amount of common features.
+
+For example, the \textsf{1} at the bottom of \autoref{fig: venns} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
+All classification data and scripts to generate Venn diagrams such as \autoref{fig: venns} are included in~\cite{timkrauterArtifactsCoordination2024}.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{images/venn_bcoorlang_montiarc_linda}
-	\caption{Feature comparison: BCoorLang, MontiArc, and Linda}
-	\label{fig: venn-bcoorlang-montiarc-linda}
+	\includegraphics[width=1\textwidth]{images/venns}
+	\caption{Feature comparison: BCoorLang, MontiArc, and Linda/DACCOSIM}
+	\label{fig: venns}
 \end{figure}
 
-For example, the \textsf{1} at the bottom of \autoref{fig: venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
-All classification data and scripts to generate Venn diagrams such as \autoref{fig: venn-bcoorlang-montiarc-linda} are included in~\cite{timkrauterArtifactsCoordination2024}.
-
-In \autoref{fig: venn-bcoorlang-montiarc-linda}, one can see that Linda has three original features compared to BCoorLang and MontiArc:
+The left Venn diagram in \autoref{fig: venns} shows that Linda has three original features compared to BCoorLang and MontiArc:
 \textsf{Goal:Execution}, \textsf{Definition:Name based}, and \textsf{Execution:Federated}.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
 Coordination frameworks have multiple unique features, such as \textsf{Component languages:Heterogeneous} and \textsf{Formal verification:Custom properties}.
 
-Similarly, \autoref{fig: venn-bcoorlang-montiarc-daccosim} compares the features of BCoorLang and MontiArc with the co-simulation approach DACCOSIM.
+Similarly, on the right in \autoref{fig: venns} BCoorLang and MontiArc are compared with the co-simulation approach DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
 Co-simulation approaches like DACCOSIM have original features, such as \textsf{Execution:Federated}, \textsf{Domain:Hybrid}, and \textsf{Component transparency:Black-box}.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{images/venn_bcoorlang_montiarc_daccosim}
-	\caption{Feature comparison: BCoorLang, MontiArc, and DACCOSIM}
-	\label{fig: venn-bcoorlang-montiarc-daccosim}
-\end{figure}
 
 Venn diagrams give a good approximation of the similarity between three specific coordination approaches.
 However, they do not tell the whole story since each feature is given equal weight, which is not always adequate.
