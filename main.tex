@@ -447,15 +447,14 @@ In addition, the number in the intersection states the amount of common features
 For example, the \textsf{1} at the bottom of \autoref{fig: venn-bcoorlang-montiarc-linda} describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
 All classification data and scripts to generate Venn diagrams such as \autoref{fig: venn-bcoorlang-montiarc-linda} are included in~\cite{timkrauterArtifactsCoordination2024}.
 
-From \autoref{fig: venn-bcoorlang-montiarc-linda}, one can see that Linda has three original features compared to BCoorLang and MontiArc:
+In \autoref{fig: venn-bcoorlang-montiarc-linda}, one can see that Linda has three original features compared to BCoorLang and MontiArc:
 \textsf{Goal:Execution}, \textsf{Definition:Name based}, and \textsf{Execution:Federated}.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
 Coordination frameworks have multiple unique features, such as \textsf{Component languages:Heterogeneous} and \textsf{Formal verification:Custom properties}.
 
-
 Similarly, \autoref{fig: venn-bcoorlang-montiarc-daccosim} compares the features of BCoorLang and MontiArc with the co-simulation approach DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
-Co-simulation approaches like DACCOSIM have original features, such as \textit{Execution:Federated}, \textsf{Domain:Hybrid}, and \textsf{Component transparency:Black-box}.
+Co-simulation approaches like DACCOSIM have original features, such as \textsf{Execution:Federated}, \textsf{Domain:Hybrid}, and \textsf{Component transparency:Black-box}.
 
 \begin{figure}[ht]
 	\centering
@@ -464,12 +463,11 @@ Co-simulation approaches like DACCOSIM have original features, such as \textit{E
 	\label{fig: venn-bcoorlang-montiarc-daccosim}
 \end{figure}
 
-Venn diagrams such as \autoref{fig: venn-bcoorlang-montiarc-linda} and \autoref{fig: venn-bcoorlang-montiarc-daccosim} give a good approximation of the similarity between coordination approaches.
-However, they do not tell the whole story since each feature is given the same importance, which is not entirely correct.
-For example, a difference in the \textit{domain} feature might be more profound than another feature.
-
-We stick to this simplification throughout this paper since the importance of features can be highly subjective.
-In addition, we provide all data and scripts of our analysis as artifacts~\cite{timkrauterArtifactsCoordination2024}, which allows adapting the analysis to different needs in the future.
+Venn diagrams give a good approximation of the similarity between three specific coordination approaches.
+However, they do not tell the whole story since each feature is given equal weight, which is not always adequate.
+For example, a difference in the \textit{domain} feature is more profound than most other differences.
+We stick to this simple weighting throughout this paper since the importance of features can be subjective.
+However, one can adapt the analysis using the provided data and scripts~\cite{timkrauterArtifactsCoordination2024}.
 
 \section{Findings} \label{sec: findings}
 
