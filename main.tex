@@ -67,9 +67,6 @@ It can be used to make informed decisions about the choice of coordination appro
 	Taxonomy
 }
 
-% TODO: component --> system
-% Introduce what we understand as a system: In this paper, as a system, we understand an executable program of varying size, an executable behavioral model, or even multiple integrated systems.
-
 \section{Introduction} \label{sec: introduction}
 Complex domains require multiple interacting software systems to meet their demands. 
 Coordination approaches are necessary to ensure the effective integration of these systems.
@@ -118,12 +115,13 @@ They are described in detail in \autoref{subsec: frameworks}.
 
 Julien will make a proposition.
 
-\textit{A co-simulation approach} composes the simulation of multiple components into a global simulation using an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}.
-A component simulation is typically given by an executable binary conforming to a predefined interface.
+\textit{A co-simulation approach} composes the simulation of multiple systems into a global simulation using an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}.
+A system simulation also called simulation unit (SU) is typically given by an executable binary conforming to a predefined interface.
 
 \subsection{Coordination languages} \label{subsec: coordlang}
 % Define Coordination language and give examples
-Many different styles of coordination languages exist, which achieve coordination between components differently.
+Many different styles of coordination languages exist, which achieve coordination between systems differently.
+In this context, a system is an executable program of varying size, but we also use the term system to describe components in an ADL or behavioral models in coordination frameworks.
 
 % Tuple-based coordination languages
 Coordination languages such as Linda~\cite{carrieroLindaContext1989} provide a \textit{set of operations} to enrich a host programming language with coordination capabilities.
@@ -132,20 +130,20 @@ Such coordination languages are often called \textit{tuple-based} because the sh
 Ttuple-based coordination languages such as Linda are surveyed in \cite{rossiTuplebasedTechnologiesCoordination2001,nixonTuplespacebasedComputingSemantic2008,omiciniCoordinationModelsLanguages2011}.
 
 % Channel-based coordination languages: REO and Manifold
-Other coordination languages such as Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998} and REO~\cite{arbabReoChannelbasedCoordination2004} do not rely on a global communication medium but rather use \textit{channels} to connect components locally.
-Each component then uses I/O operations to interact with connected channels without knowing who has sent or will receive data through the channel.
+Other coordination languages such as Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998} and REO~\cite{arbabReoChannelbasedCoordination2004} do not rely on a global communication medium but rather use \textit{channels} to connect systems locally.
+Each system then uses I/O operations to interact with connected channels without knowing who has sent or will receive data through the channel.
 These coordination languages share many ideas with Architecture Description Languages (ADLs) discussed in the next section.
 
 % Reactor-based coordination in Lingua Franca.
 Finally, coordination languages might also use communication models such as the actor or reactor~\cite{lohstrohReactorsDeterministicModel2020} model.
-For example, the Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020,lohstrohLinguaFrancaDeterministic2021} coordination language is described using the reactor model, meaning one defines coordination by describing how each component reacts to incoming events.
-A reaction to an event in one component might trigger reactions in connected components.
+For example, the Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020,lohstrohLinguaFrancaDeterministic2021} coordination language is described using the reactor model, meaning one defines coordination by describing how each system reacts to incoming events.
+A reaction to an event in one system might trigger reactions in connected systems.
 To encode reactions, the user can choose an existing programming language, such as C, C\texttt{++}, Python, TypeScript, and Rust.
 Lingua Franca aims to simplify developing multi-threaded applications using the reactor model to guarantee \textit{determinism} and provide \textit{built-in timing semantics}.
 
 \subsection{Architecture description languages} \label{subsec: adl}
 % General idea
-Architecture Description Languages (ADLs) aim to describe the structure of systems, allowing developers to focus on high-level components and their connections rather than lines of source code~\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,medvidovicFrameworkClassifyingComparing1997}.
+Architecture Description Languages (ADLs) aim to describe the structure of systems, allowing developers to focus on high-level system components and their connections rather than lines of source code~\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,medvidovicFrameworkClassifyingComparing1997}.
 % What is an ADL, and what is not?
 Many different ADLs have been proposed in the academic literature and by the industry~\cite{medvidovicClassificationComparisonFramework2000,woodsArchitectureDescriptionLanguages2005}.
 Nevertheless, clearly defining ADLs is challenging due to overlap with general-purpose modeling languages~\cite{clementsSurveyArchitectureDescription1996}.
@@ -156,6 +154,7 @@ The three buildings blocks of ADLs are defined as (1) \textit{components}, (2) \
 % Component
 A \textit{component} is a unit of computation or data repository~\cite{medvidovicClassificationComparisonFramework2000}.
 Components vary in size, ranging from representing individual services to entire systems.
+In this paper we use the more general term system when we are not in the immediate context of ADLs.
 
 % Connector
 \textit{Connectors} serve as architectural elements to model interactions between components and the regulations that oversee those interactions~\cite{medvidovicClassificationComparisonFramework2000}.
@@ -207,7 +206,7 @@ We represent our taxonomy as a \textit{feature model}~\cite{kangFeatureOrientedD
 We aim to provide a comprehensive understanding of the coordination landscape and compare coordination approaches from different categories.
 To achieve this goal we first identify the coordination \textit{foundation}: coordination mechanism, syntax, semantics, and degree of formality.
 Second, we investigate the coordination approaches \textit{goal} such as simulation, execution, and formal validation.
-Third, we study the approaches' \textit{properties}, such as domain, execution, specification, component transparency, and component languages.
+Third, we study the approaches' \textit{properties}, such as domain, execution, specification, system transparency, and system languages.
 
 The top level of the feature model is shown in \autoref{fig: featureModelOverview}.
 A coordination approach has the three previously discussed features: \textit{Foundation}, \textit{Goal}, and \textit{Properties}, which we depict and describe in detail in the following sections.
@@ -240,19 +239,19 @@ Explicit syntax is either \textit{query based} or \textit{structural}.
 For example, in BCOoL~\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write queries to define which elements should coordinate.
 
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
-For example, interactions in BCoorLang are specified by picking dedicated elements that should be coordinated, while coordination in ADLs depends on the architectural configuration~\cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
+For example, interactions in BCoorLang are specified by picking dedicated elements that should be coordinated, while coordination in ADLs depends on the architectural configuration~\cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of systems are connected.
 
 \feature{Mechanism} The main mechanism driving coordination can be \textit{event scheduling}, \textit{data exchange}, or a mix of both.
 In the literature, these mechanisms are sometimes also called control/event-driven or data-driven, respectively~\cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
 
-First, \textit{event scheduling} synchronizes events or imposes a specific event order, i.e., order of state changes in different components.
-Usually, event scheduling is used when components are given by behavioral models since there might not be a clear concept of an event in a programming language.
+First, \textit{event scheduling} synchronizes events or imposes a specific event order, i.e., order of state changes in different systems.
+Usually, event scheduling is used when systems are given by behavioral models since there might not be a clear concept of an event in a programming language.
 For example, in BCOoL~\cite{varalarsenBehavioralCoordinationOperator2015}, one can define relationships between events, such as \textit{happens before} or \textit{synchronize}.
 
-\textit{Data-exchange} means components communicate by exchanging data.
-For example, in the ADL MontiArc~\cite{haberMontiArcArchitecturalModeling2014}, components send data from the output to the input port.
-Data can also be exposed as variables, which are then coupled with variables in other components, for example, to be the same.
-However, data exchange might also happen between components during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
+\textit{Data-exchange} means systems communicate by exchanging data.
+For example, in the ADL MontiArc~\cite{haberMontiArcArchitecturalModeling2014}, systems send data from the output to the input port.
+Data can also be exposed as variables, which are then coupled with variables in other systems, for example, to be the same.
+However, data exchange might also happen between systems during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
 % TODO optional: Example of periodic master algorithm
 
 \feature{Semantics} The semantics feature consists of \textit{expressiveness}, \textit{model of computation}, and \textit{formality}.
@@ -261,13 +260,13 @@ Expressiveness is \textit{customizable} if one can define the semantics of coord
 For example, in BCOoL, one can employ the Clock Constraints Specification Language (CCSL)~\cite{andreSyntaxSemanticsClock2009} to define new coordination operators besides the predefined ones~\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
 Coordination approaches utilize different \textit{models of computation} (MoC).
-A MoC is a set of rules that governs the timed, possibly concurrent execution and coordination of components~\cite{ptolemaeusSystemDesignModeling2014}.
+A MoC is a set of rules that governs the timed, possibly concurrent execution and coordination of systems~\cite{ptolemaeusSystemDesignModeling2014}.
 We categorize MoCs along three types: \textit{timed}, \textit{causal}, \textit{a-causal}.
 A \textit{timed} MoC can use \textit{physical} or \textit{logical} time.
 % Causal (data)
 The categorization of \textit{causal} and \textit{a-causal} MoCs is also present in the co-simulation field~\cite{gomesCoSimulationSurvey2019}.
-The causal MoC means that the coordination approach facilitates event and data exchange between different components such that one component can cause reactions, i.e., state changes in other components.
-For example, a component based on a state machine raises an event, including data, which causes a state change and possible other reactions in a different component.
+The causal MoC means that the coordination approach facilitates event and data exchange between different systems such that one system can cause reactions, i.e., state changes in other systems.
+For example, a system based on a state machine raises an event, including data, which causes a state change and possible other reactions in a different system.
 
 % A-causal
 An a-causal MoC is necessary if one must deal with related differential equations \cite{lecoentGuaranteedCosimulationCyberphysical2020}.
@@ -289,7 +288,7 @@ In Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020}, logical time \qu
 Semi-formal approaches are directly implemented in a general-purpose programming language, often with a guiding formalism in mind but without strict adherence to that formalism.
 
 Formal coordination approaches are implemented in a \textit{formal language}, which can then be run on an execution engine implemented for that formalism.
-For example, the coordination framework BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous components in a centralized manner.
+For example, the coordination framework BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} uses graph or term-rewriting as formal languages to coordinate heterogeneous systems in a centralized manner.
 It relies on the graph-transformation tool Groove~\cite{rensinkGROOVESimulatorTool2004} or the term-rewriting tool Maude for execution.
 
 
@@ -304,15 +303,15 @@ A coordination approach can have one or multiple goals, which we will now descri
 	\label{fig: goalFeature}
 \end{figure}
 
-\feature{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple components or behavioral models representing an entire system.
-A coordinated simulation is useful because the composition of multiple components can lead to unexpected behavior, often called \textit{emergent behavior}~\cite{ekerTamingHeterogeneityPtolemy2003}.
-Emergent behavior can be dealt with early in development before implementing each component and its interactions. % TODO: Also underlined by Julien. Why simulation?
+\feature{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple systems or behavioral models representing an entire system.
+A coordinated simulation is useful because the composition of multiple systems can lead to unexpected behavior, often called \textit{emergent behavior}~\cite{ekerTamingHeterogeneityPtolemy2003}.
+Emergent behavior can be dealt with early in development before implementing each system and its interactions. % TODO: Also underlined by Julien. Why simulation?
 Co-simulation approaches such as DACCOSIM~\cite{galtierFMIBasedDistributedMultisimulation2015,dadSynthesisFeedbackDistribution2021} or MECSYCO (Multi-agent Environment for ComplexSYstem CO-simulation)~\cite{camusHybridCosimulationFMUs2016,camusCosimulationCyberphysicalSystems2018} are examples of approaches that have coordinated simulation as their goal.
 Simulation is also a goal of coordination frameworks such as BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} and BCOol~\cite{varalarsenBehavioralCoordinationOperator2015}.
 Even recent ADLs such as MontiArc~\cite{haberMontiArcArchitecturalModeling2014} provide simulation capabilities.
 
 \feature{Execution} In contrast to coordinated simulation, which often only aims to find errors during development, some coordination approaches aim to provide a coordination infrastructure for system execution upon deployment.
-For example, Linda provides a virtual shared memory with read and write operations to coordinate components.
+For example, Linda provides a virtual shared memory with read and write operations to coordinate systems.
 
 Furthermore, the recently developed polyglot coordination language \textit{Lingua Franca} provides determinism guarantees during distributed execution~\cite{lohstrohLinguaFrancaDeterministic2021}.
 Thus, it eliminates typical coordination concerns faced during coordinating concurrent \textit{execution}.
@@ -322,7 +321,7 @@ Thus, it eliminates typical coordination concerns faced during coordinating conc
 
 We encountered coordination approaches that validate \textit{predefined properties}, while others support \textit{custom properties}.
 % (Definition 5)
-For example, the ADL Wright~\cite{allenFormalBasisArchitectural1997} can check \textit{deadlock freedom} of component interactions.
+For example, the ADL Wright~\cite{allenFormalBasisArchitectural1997} can check \textit{deadlock freedom} of system interactions.
 % Darwin and we are checking custom properties: mageeBehaviourAnalysisSoftware1999 krauterBehavioralConsistencyMultimodeling2023
 The coordination framework for behavioral consistency~\cite{krauterBehavioralConsistencyMultimodeling2023} supports custom properties written in temporal logic such as Linear Temporal Logic (LTL) and Computational Tree Logic (CTL).
 
@@ -343,40 +342,40 @@ First, if a coordination approach is part of the \textit{Discrete event} (DE) do
 Typically, coordination frameworks and ADLs operate in the DE domain since variables change their values discontinuously during execution, i.e., immediately change between states.
 % discrete = discontinuous
 
-Second, coordination approaches in the \textit{continuous time} (CT) domain support components to have a state that evolves continuously over time.
-Often, components are given by differential equations, which induce continuous variable changes, such as physical systems involving springs and dampeners, see~\cite{gomesCoSimulationSurvey2019}.
+Second, coordination approaches in the \textit{continuous time} (CT) domain support systems to have a state that evolves continuously over time.
+Often, systems are given by differential equations, which induce continuous variable changes, such as physical systems involving springs and dampeners, see~\cite{gomesCoSimulationSurvey2019}.
 
 Third, the \textit{hybrid} domain is a mix of the DE and CT domains that occur, for example, when simulating cyber-physical systems.
-In a hybrid domain, components should coordinate where some change their state discretely (DE domain) while others evolve continuously over time (CT domain).
+In a hybrid domain, systems should coordinate where some change their state discretely (DE domain) while others evolve continuously over time (CT domain).
 % MECSYCO is doing the first, while DACCOSIM is doing the second
-Two strategies deal with hybrid systems: either adapt the components from the CT to the DE domain or vice versa~\cite{gomesCoSimulationSurvey2019}.
+Two strategies deal with hybrid systems: either adapt the systems from the CT to the DE domain or vice versa~\cite{gomesCoSimulationSurvey2019}.
 
-\feature{Component transparency} Some coordination approaches require components to be entirely transparent (\textit{white-box}), while others only require a fixed interface (\textit{black-box}).
-Usually, black-box approaches are needed to protect \textit{intellectual property} (IP) when different companies want to work together without sharing all the details concerning their components.
+\feature{System transparency} Some coordination approaches require systems to be entirely transparent (\textit{white-box}), while others only require a fixed interface (\textit{black-box}).
+Usually, black-box approaches are needed to protect \textit{intellectual property} (IP) when different companies want to work together without sharing all the details concerning their systems.
 
-For example, DACCOSIM only requires each component to conform to the FMI specification for Co-Simulation.
+For example, DACCOSIM only requires each system to conform to the FMI specification for Co-Simulation.
 
 \feature{Specification} We distinguish between \textit{endogenous} and \textit{exogenous} specification of coordination, as described for coordination languages in~\cite{arbabWhatYouMean1998}.
-For example, when using the coordination language Linda~\cite{carrieroLindaContext1989}, one uses coordination specific operations such as \textsf{out} and \textsf{in} inside components to write to and read from the shared tuple space, respectively.
-Thus, Linda is \textit{endogenous} since one has to modify the behavior of the components in order to add the coordination.
+For example, when using the coordination language Linda~\cite{carrieroLindaContext1989}, one uses coordination specific operations such as \textsf{out} and \textsf{in} inside system programss to write to and read from the shared tuple space, respectively.
+Thus, Linda is \textit{endogenous} since one has to modify the behavior of the systems in order to add the coordination.
 
-On the other hand, \textit{exogenous} coordination approaches keep coordination aspects outside of components.
-However, components must still be created with coordination in mind to expose possible coordination points.
-For example, BCOol~\cite{varalarsenBehavioralCoordinationOperator2015} uses language behavioral interfaces to define events, which can then be used to specify \textit{exogenous} coordination rules outside the components.
+On the other hand, \textit{exogenous} coordination approaches keep coordination aspects outside of systems.
+However, systems must still be created with coordination in mind to expose possible coordination points.
+For example, BCOol~\cite{varalarsenBehavioralCoordinationOperator2015} uses language behavioral interfaces to define events, which can then be used to specify \textit{exogenous} coordination rules outside the systems.
 Endogenous coordination approaches tend to mix computation and coordination~\cite{arbabWhatYouMean1998}.
 
-\feature{Component languages} Coordination approaches typically only support \textit{homogeneous} components.
-For example, coordination languages, such as Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020}, currently only support coordination if each component is given in the same programming language.
+\feature{System languages} Coordination approaches typically only support \textit{homogeneous} systems.
+For example, coordination languages, such as Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020}, currently only support coordination if each system is given in the same programming language.
 
-However, coordination frameworks allow \textit{heterogeneous} components, i.e., components specified in different behavioral modeling languages.
+However, coordination frameworks allow \textit{heterogeneous} systems, i.e., systems specified in different behavioral modeling languages.
 For example, BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} supports all modeling languages where one can clearly define \textit{state structure} and which \textit{elements can change state} during execution.
 
 \feature{Execution} A coordination approach is realized using either a \textit{centralized} or \textit{federated} execution.
-In a \textit{centralized} execution, all components are executed by one engine, which enforces coordination.
-For example, BCorrLang composes the behavior of all component specifications into a global behavior specification, which is then executed by a graph transformation or term-rewriting tool.
+In a \textit{centralized} execution, all systems are executed by one engine, which enforces coordination.
+For example, BCorrLang composes the behavior of all system specifications into a global behavior specification, which is then executed by a graph transformation or term-rewriting tool.
 
-On the other hand, in a \textit{federated execution}, components run independently and only coordinate using a shared infrastructure through predefined connections.
-Federated execution can still happen on the same physical machine, i.e., it does not mean that components must be \textit{distributed} across different physical machines. 
+On the other hand, in a \textit{federated execution}, systems run independently and only coordinate using a shared infrastructure through predefined connections.
+Federated execution can still happen on the same physical machine, i.e., it does not mean that systems must be \textit{distributed} across different physical machines. 
 
 For example, the coordination language Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020} supports federated execution on one machine by providing a runtime infrastructure.
 DACCOSIM~\cite{galtierFMIBasedDistributedMultisimulation2015} goes one step further and allows a \textit{distributed} federated execution.
@@ -433,7 +432,7 @@ In \autoref{fig: venns}, we compare BCoorLang and MontiArc with Linda on the lef
 The figure shows Venn diagrams comparing the feature sets of each approach, where each colored part states which features are contained.
 In addition, the number in the intersection states the amount of common features.
 
-For example when looking at the Venn diagram on the left in \autoref{fig: venns}, the \textsf{1} in the circle part at the bottom describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, Component transparency:White-box}), see \autoref{tab:classification}.
+For example when looking at the Venn diagram on the left in \autoref{fig: venns}, the \textsf{1} in the circle part at the bottom describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, System transparency:White-box}), see \autoref{tab:classification}.
 
 \begin{figure}[ht]
 	\centering
@@ -445,11 +444,11 @@ For example when looking at the Venn diagram on the left in \autoref{fig: venns}
 The Venn diagram on the left in \autoref{fig: venns} shows that Linda has three original features compared to BCoorLang and MontiArc:
 \textsf{Goal:Execution}, \textsf{Definition:Name based}, and \textsf{Execution:Federated}.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
-Coordination frameworks have multiple original features, such as \textsf{Component languages:Heterogeneous} and \textsf{Formal verification:Custom properties}.
+Coordination frameworks have multiple original features, such as \textsf{System languages:Heterogeneous} and \textsf{Formal verification:Custom properties}.
 
 Similarly, on the right in \autoref{fig: venns} BCoorLang and MontiArc are compared with the co-simulation approach DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
-Co-simulation approaches like DACCOSIM have original features, such as \textsf{Execution:Federated}, \textsf{Domain:Hybrid}, and \textsf{Component transparency:Black-box}.
+Co-simulation approaches like DACCOSIM have original features, such as \textsf{Execution:Federated}, \textsf{Domain:Hybrid}, and \textsf{System transparency:Black-box}.
 
 Venn diagrams give a good approximation of the similarity between three specific coordination approaches.
 However, they do not tell the whole story since each feature is given equal weight, which is not always adequate.
@@ -476,21 +475,21 @@ An exception is MontiArc, where ports can be marked as \textit{synchronized} onl
 
 % Coordination language
 \textbf{Coordination languages} can have simulation and execution as their goal while operating in the discrete event domain.
-Surprisingly, coordination syntax is also most likely architecture-based, i.e., the idea of components, ports, and connectors/channels between them is also used in most coordination languages.
-In addition, components in coordination languages are also white-box and homogenous but have both endogenous and exogenous coordination specifications.
+Surprisingly, coordination syntax is also most likely architecture-based, i.e., the idea of subsystems, ports, and connectors/channels between them is also used in most coordination languages.
+In addition, systems in coordination languages are also white-box and homogenous but have both endogenous and exogenous coordination specifications.
 Notably, some coordination languages offer a federated execution not supported by ADLs.
 
 % Co-Simulation
 Unsurprisingly, all \textbf{co-simulation} approaches have only simulation as their goal.
 Similarly to ADLs and coordination languages, coordination syntax is architecture-based.
-However, compared to the other categories, they operate in the hybrid domain, facilitating data exchange between black-box components.
-Components can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO.
+However, compared to the other categories, they operate in the hybrid domain, facilitating data exchange between black-box systems.
+Systems can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO.
 Typically, execution is federated, while some approaches, such as DACCOSIM, even allow for a distributed execution.
 
 % Coordination frameworks
 \textbf{Coordination frameworks} have simulation and formal validation as their goal.
 Coordination syntax is diverse but usually uses event scheduling in the discrete event domain.
-Furthermore, coordination specification is exogenous to support heterogeneous components, which are white-box.
+Furthermore, coordination specification is exogenous to support heterogeneous systems, which are white-box.
 In contrast to coordination languages and co-simulation approaches, execution is centralized.
 Interestingly, coordination frameworks such as BCoorLang allow formal validation of custom properties, a rare feature.
 
@@ -498,7 +497,7 @@ Interestingly, coordination frameworks such as BCoorLang allow formal validation
 \subsection{General insights}
 
 \textbf{Architecture-based coordination syntax is widely used.}
-Remarkably, coordination approaches from all categories use concepts such as components, ports, and connectors to express coordination.
+Remarkably, coordination approaches from all categories use concepts such as components/subsystems, ports, and connectors to express coordination.
 The specific coordination details vary between different approaches, but there appears to be broad consensus on the importance of clearly representing the system architecture for effective coordination.
 
 \textbf{Formal validation is rarely supported.}
@@ -507,7 +506,7 @@ This could be attributed to the problem of formally representing heterogeneous s
 
 \textbf{Coordination frameworks do not support Data-Exchange.}
 All coordination frameworks besides Ptolemy support \textsf{Event-Scheduling} but not \textsf{Data-Exchange} as a coordination mechanism.
-This is likely because data exchange is difficult to achieve when heterogeneous components are allowed.
+This is likely because data exchange is difficult to achieve when heterogeneous systems are allowed.
 However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
 Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
 
