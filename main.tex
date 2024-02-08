@@ -65,6 +65,7 @@ It can be used to make informed decisions about the choice of coordination appro
 }
 
 % TODO: component --> system
+% Introduce what we understand as a system: In this paper, as a system, we understand an executable program of varying size, an executable behavioral model, or even multiple integrated systems.
 
 \section{Introduction} \label{sec: introduction}
 Complex domains require multiple interacting software systems to meet their demands. 
@@ -85,9 +86,9 @@ Finally, we discuss our findings in \autoref{sec: findings} before concluding in
 
 \autoref{fig: overview} gives an overview of the different categories of coordination approaches.
 The categories of coordination approaches broadly operate on different abstraction levels, namely the \textit{execution}, \textit{model}, and \textit{language} levels.
-Furthermore, the right abstraction level to address coordination depends on the specific use case and goals at hand, meaning approaches on each abstraction level have their advantages and disadvantages.
 We will explain each abstraction level and the accompanying coordination approaches from the bottom up.
 A detailed explanation of each category is given in the following subsections.
+In general, the right abstraction level to address coordination depends on the specific use case and goals at hand, meaning approaches on each abstraction level have their advantages and disadvantages.
 
 \begin{figure}[ht]
 	\centering
@@ -145,7 +146,7 @@ Architecture Description Languages (ADLs) aim to describe the structure of syste
 % What is an ADL, and what is not?
 Many different ADLs have been proposed in the academic literature and by the industry~\cite{medvidovicClassificationComparisonFramework2000,woodsArchitectureDescriptionLanguages2005}.
 Nevertheless, clearly defining ADLs is challenging due to overlap with general-purpose modeling languages~\cite{clementsSurveyArchitectureDescription1996}.
-For this paper, we consider only ADLs that incorporate formal semantics and thus do not consider other modeling languages such as UML~\cite{objectmanagementgroupUnifiedModelingLanguage2017} and ArchiMate~\cite{theopengroupArchiMateSpecification2023}.
+This distinction is deeply studied in \cite{medvidovicClassificationComparisonFramework2000}.
 
 % Describing ADLs generally.
 The three buildings blocks of ADLs are defined as (1) \textit{components}, (2) \textit{connectors}, (3) \textit{architectural configuration}~\cite{medvidovicClassificationComparisonFramework2000,medvidovicFrameworkClassifyingComparing1997}.
@@ -159,15 +160,15 @@ A difference to components is that connectors must not be implemented as distinc
 
 % Architectural configuration
 \textit{Architectural configuration}, also known as topology, represents the structural arrangement of components and connectors in a connected graph, defining the overall architecture~\cite{medvidovicClassificationComparisonFramework2000}.
-This structure determines if the combined semantics results in the desired behavior.
-For example, one can check for properties such as deadlocks and starvation.
+This structure determines if the combined semantics satisfy the desired behavior.
+Verification relies heavily on specifying components and connectors.
+For instance, one common application ensures the architectural configuration is free from deadlock and starvation.
 
-In addition, ADLs incorporate a formal language to enable formal analysis of specific properties.
 The first ADLs were developed in the 90s and use process algebras such as Communicating Sequential Processes (CSP), Calculus of Communicating Systems (CCS), and $\pi$-calculus~\cite{ozkayaAreWeThere2013}.
 For example, Wright uses CSP~\cite{allenFormalBasisArchitectural1997} while Darwin uses $\pi$-calculus~\cite{mageeSpecifyingDistributedSoftware1995}.
 More recent ADLs, such as MontiArc~\cite{haberMontiArcArchitecturalModeling2014}, use automata to define the behavior of components.
 
-However, no ADL supports heterogeneous components such as the coordination frameworks discussed in the next section~\cite{medvidovicClassificationComparisonFramework2000}.
+However, to the best of our knowledge, no ADL supports heterogeneous components such as the coordination frameworks discussed in the next section~\cite{medvidovicClassificationComparisonFramework2000}.
 Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., not often used by practitioners in the industry~\cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,medvidovicMovingArchitecturalDescription2006}.
 
 \subsection{Coordination frameworks} \label{subsec: frameworks}
@@ -200,7 +201,8 @@ Finally, we refined our taxonomy by examining the secondary studies and individu
 
 \section{Taxonomy} \label{sec: taxonomy}
 We represent our taxonomy as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990}.
-The aim is to compare coordination approaches from different categories by first identifying the coordination \textit{foundation}: coordination mechanism, syntax, semantics, and degree of formality.
+We aim to provide a comprehensive understanding of the coordination landscape and compare coordination approaches from different categories.
+To achieve this goal we first identify the coordination \textit{foundation}: coordination mechanism, syntax, semantics, and degree of formality.
 Second, we investigate the coordination approaches \textit{goal} such as simulation, execution, and formal validation.
 Third, we study the approaches' \textit{properties}, such as domain, execution, specification, component transparency, and component languages.
 
@@ -226,9 +228,9 @@ A complete diagram of the feature model is contained in~\cite{timkrauterArtifact
 	\label{fig: foundationFeature}
 \end{figure}
 
-\subsubsection{Syntax} The coordination syntax can either be \textit{explicit} or \textit{implicit}.
-An implicit syntax is usually based on the names of model elements.
-For example, one could synchronize transitions of multiple state machines if they have identical names.
+\subsubsection{Syntax} The coordination syntax of the elements on which to apply coordination can either be \textit{explicit} or \textit{implicit}.
+An implicit syntax is usually based on the names of elements.
+For example, one could synchronize the firing of transitions from multiple state machines if they have identical names.
 
 Explicit syntax is either \textit{query based} or \textit{structural}.
 % Query-based example
@@ -238,9 +240,9 @@ A structural definition of coordination uses \textit{dedicated elements} or is \
 For example, interactions in BCoorLang are specified by picking dedicated elements that should be coordinated, while coordination in ADLs depends on the architectural configuration~\cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of components are connected.
 
 \subsubsection{Mechanism} The main mechanism driving coordination can be \textit{event scheduling}, \textit{data exchange}, or a mix of both.
-In the literature, these mechanisms are sometimes also called control-driven or data-driven, respectively~\cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
+In the literature, these mechanisms are sometimes also called control/event-driven or data-driven, respectively~\cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
 
-First, \textit{event scheduling} synchronizes events or mandates a specific event order, i.e., order of state changes in different components.
+First, \textit{event scheduling} synchronizes events or imposes a specific event order, i.e., order of state changes in different components.
 Usually, event scheduling is used when components are given by behavioral models since there might not be a clear concept of an event in a programming language.
 For example, in BCOoL~\cite{varalarsenBehavioralCoordinationOperator2015}, one can define relationships between events, such as \textit{happens before} or \textit{synchronize}.
 
@@ -250,15 +252,16 @@ Data can also be exposed as variables, which are then coupled with variables in 
 However, data exchange might also happen between components during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
 
 \subsubsection{Semantics} The semantics feature consists of \textit{expressiveness}, \textit{model of computation}, and \textit{formality}.
-The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms.
-Expressiveness is \textit{customizable} if one can define the semantics of coordination.
+The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms, for example, a fixed set of connectors with predefined behavior.
+Expressiveness is \textit{customizable} if one can define the semantics of coordination, typically by using a dedicated language.
 For example, in BCOoL, one can employ the Clock Constraints Specification Language (CCSL)~\cite{andreSyntaxSemanticsClock2009} to define new coordination operators besides the predefined ones~\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
 Coordination approaches utilize different \textit{models of computation} (MoC).
-A MoC is a set of rules that governs the concurrent execution and coordination of components~\cite{ptolemaeusSystemDesignModeling2014}.
-We define three MoCs: \textit{timed}, \textit{causal}, \textit{a-causal}, where \textit{timed} is either \textit{physical} or \textit{logical}.
+A MoC is a set of rules that governs the timed, possibly concurrent execution and coordination of components~\cite{ptolemaeusSystemDesignModeling2014}.
+We categorize MoCs along three types: \textit{timed}, \textit{causal}, \textit{a-causal}.
+A \textit{timed} MoC can use \textit{physical} or \textit{logical} time.
 % Causal (data)
-The \textit{causal} and \textit{a-causal} MoCs come from the co-simulation field~\cite{gomesCoSimulationSurvey2019}.
+The categorization of \textit{causal} and \textit{a-causal} MoCs is also present in the co-simulation field~\cite{gomesCoSimulationSurvey2019}.
 The causal MoC means that the coordination approach facilitates event and data exchange between different components such that one component can cause reactions, i.e., state changes in other components.
 For example, a component based on a state machine raises an event, including data, which causes a state change and possible other reactions in a different component.
 
