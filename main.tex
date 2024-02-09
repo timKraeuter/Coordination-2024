@@ -116,7 +116,7 @@ They are described in detail in \autoref{subsec: frameworks}.
 Julien will make a proposition.
 
 \textit{A co-simulation approach} composes the simulation of multiple systems into a global simulation using an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}.
-A system simulation also called simulation unit (SU) is typically given by an executable binary conforming to a predefined interface.
+A system simulation also called a simulation unit (SU), is typically given by an executable binary conforming to a predefined interface.
 
 \subsection{Coordination languages} \label{subsec: coordlang}
 % Define Coordination language and give examples
@@ -154,7 +154,7 @@ The three buildings blocks of ADLs are defined as (1) \textit{components}, (2) \
 % Component
 A \textit{component} is a unit of computation or data repository~\cite{medvidovicClassificationComparisonFramework2000}.
 Components vary in size, ranging from representing individual services to entire systems.
-In this paper we use the more general term system when we are not in the immediate context of ADLs.
+In this paper, we use the more general term system when we are not in the immediate context of ADLs.
 
 % Connector
 \textit{Connectors} serve as architectural elements to model interactions between components and the regulations that oversee those interactions~\cite{medvidovicClassificationComparisonFramework2000}.
@@ -203,8 +203,8 @@ Finally, we refined our taxonomy by examining the secondary studies and individu
 
 \section{Taxonomy} \label{sec: taxonomy}
 We represent our taxonomy as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990}.
-We aim to provide a comprehensive understanding of the coordination landscape and compare coordination approaches from different categories.
-To achieve this goal we first identify the coordination \textit{foundation}: coordination mechanism, syntax, semantics, and degree of formality.
+We aim to comprehensively understand the coordination landscape and compare coordination approaches from different categories.
+To achieve this goal, we first identify the coordination \textit{foundation}: coordination mechanism, syntax, semantics, and degree of formality.
 Second, we investigate the coordination approaches \textit{goal} such as simulation, execution, and formal validation.
 Third, we study the approaches' \textit{properties}, such as domain, execution, specification, system transparency, and system languages.
 
@@ -242,7 +242,7 @@ A structural definition of coordination uses \textit{dedicated elements} or is \
 For example, interactions in BCoorLang are specified by picking dedicated elements that should be coordinated, while coordination in ADLs depends on the architectural configuration~\cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of systems are connected.
 
 \feature{Mechanism} The main mechanism driving coordination can be \textit{event scheduling}, \textit{data exchange}, or a mix of both.
-In the literature, these mechanisms are sometimes also called control/event-driven or data-driven, respectively~\cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
+In the literature, these mechanisms are sometimes called control/event-driven or data-driven, respectively~\cite{papadopoulosCoordinationModelsLanguages1998,varalarsenBCOolBehavioralCoordination2016}.
 
 First, \textit{event scheduling} synchronizes events or imposes a specific event order, i.e., order of state changes in different systems.
 Usually, event scheduling is used when systems are given by behavioral models since there might not be a clear concept of an event in a programming language.
@@ -252,7 +252,7 @@ For example, in BCOoL~\cite{varalarsenBehavioralCoordinationOperator2015}, one c
 For example, in the ADL MontiArc~\cite{haberMontiArcArchitecturalModeling2014}, systems send data from the output to the input port.
 Data can also be exposed as variables, which are then coupled with variables in other systems, for example, to be the same.
 However, data exchange might also happen between systems during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
-% TODO optional: Example of periodic master algorithm
+% TODO optional: Example of a periodic master algorithm
 
 \feature{Semantics} The semantics feature consists of \textit{expressiveness}, \textit{model of computation}, and \textit{formality}.
 The expressiveness of coordination can be \textit{predefined}, i.e., a user has a fixed set of coordination mechanisms, for example, a fixed set of connectors with predefined behavior.
@@ -269,7 +269,7 @@ The causal MoC means that the coordination approach facilitates event and data e
 For example, a system based on a state machine raises an event, including data, which causes a state change and possible other reactions in a different system.
 
 % A-causal
-An a-causal MoC is necessary if one must deal with related differential equations \cite{lecoentGuaranteedCosimulationCyberphysical2020}.
+An a-causal MoC is necessary to deal with related differential equations \cite{lecoentGuaranteedCosimulationCyberphysical2020}.
 For example, a variable in one equation should equal a variable in a different equation.
 In this case, there is no cause and effect, such as in the causal MoC, but rather, the variables have an a-causal relationship since they should be equal at any time.
 
@@ -356,8 +356,8 @@ Usually, black-box approaches are needed to protect \textit{intellectual propert
 For example, DACCOSIM only requires each system to conform to the FMI specification for Co-Simulation.
 
 \feature{Specification} We distinguish between \textit{endogenous} and \textit{exogenous} specification of coordination, as described for coordination languages in~\cite{arbabWhatYouMean1998}.
-For example, when using the coordination language Linda~\cite{carrieroLindaContext1989}, one uses coordination specific operations such as \textsf{out} and \textsf{in} inside system programss to write to and read from the shared tuple space, respectively.
-Thus, Linda is \textit{endogenous} since one has to modify the behavior of the systems in order to add the coordination.
+For example, when using the coordination language Linda~\cite{carrieroLindaContext1989}, one uses coordination-specific operations such as \textsf{out} and \textsf{in} inside system programs to write to and read from the shared tuple space, respectively.
+Thus, Linda is \textit{endogenous} since one has to modify the behavior of the systems to add coordination.
 
 On the other hand, \textit{exogenous} coordination approaches keep coordination aspects outside of systems.
 However, systems must still be created with coordination in mind to expose possible coordination points.
@@ -432,7 +432,7 @@ In \autoref{fig: venns}, we compare BCoorLang and MontiArc with Linda on the lef
 The figure shows Venn diagrams comparing the feature sets of each approach, where each colored part states which features are contained.
 In addition, the number in the intersection states the amount of common features.
 
-For example when looking at the Venn diagram on the left in \autoref{fig: venns}, the \textsf{1} in the circle part at the bottom describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, System transparency:White-box}), see \autoref{tab:classification}.
+For example, when looking at the Venn diagram on the left in \autoref{fig: venns}, the \textsf{1} in the circle part at the bottom describes that MontiArc has one \textit{original} feature (\textsf{Definition:Architecture based}), while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common} (\textsf{Expressiveness:Predefined, Domain:Discrete event, System transparency:White-box}), see \autoref{tab:classification}.
 
 \begin{figure}[ht]
 	\centering
