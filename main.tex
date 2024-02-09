@@ -183,16 +183,18 @@ However, to the best of our knowledge, no ADL supports heterogeneous components 
 Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., not often used by practitioners in the industry~\cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,medvidovicMovingArchitecturalDescription2006}.
 
 \subsection{Coordination frameworks} \label{subsec: frameworks}
-
-Julien will make a proposition, which should include somewhere:
-
 % We coin the term
-We introduce the term \textit{coordination framework} for coordination approaches operating on the language level.
+We introduce the term \textit{coordination framework} for coordination approaches operating on the language level (see \autoref{fig: overview}).
 % Describe the category
-Coordination frameworks allow coordination of models conforming to \textit{different} behavioral languages using the concept of \textit{behavioral interfaces}.
-They allow modelers to utilize different languages for varying aspects of the system.
-% Introduce the name of our approach
+Coordination frameworks allow coordination of models conforming to \textit{different} behavioral languages using the concept of \textit{language behavioral interfaces}.
+This is valuable because each system might have a different behavioral language best encapsulating its nature.
+Language behavioral interfaces allow defining once how coordination works for a given behavioral language which can then be shared and used for each model conforming to that language.
+
+For example, in~\cite{krauterBehavioralConsistencyMultimodeling2023} the authors define a standard language behavioral interface, which identifies state-changing elements, that is used across different behavioral languages.
 In this paper, we will refer to our approach outlined in~\cite{krauterBehavioralConsistencyMultimodeling2023} as the \textit{Behavioral Coordination Language} (BCoorLang) to enhance clarity in communication.
+Using this uniform interface in BCoorLang one can then define coordination between systems, which are represented using heterogeneous behavioral models.
+Concretely, one can define that a state change in one system should be synchronized with a state change in a different system by identifying the corresponding state-changing elements in each model.
+The semantics of BCoorLang are given by rewriting system specifications, such as graph- or term-rewriting, which can then be executed by corresponding tools such as Groove \cite{rensinkGROOVESimulatorTool2004} and Maude \cite{manuelclavelAllMaudeHighPerformance2007} for simulation and verification purposes.
 
 \section{Methodology} \label{sec: methodology}
 
@@ -200,8 +202,8 @@ First, we conducted a \textit{meta-analysis} (tertiary study) on surveys (second
 We found the following  secondary studies for coordination languages (\cite{papadopoulosCoordinationModelsLanguages1998,goosCoordinationModelsLanguages2001,rossiTuplebasedTechnologiesCoordination2001}), ADLs (\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,hussainInvestigatingArchitectureDescription2013,ozkayaAreWeThere2013,malavoltaWhatIndustryNeeds2013}), and co-simulation approaches (\cite{gomesCoSimulationSurvey2019,schweigerEmpiricalSurveyCosimulation2019,hafnerOverviewStateArt2021}).
 We did not find surveys on coordination frameworks since the term is not yet commonly used.
 We used Google Scholar to locate these papers, utilizing the keywords \quotes{survey}, \quotes{feature model}, \quotes{taxonomy}, and for each category, \quotes{coordination language}, \quotes{architecture description language}, or \quotes{co-simulation} accordingly.
-We state our exact search queries in~\cite{timkrauterArtifactsCoordination2024}.
 We then collected the first five pages of papers and filtered them by title, abstract, and content to arrive at the previously listed papers.
+Our exact search queries are given in~\cite{timkrauterArtifactsCoordination2024}.
 
 Second, we investigated individual approaches in each category to construct our taxonomy.
 Due to the immense number of approaches and limited time, we focus on the 17 approaches listed in \autoref{sec: application}.
@@ -340,7 +342,7 @@ We identified several reoccurring properties when analyzing coordination approac
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{images/properties_feature}
+	\includegraphics[width=0.9\textwidth]{images/properties_feature}
 	\caption{Properties feature}
 	\label{fig: propertiesFeature}
 \end{figure}
@@ -535,7 +537,7 @@ We selected clustering parameters to reduce the number of unclustered approaches
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{images/approach_scatter}
+	\includegraphics[width=0.9\textwidth]{images/approach_scatter}
 	\caption{Feature distance and clustering of approaches}
 	\label{fig: clusters}
 \end{figure}
