@@ -27,9 +27,7 @@ pdfkeywords={Coordination language, ADL, Coordination framework, Feature model, 
 \newcommand{\feature}[1]{\vskip 0.5em \textbf{#1}}
 
 \begin{document}
-% https://www.discotec.org/2024/coordination
-% Regular papers 7-15 pages + references
-% TODO: Add artifacts citation using Zenodo.
+
 \title{A feature-based taxonomy of coordination approaches}
 
 \author{Tim Kr\"{a}uter\inst{1}\orcidlink{0000-0003-1795-0611} \and
@@ -190,6 +188,7 @@ Coordination frameworks allow coordination of models conforming to \textit{diffe
 This is valuable because each system might have a different behavioral language best encapsulating its nature.
 Language behavioral interfaces allow defining once how coordination works for a given behavioral language which can then be shared and used for each model conforming to that language.
 
+% Example
 For example, in~\cite{krauterBehavioralConsistencyMultimodeling2023} the authors define a standard language behavioral interface, which identifies state-changing elements, that is used across different behavioral languages.
 In this paper, we will refer to our approach outlined in~\cite{krauterBehavioralConsistencyMultimodeling2023} as the \textit{Behavioral Coordination Language} (BCoorLang) to enhance clarity in communication.
 Using this uniform interface in BCoorLang one can then define coordination between systems, which are represented using heterogeneous behavioral models.
@@ -409,23 +408,23 @@ Each approach comes from a different category: co-simulation (\textit{DACCOSIM}~
 		\diagbox[linewidth=1.1pt,font=\bfseries]{Feature}{Approach} & \textbf{DACCOSIM} & \textbf{Linda} & \textbf{MontiArc} & \textbf{BCoorLang} \\
 		
 		\textbf{Foundation} \\
-		\hspace{2mm} Syntax & Architecture based & Name based & Architecture based & Dedicated elements \\
-		\hspace{2mm} Mechanism & Data-Exchange & Data-Exchange & Data-Exchange & Event-Scheduling \\
-		\hspace{2mm} Expressiveness & Predefined & Predefined & Predefined & Predefined \\
-		\hspace{2mm} MoC & Causal & Causal & Logical, Causal & Logical \\
-		\hspace{2mm} Formality & Semi-formal & Semi-formal & Semi-formal & Formal \\
+		\hspace{1mm} Syntax & Architecture based & Name based & Architecture based & Dedicated elements \\
+		\hspace{1mm} Mechanism & Data-Exchange & Data-Exchange & Data-Exchange & Event-Scheduling \\
+		\hspace{1mm} Expressiveness & Predefined & Predefined & Predefined & Predefined \\
+		\hspace{1mm} MoC & Causal & Causal & Logical, Causal & Logical \\
+		\hspace{1mm} Formality & Semi-formal & Semi-formal & Semi-formal & Formal \\
 		
 		\textbf{Goal} \\
-		\hspace{2mm} Simulation & + & - & + & + \\
-		\hspace{2mm} Execution & - & + & - & - \\
-		\hspace{2mm} Formal verification & - & - & - & Custom properties \\
+		\hspace{1mm} Simulation & + & - & + & + \\
+		\hspace{1mm} Execution & - & + & - & - \\
+		\hspace{1mm} Formal verification & - & - & - & Custom properties \\
 		
 		\textbf{Properties} \\
-		\hspace{2mm} Domain & Hybrid & Discrete event & Discrete event & Discrete event \\
-		\hspace{2mm} Comp. transparency & Black-box & White-box & White-box & White-box \\
-		\hspace{2mm} Specification & Exogenous & Endogenous & Endogenous & Exogenous \\
-		\hspace{2mm} Comp. languages & Homogeneous & Homogeneous & Homogeneous & Heterogeneous \\
-		\hspace{2mm} Execution & Federated & Federated & Centralized & Centralized \\
+		\hspace{1mm} Domain & Hybrid & Discrete event & Discrete event & Discrete event \\
+		\hspace{1mm} Comp. transparency & Black-box & White-box & White-box & White-box \\
+		\hspace{1mm} Specification & Exogenous & Endogenous & Endogenous & Exogenous \\
+		\hspace{1mm} Comp. languages & Homogeneous & Homogeneous & Homogeneous & Heterogeneous \\
+		\hspace{1mm} Execution & Federated & Federated & Centralized & Centralized \\
 	\end{tblr}
 	}
 \end{table}
@@ -506,7 +505,7 @@ Interestingly, coordination frameworks such as BCoorLang allow formal validation
 \subsection{General insights}
 
 \textbf{Architecture-based coordination syntax is widely used.}
-Remarkably, coordination approaches from all categories use concepts such as components/subsystems, ports, and connectors to express coordination.
+Remarkably, coordination approaches from all categories use concepts such as components, ports, and connectors to express coordination.
 The specific coordination details vary between different approaches, but there appears to be broad consensus on the importance of clearly representing the system architecture for effective coordination.
 
 \textbf{Formal validation is rarely supported.}
