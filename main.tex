@@ -113,10 +113,19 @@ They are described in detail in \autoref{subsec: frameworks}.
 
 \subsection{Co-simulation approaches} \label{subsec: cosim}
 
-Julien will make a proposition.
+% General description
+\textit{A co-simulation approach} composes the simulations of multiple systems into a global simulation using an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}.
+A system simulation is typically viewed as a \textit{black box} consuming inputs and producing outputs according to a predefined standard.
+The orchestrator dictates the progression of simulated time and transfers data between simulations.
+Co-simulation approaches are categorized as \textit{Discrete Event} (DE), \textit{Continuous Time} (CT), or \textit{Hybrid} if DE and CT aspects are mixed~\cite{gomesCoSimulationSurvey2019}.
 
-\textit{A co-simulation approach} composes the simulation of multiple systems into a global simulation using an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}.
-A system simulation also called a simulation unit (SU), is typically given by an executable binary conforming to a predefined interface.
+% Standards
+Currently, there are two main standards for co-simulation: the Functional Mock-up Interface (FMI)~\cite{modelisarFunctionalMockupInterface2023} and the High Level Architecture (HLA)~\cite{dahmannHighLevelArchitecture1997}.
+The FMI standard is defined for CT co-simulation, while the HLA standard is specified for DE co-simulation~\cite{gomesCoSimulationSurvey2019,liboniComplexSystemsCosimulation2021}.
+
+% Examples
+For example, the co-simulation approach MECSYCO~\cite{camusHybridCosimulationFMUs2016,camusCosimulationCyberphysicalSystems2018} uses a DE-based orchestrator but achieves hybrid co-simulation by wrapping CT simulations specified using FMI in the Discrete EVent System specification (DEVS).
+Wrapping CT simulations using DE simulations or vice versa is a common strategy to achieve Hybrid co-simulation~\cite{gomesCoSimulationSurvey2019}.
 
 \subsection{Coordination languages} \label{subsec: coordlang}
 % Define Coordination language and give examples
@@ -337,12 +346,12 @@ We identified several reoccurring properties when analyzing coordination approac
 \end{figure}
 
 % Maybe add some examples and descriptions here.
-\feature{Domain} Coordination approaches operate in different domains like the domains of co-simulation approaches described in~\cite{gomesCoSimulationSurvey2019}.
-First, if a coordination approach is part of the \textit{Discrete event} (DE) domain, it allows discrete but not continuous state changes~\cite{gomesCoSimulationSurvey2019}.
+\feature{Domain} Coordination approaches operate in different domains like the categorization of co-simulation approaches described in~\cite{gomesCoSimulationSurvey2019,liboniComplexSystemsCosimulation2021}.
+First, if a coordination approach is part of the \textit{Discrete Event} (DE) domain, it allows discrete but not continuous state changes~\cite{gomesCoSimulationSurvey2019}.
 Typically, coordination frameworks and ADLs operate in the DE domain since variables change their values discontinuously during execution, i.e., immediately change between states.
 % discrete = discontinuous
 
-Second, coordination approaches in the \textit{continuous time} (CT) domain support systems to have a state that evolves continuously over time.
+Second, coordination approaches in the \textit{Continuous Time} (CT) domain support systems to have a state that evolves continuously over time.
 Often, systems are given by differential equations, which induce continuous variable changes, such as physical systems involving springs and dampeners, see~\cite{gomesCoSimulationSurvey2019}.
 
 Third, the \textit{hybrid} domain is a mix of the DE and CT domains that occur, for example, when simulating cyber-physical systems.
@@ -372,7 +381,7 @@ For example, BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} supp
 
 \feature{Execution} A coordination approach is realized using either a \textit{centralized} or \textit{federated} execution.
 In a \textit{centralized} execution, all systems are executed by one engine, which enforces coordination.
-For example, BCorrLang composes the behavior of all system specifications into a global behavior specification, which is then executed by a graph transformation or term-rewriting tool.
+For example, BCoorLang composes the behavior of all system specifications into a global behavior specification, which is then executed by a graph transformation or term-rewriting tool.
 
 On the other hand, in a \textit{federated execution}, systems run independently and only coordinate using a shared infrastructure through predefined connections.
 Federated execution can still happen on the same physical machine, i.e., it does not mean that systems must be \textit{distributed} across different physical machines. 
