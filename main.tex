@@ -140,8 +140,7 @@ Tuple-based coordination languages such as Linda are surveyed in \cite{rossiTupl
 % Channel-based coordination languages: REO and Manifold
 Other coordination languages such as Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998} and REO~\cite{arbabReoChannelbasedCoordination2004} do not rely on a global communication medium but rather use \textit{channels} to connect systems locally.
 Each system then uses I/O operations to interact with connected channels without knowing who has sent or will receive data through the channel.
-These coordination languages share many ideas with Architecture Description Languages (ADLs) % discussed in the next section.
-discussed in \autoref{subsec: adl}
+These coordination languages share many ideas with Architecture Description Languages (ADLs) discussed in \autoref{subsec: adl}.
 
 % Reactor-based coordination in Lingua Franca.
 Furthermore, coordination languages might also use communication models such as the actor or reactor~\cite{lohstrohReactorsDeterministicModel2020} model.
@@ -187,12 +186,12 @@ We introduce the term \textit{coordination framework} for coordination approache
 % Describe the category
 Coordination frameworks allow coordination of models conforming to \textit{different} behavioral languages using the concept of \textit{language behavioral interfaces}.
 This is valuable because each system might have a different behavioral language best encapsulating its nature.
-Language behavioral interfaces allow defining once how coordination works for a given behavioral language which can then be shared and used for each model conforming to that language.
+Language behavioral interfaces allow defining how coordination works for a given behavioral language, which can then be shared and used for each model conforming to that language.
 
 % Example
-For example, in~\cite{krauterBehavioralConsistencyMultimodeling2023} the authors define a standard language behavioral interface, which identifies state-changing elements, that is used across different behavioral languages.
+For example, in~\cite{krauterBehavioralConsistencyMultimodeling2023}, the authors define a standard language behavioral interface that identifies state-changing elements used across different behavioral languages.
 In this paper, we will refer to our approach outlined in~\cite{krauterBehavioralConsistencyMultimodeling2023} as the \textit{Behavioral Coordination Language} (BCoorLang) to enhance clarity in communication.
-Using this uniform interface in BCoorLang one can then define coordination between systems, which are represented using heterogeneous behavioral models.
+Using this uniform interface in BCoorLang, one can then define coordination between systems, represented using heterogeneous behavioral models.
 Concretely, one can define that a state change in one system should be synchronized with a state change in a different system by identifying the corresponding state-changing elements in each model.
 The semantics of BCoorLang are given by rewriting system specifications, such as graph- or term-rewriting, which can then be executed by corresponding tools such as Groove \cite{rensinkGROOVESimulatorTool2004} and Maude \cite{manuelclavelAllMaudeHighPerformance2007} for simulation and verification purposes.
 
@@ -200,7 +199,7 @@ The semantics of BCoorLang are given by rewriting system specifications, such as
 
 First, we conducted a \textit{meta-analysis} (tertiary study) on surveys (secondary studies) within each coordination category.
 We found the following  secondary studies for coordination languages (\cite{papadopoulosCoordinationModelsLanguages1998,goosCoordinationModelsLanguages2001,rossiTuplebasedTechnologiesCoordination2001}), ADLs (\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,hussainInvestigatingArchitectureDescription2013,ozkayaAreWeThere2013,malavoltaWhatIndustryNeeds2013}), and co-simulation approaches (\cite{gomesCoSimulationSurvey2019,schweigerEmpiricalSurveyCosimulation2019,hafnerOverviewStateArt2021}).
-We did not find surveys on coordination frameworks since the term is not yet commonly used.
+We have not found surveys on coordination frameworks since we introduced the term in this publication.
 We used Google Scholar to locate these papers, utilizing the keywords \quotes{survey}, \quotes{feature model}, \quotes{taxonomy}, and for each category, \quotes{coordination language}, \quotes{architecture description language}, or \quotes{co-simulation} accordingly.
 We then collected the first five pages of papers and filtered them by title, abstract, and content to arrive at the previously listed papers.
 Our exact search queries are given in~\cite{timkrauterArtifactsCoordination2024}.
@@ -377,7 +376,7 @@ Endogenous coordination approaches tend to mix computation and coordination~\cit
 For example, coordination languages, such as Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020}, currently only support coordination if each system is given in the same programming language.
 
 However, coordination frameworks allow \textit{heterogeneous} systems, i.e., systems specified in different behavioral modeling languages.
-For example, BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} supports all modeling languages which one can describe using rewriting semantics.
+For example, BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} supports all modeling languages that one can describe using rewriting semantics.
 
 \feature{Execution} A coordination approach is realized using either a \textit{centralized} or \textit{federated} execution.
 In a \textit{centralized} execution, all systems are executed by one engine, which enforces coordination.
@@ -453,7 +452,7 @@ For example, when looking at the Venn diagram on the left in \autoref{fig: venns
 The Venn diagram on the left in \autoref{fig: venns} shows that Linda has three original features compared to BCoorLang and MontiArc:
 execution as goal, a name-based syntax, and a federated execution.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
-Coordination frameworks have multiple original features, such as supporing heterogeneous system languages and formal validation using custom properties.
+Coordination frameworks have multiple original features, such as supporting heterogeneous system languages and formal validation using custom properties.
 
 Similarly, on the right in \autoref{fig: venns}, BCoorLang and MontiArc are compared with the co-simulation approach DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
@@ -491,8 +490,8 @@ Notably, some coordination languages offer a federated execution not supported b
 % Co-Simulation
 As the name suggests, all \textbf{co-simulation} approaches have merely simulation as their goal.
 Similar to ADLs and coordination languages, coordination syntax is architecture-based.
-However, compared to the other categories, they operate in the hybrid domain facilitating data exchange between black-box systems.
-the systems can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO.
+However, compared to the other categories, they operate in the hybrid domain, facilitating data exchange between black-box systems.
+The systems can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO.
 Typically, execution is federated, while some approaches, such as DACCOSIM, even allow for a distributed execution.
 
 % Coordination frameworks
