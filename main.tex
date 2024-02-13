@@ -135,15 +135,16 @@ Still, we also use the term system to describe components in an ADL or behaviora
 Coordination languages such as Linda~\cite{carrieroLindaContext1989} provide a \textit{set of operations} to enrich a host programming language with coordination capabilities.
 The operations in Linda are used to read from and write to a virtual shared memory, which serves as a \textit{global} communication medium.
 Such coordination languages are often called \textit{tuple-based} because the shared memory contains sequences of elements, i.e., tuples.
-Ttuple-based coordination languages such as Linda are surveyed in \cite{rossiTuplebasedTechnologiesCoordination2001,nixonTuplespacebasedComputingSemantic2008,omiciniCoordinationModelsLanguages2011}.
+Tuple-based coordination languages such as Linda are surveyed in \cite{rossiTuplebasedTechnologiesCoordination2001,nixonTuplespacebasedComputingSemantic2008,omiciniCoordinationModelsLanguages2011}.
 
 % Channel-based coordination languages: REO and Manifold
 Other coordination languages such as Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998} and REO~\cite{arbabReoChannelbasedCoordination2004} do not rely on a global communication medium but rather use \textit{channels} to connect systems locally.
 Each system then uses I/O operations to interact with connected channels without knowing who has sent or will receive data through the channel.
-These coordination languages share many ideas with Architecture Description Languages (ADLs) discussed in the next section.
+These coordination languages share many ideas with Architecture Description Languages (ADLs) % discussed in the next section.
+discussed in \autoref{subsec: adl}
 
 % Reactor-based coordination in Lingua Franca.
-Finally, coordination languages might also use communication models such as the actor or reactor~\cite{lohstrohReactorsDeterministicModel2020} model.
+Furthermore, coordination languages might also use communication models such as the actor or reactor~\cite{lohstrohReactorsDeterministicModel2020} model.
 For example, the Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020,lohstrohLinguaFrancaDeterministic2021} coordination language is described using the reactor model, meaning one defines coordination by describing how each system reacts to incoming events.
 A reaction to an event in one system might trigger reactions in connected systems.
 To encode reactions, the user can choose an existing programming language.
@@ -468,67 +469,72 @@ However, one can adapt the analysis using the provided data and scripts~\cite{ti
 
 In this section, we describe the findings of applying our taxonomy to the different coordination approaches.
 We start by summarizing the typical features of each coordination category before stating the general insights we have attained.
-Finally, we cluster the approaches based on their feature similarity and discuss the results.
+In addition, we cluster the approaches based on their feature similarity and discuss the results.
 
-\subsection{Typical features}
-We will describe the common feature sets we found for each category.
+\subsection{Common features}
 
 % Highlight typical features for ADLs, Coordination language, Co-simulation, and coordination frameworks.
 % ADL
 \textbf{ADLs} primarily have \textit{simulation} as their goal, while a small subset allows predefined properties to be verified.
-Unsurprisingly, the coordination syntax of all ADLs is architecture-based, using components with ports and connectors between them.
+As expected, the coordination syntax of all ADLs is architecture-based, using components with ports and connectors between them.
 All ADLs operate in the discrete event domain.
 Furthermore, components in ADLs are white-box and homogeneous, and coordination specification is usually exogenous, i.e., part of the connectors.
-An exception is MontiArc, where ports can be marked as \textit{synchronized} only allowing synchronous interactions through this port, meaning coordination specification is partly present inside components.
+An exception is MontiArc, where ports can be marked as \textit{synchronized} only allowing synchronous interactions through a port; that is, the coordination specification is endogenous and partly present inside components.
 
 % Coordination language
 \textbf{Coordination languages} can have simulation and execution as their goal while operating in the discrete event domain.
-Surprisingly, coordination syntax is also most likely architecture-based, i.e., the idea of subsystems, ports, and connectors/channels between them is also used in most coordination languages.
-In addition, systems in coordination languages are also white-box and homogenous but have both endogenous and exogenous coordination specifications.
+%Surprisingly, coordination syntax is also most likely architecture-based, i.e., the idea of subsystems, ports, and connectors/channels between them is also used in most coordination languages.
+Furthermore, coordination syntax is also most likely architecture-based, i.e., the idea of subsystems, ports, and connectors/channels between them is also used in most coordination languages.
+In addition, the systems in coordination languages are white-box and homogeneous but have both endogenous and exogenous coordination specifications.
 Notably, some coordination languages offer a federated execution not supported by ADLs.
 
 % Co-Simulation
-Unsurprisingly, all \textbf{co-simulation} approaches have only simulation as their goal.
-Similarly to ADLs and coordination languages, coordination syntax is architecture-based.
-However, compared to the other categories, they operate in the hybrid domain, facilitating data exchange between black-box systems.
-Systems can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO.
+As the name suggests, all \textbf{co-simulation} approaches have merely simulation as their goal.
+Similar to ADLs and coordination languages, coordination syntax is architecture-based.
+However, compared to the other categories, they operate in the hybrid domain facilitating data exchange between black-box systems.
+the systems can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO.
 Typically, execution is federated, while some approaches, such as DACCOSIM, even allow for a distributed execution.
 
 % Coordination frameworks
 \textbf{Coordination frameworks} have simulation and formal validation as their goal.
 Coordination syntax is diverse but usually uses event scheduling in the discrete event domain.
-Furthermore, coordination specification is exogenous to support heterogeneous systems, which are white-box.
+Furthermore, coordination specification is exogenous to support heterogeneous systems, which in turn are white-box.
 In contrast to coordination languages and co-simulation approaches, execution is centralized.
-Interestingly, coordination frameworks such as BCoorLang allow formal validation of custom properties, a rare feature.
+In addition, some coordination frameworks, such as BCoorLang, facilitate formal verification of custom properties, which is a rare feature.
 
 % High-level insights/findings
 \subsection{General insights}
 
 \textbf{Architecture-based coordination syntax is widely used.}
 Remarkably, coordination approaches from all categories use concepts such as components, ports, and connectors to express coordination.
-The specific coordination details vary between different approaches, but there appears to be broad consensus on the importance of clearly representing the system architecture for effective coordination.
+%The specific coordination details vary between different approaches, but there appears to be broad consensus on the importance of clearly representing the system architecture for effective coordination.
+The precise coordination details may differ across various approaches, but there seems to be a general consensus regarding the significance of accurately representing the system architecture for efficient coordination.
 
-\textbf{Formal validation is rarely supported.}
-Most of the studied coordination approaches have simulation as their goal, while formal validation is uncommon.
+\textbf{Formal verification is rarely supported.}
+Most of the studied coordination approaches have simulation as their goal, while formal verification is uncommon.
 This could be attributed to the problem of formally representing heterogeneous systems engaged in coordination and the rapid growth of state spaces when multiple systems are involved.
 
 \textbf{Coordination frameworks do not support Data-Exchange.}
-All coordination frameworks besides Ptolemy support \textit{event-scheduling} but not \textit{data-exchange} as a coordination mechanism.
-This is likely because data exchange is difficult when heterogeneous systems are present.
-However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
-Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
+All coordination frameworks %besides Ptolemy 
+support \textit{event-scheduling} but not \textit{data-exchange} as a coordination mechanism.
+%This is likely because data exchange is difficult when heterogeneous systems are present.
+%However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
+This difficulty likely arises due to the presence of heterogeneous systems, making data exchange challenging.
+Nevertheless, data exchange is omnipotent in real-world systems, serving as the primary coordination mechanism utilized in co-simulation methods and coordination languages.
+%Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
+Therefore, coordination frameworks must possess the capability to facilitate data exchange in order to be effectively utilized in real-world scenarios.
 
 \subsection{Feature clustering analysis}
 
-We further analyze the classification of the approaches mentioned in \autoref{sec: application} to find out how they compare across and inside the four categories.
-We clustered the approaches to see similarities and differences by just looking at the feature data of each approach, not considering to which category they belong.
+We further analyze the classification of the approaches mentioned in \autoref{sec: application} to determine how they compare across and inside the four categories.
+We clustered the approaches to see similarities and differences by just looking at the feature data of each approach, without considering to which category they belong.
 The data and scripts to reproduce our analysis are available in~\cite{timkrauterArtifactsCoordination2024}.
 We apply a standard clustering algorithm using Jaccard distance to measure the similarity of the feature sets.
 Jaccard distance is the one-complement of Jaccard similarity for two sets, defined as the ratio of their intersection to their union~\cite{levandowskyDistanceSets1971}.
 It is a widely used and reasonable dissimilarity measure for sets~\cite{levandowskyDistanceSets1971}.
 
 \autoref{fig: clusters} shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
-It provides a bird's-eye view of the similarity or dissimilarity between the classified coordination approaches, in contrast to the previous Venn diagrams, which only compare three approaches.
+It provides a bird's-eye view of the similarity or dissimilarity between all the studied coordination approaches---this is in contrast to the previous Venn diagrams which only compare three approaches.
 Furthermore, it highlights the clustering results by coloring each data point.
 We selected clustering parameters to reduce the number of unclustered approaches while ensuring that we do not consolidate everything into just one cluster.
 
@@ -541,7 +547,8 @@ We selected clustering parameters to reduce the number of unclustered approaches
 
 % Description of the plot
 The clustering algorithm finds three clusters, including all but one approach.
-\textbf{Cluster 1} contains BCoorLang and BCOol, only coordination frameworks, while \textbf{cluster 2} consists of a mix of coordination languages and ADLs, such as Linda and Lingua Franca, as well as Wright and MontiArc, respectively.
+\textbf{Cluster 1} contains only the coordination frameworks BCoorLang and BCOol, 
+while \textbf{cluster 2} consists of a mix of coordination languages and ADLs, such as Linda and Lingua Franca, as well as Wright and MontiArc, respectively.
 \textbf{Cluster 3} includes three co-simulation approaches, but no cluster contains Ptolemy.
 
 % Interpretation of the plot
@@ -551,10 +558,10 @@ Cluster 2 contains coordination languages and ADLs.
 Even if the maximum distance between approaches is reduced to be considered part of the same cluster (clustering parameter), one cannot separate the approaches into two categories.
 Thus, we conclude that coordination languages and ADLs have more similarities in features compared to, for instance, co-simulation approaches or coordination frameworks.
 
-In the end, Ptolemy remains unclustered, but we would classify Ptolemy as a coordination framework.
-However, it includes features from all categories and is not part of any cluster.
-It is fascinating that one approach can offer such diverse features.
-
+As the only approach, Ptolemy remains unclustered. 
+Although we would classify Ptolemy as a coordination framework, it includes features from all categories and it is not part of any cluster.
+%It is fascinating that one approach can offer such diverse features.
+It is intriguing how a single approach like Ptolemy may encompass such a wide variety of features.
 
 \section{Conclusion \& future work} \label{sec: conclusion}
 
