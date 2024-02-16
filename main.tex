@@ -1,5 +1,5 @@
 \documentclass[runningheads]{llncs}
-% Add pdf bookmarks and metadata
+% Add PDF bookmarks and metadata
 \usepackage[bookmarksopen,
 bookmarksopenlevel=1,
 bookmarksdepth=2
@@ -105,40 +105,39 @@ In general, the right abstraction level to address coordination depends on the s
 
 % Execution level
 \textbf{Execution level:} Approaches on the \textit{execution level} aim to deal with coordination by interfacing directly with executable binaries or source code.
-We identified two distinct categories on this level: co-simulation approaches and coordination languages\jdChange{,}{. An overview of such approaches is }described \jdChange{in detail}{} in \autoref{subsec: cosim} and \autoref{subsec: coordlang}.
+We identified two distinct categories on this level: co-simulation approaches and coordination languages.
+Such approaches are overviewed in \autoref{subsec: cosim} and \autoref{subsec: coordlang}.
 
 % Model level
 \textbf{Model level:}
 \textit{Architecture Description Languages (ADLs)} operate on the \textit{model} level, i.e., each \textit{component} is given by a behavioral model, for example, a process algebra.
-\jdChange{}{An overview of }ADLs \jdChange{are described}{is proposed} in \jdChange{detail}{} in \autoref{subsec: adl}.
+An overview of ADLs is given in \autoref{subsec: adl}.
 
 % Language level
 \textbf{Language level:}
 \textit{Coordination frameworks} operate on the language level since they allow coordination of models conforming to \textit{different} behavioral languages.
-They are \jdChange{described}{overviewed} in \jdChange{detail}{} in \autoref{subsec: frameworks}.
+They are outlined in \autoref{subsec: frameworks}.
 
 \subsection{Co-simulation approaches} \label{subsec: cosim}
 
 % General description
-\jdChange{\textit{A co-simulation approach} composes the simulations of multiple systems into a global simulation using an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}.
-A system simulation is typically viewed as a \textit{black box} consuming inputs and producing outputs according to a predefined standard.
-The orchestrator dictates the progression of simulated time and transfers data between simulations.}{\textit{Co-simulation approaches} involve coordinating timely exchanges of information between multiple simulations running concurrently. In this configuration, a simulation is the execution of a simulation unit which consumes inputs and produces outputs. A simulation unit is typically specified as a \textit{black box}, meaning its behavior is opaque and accessible only through its simulation interface.
-By using such interfaces, the co-simulation must ensure the temporal and causal relationships between each simulation. This is usually achieved by defining an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}, which dictates the progression of simulated time and transfers data between simulations.}
+\textit{Co-simulation approaches} involve coordinating timely exchanges of information between multiple simulations running concurrently. In this configuration, a simulation is the execution of a simulation unit that consumes inputs and produces outputs. A simulation unit is typically specified as a \textit{black box}, meaning its behavior is opaque and accessible only through its simulation interface.
+Using such interfaces, the co-simulation must ensure the temporal and causal relationships between each simulation. This is usually achieved by defining an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}, which dictates the progression of simulated time and transfers data between simulations.
 Co-simulation approaches are categorized as \textit{Discrete Event} (DE), \textit{Continuous Time} (CT), or \textit{Hybrid} if DE and CT aspects are mixed~\cite{gomesCoSimulationSurvey2019}.
 
 % Standards
 Currently, there are two main standards for co-simulation: the Functional Mock-up Interface (FMI)~\cite{modelisarFunctionalMockupInterface2023} and the High Level Architecture (HLA)~\cite{dahmannHighLevelArchitecture1997}.
-\jdChange{The FMI standard is defined for CT co-simulation, while the HLA standard is specified for DE co-simulation}{The FMI standard is better suited for CT co-simulation, while the HLA standard is better suited for DE co-simulation}~\cite{gomesCoSimulationSurvey2019,liboniComplexSystemsCosimulation2021}.
+The FMI standard is better suited for CT co-simulation, while the HLA standard is better suited for DE co-simulation ~\cite{gomesCoSimulationSurvey2019,liboniComplexSystemsCosimulation2021}.
 
 % Examples
-\jdChange{For example, the co-simulation approach MECSYCO}{In order to bridge CT and DE co-simulations, MECSYCO}~\cite{camusHybridCosimulationFMUs2016,camusCosimulationCyberphysicalSystems2018} uses a DE-based orchestrator but achieves hybrid co-simulation by wrapping CT simulations specified using FMI in the Discrete Event System specification (DEVS).
+To bridge CT and DE co-simulations, MECSYCO~\cite{camusHybridCosimulationFMUs2016,camusCosimulationCyberphysicalSystems2018} uses a DE-based orchestrator but achieves hybrid co-simulation by wrapping CT simulations specified using FMI in the Discrete Event System specification (DEVS).
 Wrapping CT simulations using DE simulations or vice versa is a common strategy to achieve Hybrid co-simulation~\cite{gomesCoSimulationSurvey2019}.
 
 \subsection{Coordination languages} \label{subsec: coordlang}
 % Define Coordination language and give examples
 Many different styles of coordination languages exist, which achieve coordination between systems differently.
 In this context, a system is an executable program of varying size.
-Still, we also use the term system to describe components in an ADL or behavioral models in coordination frameworks.
+Still, we also use the term \textit{system} to describe components in an ADL or behavioral models in coordination frameworks.
 
 % Tuple-based coordination languages
 Coordination languages such as Linda~\cite{carrieroLindaContext1989} provide a \textit{set of operations} to enrich a host programming language with coordination capabilities.
@@ -170,7 +169,7 @@ The three buildings blocks of ADLs are defined as (1) \textit{components}, (2) \
 % Component
 A \textit{component} is a unit of computation or data repository~\cite{medvidovicClassificationComparisonFramework2000}.
 Components vary in size, ranging from representing individual services to entire systems.
-In this paper, we use the more general term system when we are not in the immediate context of ADLs.
+In this paper, we use the more general term \textit{system} when we are not in the immediate context of ADLs.
 
 % Connector
 \textit{Connectors} serve as architectural elements to model interactions between components and the regulations that oversee those interactions~\cite{medvidovicClassificationComparisonFramework2000}.
@@ -322,7 +321,7 @@ A coordination approach can have one or multiple goals, which we will now descri
 
 \feature{Simulation} The most common goal of coordination approaches is a coordinated simulation of multiple systems or behavioral models representing an entire system.
 A coordinated simulation is useful because the composition of multiple systems can lead to unexpected behavior, often called \textit{emergent behavior}~\cite{ekerTamingHeterogeneityPtolemy2003}.
-Emergent behavior can then be uncovered during simulation before deploying and using the system in an production environment.
+Emergent behavior can then be uncovered during simulation before deploying and using the system in a production environment.
 Co-simulation approaches such as DACCOSIM~\cite{galtierFMIBasedDistributedMultisimulation2015,dadSynthesisFeedbackDistribution2021} or MECSYCO (Multi-agent Environment for ComplexSYstem CO-simulation)~\cite{camusHybridCosimulationFMUs2016,camusCosimulationCyberphysicalSystems2018} are examples of approaches that have coordinated simulation as their goal.
 Simulation is also a goal of coordination frameworks such as BCoorLang~\cite{krauterBehavioralConsistencyMultimodeling2023} and BCOol~\cite{varalarsenBehavioralCoordinationOperator2015}.
 Even recent ADLs such as MontiArc~\cite{haberMontiArcArchitecturalModeling2014} provide simulation capabilities.
@@ -447,7 +446,7 @@ Due to space constraints, we cannot show all classifications, but the full data 
 
 In \autoref{fig: venns}, we compare BCoorLang and MontiArc with Linda on the left and DACCOSIM on the right.
 The figure shows Venn diagrams comparing the feature sets of each approach, where each colored part states which features are contained.
-In addition, the number in the intersection states the amount of common features.
+In addition, the number in each area states the amount of contained features.
 
 For example, when looking at the Venn diagram on the left in \autoref{fig: venns}, the \textsf{1} in the circle part at the bottom describes that MontiArc has one \textit{original} feature, while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common}, see \autoref{tab:classification}.
 
@@ -530,7 +529,7 @@ support \textit{event-scheduling} but not \textit{data-exchange} as a coordinati
 This difficulty likely arises due to the presence of heterogeneous systems, making data exchange challenging.
 Nevertheless, data exchange is omnipotent in real-world systems, serving as the primary coordination mechanism utilized in co-simulation methods and coordination languages.
 %Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
-Therefore, coordination frameworks must possess the capability to facilitate data exchange in order to be effectively utilized in real-world scenarios.
+Therefore, coordination frameworks must possess the capability to facilitate data exchange to be effectively utilized in real-world scenarios.
 
 \subsection{Feature clustering analysis}
 
@@ -542,7 +541,7 @@ Jaccard distance is the one-complement of Jaccard similarity for two sets, defin
 It is a widely used and reasonable dissimilarity measure for sets~\cite{levandowskyDistanceSets1971}.
 
 \autoref{fig: clusters} shows a scatter plot with approximate positions of each approach derived solely from the distances between them.
-It provides a bird's-eye view of the similarity or dissimilarity between all the studied coordination approaches---this is in contrast to the previous Venn diagrams which only compare three approaches.
+It provides a bird's-eye view of the similarity or dissimilarity between all the studied coordination approaches---this is in contrast to the previous Venn diagrams, which only compare three approaches.
 Furthermore, it highlights the clustering results by coloring each data point.
 We selected clustering parameters to reduce the number of unclustered approaches while ensuring that we do not consolidate everything into just one cluster.
 
@@ -567,9 +566,9 @@ Even if the maximum distance between approaches is reduced to be considered part
 Thus, we conclude that coordination languages and ADLs have more similarities in features compared to, for instance, co-simulation approaches or coordination frameworks.
 
 As the only approach, Ptolemy remains unclustered. 
-Although we would classify Ptolemy as a coordination framework, it includes features from all categories and it is not part of any cluster.
+Although we would classify Ptolemy as a coordination framework, it includes features from all categories and is not part of any cluster.
 %It is fascinating that one approach can offer such diverse features.
-It is intriguing how a single approach like Ptolemy may encompass such a wide variety of features.
+It is intriguing how a single approach like Ptolemy may encompass a wide variety of features.
 
 \section{Conclusion \& future work} \label{sec: conclusion}
 
@@ -584,7 +583,7 @@ Furthermore, we apply our taxonomy to 17 coordination approaches and publish the
 Analyzing the resulting data, we identify characteristic features in each category, provide overarching insights, and cluster the approaches regarding their similarity. 
 
 % Future work
-In future work, we aim to further refine our taxonomy and apply it to more approaches to obtain an even more comprehensive overview of coordination approaches.
+In future work, we aim to refine our taxonomy further and apply it to more approaches to obtain an even more comprehensive overview of coordination approaches.
 
 \bibliographystyle{splncs04}
 \bibliography{bib}
