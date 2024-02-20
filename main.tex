@@ -86,7 +86,7 @@ First, we introduce the different categories of coordination approaches to paint
 Our main contribution is a comprehensive taxonomy, represented as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990} to categorize coordination approaches within a unified framework ((\autoref{sec: taxonomy})).
 The taxonomy allows the comparison of coordination approaches across the different categories.
 Moreover, we apply the taxonomy to evaluate 17 distinct approaches spanning the aforementioned categories (\autoref{sec: application}) and publish our findings in a public dataset~\cite{timkrauterArtifactsCoordination2024}.
-Finally, we discuss our findings in \autoref{sec: findings} before concluding in \autoref{sec: conclusion}, meaning we identify the typical features for each category, provide general insights, and cluster the approaches regarding their similarity.
+Finally, we discuss our findings in \autoref{sec: findings} before concluding in \autoref{sec: conclusion}, i.e., we identify the typical features for each category, provide general insights, and cluster the approaches regarding their similarity.
 
 \section{Categories of coordination approaches} \label{sec: approaches}
 
@@ -94,7 +94,7 @@ Finally, we discuss our findings in \autoref{sec: findings} before concluding in
 The categories of coordination approaches broadly operate on different abstraction levels, namely the \textit{execution}, \textit{model}, and \textit{language} levels.
 We will explain each abstraction level and the accompanying coordination approaches from the bottom up.
 A detailed explanation of each category is given in the following subsections.
-In general, the right abstraction level to address coordination depends on the specific use case and goals at hand, meaning approaches on each abstraction level have their advantages and disadvantages.
+In general, the right abstraction level to address coordination depends on the specific use case and goals at hand, i.e., approaches on each abstraction level have their advantages and disadvantages.
 
 \begin{figure}[ht]
 	\centering
@@ -121,7 +121,7 @@ They are outlined in \autoref{subsec: frameworks}.
 \subsection{Co-simulation approaches} \label{subsec: cosim}
 
 % General description
-\textit{Co-simulation approaches} involve coordinating timely exchanges of information between multiple simulations running concurrently. In this configuration, a simulation is the execution of a simulation unit that consumes inputs and produces outputs. A simulation unit is typically specified as a \textit{black box}, meaning its behavior is opaque and accessible only through its simulation interface.
+\textit{Co-simulation approaches} involve coordinating timely exchanges of information between multiple simulations running concurrently. In this configuration, a simulation is the execution of a simulation unit that consumes inputs and produces outputs. A simulation unit is typically specified as a \textit{black box}, i.e., its behavior is opaque and accessible only through its simulation interface.
 Using such interfaces, the co-simulation must ensure the temporal and causal relationships between each simulation. This is usually achieved by defining an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}, which dictates the progression of simulated time and transfers data between simulations.
 Co-simulation approaches are categorized as \textit{Discrete Event} (DE), \textit{Continuous Time} (CT), or \textit{Hybrid} if DE and CT aspects are mixed~\cite{gomesCoSimulationSurvey2019}.
 
@@ -152,7 +152,7 @@ These coordination languages share many ideas with Architecture Description Lang
 
 % Reactor-based coordination in Lingua Franca.
 Furthermore, coordination languages might also use communication models such as the actor or reactor~\cite{lohstrohReactorsDeterministicModel2020} model.
-For example, the Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020,lohstrohLinguaFrancaDeterministic2021} coordination language is described using the reactor model, meaning one defines coordination by describing how each system reacts to incoming events.
+For example, the Lingua Franca~\cite{lohstrohReactorsDeterministicModel2020,lohstrohLinguaFrancaDeterministic2021} coordination language is described using the reactor model, i.e., one defines coordination by defining how each system reacts to incoming events.
 A reaction to an event in one system might trigger reactions in connected systems.
 To encode reactions, the user can choose an existing programming language.
 
@@ -441,7 +441,7 @@ MECSYCO~\cite{camusCosimulationCyberphysicalSystems2018,camusHybridCosimulationF
 CoSim20~\cite{liboniComplexSystemsCosimulation2021},
 BCOoL~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016},
 Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998}, and ForSyDe~\cite{sanderSystemModelingTransformational2004,sanderForSyDeSystemDesign2016}.
-Due to space constraints, we cannot show all classifications, but the full data set is available in the artifacts of this paper~\cite{timkrauterArtifactsCoordination2024}.
+Due to space constraints, we cannot show all classifications, but the complete data set is available in the artifacts of this paper~\cite{timkrauterArtifactsCoordination2024}.
 
 In \autoref{fig: venns}, we compare BCoorLang and MontiArc with Linda on the left and DACCOSIM on the right.
 The figure shows Venn diagrams comparing the feature sets of each approach, where each colored part states which features are contained.
@@ -524,15 +524,14 @@ All coordination frameworks %besides Ptolemy
 support \textit{event-scheduling} but not \textit{data-exchange} as a coordination mechanism.
 %This is likely because data exchange is difficult when heterogeneous systems are present.
 %However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
-This difficulty likely arises due to the presence of heterogeneous systems, making data exchange challenging.
+This difficulty likely arises due to heterogeneous systems, making data exchange challenging.
 Nevertheless, data exchange is omnipotent in real-world systems, serving as the primary coordination mechanism utilized in co-simulation methods and coordination languages.
-%Thus, for coordination frameworks to be employed in real-world scenarios, they must support data exchange.
-Therefore, coordination frameworks must possess the capability to facilitate data exchange to be effectively utilized in real-world scenarios.
+Therefore, coordination frameworks must be able to facilitate data exchange to be effectively utilized in real-world scenarios.
 
 \subsection{Feature clustering analysis}
 
 We further analyze the classification of the approaches mentioned in \autoref{sec: application} to determine how they compare across and inside the four categories.
-We clustered the approaches to see similarities and differences by just looking at the feature data of each approach, without considering to which category they belong.
+We clustered the approaches to see similarities and differences by just looking at the feature data of each approach without considering to which category they belong.
 The data and scripts to reproduce our analysis are available in~\cite{timkrauterArtifactsCoordination2024}.
 We apply a standard clustering algorithm using Jaccard distance to measure the similarity of the feature sets.
 Jaccard distance is the one-complement of Jaccard similarity for two sets, defined as the ratio of their intersection to their union~\cite{levandowskyDistanceSets1971}.
@@ -566,7 +565,7 @@ Thus, we conclude that coordination languages and ADLs have more similarities in
 As the only approach, Ptolemy remains unclustered. 
 Although we would classify Ptolemy as a coordination framework, it includes features from all categories and is not part of any cluster.
 %It is fascinating that one approach can offer such diverse features.
-It is intriguing how a single approach like Ptolemy may encompass a wide variety of features.
+It is intriguing how a single approach like Ptolemy can encompass a wide variety of features.
 
 \section{Conclusion \& future work} \label{sec: conclusion}
 
@@ -581,7 +580,7 @@ Furthermore, we apply our taxonomy to 17 coordination approaches and publish the
 Analyzing the resulting data, we identify characteristic features in each category, provide overarching insights, and cluster the approaches regarding their similarity. 
 
 % Future work
-In future work, we aim to refine our taxonomy further and apply it to more approaches to obtain an even more comprehensive overview of coordination approaches.
+In future work, we aim to refine our taxonomy and apply it to more approaches to obtain an even more comprehensive overview of coordination approaches.
 
 \bibliographystyle{splncs04}
 \bibliography{bib}
