@@ -189,18 +189,17 @@ However, to the best of our knowledge, no ADL supports heterogeneous components 
 Furthermore, despite the creation of numerous ADLs in the literature, they are not mainstream, i.e., not often used by practitioners in the industry~\cite{clementsSurveyArchitectureDescription1996,woodsArchitectureDescriptionLanguages2005,pandeyArchitecturalDescriptionLanguages2010,ozkayaAreWeThere2013,medvidovicMovingArchitecturalDescription2006}.
 
 \subsection{Coordination frameworks} \label{subsec: frameworks}
-% We coin the term
-We introduce the term \textit{coordination framework} for coordination approaches operating on the language level (see \autoref{fig: overview}).
+We introduce the term \textit{coordination framework} to describe the systematic establishment of coordination at the language level through the utilization of patterns, followed by an automatic derivation of the coordination on models that adhere to the languages. (see \autoref{fig: overview}).
 % Describe the category
-Coordination frameworks allow coordination of models conforming to \textit{different} behavioral languages using the concept of \textit{language behavioral interfaces}.
-This is valuable because each system might have a different behavioral language best encapsulating its nature.
-Language behavioral interfaces allow defining how coordination works for a given behavioral language, which can then be shared and used for each model conforming to that language.
+Coordination frameworks primarily concentrate on coordinating models that adhere to \textit{different} behavioral languages. They employ the concept of \textit{language behavioral interfaces} to define the \textit{synchronization points} that can be used during the coordination of models. 
+This is valuable because each part of the system might be defined using different behavioral languages best suited to its nature.
+Additionally, reifying coordination allows for 1) the inspection, sharing, and review of proposed coordination patterns and 2) automatically providing the coordination for each model conforming to that language.
 
 % Example
 For example, in~\cite{krauterBehavioralConsistencyMultimodeling2023}, the authors define a standard language behavioral interface that identifies state-changing elements used across different behavioral languages.
 In this paper, we will refer to our approach outlined in~\cite{krauterBehavioralConsistencyMultimodeling2023} as the \textit{Behavioral Coordination Language} (BCoorLang) to enhance clarity in communication.
-Using this uniform interface in BCoorLang, one can then define coordination between systems, represented using heterogeneous behavioral models.
-Concretely, one can define that a state change in one system should be synchronized with a state change in a different system by identifying the corresponding state-changing elements in each model.
+Using this uniform interface in BCoorLang, one can define coordination between systems using heterogeneous behavioral models.
+Concretely, one can define that a state change in one system should be synchronized with a state change in a different system by identifying the corresponding state-changing elements, i.e., synchronization points in each model.
 The semantics of BCoorLang are given by rewriting system specifications, such as graph- or term-rewriting, which can then be executed by corresponding tools such as Groove \cite{rensinkGROOVESimulatorTool2004} and Maude \cite{manuelclavelAllMaudeHighPerformance2007} for simulation and verification purposes.
 
 \section{Methodology} \label{sec: methodology}
@@ -474,8 +473,8 @@ However, one can adapt the analysis using the provided data and scripts~\cite{ti
 
 \section{Findings} \label{sec: findings}
 
-In this section, we describe the findings of applying our taxonomy to the different coordination approaches.
-We start by summarizing the typical features of each coordination category before stating the general insights we have attained.
+This section describes the findings of applying our taxonomy to the different coordination approaches.
+We start by summarizing the common features of each coordination category before stating the general insights we have attained.
 In addition, we cluster the approaches based on their feature similarity and discuss the results.
 
 \subsection{Common features}
@@ -490,7 +489,6 @@ An exception is MontiArc, where ports can be marked as \textit{synchronized} onl
 
 % Coordination language
 \textbf{Coordination languages} can have simulation and execution as their goal while operating in the discrete event domain.
-%Surprisingly, coordination syntax is also most likely architecture-based, i.e., the idea of subsystems, ports, and connectors/channels between them is also used in most coordination languages.
 Furthermore, coordination syntax is also most likely architecture-based, i.e., the idea of subsystems, ports, and connectors/channels between them is also used in most coordination languages.
 In addition, the systems in coordination languages are white-box and homogeneous but have both endogenous and exogenous coordination specifications.
 Notably, some coordination languages offer a federated execution not supported by ADLs.
@@ -505,7 +503,7 @@ Typically, execution is federated, while some approaches, such as DACCOSIM, even
 % Coordination frameworks
 \textbf{Coordination frameworks} have simulation and formal validation as their goal.
 Coordination syntax is diverse but usually uses event scheduling in the discrete event domain.
-Furthermore, coordination specification is exogenous to support heterogeneous systems, which in turn are white-box.
+Furthermore, coordination specification is exogenous to support heterogeneous systems, which are white-box.
 In contrast to coordination languages and co-simulation approaches, execution is centralized.
 In addition, some coordination frameworks, such as BCoorLang, facilitate formal verification of custom properties, which is a rare feature.
 
