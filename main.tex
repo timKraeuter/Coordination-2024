@@ -31,7 +31,10 @@ pdfkeywords={Coordination language, ADL, Coordination framework, Feature model, 
 \usepackage{todonotes}
 \usepackage[normalem]{ulem}
 \definecolor{mygreen}{rgb}{0.0, 0.66, 0.35}
-\newcommand{\jdChange}[2]{{\color{green!20}JD:} {\color{gray}\sout{#1}} {\color{mygreen}{#2}}}
+\newcommand{\jdChange}[2]{
+{\color{green!20}JD:} {\color{gray}\sout{#1}} {\color{mygreen}
+{#2}}
+}
 
 
 \begin{document}
@@ -252,7 +255,7 @@ For example, one could synchronize the firing of transitions from multiple state
 
 Explicit syntax is either \textit{query based} or \textit{structural}.
 % Query-based example
-For example, in BCOoL~\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}, one can write queries to define which elements should coordinate.
+For example, in BCOoL, one can write queries to define which elements should coordinate~\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
 For example, interactions in BCoorLang are specified by picking dedicated elements that should be coordinated, while coordination in ADLs depends on the architectural configuration~\cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of systems are connected.
@@ -280,18 +283,19 @@ We categorize MoCs along three types: \textit{timed}, \textit{causal}, \textit{a
 A \textit{timed} MoC can use \textit{physical} or \textit{logical} time.
 % Causal (data)
 The categorization of \textit{causal} and \textit{a-causal} MoCs is also present in the co-simulation field~\cite{gomesCoSimulationSurvey2019}.
-The causal MoC means that the coordination approach facilitates event and data exchange between different systems such that one system can cause reactions, i.e., state changes in other systems.
+A causal MoC means that there is a notion of inputs and outputs in the events and data exchanged between system parts.
+The update of an output can cause reactions, i.e., state changes in the input of the other systems.
 For example, a system based on a state machine raises an event, which causes a reaction in a different system.
 
 % A-causal
-An a-causal MoC is necessary to deal with related differential equations \cite{lecoentGuaranteedCosimulationCyberphysical2020}.
-For example, a variable in one equation should equal a variable in a different equation.
-In this case, there is no cause and effect, such as in the causal MoC, but rather, the variables have an a-causal relationship since they should be equal at any time.
+In an a-causal MoC, there is no notion of inputs or outputs of data but rather of equality (in the mathematical sense).
+Two data a-causally coordinated must be equal at any time.
+This is, for instance, typical in differential equations.
 
 % Timed::Logical
-\textit{Logical} time means that coordination approaches define when events happen.
-Typically, one defines that events take place simultaneously or that one event causes another event immediately or with a fixed delay.
-For example, a delay could be 50 milliseconds of logical time, corresponding to time in a simulation that can run arbitrarily fast.
+\textit{Logical} time is a concept that provides a way to reason about the partial order of events (and data exchanges) without needing to rely on a physical clock.
+It allows for the specification of causal and a-causal relationships between events and helps ensure the consistency and correctness of loosely coupled systems~\cite{FidgeLogicalTime,T2LogicalTime}.
+For instance, one can specify that an action is performed every ten startups of the system, regardless of how frequently the startup physically occurs.
 
 % Timed::Physical
 In contrast, \textit{physical} time describes time passing in the physical world.
@@ -456,8 +460,7 @@ For example, when looking at the Venn diagram on the left in \autoref{fig: venns
 	\label{fig: venns}
 \end{figure}
 
-The Venn diagram on the left in \autoref{fig: venns} shows that Linda has three original features compared to BCoorLang and MontiArc:
-execution as goal, a name-based syntax, and a federated execution.
+The Venn diagram on the left in \autoref{fig: venns} shows that Linda has three original features compared to BCoorLang and MontiArc: execution as a goal, a name-based syntax, and a federated execution.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
 Coordination frameworks have multiple original features, such as supporting heterogeneous system languages and formal validation using custom properties.
 
@@ -541,14 +544,14 @@ It is a widely used and reasonable dissimilarity measure for sets~\cite{levandow
 It provides a bird's-eye view of the similarity or dissimilarity between all the studied coordination approaches---this is in contrast to the previous Venn diagrams, which only compare three approaches.
 Furthermore, it highlights the clustering results by coloring each data point.
 We selected clustering parameters to reduce the number of unclustered approaches while ensuring that we do not consolidate everything into just one cluster.
-
+%
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{images/approach_scatter}
-	\caption{Feature distance and clustering of approaches}
+    \caption{Feature distance and clustering of approaches}
 	\label{fig: clusters}
 \end{figure}
-
+%
 % Description of the plot
 The clustering algorithm finds three clusters, including all but one approach.
 \textbf{Cluster 1} contains only the coordination frameworks BCoorLang and BCOol, 
@@ -577,12 +580,13 @@ Consequently, we provide a comprehensive overview of coordination in the literat
 % Application and data set
 Furthermore, we apply our taxonomy to 17 coordination approaches and publish the results as open data \cite{timkrauterArtifactsCoordination2024}.
 % Findings
-Analyzing the resulting data, we identify characteristic features in each category, provide overarching insights, and cluster the approaches regarding their similarity. 
+Analyzing the resulting data, we identify characteristic features in each category, provide overarching insights, and cluster the approaches regarding their similarity.
+% Clustering: Categorization vs similarity
 
 % Future work
 In future work, we aim to refine our taxonomy and apply it to more approaches to obtain an even more comprehensive overview of coordination approaches.
 
 \bibliographystyle{splncs04}
-\bibliography{bib}
+\bibliography{bib,jdBib}
 
 \end{document}
