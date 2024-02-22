@@ -228,7 +228,7 @@ Finally, we refined our taxonomy by examining the secondary studies and individu
 We represent our taxonomy as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990}.
 We aim to comprehensively understand the coordination landscape and compare coordination approaches from different categories.
 To achieve this goal, we first identify the coordination \textit{foundation}: coordination mechanism, syntax, semantics, and degree of formality.
-Second, we investigate the coordination approaches \textit{goal} such as simulation, execution, and formal validation.
+Second, we investigate the coordination approaches \textit{goal} such as simulation, execution, and formal verification.
 Third, we study the approaches' \textit{properties}, such as domain, execution, specification, system transparency, and system languages.
 
 The top level of the feature model is shown in \autoref{fig: featureModelOverview}.
@@ -272,7 +272,7 @@ For example, in BCOoL~\cite{varalarsenBehavioralCoordinationOperator2015}, one c
 
 \textit{Data-exchange} means systems communicate by exchanging data.
 For example, in the ADL MontiArc~\cite{haberMontiArcArchitecturalModeling2014}, systems send data from the output to the input port.
-Data can also be exposed as variables, which are then coupled with variables in other systems, for example, to be the same.
+Data can also be exposed as variables, which can be coupled with variables in other systems, for example, to be the same.
 However, data exchange might also happen between systems during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
 
 \feature{Semantics} The semantics feature consists of \textit{expressiveness}, \textit{model of computation}, and \textit{formality}.
@@ -287,7 +287,7 @@ A \textit{timed} MoC can use \textit{physical} or \textit{logical} time.
 % Causal (data)
 The categorization of \textit{causal} and \textit{a-causal} MoCs is also present in the co-simulation field~\cite{gomesCoSimulationSurvey2019}.
 A causal MoC means that there is a notion of inputs and outputs in the events and data exchanged between system parts.
-The update of an output can cause reactions, i.e., state changes in the input of the other systems.
+An output can cause reactions, i.e., state changes in the input of the other systems.
 For example, a system based on a state machine raises an event, which causes a reaction in a different system.
 
 % A-causal
@@ -315,7 +315,7 @@ It relies on the graph-transformation tool Groove~\cite{rensinkGROOVESimulatorTo
 
 
 \subsection{Goal} % Or even call it motivation
-We identified three different \textit{goals} of coordination approaches: \textbf{simulation}, \textbf{execution}, and \textbf{formal validation}, see \autoref{fig: goalFeature}.
+We identified three different \textit{goals} of coordination approaches: \textbf{simulation}, \textbf{execution}, and \textbf{formal verification}, see \autoref{fig: goalFeature}.
 A coordination approach can have one or multiple goals, which we will now describe in detail.
 
 \begin{figure}[ht]
@@ -339,7 +339,7 @@ Furthermore, the recently developed polyglot coordination language \textit{Lingu
 Thus, it eliminates typical coordination concerns faced during coordinating concurrent \textit{execution}.
 
 
-\feature{Formal validation} Another goal of coordination approaches, especially for safety-critical systems, is formal validation of the coordinated system.
+\feature{Formal verification} Another goal of coordination approaches, especially for safety-critical systems, is formal verification of the coordinated system.
 
 We encountered coordination approaches that validate \textit{predefined properties}, while others support \textit{custom properties}.
 % (Definition 5)
@@ -465,7 +465,7 @@ For example, when looking at the Venn diagram on the left in \autoref{fig: venns
 
 The Venn diagram on the left in \autoref{fig: venns} shows that Linda has three original features compared to BCoorLang and MontiArc: execution as a goal, a name-based syntax, and a federated execution.
 Furthermore, one can see that coordination frameworks, i.e., BCoorLang (the diagram is similar for BCOol~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016}) greatly differ from ADLs and coordination languages.
-Coordination frameworks have multiple original features, such as supporting heterogeneous system languages and formal validation using custom properties.
+Coordination frameworks have multiple original features, such as supporting heterogeneous system languages and formal verification using custom properties.
 
 Similarly, on the right in \autoref{fig: venns}, BCoorLang and MontiArc are compared with the co-simulation approach DACCOSIM.
 One can see that BCoorLang and DACCOSIM do not have many features in common, probably due to their different goals as a coordination approach.
@@ -507,7 +507,7 @@ The systems can be homogeneous or heterogeneous by wrapping them in specific for
 Typically, execution is federated, while some approaches, such as DACCOSIM, even allow for a distributed execution.
 
 % Coordination frameworks
-\textbf{Coordination frameworks} have simulation and formal validation as their goal.
+\textbf{Coordination frameworks} have simulation and formal verification as their goal.
 Coordination syntax is diverse but usually uses event scheduling in the discrete event domain.
 Furthermore, coordination specification is exogenous to support heterogeneous systems, which are white-box.
 In contrast to coordination languages and co-simulation approaches, execution is centralized.
@@ -518,18 +518,14 @@ In addition, some coordination frameworks, such as BCoorLang, facilitate formal 
 
 \textbf{Architecture-based coordination syntax is widely used.}
 Remarkably, coordination approaches from all categories use concepts such as components, ports, and connectors to express coordination.
-%The specific coordination details vary between different approaches, but there appears to be broad consensus on the importance of clearly representing the system architecture for effective coordination.
-The precise coordination details may differ across various approaches, but there seems to be a general consensus regarding the significance of accurately representing the system architecture for efficient coordination.
+The precise coordination details may differ across various approaches, but there seems to be a broad consensus on the importance of accurately representing the system architecture for efficient coordination.
 
 \textbf{Formal verification is rarely supported.}
 Most of the studied coordination approaches have simulation as their goal, while formal verification is uncommon.
 This could be attributed to the problem of formally representing heterogeneous systems engaged in coordination and the rapid growth of state spaces when multiple systems are involved.
 
 \textbf{Coordination frameworks do not support Data-Exchange.}
-All coordination frameworks %besides Ptolemy 
-support \textit{event-scheduling} but not \textit{data-exchange} as a coordination mechanism.
-%This is likely because data exchange is difficult when heterogeneous systems are present.
-%However, data exchange is omnipotent in real-world systems, so it is the main coordination mechanism used in co-simulation approaches and coordination languages.
+All coordination frameworks besides Ptolemy support \textit{event-scheduling} but not \textit{data-exchange} as a coordination mechanism.
 This difficulty likely arises due to heterogeneous systems, making data exchange challenging.
 Nevertheless, data exchange is omnipotent in real-world systems, serving as the primary coordination mechanism utilized in co-simulation methods and coordination languages.
 Therefore, coordination frameworks must be able to facilitate data exchange to be effectively utilized in real-world scenarios.
