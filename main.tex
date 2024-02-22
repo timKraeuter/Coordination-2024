@@ -374,7 +374,7 @@ For example, DACCOSIM only requires each system to conform to the FMI specificat
 
 \feature{Specification} We distinguish between \textit{endogenous} and \textit{exogenous} specification of coordination, as described for coordination languages in~\cite{arbabWhatYouMean1998}.
 For example, when using the coordination language Linda~\cite{carrieroLindaContext1989}, one uses coordination-specific operations such as \textsf{out} and \textsf{in} inside system programs to write to and read from the shared tuple space, respectively.
-Thus, Linda is \textit{endogenous} since one has to modify the behavior of the systems to add coordination.
+Thus, Linda is \textit{endogenous} since one must modify the behavior of the systems to add coordination.
 
 On the other hand, \textit{exogenous} coordination approaches keep coordination aspects outside of systems.
 However, systems must still be created with coordination in mind to expose possible coordination points.
@@ -496,7 +496,7 @@ Notably, some coordination languages offer a federated execution not supported b
 
 % Co-Simulation
 As the name suggests, all \textbf{co-simulation} approaches have merely simulation as their goal.
-Similar to ADLs and coordination languages, coordination syntax is architecture-based.
+Like ADLs and coordination languages, coordination syntax is architecture-based.
 However, compared to the other categories, they operate in the hybrid domain, facilitating data exchange between black-box systems.
 The systems can be homogeneous or heterogeneous by wrapping them in specific formalisms such as DEVS in the case of MECSYCO.
 Typically, execution is federated, while some approaches, such as DACCOSIM, even allow for a distributed execution.
