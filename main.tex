@@ -124,12 +124,14 @@ They are outlined in \autoref{subsec: frameworks}.
 \subsection{Co-simulation approaches} \label{subsec: cosim}
 
 % General description
-\textit{Co-simulation approaches} involve coordinating timely exchanges of information between multiple simulations running concurrently. In this configuration, a simulation is the execution of a simulation unit that consumes inputs and produces outputs. A simulation unit is typically specified as a \textit{black box}, i.e., its behavior is opaque and accessible only through its simulation interface.
+\textit{Co-simulation approaches} involve coordinating timely information exchanges between multiple simulations running concurrently.
+In this configuration, a simulation is the execution of a simulation unit that consumes inputs and produces outputs.
+A simulation unit is typically specified as a \textit{black box}, i.e., its behavior is opaque and accessible only through its simulation interface.
 Using such interfaces, the co-simulation must ensure the temporal and causal relationships between each simulation. This is usually achieved by defining an \textit{orchestrator}~\cite{gomesCoSimulationSurvey2019}, which dictates the progression of simulated time and transfers data between simulations.
 Co-simulation approaches are categorized as \textit{Discrete Event} (DE), \textit{Continuous Time} (CT), or \textit{Hybrid} if DE and CT aspects are mixed~\cite{gomesCoSimulationSurvey2019}.
 
 % Standards
-Currently, there are two main standards for co-simulation: the Functional Mock-up Interface (FMI)~\cite{modelisarFunctionalMockupInterface2023} and the High Level Architecture (HLA)~\cite{dahmannHighLevelArchitecture1997}.
+Currently, there are two primary standards for co-simulation: the Functional Mock-up Interface (FMI)~\cite{modelisarFunctionalMockupInterface2023} and the High Level Architecture (HLA)~\cite{dahmannHighLevelArchitecture1997}.
 The FMI standard is better suited for CT co-simulation, while the HLA standard is better suited for DE co-simulation ~\cite{gomesCoSimulationSurvey2019,liboniComplexSystemsCosimulation2021}.
 
 % Examples
