@@ -47,6 +47,7 @@ for i, label in enumerate(distance_matrix.columns):
 
 # Add legend
 plt.legend(loc='lower left')
+# Remove padding
 plt.tight_layout(pad=0)
 
 # Save and show the plot
