@@ -59,9 +59,8 @@ University of Applied Sciences, FHDW, Hanover, Germany\\
 Complex domains necessitate the utilization of multiple interacting software systems.
 Various categories of coordination approaches, such as coordination languages, co-simulation approaches, architecture description languages, and coordination frameworks, have been proposed to ensure seamless integration of these systems.
 In this paper, we present a comprehensive feature-based taxonomy of these categories, which have previously only been studied in isolation.
-The taxonomy uncovers common and unique features across the coordination approaches.
-It can be used to make informed decisions about the choice of coordination approaches for specific use cases.
-
+We apply our taxonomy to 17 distinct approaches, uncovering standard and unique features across the categories and allowing us to provide overarching insights.
+Furthermore, we employ clustering analysis to explore the similarities among these approaches, revealing the closeness coordination categories.
 \end{abstract}
 
 \keywords{
@@ -571,11 +570,17 @@ It is intriguing how a single approach like Ptolemy can encompass a variety of d
 The main contribution of this paper is a taxonomy of coordination approaches represented as a feature model.
 This taxonomy facilitates the categorization and comparison of approaches across previously isolated categories.
 Consequently, we provide a comprehensive overview of coordination in the literature and the state of the art.
+
 % Application and data set
-Furthermore, we apply our taxonomy to 17 coordination approaches and publish the results as open data \cite{timkrauterArtifactsCoordination2024}.
+Furthermore, we apply our taxonomy to 17 coordination approaches and publish the results as open data~\cite{timkrauterArtifactsCoordination2024}.
 % Findings
-Analyzing the resulting data, we identify characteristic features in each category, provide overarching insights, and cluster the approaches regarding their similarity.
+Analyzing the resulting data, we identify characteristic and unique features in each category.
+% Repeat the three overarching insights.
+As overarching insights, we find that architecture-based coordination is widely used, and formal verification is rarely a goal of coordination. 
+
 % Clustering: Categorization vs similarity
+In addition, we cluster the approaches regarding their similarity.
+The clustering shows that ADLs and coordination languages are very similar from the perspective of our taxonomy, while the other categories stay separate.
 
 \bibliographystyle{splncs04}
 \bibliography{bib,jdBib}
