@@ -2,7 +2,8 @@
 
 1. Clone this repository.
 2. Open a cmd/bash in this folder.
-3. Run one of the following commands:
+3. Install Python and the packages used in each script.
+4. Run one of the following commands:
 
 ## Venn Diagram: BCoorLang Linda MontiArc
 
@@ -14,7 +15,7 @@ Generates the **first Venn diagram** in the paper:
 
 ![venn diagram 3 approaches](./venn-diagrams/BCoorLang_Linda_MontiArc_venn.svg)).
 
-Venn diagrams with feature labels can be obtained as described in the next section.
+Venn diagrams with feature labels can be obtained, as described in the next section.
 
 ## Venn Diagram: BCoorLang DACCOSIM MontiArc
 
@@ -26,11 +27,11 @@ Generates the **second Venn diagram** in the paper:
 
 ![venn diagram 3 approaches](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)).
 
-Venn diagrams with feature labels can be obtained as described in the next section.
+Venn diagrams with feature labels can be obtained, as described in the next section.
 
 ## Venn Diagrams with feature labels
 
-To obtain venn diagrams with feature labels follow the same procedure as before but use one of the commands below:
+To obtain Venn diagrams with feature labels, follow the same procedure as before but use one of the commands below:
 
 ### Venn Diagram: BCoorLang Linda MontiArc
 
@@ -59,7 +60,7 @@ py Generate_Venn_With_Labels.py BCoorLang DACCOSIM MontiArc
 ## Equivalent UpSet plots
 
 More information about [UpSet plots](https://upset.app/).
-Follow the same procedure as before but use one of the new commands below to generate UpSet plots:
+Follow the same procedure as before, but use one of the new commands below to generate UpSet plots:
 
 ### UpSet plot: BCoorLang Linda MontiArc
 
@@ -87,7 +88,8 @@ py Generate_Upset.py BCoorLang DACCOSIM MontiArc
 
 ### UpSet plot: Custom approaches
 
-UpSet plots make the most sense for more than three approaches. You can add as many approaches as arguments as you want.
+UpSet plots make the most sense for more than three approaches.
+You can add as many approaches and arguments as you want.
 
 **Script:**
 
@@ -131,7 +133,7 @@ You can run the following script to reproduce the results:
 py Cluster_approaches.py
 ```
 
-The distance matrix, together with the clustering is visualized in the following scatter plot (
+The distance matrix, together with the clustering, is visualized in the following scatter plot (
 see `Scatter_approachey_by_distance.py`):
 
 ![distance scatter plot](distance/approach_scatter.svg)).

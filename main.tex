@@ -25,17 +25,13 @@ pdfkeywords={Coordination language, ADL, Coordination framework, Feature model, 
 % Quote command
 \newcommand{\quotes}[1]{``#1''}
 % Feature command
-\newcommand{\feature}[1]{\vskip 0.5em \textbf{#1}}
+\newcommand{\feature}[1]{\textbf{#1}}
 
 % proposed changes commands
 \usepackage{color}
 \usepackage{todonotes}
 \usepackage[normalem]{ulem}
 \definecolor{mygreen}{rgb}{0.0, 0.66, 0.35}
-\newcommand{\jdChange}[2]{
-{\color{green!20}JD:} {\color{gray}\sout{#1}} {\color{mygreen}
-{#2}}
-}
 
 
 \begin{document}
@@ -258,7 +254,7 @@ For example, one could synchronize the firing of transitions from multiple state
 
 Explicit syntax is either \textit{query based} or \textit{structural}.
 % Query-based example
-For example, in BCOoL, one can write queries to define which elements should coordinate~\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
+For example, in BCOoL, one can write queries to define which elements should be coordinated~\cite{varalarsenBCOolBehavioralCoordination2016,varalarsenBehavioralCoordinationOperator2015}.
 
 A structural definition of coordination uses \textit{dedicated elements} or is \textit{architecture based}.
 For example, interactions in BCoorLang are specified by picking dedicated elements that should be coordinated, while coordination in ADLs depends on the architectural configuration~\cite{medvidovicClassificationComparisonFramework2000}, i.e., how ports of systems are connected.
@@ -272,7 +268,7 @@ For example, in BCOoL~\cite{varalarsenBehavioralCoordinationOperator2015}, one c
 
 \textit{Data-exchange} means systems communicate by exchanging data.
 For example, in the ADL MontiArc~\cite{haberMontiArcArchitecturalModeling2014}, systems send data from the output to the input port.
-Data can also be exposed as variables, which can be coupled with variables in other systems, for example, to be the same.
+Data can also be exposed as variables, which can be coupled with variables in other systems, for example, to be equal.
 However, data exchange might also happen between systems during the synchronization of events, which is why both coordination mechanisms can be supported simultaneously.
 
 \feature{Semantics} The semantics feature consists of \textit{expressiveness}, \textit{model of computation}, and \textit{formality}.
@@ -448,11 +444,11 @@ MECSYCO~\cite{camusCosimulationCyberphysicalSystems2018,camusHybridCosimulationF
 CoSim20~\cite{liboniComplexSystemsCosimulation2021},
 BCOoL~\cite{varalarsenBehavioralCoordinationOperator2015,varalarsenBCOolBehavioralCoordination2016},
 Manifold~\cite{arbabOverviewManifoldIts1993,papadopoulosModellingActivitiesInformation1998}, and ForSyDe~\cite{sanderSystemModelingTransformational2004,sanderForSyDeSystemDesign2016}.
-Due to space constraints, we cannot show all classifications, but the complete data set is available in the artifacts of this paper~\cite{timkrauterArtifactsCoordination2024}.
+Due to space constraints, we cannot show all classifications, but they are available in the artifacts~\cite{timkrauterArtifactsCoordination2024}.
 
 In \autoref{fig: venns}, we compare BCoorLang and MontiArc with Linda on the left and DACCOSIM on the right.
-The figure shows Venn diagrams comparing the feature sets of each approach, where each colored part states which features are contained.
-In addition, the number in each area states the amount of contained features.
+The figure shows Venn diagrams comparing the features of each approach, where each part states which features are contained.
+In addition, the numbers state the amount of contained features in each area.
 
 For example, when looking at the Venn diagram on the left in \autoref{fig: venns}, the \textsf{1} in the circle part at the bottom describes that MontiArc has one \textit{original} feature, while the \textsf{3} in the intersection of all approaches in the middle declares that they all have three features in \textit{common}, see \autoref{tab:classification}.
 
@@ -508,7 +504,7 @@ Typically, execution is federated, while some approaches, such as DACCOSIM, even
 
 % Coordination frameworks
 \textbf{Coordination frameworks} have simulation and formal verification as their goal.
-Coordination syntax is diverse but usually uses event scheduling in the discrete event domain.
+Coordination syntax is diverse but usually applies event scheduling in the discrete event domain.
 Furthermore, coordination specification is exogenous to support heterogeneous systems, which are white-box.
 In contrast to coordination languages and co-simulation approaches, execution is centralized.
 In addition, some coordination frameworks, such as BCoorLang, facilitate formal verification of custom properties, which is a rare feature.
@@ -568,7 +564,7 @@ As the only approach, Ptolemy remains unclustered.
 Although we would classify Ptolemy as a coordination framework, it includes features from all categories and is not part of any cluster.
 It is intriguing how a single approach like Ptolemy can encompass a variety of diverse features.
 
-\section{Conclusion \& future work} \label{sec: conclusion}
+\section{Conclusion} \label{sec: conclusion}
 
 % Summary and Contributions
 % Feature model/taxonomy --> link back to motivation
@@ -580,9 +576,6 @@ Furthermore, we apply our taxonomy to 17 coordination approaches and publish the
 % Findings
 Analyzing the resulting data, we identify characteristic features in each category, provide overarching insights, and cluster the approaches regarding their similarity.
 % Clustering: Categorization vs similarity
-
-% Future work
-In future work, we aim to refine our taxonomy and apply it to more approaches to obtain an even more comprehensive overview of coordination approaches.
 
 \bibliographystyle{splncs04}
 \bibliography{bib,jdBib}
