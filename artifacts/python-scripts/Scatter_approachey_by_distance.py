@@ -46,7 +46,7 @@ for i, label in enumerate(distance_matrix.columns):
     plt.annotate(label, (mds_result[i, 0], mds_result[i, 1]), va='bottom')
 
 # Add legend
-plt.legend(loc='lower left',)
+plt.legend(loc='lower left')
 plt.tight_layout(pad=0)
 
 # Save and show the plot
