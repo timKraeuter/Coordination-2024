@@ -210,6 +210,8 @@ The semantics of BCoorLang are given by rewriting system specifications, such as
 
 \section{Methodology} \label{sec: methodology}
 
+We created an initial version of our taxonomy and then continuously revised it by consulting the literature in two steps until it reached a stable state, which is described in the next section.
+
 First, we conducted a \textit{meta-analysis} (tertiary study) on surveys (secondary studies) within each coordination category.
 We found the following  secondary studies for coordination languages (\cite{papadopoulosCoordinationModelsLanguages1998,goosCoordinationModelsLanguages2001,rossiTuplebasedTechnologiesCoordination2001}), ADLs (\cite{clementsSurveyArchitectureDescription1996,medvidovicClassificationComparisonFramework2000,hussainInvestigatingArchitectureDescription2013,ozkayaAreWeThere2013,malavoltaWhatIndustryNeeds2013}), and co-simulation approaches (\cite{gomesCoSimulationSurvey2019,schweigerEmpiricalSurveyCosimulation2019,hafnerOverviewStateArt2021}).
 We have not found surveys on coordination frameworks since we introduced the term in this publication.
@@ -222,14 +224,12 @@ Due to the immense number of approaches and limited time, we focus on the 17 app
 Our selection of these approaches is based on a mix of different criteria: distribution across categories, expert knowledge of the authors regarding relevance, and heterogeneity inside categories.
 For example, we chose heterogeneous coordination languages, namely Linda, Reo, and Lingua Franca, which employ different coordination models, namely tuple spaces, channels, and reactors.
 
-Finally, we refined our taxonomy by examining the secondary studies and individual coordination approaches until it reached a stable state described in the next section.
-
 \section{Taxonomy} \label{sec: taxonomy}
 We represent our taxonomy as a \textit{feature model}~\cite{kangFeatureOrientedDomainAnalysis1990}.
 We aim to comprehensively understand the coordination landscape and compare coordination approaches from different categories.
-To achieve this goal, we first identify the coordination \textit{foundation}: coordination mechanism, syntax, semantics, and degree of formality.
+To achieve this goal, we first identify the coordination \textit{foundation}: coordination mechanism, syntax, and semantics.
 Second, we investigate the coordination approaches \textit{goal} such as simulation, execution, and formal verification.
-Third, we study the approaches' \textit{properties}, such as domain, execution, specification, system transparency, and system languages.
+Third, we study the approaches' \textit{properties}, such as system transparency, domain, execution, system languages, and specification.
 
 The top level of the feature model is shown in \autoref{fig: featureModelOverview}.
 A coordination approach has the three previously discussed features: \textit{Foundation}, \textit{Goal}, and \textit{Properties}, which we depict and describe in detail in the following sections.
