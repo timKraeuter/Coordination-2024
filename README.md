@@ -25,6 +25,6 @@ The following figure shows the complete feature model.
 ![](./artifacts/images/feature-model.svg)
 
 # Artifacts
-Our artifacts are described in detail [here](./artifacts/python-scripts/README.md).
+Our artifacts are described [here](./artifacts/python-scripts/README.md).
 They contain all [data](./artifacts/classification.xlsx) from applying the feature model to the different approaches.
 In addition, we provide our analysis scripts to do the approach clustering and generate related diagrams.
