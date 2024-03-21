@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10692179.svg)](https://doi.org/10.5281/zenodo.10692179)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10692178.svg)](https://zenodo.org/doi/10.5281/zenodo.10692178)
 
 # Coordination-2024
 This repository contains the sources of [our paper](./paper.pdf) submitted to the [26th International Conference on Coordination Models and Languages (Coordination 2024)](https://www.discotec.org/2024/coordination) and associated [artifacts](artifacts/python-scripts/README.md).
