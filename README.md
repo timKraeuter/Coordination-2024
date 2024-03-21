@@ -1,5 +1,5 @@
 # Coordination-2024
-This repository contains the sources of [our paper](./paper.pdf) submitted to the [26th International Conference on Coordination Models and Languages (Coordination 2024)](https://www.discotec.org/2024/coordination) and associated artifacts.
+This repository contains the sources of [our paper](./paper.pdf) submitted to the [26th International Conference on Coordination Models and Languages (Coordination 2024)](https://www.discotec.org/2024/coordination) and associated [artifacts](artifacts/python-scripts/README.md).
 
 # Methodology
 The following queries were used for the **tertiary study**:
@@ -24,16 +24,7 @@ The following figure shows the complete feature model.
 
 ![](./artifacts/images/feature-model.svg)
 
-# Application of the feature model
-All data from applying the feature model to the different approaches can be found [here](./artifacts/classification.xlsx).
-
-
-The Python scripts to generate **Venn diagrams**, along with a step-by-step description, are located [here](./artifacts/python-scripts/).
-
-**Sample Venn diagram:**
-
-![venn diagram](./artifacts/python-scripts/venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)
-# Findings
-The [scripts folder](./artifacts/python-scripts/) contains the code to cluster and plot the classification data:
-
-![approach scatter](./artifacts/python-scripts/distance/approach_scatter.svg)
+# Artifacts
+Our artifacts are described in detail [here](./artifacts/python-scripts/README.md).
+They contain all [data](./artifacts/classification.xlsx) from applying the feature model to the different approaches.
+In addition, we provide our analysis scripts to do the approach clustering and generate related diagrams.

@@ -1,4 +1,14 @@
+# Artifacts for Coordination-2024
+This file describes the artifacts for our paper submitted to Coordination-2024.
+
+# Data
+The data from applying the feature model to the different approaches can be found in tabular format [here](.././classification.xlsx).
+
+The scripts used in our analysis and described below **rely on this file** to read features for the diagrams and calculate feature [distances](./distance/distances.xlsx) for the clustering.
+
 # Analysing the data and generating visualizations
+
+Follow these steps to run the analysis on your machine.
 
 1. Clone this repository.
 2. Open a terminal in this folder.
