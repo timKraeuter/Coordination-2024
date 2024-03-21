@@ -2,7 +2,6 @@
 
 # venn3 can only do a venn diagram of up to 3 sets.
 
-import itertools
 import matplotlib.pyplot as plt
 from matplotlib_venn import venn3
 import sys

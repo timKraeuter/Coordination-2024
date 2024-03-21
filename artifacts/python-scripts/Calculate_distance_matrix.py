@@ -1,4 +1,3 @@
-from sklearn.cluster import DBSCAN
 import pandas as pd
 
 df = pd.read_excel('../classification.xlsx')
