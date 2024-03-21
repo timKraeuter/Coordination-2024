@@ -1,0 +1,8 @@
+images/*           export-ignore
+.gitignore         export-ignore
+.gitattributes     export-ignore
+*.bib              export-ignore
+*.tex              export-ignore
+*.txsprofile       export-ignore
+*.cls              export-ignore
+*.bst              export-ignore
