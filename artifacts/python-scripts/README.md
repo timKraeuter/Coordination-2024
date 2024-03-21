@@ -5,6 +5,7 @@ This file describes the artifacts for our paper submitted to Coordination-2024.
 The data from applying the feature model to the different approaches can be found in tabular format [here](.././classification.xlsx).
 
 The scripts used in our analysis and described below **rely on this file** to read features for the diagrams and calculate feature [distances](./distance/distances.xlsx) for the clustering.
+If the data file is changed to include a new approach, one has to regenerate the precomputed distances.
 
 # Analysing the data and generating visualizations
 
