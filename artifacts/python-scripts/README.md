@@ -1,31 +1,34 @@
-# Generate Venn diagrams of the feature sets of three approaches
+# Analysing the data and generating visualizations
 
 1. Clone this repository.
-2. Open a cmd/bash in this folder.
+2. Open a terminal in this folder.
 3. Install Python and the packages used in each script.
-4. Run one of the following commands:
+4. Run one of the following commands.
+
+`python` is used to refer to the installed Python CLI in all the commands.
+Users with linux/macOS machines might have to substitute `python` with `python3` depending on their installation.
 
 ## Venn Diagram: BCoorLang Linda MontiArc
 
 ```bash
-py Generate_Venn.py BCoorLang Linda MontiArc
+python Generate_Venn.py BCoorLang Linda MontiArc
 ```
 
 Generates the **first Venn diagram** in the paper:
 
-![venn diagram 3 approaches](./venn-diagrams/BCoorLang_Linda_MontiArc_venn.svg)).
+![venn diagram 3 approaches](./venn-diagrams/BCoorLang_Linda_MontiArc_venn.svg)
 
 Venn diagrams with feature labels can be obtained, as described in the next section.
 
 ## Venn Diagram: BCoorLang DACCOSIM MontiArc
 
 ```bash
-py Generate_Venn.py BCoorLang DACCOSIM MontiArc
+python Generate_Venn.py BCoorLang DACCOSIM MontiArc
 ```
 
 Generates the **second Venn diagram** in the paper:
 
-![venn diagram 3 approaches](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)).
+![venn diagram 3 approaches](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn.svg)
 
 Venn diagrams with feature labels can be obtained, as described in the next section.
 
@@ -38,28 +41,28 @@ To obtain Venn diagrams with feature labels, follow the same procedure as before
 **Script:**
 
 ```bash
-py Generate_Venn_With_Labels.py BCoorLang Linda MontiArc
+python Generate_Venn_With_Labels.py BCoorLang Linda MontiArc
 ```
 
 **Output:**
 
-![venn diagram 3 approaches with feature labels](./venn-diagrams/BCoorLang_Linda_MontiArc_venn_labeled.svg)).
+![venn diagram 3 approaches with feature labels](./venn-diagrams/BCoorLang_Linda_MontiArc_venn_labeled.svg)
 
 ### Venn Diagram: BCoorLang DACCOSIM MontiArc
 
 **Script:**
 
 ```bash
-py Generate_Venn_With_Labels.py BCoorLang DACCOSIM MontiArc
+python Generate_Venn_With_Labels.py BCoorLang DACCOSIM MontiArc
 ```
 
 **Output:**
 
-![venn diagram 3 approaches with feature labels](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn_labeled.svg)).
+![venn diagram 3 approaches with feature labels](./venn-diagrams/BCoorLang_DACCOSIM_MontiArc_venn_labeled.svg)
 
 ## Equivalent UpSet plots
 
-More information about [UpSet plots](https://upset.app/).
+More information about [UpSet plots](https://upset.app/)
 Follow the same procedure as before, but use one of the new commands below to generate UpSet plots:
 
 ### UpSet plot: BCoorLang Linda MontiArc
@@ -67,24 +70,24 @@ Follow the same procedure as before, but use one of the new commands below to ge
 **Script:**
 
 ```bash
-py Generate_Upset.py BCoorLang Linda MontiArc
+python Generate_Upset.py BCoorLang Linda MontiArc
 ```
 
 **Output:**
 
-![upset plot 3 approaches](./upset-plots/BCoorLang_Linda_MontiArc_upset.svg)).
+![upset plot 3 approaches](./upset-plots/BCoorLang_Linda_MontiArc_upset.svg)
 
 ### UpSet plot: BCoorLang DACCOSIM MontiArc
 
 **Script:**
 
 ```bash
-py Generate_Upset.py BCoorLang DACCOSIM MontiArc
+python Generate_Upset.py BCoorLang DACCOSIM MontiArc
 ```
 
 **Output:**
 
-![upset plot 3 approaches](./upset-plots/BCoorLang_DACCOSIM_MontiArc_upset.svg)).
+![upset plot 3 approaches](./upset-plots/BCoorLang_DACCOSIM_MontiArc_upset.svg)
 
 ### UpSet plot: Custom approaches
 
@@ -94,12 +97,12 @@ You can add as many approaches and arguments as you want.
 **Script:**
 
 ```bash
-py Generate_Upset.py BCoorLang Linda MontiArc DACCOSIM
+python Generate_Upset.py BCoorLang Linda MontiArc DACCOSIM
 ```
 
 **Output:**
 
-![upset plot 4 approaches](./upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)).
+![upset plot 4 approaches](./upset-plots/BCoorLang_Linda_MontiArc_DACCOSIM_upset.svg)
 
 ## Clustering
 
@@ -130,13 +133,13 @@ Not clustered: {'Ptolemy'}
 You can run the following script to reproduce the results:
 
 ```bash
-py Cluster_approaches.py
+python Cluster_approaches.py
 ```
 
 The distance matrix, together with the clustering, is visualized in the following scatter plot (
 see `Scatter_approachey_by_distance.py`):
 
-![distance scatter plot](distance/approach_scatter.svg)).
+![distance scatter plot](distance/approach_scatter.svg)
 
 The plot approximates the position of each approach relative to the others by using the distance matrix.
 It cannot be exact, but it paints a good overall picture.
