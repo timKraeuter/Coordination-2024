@@ -13,7 +13,7 @@ Follow these steps to run the analysis on your machine.
 
 1. Clone this repository.
 2. Open a terminal in this folder.
-3. Install Python and the packages used in each script.
+3. Install [Python](https://www.python.org/downloads/) and the required packages using `pip install -r requirements.txt`.
 4. Run one of the following commands.
 
 `python` is used to refer to the installed Python CLI in all the commands.
