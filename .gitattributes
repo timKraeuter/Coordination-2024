@@ -1,5 +1,4 @@
 images/*           export-ignore
-images             export-ignore
 .gitignore         export-ignore
 .gitattributes     export-ignore
 *.bib              export-ignore
